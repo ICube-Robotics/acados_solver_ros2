@@ -1,0 +1,3 @@
+[submodule "acados_vendor_ros2"]
+	path = acados_vendor_ros2
+	url = https://github.com/tpoignonec/acados_vendor_ros2.git
