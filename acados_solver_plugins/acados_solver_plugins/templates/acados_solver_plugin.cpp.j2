@@ -1,0 +1,190 @@
+// Copyright 2023 ICUBE Laboratory, University of Strasbourg
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// Author: Thibault Poignonec (tpoignonec@unistra.fr)
+
+#include "acados_solvers/acados_solver.hpp"
+#include "{{plugin_class_name | uppercase_to_underscore}}.hpp"
+
+// Include auto-generated Acados C-code
+#include "generated_c_code/acados_solver_{{solver_c_prefix}}.h"
+
+
+using namespace acados;
+
+
+// Constructor
+{{plugin_class_name}}::{{plugin_class_name}}()
+{
+  // Fill fixed problem dimensions
+  // Main variables
+  _dims.nx = {{solver_c_prefix|upper}}_NX;
+  _dims.nz = {{solver_c_prefix|upper}}_NZ;
+  _dims.np = {{solver_c_prefix|upper}}_NP;
+  _dims.nu = {{solver_c_prefix|upper}}_NU;
+  // Constraints
+  _dims.nbx = {{solver_c_prefix|upper}}_NBX;
+  _dims.nbx0 = {{solver_c_prefix|upper}}_NBX0;
+  _dims.nbxN = {{solver_c_prefix|upper}}_NBXN;
+  _dims.nbu = {{solver_c_prefix|upper}}_NBU;
+  _dims.ng = {{solver_c_prefix|upper}}_NG;
+  _dims.ngN = {{solver_c_prefix|upper}}_NGN;
+  // Non-linear constraints
+  _dims.nh = {{solver_c_prefix|upper}}_NH;
+  _dims.nhN = {{solver_c_prefix|upper}}_NHN;
+  _dims.nphi = {{solver_c_prefix|upper}}_NPHI;
+  _dims.nphiN = {{solver_c_prefix|upper}}_NPHIN;
+  _dims.nr = {{solver_c_prefix|upper}}_NR;
+  // Slack
+  _dims.ns = {{solver_c_prefix|upper}}_NS;
+  _dims.nsN = {{solver_c_prefix|upper}}_NSN;
+  _dims.nsbx = {{solver_c_prefix|upper}}_NSBX;
+  _dims.nsbxN = {{solver_c_prefix|upper}}_NSBXN;
+  _dims.nsbu = {{solver_c_prefix|upper}}_NSBU;
+  _dims.nsh = {{solver_c_prefix|upper}}_NSH;
+  _dims.nshN = {{solver_c_prefix|upper}}_NSHN;
+  _dims.nsg = {{solver_c_prefix|upper}}_NSG;
+  _dims.nsgN = {{solver_c_prefix|upper}}_NSGN;
+  _dims.nsphi = {{solver_c_prefix|upper}}_NSPHI;
+  _dims.nsphiN = {{solver_c_prefix|upper}}_NSPHIN;
+  // Corst reference
+  _dims.ny = {{solver_c_prefix|upper}}_NY;
+  _dims.ny0 = {{solver_c_prefix|upper}}_NY0;
+  _dims.nyN = {{solver_c_prefix|upper}}_NYN;
+}
+{{plugin_class_name}}::~{{plugin_class_name}}()
+{
+  free_memory();
+}
+
+int {{plugin_class_name}}::create_index_maps()
+{
+  // Clear all
+  _x_index_map.clear();
+  _z_index_map.clear();
+  _p_index_map.clear();
+  _u_index_map.clear();
+
+  // Differential state variables
+  {%- for var_name, var_indexes in x_index_map.items() %}
+  _x_index_map[std::string("{{var_name}}")] = {{var_indexes | curly_bracket_list}};
+  {%- endfor %}
+
+  // Algebraic state variables
+  {%- for var_name, var_indexes in z_index_map.items() %}
+  _z_index_map[std::string("{{var_name}}")] = {{var_indexes | curly_bracket_list}};
+  {%- endfor %}
+
+  // Runtime parameters
+  {%- for var_name, var_indexes in p_index_map.items() %}
+  _p_index_map[std::string("{{var_name}}")] = {{var_indexes | curly_bracket_list}};
+  {%- endfor %}
+
+  // Control variables
+  {%- for var_name, var_indexes in u_index_map.items() %}
+  _u_index_map[std::string("{{var_name}}")] = {{var_indexes | curly_bracket_list}};
+  {%- endfor %}
+
+  return 0;
+}
+
+int {{plugin_class_name}}::internal_create_capsule()
+{
+  _capsule = {{solver_c_prefix|lower}}_acados_create_capsule();
+  return (_capsule) ? 0 : -1;
+}
+int {{plugin_class_name}}::internal_create_with_discretization(
+  int n_time_steps,
+  double * new_time_steps)
+{
+  return {{solver_c_prefix|lower}}_acados_create_with_discretization(_capsule, n_time_steps, new_time_steps);
+}
+int {{plugin_class_name}}::internal_reset(int reset_qp_solver_mem)
+{
+  return {{solver_c_prefix|lower}}_acados_reset(_capsule, reset_qp_solver_mem);
+}
+int {{plugin_class_name}}::internal_free()
+{
+  return {{solver_c_prefix|lower}}_acados_free(_capsule);
+}
+int {{plugin_class_name}}::internal_free_capsule()
+{
+  return {{solver_c_prefix|lower}}_acados_free_capsule(_capsule);
+}
+
+int {{plugin_class_name}}::internal_update_qp_solver_cond_N(int qp_solver_cond_N)
+{
+  return {{solver_c_prefix|lower}}_acados_update_qp_solver_cond_N(_capsule, qp_solver_cond_N);
+}
+int {{plugin_class_name}}::internal_update_params(int stage, double * value, int np)
+{
+  return {{solver_c_prefix|lower}}_acados_update_params(_capsule, stage, value, np);
+}
+int {{plugin_class_name}}::internal_update_params_sparse(int stage, int * idx, double * p, int n_update)
+{
+  return {{solver_c_prefix|lower}}_acados_update_params_sparse(_capsule, stage, idx, p, n_update);
+}
+int {{plugin_class_name}}::internal_solve()
+{
+  return {{solver_c_prefix|lower}}_acados_solve(_capsule);
+}
+void {{plugin_class_name}}::internal_print_stats() const
+{
+  return {{solver_c_prefix|lower}}_acados_print_stats(_capsule);
+}
+
+ocp_nlp_in * {{plugin_class_name}}::get_nlp_in() const
+{
+  return {{solver_c_prefix|lower}}_acados_get_nlp_in(_capsule);
+}
+
+ocp_nlp_out * {{plugin_class_name}}::get_nlp_out() const
+{
+  return {{solver_c_prefix|lower}}_acados_get_nlp_out(_capsule);
+}
+
+ocp_nlp_out * {{plugin_class_name}}::get_sens_out() const
+{
+  return {{solver_c_prefix|lower}}_acados_get_sens_out(_capsule);
+}
+ocp_nlp_solver * {{plugin_class_name}}::get_nlp_solver() const
+{
+  return {{solver_c_prefix|lower}}_acados_get_nlp_solver(_capsule);
+}
+ocp_nlp_config * {{plugin_class_name}}::get_nlp_config() const
+{
+  return {{solver_c_prefix|lower}}_acados_get_nlp_config(_capsule);
+}
+void * {{plugin_class_name}}::get_nlp_opts() const
+{
+  return {{solver_c_prefix|lower}}_acados_get_nlp_opts(_capsule);
+}
+ocp_nlp_dims * {{plugin_class_name}}::get_nlp_dims() const
+{
+  return {{solver_c_prefix|lower}}_acados_get_nlp_dims(_capsule);
+}
+ocp_nlp_plan_t * {{plugin_class_name}}::get_nlp_plan() const
+{
+  return {{solver_c_prefix|lower}}_acados_get_nlp_plan(_capsule);
+}
+unsigned int {{plugin_class_name}}::get_nlp_np() const
+{
+  return _capsule->nlp_np;
+}
+{%- if export_plugin %}
+
+#include <pluginlib/class_list_macros.hpp>
+PLUGINLIB_EXPORT_CLASS(acados::{{plugin_class_name}}, acados::AcadosSolver)
+{%- endif %}
+

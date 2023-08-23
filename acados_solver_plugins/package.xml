@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>acados_solver_plugins</name>
+  <version>0.0.0</version>
+  <description>Package to generate and load Acados solvers plugins fro c++ (pluginlib) or python. See "acados_solver_generic" package for base class.</description>
+  <maintainer email="tpoignonec@unistra.fr">Thibault Poignonec</maintainer>
+  <license>Apache License 2.0</license>  <!-- the contents of this package are Apache 2.0 -->
+
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+  <depend>acados_solvers</depend>
+  <depend>pluginlib</depend>
+
+  <exec_depend>python3-jinja2</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
