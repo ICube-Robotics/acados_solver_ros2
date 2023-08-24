@@ -10,10 +10,11 @@
   <buildtool_depend>ament_cmake_ros</buildtool_depend>
   <buildtool_depend>ament_cmake_python</buildtool_depend>
 
-  <depend>acados_solvers</depend>
+  <depend>acados_solver_base</depend>
   <depend>pluginlib</depend>
 
   <exec_depend>python3-jinja2</exec_depend>
+  <exec_depend>casadi-pip</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

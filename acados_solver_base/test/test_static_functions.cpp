@@ -13,7 +13,7 @@
 // limitations under the License.
 
 #include <gtest/gtest.h>
-#include "acados_solvers/acados_solver.hpp"
+#include "acados_solver_base/acados_solver.hpp"
 
 
 // Test mapping utils

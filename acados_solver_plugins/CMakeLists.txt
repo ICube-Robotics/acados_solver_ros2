@@ -10,7 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_python REQUIRED)
 find_package(ament_cmake_ros REQUIRED)
 
-find_package(acados_solvers REQUIRED)
+find_package(acados_solver_base REQUIRED)
 find_package(pluginlib REQUIRED)
 
 #-----------------------------------------------------
@@ -73,7 +73,7 @@ if(SOLVER_PLUGINS_SOURCES)
   target_include_directories(${PROJECT_NAME} PRIVATE ${PLUGIN_DIR_LIST})
   target_link_libraries(${PROJECT_NAME} PUBLIC ${SOLVER_PLUGINS_PRE_GENERATED_LIBS})
 
-  ament_target_dependencies(${PROJECT_NAME} PUBLIC acados_solvers pluginlib)
+  ament_target_dependencies(${PROJECT_NAME} PUBLIC acados_solver_base pluginlib)
 
 
   target_compile_definitions(${PROJECT_NAME} PRIVATE "ACADOS_SOLVER_PLUGINS_BUILDING_LIBRARY")
@@ -125,7 +125,7 @@ if(SOLVER_PLUGINS_SOURCES)
     export_${PROJECT_NAME}
   )
   ament_export_dependencies(
-    acados_solvers pluginlib
+    acados_solver_base pluginlib
   )
 endif()
 

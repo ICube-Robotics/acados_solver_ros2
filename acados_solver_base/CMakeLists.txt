@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(acados_solvers)
+project(acados_solver_base)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -11,18 +11,18 @@ find_package(ament_cmake_ros REQUIRED)
 
 find_package(acados_vendor_ros2 REQUIRED)
 
-add_library(acados_solvers
+add_library(${PROJECT_NAME}
   # Base class
   src/acados_solver.cpp
 )
-target_compile_features(acados_solvers PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-target_include_directories(acados_solvers PUBLIC
+target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
   $<INSTALL_INTERFACE:include>)
 
-ament_target_dependencies(acados_solvers PUBLIC acados_vendor_ros2)
-target_compile_definitions(acados_solvers PRIVATE "ACADOS_SOLVERS_BUILDING_LIBRARY")
+ament_target_dependencies(${PROJECT_NAME} PUBLIC acados_vendor_ros2)
+target_compile_definitions(${PROJECT_NAME} PRIVATE "ACADOS_SOLVERS_BUILDING_LIBRARY")
 
 install(
   DIRECTORY include/
@@ -34,7 +34,7 @@ install(
 )
 
 install(
-  TARGETS acados_solvers
+  TARGETS ${PROJECT_NAME}
   EXPORT export_${PROJECT_NAME}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
@@ -63,7 +63,7 @@ if(BUILD_TESTING)
   target_include_directories(test_acados_solver_base PUBLIC include test)
   # Link generated C-code
   target_link_libraries(test_acados_solver_base
-    acados_solvers
+    ${PROJECT_NAME}
     ${C_CODE_TEST_DIR}/libacados_ocp_solver_mock_acados_solver.so
   )
 endif()
@@ -72,7 +72,7 @@ ament_export_include_directories(
   include
 )
 ament_export_libraries(
-  acados_solvers
+  acados_solver_base
 )
 ament_export_targets(
   export_${PROJECT_NAME}

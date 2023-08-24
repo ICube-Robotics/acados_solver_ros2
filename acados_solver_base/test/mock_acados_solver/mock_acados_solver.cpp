@@ -14,7 +14,7 @@
 //
 // Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
-#include "acados_solvers/acados_solver.hpp"
+#include "acados_solver_base/acados_solver.hpp"
 #include "mock_acados_solver.hpp"
 
 // Include auto-generated Acados C-code

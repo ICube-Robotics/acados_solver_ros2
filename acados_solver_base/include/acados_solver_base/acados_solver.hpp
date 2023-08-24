@@ -1,9 +1,9 @@
 #ifndef ACADOS_SOLVER__ACADOS_SOLVER_HPP_
 #define ACADOS_SOLVER__ACADOS_SOLVER_HPP_
 
-#include "acados_solvers/visibility_control.h"
-#include "acados_solvers/acados_types.hpp"
-#include "acados_solvers/acados_solver_dimensions.hpp"
+#include "acados_solver_base/visibility_control.h"
+#include "acados_solver_base/acados_types.hpp"
+#include "acados_solver_base/acados_solver_dimensions.hpp"
 
 // Acados C interface
 #include "acados_c/ocp_nlp_interface.h"
@@ -158,4 +158,4 @@ private:
 
 }  // namespace acados
 
-#endif  // ACADOS_SOLVERS__ACADOS_SOLVER_HPP_
+#endif  // ACADOS_SOLVER_BASE__ACADOS_SOLVER_HPP_

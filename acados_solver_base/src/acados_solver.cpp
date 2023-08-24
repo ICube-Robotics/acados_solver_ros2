@@ -1,4 +1,4 @@
-#include "acados_solvers/acados_solver.hpp"
+#include "acados_solver_base/acados_solver.hpp"
 #include <numeric> // for std::iota
 #include <stdexcept>
 
