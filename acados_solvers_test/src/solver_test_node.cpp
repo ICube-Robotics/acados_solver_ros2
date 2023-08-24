@@ -1,16 +1,34 @@
-#include <cstdio>
-#include "acados_solver_base/acados_solver.hpp"
-#include <pluginlib/class_loader.hpp>
+// Copyright 2023 ICUBE Laboratory, University of Strasbourg
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
 #include <iostream>
 #include <string>
 #include <unordered_map>
 
+#include <cstdio>
+
+#include <pluginlib/class_loader.hpp>
+#include "acados_solver_base/acados_solver.hpp"
+
+
 template<class T>
 void print_vector(std::vector<T> const & input)
 {
   std::cout << "[ ";
-  for (auto const & i: input) {
+  for (auto const & i : input) {
     std::cout << i << " ";
   }
   std::cout << "]";
@@ -82,8 +100,8 @@ int main(int argc, char ** argv)
 
   std::cout << "Test set p :" << std::endl;
   std::vector<double> p_i {
-    1.0, // Cart mass
-    0.1  // Ball mass
+    1.0,  // Cart mass
+    0.1   // Ball mass
   };
   for (int idx = 0; idx <= N; idx++) {
     solver->set_runtime_parameters(idx, p_i);

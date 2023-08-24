@@ -15,6 +15,7 @@
 #
 # See https://github.com/pre-commit/pre-commit
 
+exclude: 'acados_solver_base/test/mock_acados_solver/generated_c_code/.*'
 repos:
   # Standard hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -34,7 +35,6 @@ repos:
       - id: trailing-whitespace
         exclude_types: [rst]
       - id: fix-byte-order-marker
-    exclude: 'acados_solver_base/test/mock_acados_solver/generated_c_code/.*'
 
   # Python hooks
   - repo: https://github.com/asottile/pyupgrade
@@ -67,7 +67,6 @@ repos:
         language: system
         files: \.(h\+\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\+\+|cxx|tpp|txx)$
         args: ["--reformat"]
-    exclude: 'acados_solver_base/test/mock_acados_solver/generated_c_code/.*'
 
   # CPP hooks
   - repo: local
@@ -79,7 +78,6 @@ repos:
         language: system
         files: \.(c|cc|cxx|cpp|frag|glsl|h|hpp|hxx|ih|ispc|ipp|java|js|m|proto|vert)$
         args: ['-fallback-style=none', '-i']
-    exclude: 'acados_solver_base/test/mock_acados_solver/generated_c_code/.*'
 
   # - repo: local
   #   hooks:
@@ -102,7 +100,6 @@ repos:
         language: system
         files: \.(h\+\+|h|hh|hxx|hpp|cuh|c|cc|cpp|cu|c\+\+|cxx|tpp|txx)$
         args: ["--linelength=100", "--filter=-whitespace/newline"]
-    exclude: 'acados_solver_base/test/mock_acados_solver/generated_c_code/.*'
 
   # Cmake hooks
   - repo: local
@@ -114,7 +111,6 @@ repos:
         entry: ament_lint_cmake
         language: system
         files: CMakeLists\.txt$
-    exclude: 'acados_solver_base/test/mock_acados_solver/generated_c_code/.*'
 
   # Copyright
   - repo: local
@@ -125,7 +121,6 @@ repos:
         stages: [commit]
         entry: ament_copyright
         language: system
-    exclude: 'acados_solver_base/test/mock_acados_solver/generated_c_code/.*'
 
   # Docs - RestructuredText hooks
   - repo: https://github.com/PyCQA/doc8
@@ -151,4 +146,3 @@ repos:
       - id: codespell
         args: ['--write-changes']
         exclude: CHANGELOG\.rst|\.(svg|pyc)$
-    exclude: 'acados_solver_base/test/mock_acados_solver/generated_c_code/.*'

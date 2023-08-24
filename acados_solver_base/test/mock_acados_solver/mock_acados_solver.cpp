@@ -14,6 +14,8 @@
 //
 // Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
+#include <string>
+
 #include "acados_solver_base/acados_solver.hpp"
 #include "mock_acados_solver.hpp"
 
@@ -21,8 +23,8 @@
 #include "generated_c_code/acados_solver_mock_acados_solver.h"
 
 
-using namespace acados;
-
+namespace acados
+{
 
 // Constructor
 MockAcadosSolver::MockAcadosSolver()
@@ -179,3 +181,5 @@ unsigned int MockAcadosSolver::get_nlp_np() const
 {
   return _capsule->nlp_np;
 }
+
+}  // using namespace acados

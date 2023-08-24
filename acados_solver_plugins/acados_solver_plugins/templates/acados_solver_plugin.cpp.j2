@@ -14,6 +14,8 @@
 //
 // Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
+#include <string>
+
 #include "acados_solver_base/acados_solver.hpp"
 #include "{{plugin_class_name | uppercase_to_underscore}}.hpp"
 
@@ -21,7 +23,8 @@
 #include "generated_c_code/acados_solver_{{solver_c_prefix}}.h"
 
 
-using namespace acados;
+using namespace acados
+{
 
 
 // Constructor
@@ -187,3 +190,6 @@ unsigned int {{plugin_class_name}}::get_nlp_np() const
 #include <pluginlib/class_list_macros.hpp>
 PLUGINLIB_EXPORT_CLASS(acados::{{plugin_class_name}}, acados::AcadosSolver)
 {%- endif %}
+
+
+}  // using namespace acados

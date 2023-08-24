@@ -1,3 +1,7 @@
+# Copyright 2023 ICUBE Laboratory, University of Strasbourg
+# License: Apache License, Version 2.0
+# Author: Thibault Poignonec (tpoignonec@unistra.fr)
+
 from acados_template import AcadosModel, AcadosOcp
 import numpy as np
 from casadi import SX, vertcat, sin, cos

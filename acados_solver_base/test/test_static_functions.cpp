@@ -49,8 +49,8 @@ TEST(TestStaticFunctions, test_create_map_from_values)
 
 TEST(TestStaticFunctions, test_is_map_size_consistent)
 {
-  acados::ValueMap value_map {{"a", {0, 1, 2}}, {"b", {3}}, {"c", {4, 5}}}; // size 6
-  acados::IndexMap index_map {{"d", {0, 1}}, {"e", {2}}, {"f", {3}}}; // size 4
+  acados::ValueMap value_map {{"a", {0, 1, 2}}, {"b", {3}}, {"c", {4, 5}}};  // size 6
+  acados::IndexMap index_map {{"d", {0, 1}}, {"e", {2}}, {"f", {3}}};  // size 4
   ASSERT_EQ(acados::AcadosSolver::is_map_size_consistent(value_map, 6), true);
   ASSERT_EQ(acados::AcadosSolver::is_map_size_consistent(value_map, 7), false);
   ASSERT_EQ(acados::AcadosSolver::is_map_size_consistent(value_map, 5), false);

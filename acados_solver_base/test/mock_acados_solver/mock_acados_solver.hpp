@@ -14,6 +14,7 @@
 //
 // Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
+#pragma once
 
 #include "acados_solver_base/acados_solver.hpp"
 
@@ -58,4 +59,4 @@ private:
   mock_acados_solver_solver_capsule * _capsule = nullptr;
 };
 
-} // namespace acados
+}  // namespace acados

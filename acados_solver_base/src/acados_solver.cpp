@@ -1,5 +1,21 @@
+// Copyright 2023 ICUBE Laboratory, University of Strasbourg
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// Author: Thibault Poignonec (tpoignonec@unistra.fr)
+
 #include "acados_solver_base/acados_solver.hpp"
-#include <numeric> // for std::iota
+#include <numeric>  // for std::iota
 #include <stdexcept>
 
 namespace acados
@@ -58,9 +74,9 @@ int AcadosSolver::reset()
 int AcadosSolver::free_memory()
 {
   int status = internal_free();
-  // TODO: test all OK
+  // TODO(tpoignonec): test all OK
   status = internal_free_capsule();
-  // TODO: test all OK
+  // TODO(tpoignonec): test all OK
   return status;
 }
 
@@ -85,9 +101,10 @@ int AcadosSolver::solve()
 // ------------------------------------------
 int AcadosSolver::set_initial_state_values(std::vector<double> & x_0)
 {
-  if (int(x_0.size()) != nx()) {
+  if (static_cast<int>(x_0.size()) != nx()) {
     std::string err_msg =
-      "Error in 'AcadosSolver::set_initial_state_values()': Inconsistent parameters, the size of x_0 should match nx!";
+      "Error in 'AcadosSolver::set_initial_state_values()': "
+      "Inconsistent parameters, the size of x_0 should match nx!";
     throw std::range_error(err_msg);
   }
   std::vector<int> idxbx0(nx());
@@ -120,7 +137,8 @@ int AcadosSolver::set_state_bounds(
   }
   if (idxbx.size() != lbx.size() || idxbx.size() != ubx.size() || lbx.size() != ubx.size()) {
     std::string err_msg =
-      "Error in 'AcadosSolver::set_state_bounds()': Inconsistent parameters (idxbx, lbx, and ubx should have the same length)!";
+      "Error in 'AcadosSolver::set_state_bounds()': "
+      "Inconsistent parameters (idxbx, lbx, and ubx should have the same length)!";
     throw std::range_error(err_msg);
   }
   int expected_dim;
@@ -131,9 +149,10 @@ int AcadosSolver::set_state_bounds(
   } else {
     expected_dim = dims().nbxN;
   }
-  if (int(idxbx.size()) > expected_dim) {
+  if (static_cast<int>(idxbx.size()) > expected_dim) {
     std::string err_msg =
-      "Error in 'AcadosSolver::set_state_bounds()': Inconsistent parameters! The size of idxbx, lbx, or ubx cannot be of length ";
+      "Error in 'AcadosSolver::set_state_bounds()': "
+      "Inconsistent parameters! The size of idxbx, lbx, or ubx cannot be of length ";
     err_msg += std::to_string(expected_dim);
     throw std::range_error(err_msg);
   }
@@ -164,17 +183,21 @@ int AcadosSolver::set_control_bounds(
   std::vector<double> & ubu)
 {
   if (stage < 0 || stage > N()) {
-    std::string err_msg = "Error in 'AcadosSolver::set_control_bounds()': Invalid stage request!";
+    std::string err_msg =
+      "Error in 'AcadosSolver::set_control_bounds()': "
+      "Invalid stage request!";
     throw std::range_error(err_msg);
   }
   if (idxbu.size() != lbu.size() || idxbu.size() != ubu.size() || lbu.size() != ubu.size()) {
     std::string err_msg =
-      "Error in 'AcadosSolver::set_control_bounds()': Inconsistent parameters (idxbu, lbu, and ubu should have the same length)!";
+      "Error in 'AcadosSolver::set_control_bounds()': "
+      "Inconsistent parameters (idxbu, lbu, and ubu should have the same length)!";
     throw std::range_error(err_msg);
   }
-  if (int(idxbu.size()) != dims().nbu) {
+  if (static_cast<int>(idxbu.size()) != dims().nbu) {
     std::string err_msg =
-      "Error in 'AcadosSolver::set_control_bounds()': Inconsistent parameters (the size of idxbu, lbu, or ubu should be of length ";
+      "Error in 'AcadosSolver::set_control_bounds()': "
+      "Inconsistent parameters (the size of idxbu, lbu, or ubu should be of length ";
     err_msg += std::to_string(dims().nbu);
     throw std::range_error(err_msg);
   }
@@ -205,7 +228,7 @@ int AcadosSolver::set_control_bounds(
 // ------------------------------------------
 int AcadosSolver::initialize_state_values(int stage, std::vector<double> & x_i)
 {
-  if (int(x_i.size()) != nx()) {
+  if (static_cast<int>(x_i.size()) != nx()) {
     std::cout << "WARNING: Failed to set x_" << stage << "!"
               << "A vector of length " << nx() << " is expected (" << x_i.size() << " provided)." <<
       std::endl;
@@ -253,7 +276,7 @@ int AcadosSolver::initialize_state_values(ValueMap const & x_i_map)
 
 int AcadosSolver::initialize_control_values(int stage, std::vector<double> & u_i)
 {
-  if (int(u_i.size()) != nu()) {
+  if (static_cast<int>(u_i.size()) != nu()) {
     std::cout << "WARNING: Failed to set u_" << stage << "!"
               << "A vector of length " << nu() << " is expected (" << u_i.size() << " provided)." <<
       std::endl;
@@ -302,7 +325,7 @@ int AcadosSolver::initialize_control_values(ValueMap const & u_i_map)
 // ------------------------------------------
 int AcadosSolver::set_runtime_parameters(int stage, std::vector<double> & p_i)
 {
-  if (int(p_i.size()) != np()) {
+  if (static_cast<int>(p_i.size()) != np()) {
     std::cout << "WARNING: Failed to set p_" << stage << "!"
               << "A vector of length " << np() << " is expected (" << p_i.size() << " provided)." <<
       std::endl;
@@ -454,7 +477,7 @@ void AcadosSolver::fill_vector_from_map(
   }
   // Check values map is complete
   if (!is_values_map_complete(index_map, values_map)) {
-    // TODO: throw missing key name ?
+    // TODO(tpoignonec): throw missing key name ?
     throw std::invalid_argument("Incomplete map provided to 'fill_vector_from_map()'!");
   }
   // Fill the vector
@@ -469,7 +492,7 @@ ValueMap AcadosSolver::create_map_from_values(
   IndexMap const & index_map,
   std::vector<double> const & values)
 {
-  if (!is_map_size_consistent(index_map, int(values.size()))) {
+  if (!is_map_size_consistent(index_map, static_cast<int>(values.size()))) {
     throw std::invalid_argument("Inconsistent data provided to 'create_map_from_values()'!");
   }
   ValueMap value_map;
@@ -494,22 +517,22 @@ const AcadosSolver::Dimensions & AcadosSolver::dims() const
 }
 int AcadosSolver::nx() const
 {
-  //return *(get_nlp_dims()->nx);
+  // return *(get_nlp_dims()->nx);
   return dims().nx;
 }
 int AcadosSolver::nz() const
 {
-  //return *(get_nlp_dims()->nz);
+  // return *(get_nlp_dims()->nz);
   return dims().nz;
 }
 int AcadosSolver::np() const
 {
-  //return static_cast<int>(get_nlp_np());
+  // return static_cast<int>(get_nlp_np());
   return dims().np;
 }
 int AcadosSolver::nu() const
 {
-  //return *(get_nlp_dims()->nu);
+  // return *(get_nlp_dims()->nu);
   return dims().nu;
 }
 int AcadosSolver::N() const
