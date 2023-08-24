@@ -93,7 +93,7 @@ public:
     IndexMap const & index_map,
     std::vector<double> const & values);
 
-  // Problem dimensions and conveniance getters for commonly used attributs
+  // Problem dimensions and convenience getters for commonly used attributes
   const Dimensions & dims() const;
   int nx() const;
   int nz() const;
@@ -145,7 +145,7 @@ protected:
 public:
   // TODO
 
-  // Private own attributs
+  // Private own attributes
 
 private:
   bool _is_initialized = false;

@@ -14,7 +14,7 @@ find_package(acados_solver_base REQUIRED)
 find_package(pluginlib REQUIRED)
 
 #-----------------------------------------------------
-#   Instal Python package
+#   Install Python package
 #-----------------------------------------------------
 ament_python_install_package(
   ${PROJECT_NAME}

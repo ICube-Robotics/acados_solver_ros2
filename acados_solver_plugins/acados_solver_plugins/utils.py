@@ -10,7 +10,7 @@ def ensure_dir_exists(dir_path):
         try:
             os.makedirs(dir_path)
         except Exception as e:
-            print('Failed to create the dir %s. Exception: %s' % (dir_path, e))
+            print(f'Failed to create the dir {dir_path}. Exception: {e}')
             raise
 
 
@@ -18,8 +18,8 @@ def delete_dir_recursively(dir_path, keep_empty_folder=True):
     try:
         rmtree(dir_path)
     except Exception as e:
-        print('Failed to clear %s. Exception: %s' % (dir_path, e))
+        print(f'Failed to clear {dir_path}. Exception: {e}')
         raise
-    # rmtree completly remove the dir, so it has to be recreated
+    # rmtree completely remove the dir, so it has to be recreated
     if keep_empty_folder:
         ensure_dir_exists(dir_path)

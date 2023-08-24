@@ -1,6 +1,6 @@
 #include <cstdio>
-#include <pluginlib/class_loader.hpp>
 #include "acados_solver_base/acados_solver.hpp"
+#include <pluginlib/class_loader.hpp>
 
 #include <iostream>
 #include <string>

@@ -8,7 +8,7 @@ def export_pendulum_ode_model() -> AcadosModel:
 
     # Constants
     gravity = 9.81  # gravity constant [m/s^2]
-    lenght = 0.8  # length of the rod [m]
+    length = 0.8  # length of the rod [m]
 
     # Parameters
     M = SX.sym('M')  # mass of the cart [kg] -> default = 1.
@@ -39,10 +39,10 @@ def export_pendulum_ode_model() -> AcadosModel:
     denominator = M + m - m*cos_theta*cos_theta
     f_expl = vertcat(v1,
                      dtheta,
-                     (-m*lenght*sin_theta*dtheta*dtheta + m *
+                     (-m*length*sin_theta*dtheta*dtheta + m *
                       gravity*cos_theta*sin_theta+F)/denominator,
-                     (-m*lenght*cos_theta*sin_theta*dtheta*dtheta + F *
-                      cos_theta+(M+m)*gravity*sin_theta)/(lenght*denominator)
+                     (-m*length*cos_theta*sin_theta*dtheta*dtheta + F *
+                      cos_theta+(M+m)*gravity*sin_theta)/(length*denominator)
                      )
 
     f_impl = xdot - f_expl

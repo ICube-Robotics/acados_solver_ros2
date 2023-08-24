@@ -77,7 +77,7 @@ class SolverPluginGenerator:
             with open(export_filename, "w") as f:
                 f.write(template.render(**template_render_args))
         except Exception as e:
-            print('Failed to generate the file "%s" from the template "%s". Exception: %s' % (
+            print('Failed to generate the file "{}" from the template "{}". Exception: {}'.format(
                 export_filename, template_filename, e))
             raise
 

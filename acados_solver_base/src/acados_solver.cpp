@@ -69,7 +69,7 @@ int AcadosSolver::solve()
   ocp_nlp_solver_opts_set(get_nlp_config(), get_nlp_opts(), "rti_phase", &_rti_phase);
   int solver_status = internal_solve();
   if (solver_status != ACADOS_SUCCESS) {
-    std::cout << "WARNING! AcadosSolver::solve() failled with status " << solver_status << '!' <<
+    std::cout << "WARNING! AcadosSolver::solve() failed with status " << solver_status << '!' <<
       std::endl;
   }
   return solver_status;
@@ -120,7 +120,7 @@ int AcadosSolver::set_state_bounds(
   }
   if (idxbx.size() != lbx.size() || idxbx.size() != ubx.size() || lbx.size() != ubx.size()) {
     std::string err_msg =
-      "Error in 'AcadosSolver::set_state_bounds()': Inconsistent parameters (idxbx, lbx, and ubx should have the same lenght)!";
+      "Error in 'AcadosSolver::set_state_bounds()': Inconsistent parameters (idxbx, lbx, and ubx should have the same length)!";
     throw std::range_error(err_msg);
   }
   int expected_dim;
@@ -133,7 +133,7 @@ int AcadosSolver::set_state_bounds(
   }
   if (int(idxbx.size()) > expected_dim) {
     std::string err_msg =
-      "Error in 'AcadosSolver::set_state_bounds()': Inconsistent parameters! The size of idxbx, lbx, or ubx cannot be of lenght ";
+      "Error in 'AcadosSolver::set_state_bounds()': Inconsistent parameters! The size of idxbx, lbx, or ubx cannot be of length ";
     err_msg += std::to_string(expected_dim);
     throw std::range_error(err_msg);
   }
@@ -169,12 +169,12 @@ int AcadosSolver::set_control_bounds(
   }
   if (idxbu.size() != lbu.size() || idxbu.size() != ubu.size() || lbu.size() != ubu.size()) {
     std::string err_msg =
-      "Error in 'AcadosSolver::set_control_bounds()': Inconsistent parameters (idxbu, lbu, and ubu should have the same lenght)!";
+      "Error in 'AcadosSolver::set_control_bounds()': Inconsistent parameters (idxbu, lbu, and ubu should have the same length)!";
     throw std::range_error(err_msg);
   }
   if (int(idxbu.size()) != dims().nbu) {
     std::string err_msg =
-      "Error in 'AcadosSolver::set_control_bounds()': Inconsistent parameters (the size of idxbu, lbu, or ubu should be of lenght ";
+      "Error in 'AcadosSolver::set_control_bounds()': Inconsistent parameters (the size of idxbu, lbu, or ubu should be of length ";
     err_msg += std::to_string(dims().nbu);
     throw std::range_error(err_msg);
   }
@@ -206,7 +206,7 @@ int AcadosSolver::set_control_bounds(
 int AcadosSolver::initialize_state_values(int stage, std::vector<double> & x_i)
 {
   if (int(x_i.size()) != nx()) {
-    std::cout << "WARNING: Failled to set x_" << stage << "!"
+    std::cout << "WARNING: Failed to set x_" << stage << "!"
               << "A vector of length " << nx() << " is expected (" << x_i.size() << " provided)." <<
       std::endl;
     return -1;
@@ -254,7 +254,7 @@ int AcadosSolver::initialize_state_values(ValueMap const & x_i_map)
 int AcadosSolver::initialize_control_values(int stage, std::vector<double> & u_i)
 {
   if (int(u_i.size()) != nu()) {
-    std::cout << "WARNING: Failled to set u_" << stage << "!"
+    std::cout << "WARNING: Failed to set u_" << stage << "!"
               << "A vector of length " << nu() << " is expected (" << u_i.size() << " provided)." <<
       std::endl;
     return -1;
@@ -303,7 +303,7 @@ int AcadosSolver::initialize_control_values(ValueMap const & u_i_map)
 int AcadosSolver::set_runtime_parameters(int stage, std::vector<double> & p_i)
 {
   if (int(p_i.size()) != np()) {
-    std::cout << "WARNING: Failled to set p_" << stage << "!"
+    std::cout << "WARNING: Failed to set p_" << stage << "!"
               << "A vector of length " << np() << " is expected (" << p_i.size() << " provided)." <<
       std::endl;
     return -1;

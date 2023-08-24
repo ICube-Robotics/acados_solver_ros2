@@ -1,0 +1,72 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: read
+      checks: write
+      pull-requests: write
+    steps:
+      - name: Prepare
+        run: |
+          mkdir -p ${{github.workspace}}/src
+      - uses: actions/checkout@v3
+        with:
+          path: src/acados_controllers_ros2
+
+      - name: Build Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          tags: acados_controllers_ros2:humble
+          file: .docker/ci/Dockerfile
+          push: false
+
+      - name: Build
+        uses: addnab/docker-run-action@v3
+        with:
+          image: acados_controllers_ros2:humble
+          options: -v ${{github.workspace}}/:/ros/
+          run: |
+            cd /ros # structure = <...>/ros/src/acados_controllers_ros2/<...>
+            . /opt/ros/humble/setup.sh
+            cd src/acados_controllers_ros2
+            git config --global --add safe.directory '*'
+            git submodule update --init --recursive
+            cd ../..
+            tree -L 4
+            rosdep install --ignore-src --from-paths . -y -r
+            colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_ACADOS_TEMPLATE=OFF
+            colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_ACADOS_TEMPLATE=ON
+
+      - name: Tests
+        uses: addnab/docker-run-action@v3
+        with:
+          image: acados_controllers_ros2:humble
+          options: -v ${{github.workspace}}/:/ros/
+          run: |
+            cd /ros
+            . /opt/ros/humble/setup.sh
+            rosdep install --ignore-src --from-paths . -y -r
+            colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_ACADOS_TEMPLATE=OFF
+            colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_ACADOS_TEMPLATE=ON
+            colcon test
+            colcon test-result
+
+      - name: Upload Tests to Artifacts
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-results
+          path: build/*/test_results/*/*.xml
+
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: build/*/test_results/*/*.xml
