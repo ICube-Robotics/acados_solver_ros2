@@ -1,0 +1,28 @@
+# All settings not listed here will use the Doxygen default values.
+
+PROJECT_NAME           = "acados_controllers_ros2"
+PROJECT_NUMBER         = main
+PROJECT_BRIEF          = "Acados-based NMPC controllers for ROS2 control"
+
+INPUT                  = ../../acados_solver_base/include ../../acados_solver_plugins/acados_solver_plugins
+
+RECURSIVE              = YES
+OUTPUT_DIRECTORY       = _build
+
+EXTRACT_ALL            = YES
+SORT_MEMBER_DOCS       = NO
+
+GENERATE_LATEX         = NO
+GENERATE_XML           = YES
+GENERATE_HT:L          = YES
+
+DOT_IMAGE_FORMAT       = svg  # generates nicer svg images
+DOT_TRANSPARENT        = YES  # generate transparent images
+INTERACTIVE_SVG        = YES  # to be able to scroll and zoom into big images
+HTML_EXTRA_STYLESHEET  = doxygen-awesome.css
+
+ENABLE_PREPROCESSING   = YES
+
+DOT_GRAPH_MAX_NODES    = 101
+
+FILE_PATTERNS = *.cpp *.h *.hpp *.py *.md

@@ -1,0 +1,15 @@
+## Requisite debian pck ##
+
+# sudo apt install python3-sphinx doxygen doxygen-gui doxygen-doc
+
+##### Sphinx themes ######
+
+sphinx_rtd_theme
+sphinx-book-theme
+
+###### Sphinx utils ######
+
+sphinx-autobuild # See https://sublime-and-sphinx-guide.readthedocs.io/en/latest/build.html
+breathe
+sphinx_mdinclude
+sphinxcontrib.plantuml
