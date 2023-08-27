@@ -14,7 +14,8 @@ SORT_MEMBER_DOCS       = NO
 
 GENERATE_LATEX         = NO
 GENERATE_XML           = YES
-GENERATE_HT:L          = YES
+GENERATE_HTML          = YES
+USE_MATHJAX            = YES
 
 DOT_IMAGE_FORMAT       = svg  # generates nicer svg images
 DOT_TRANSPARENT        = YES  # generate transparent images

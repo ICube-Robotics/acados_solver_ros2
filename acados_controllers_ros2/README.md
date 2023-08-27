@@ -21,7 +21,6 @@ pip install -r requirements.txt
 3) Build the documentation
 ```bash
 sphinx-build -b html sphinx sphinx/_build
-ln -s sphinx/_build/index.html documentation.html
 ```
 
 4) Open local documentation
