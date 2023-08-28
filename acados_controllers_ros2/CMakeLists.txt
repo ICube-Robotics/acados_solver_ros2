@@ -12,7 +12,7 @@ else()
   set(pip_args "--user")
 endif()
 
-execute_process(COMMAND ${Python_EXECUTABLE} -m pip install ${_pip_args} -r ${CMAKE_CURRENT_SOURCE_DIR}/requirements.txt )
+execute_process(COMMAND ${Python_EXECUTABLE} -m pip install ${_pip_args} -r ${CMAKE_CURRENT_SOURCE_DIR}/requirements.txt)
 
 set(SPHINX_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/sphinx)
 set(SPHINX_BUILD ${CMAKE_CURRENT_SOURCE_DIR}/sphinx/_build)

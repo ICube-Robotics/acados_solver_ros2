@@ -130,9 +130,13 @@ int MockAcadosSolver::internal_update_params(unsigned int stage, double * value,
 {
   return mock_acados_solver_acados_update_params(_capsule, static_cast<int>(stage), value, np);
 }
-int MockAcadosSolver::internal_update_params_sparse(unsigned int stage, int * idx, double * p, int n_update)
+int MockAcadosSolver::internal_update_params_sparse(
+  unsigned int stage, int * idx, double * p,
+  int n_update)
 {
-  return mock_acados_solver_acados_update_params_sparse(_capsule, static_cast<int>(stage), idx, p, n_update);
+  return mock_acados_solver_acados_update_params_sparse(
+    _capsule, static_cast<int>(stage), idx, p,
+    n_update);
 }
 int MockAcadosSolver::internal_solve()
 {

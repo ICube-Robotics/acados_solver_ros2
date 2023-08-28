@@ -14,8 +14,8 @@
 //
 // Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
-#ifndef ACADOS_SOLVER_BASE__ACADOS_TYPES_HPP_
-#define ACADOS_SOLVER_BASE__ACADOS_TYPES_HPP_
+#ifndef ACADOS_SOLVER_BASE__ACADOS_EXCEPTIONS_HPP_
+#define ACADOS_SOLVER_BASE__ACADOS_EXCEPTIONS_HPP_
 
 #include <string>
 #include <unordered_map>
@@ -24,18 +24,7 @@
 namespace acados
 {
 
-/// @brief List of indexes.
-using IndexVector = std::vector<unsigned int>;
-
-/// @brief List of values (double).
-using ValueVector = std::vector<double>;
-
-/// @brief Mapping between keys (`std::string`) and indexes (`acados::IndexVector`).
-using IndexMap = std::unordered_map<std::string, IndexVector>;
-
-/// @brief Mapping between keys (`std::string`) and data (`acados::ValueVector`).
-using ValueMap = std::unordered_map<std::string, ValueVector>;
 
 }  // namespace acados
 
-#endif  // ACADOS_SOLVER_BASE__ACADOS_TYPES_HPP_
+#endif  // ACADOS_SOLVER_BASE__ACADOS_EXCEPTIONS_HPP_

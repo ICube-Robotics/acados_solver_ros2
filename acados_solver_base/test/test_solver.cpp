@@ -29,8 +29,8 @@ TEST(TestCreateMockSolver, test_get_NLP_dimensions)
 {
   acados::MockAcadosSolver solver;
   ASSERT_NO_THROW(solver.init(10, 0.1));
-  ASSERT_EQ(solver.dims().nx, 4);
-  ASSERT_EQ(solver.dims().nz, 0);
-  ASSERT_EQ(solver.dims().nu, 1);
-  ASSERT_EQ(solver.dims().np, 2);
+  ASSERT_EQ(solver.dims().nx, static_cast<unsigned int>(4));
+  ASSERT_EQ(solver.dims().nz, static_cast<unsigned int>(0));
+  ASSERT_EQ(solver.dims().nu, static_cast<unsigned int>(1));
+  ASSERT_EQ(solver.dims().np, static_cast<unsigned int>(2));
 }
