@@ -143,11 +143,11 @@ int AcadosSolver::set_state_bounds(
   }
   int expected_dim;
   if (stage == 0) {
-    expected_dim = dims().nbx0;
+    expected_dim = dims().nbx_0;
   } else if (stage < N()) {
     expected_dim = dims().nbx;
   } else {
-    expected_dim = dims().nbxN;
+    expected_dim = dims().nbx_N;
   }
   if (static_cast<int>(idxbx.size()) > expected_dim) {
     std::string err_msg =

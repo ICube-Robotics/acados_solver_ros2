@@ -37,33 +37,33 @@ MockAcadosSolver::MockAcadosSolver()
   _dims.nu = MOCK_ACADOS_SOLVER_NU;
   // Constraints
   _dims.nbx = MOCK_ACADOS_SOLVER_NBX;
-  _dims.nbx0 = MOCK_ACADOS_SOLVER_NBX0;
-  _dims.nbxN = MOCK_ACADOS_SOLVER_NBXN;
+  _dims.nbx_0 = MOCK_ACADOS_SOLVER_NBX0;
+  _dims.nbx_N = MOCK_ACADOS_SOLVER_NBXN;
   _dims.nbu = MOCK_ACADOS_SOLVER_NBU;
   _dims.ng = MOCK_ACADOS_SOLVER_NG;
-  _dims.ngN = MOCK_ACADOS_SOLVER_NGN;
+  _dims.ng_N = MOCK_ACADOS_SOLVER_NGN;
   // Non-linear constraints
   _dims.nh = MOCK_ACADOS_SOLVER_NH;
-  _dims.nhN = MOCK_ACADOS_SOLVER_NHN;
+  _dims.nh_N = MOCK_ACADOS_SOLVER_NHN;
   _dims.nphi = MOCK_ACADOS_SOLVER_NPHI;
-  _dims.nphiN = MOCK_ACADOS_SOLVER_NPHIN;
+  _dims.nphi_N = MOCK_ACADOS_SOLVER_NPHIN;
   _dims.nr = MOCK_ACADOS_SOLVER_NR;
   // Slack
   _dims.ns = MOCK_ACADOS_SOLVER_NS;
-  _dims.nsN = MOCK_ACADOS_SOLVER_NSN;
+  _dims.ns_N = MOCK_ACADOS_SOLVER_NSN;
   _dims.nsbx = MOCK_ACADOS_SOLVER_NSBX;
-  _dims.nsbxN = MOCK_ACADOS_SOLVER_NSBXN;
+  _dims.nsbx_N = MOCK_ACADOS_SOLVER_NSBXN;
   _dims.nsbu = MOCK_ACADOS_SOLVER_NSBU;
   _dims.nsh = MOCK_ACADOS_SOLVER_NSH;
-  _dims.nshN = MOCK_ACADOS_SOLVER_NSHN;
+  _dims.nsh_N = MOCK_ACADOS_SOLVER_NSHN;
   _dims.nsg = MOCK_ACADOS_SOLVER_NSG;
-  _dims.nsgN = MOCK_ACADOS_SOLVER_NSGN;
+  _dims.nsg_N = MOCK_ACADOS_SOLVER_NSGN;
   _dims.nsphi = MOCK_ACADOS_SOLVER_NSPHI;
-  _dims.nsphiN = MOCK_ACADOS_SOLVER_NSPHIN;
+  _dims.nsphi_N = MOCK_ACADOS_SOLVER_NSPHIN;
   // Corst reference
   _dims.ny = MOCK_ACADOS_SOLVER_NY;
-  _dims.ny0 = MOCK_ACADOS_SOLVER_NY0;
-  _dims.nyN = MOCK_ACADOS_SOLVER_NYN;
+  _dims.ny_0 = MOCK_ACADOS_SOLVER_NY0;
+  _dims.ny_N = MOCK_ACADOS_SOLVER_NYN;
 }
 MockAcadosSolver::~MockAcadosSolver()
 {
