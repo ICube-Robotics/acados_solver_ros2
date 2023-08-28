@@ -17,48 +17,122 @@
 #ifndef ACADOS_SOLVER_BASE__ACADOS_SOLVER_DIMENSIONS_HPP_
 #define ACADOS_SOLVER_BASE__ACADOS_SOLVER_DIMENSIONS_HPP_
 
+/** @file
+ *  @brief Definition of the acados::AcadosSolverDimensions class.
+ */
+
 namespace acados
 {
 
 class AcadosSolverDimensions
+/**
+ * @brief A container for the (fixed) dimensions of the imported Acados OCP.
+ *
+ */
 {
 public:
 // Basic dimensions
-  int nx = -1;
-  int nz = -1;
-  int np = -1;
-  int nu = -1;
+
+  /// @brief Differential state vector size
+  unsigned int nx; /*!< \f$n_x\f$ : size of the differential state vector \f$x \in \mathbb{R}^{n_x}\f$ */
+
+  /// @brief Algebraic state vector size
+  unsigned int nz; /*!< \f$n_z\f$ : size of the algebraic state vector \f$z\in \mathbb{R}^{n_z}\f$  */
+
+  /// @brief Runtime parameters vector size
+  unsigned int np; /*!< Number of runtime parameters */
+
+  /// @brief Control vector size
+  unsigned int nu; /*!< Size of the control vector \f$u\in \mathbb{R}^{n_u}\f$ */
+
 // Bounds on x and u
-  int nbx = -1;
-  int nbx0 = -1;
-  int nbxN = -1;
-  int nbu = -1;
+
+  /// @brief Number of state stage bounds
+  unsigned int nbx;
+
+  /// @brief Number of initial state stage bounds
+  /// @note Typically equal to nx, used to set initial state before calling AcadosSolver::solve().
+  unsigned int nbx_0;
+
+  /// @brief Number of terminal state bounds
+  unsigned int nbx_N;
+
+  /// @brief Number of control bounds
+  /// @note Warning, not defined at stage N.
+  unsigned int nbu;
+
 // Polytope constraints
-  int ng = -1;
-  int ngN = -1;
+
+  /// @brief Number of polytopic constraints
+  unsigned int ng;
+
+  /// @brief Number of polytopic constraints at stage N
+  unsigned int ng_N;
+
 // Non-linear constraints
-  int nh = -1;
-  int nhN = -1;
-  int nphi = -1;
-  int nphiN = -1;
-// Slack
-  int ns = -1;
-  int nsN = -1;
-  int nsbx = -1;
-  int nsbxN = -1;
-  int nsbu = -1;
-  int nsh = -1;
-  int nshN = -1;
-  int nsg = -1;
-  int nsgN = -1;
-  int nsphi = -1;
-  int nsphiN = -1;
+
+  /// @brief Number of non-linear constraints
+  unsigned int nh;
+
+  /// @brief Number of non-linear constraints at stage N
+  unsigned int nh_N;
+
+  /// @brief Number of "convex-over-nonlinear" constraints (see Acados documentation)
+  unsigned int nphi;
+
+  /// @brief Number of "convex-over-nonlinear" constraints at stage N
+  unsigned int nphi_N;
+
+// Slack-related dimensions
+
+  /// @brief Total number of slack variable
+  unsigned int ns;
+
+  /// @brief Total number of slack variable at stage N
+  unsigned int ns_N;
+
+  /// @brief Number of slack variables used by state bounds
+  unsigned int nsbx;
+
+  /// @brief Number of slack variables used by terminal state bounds
+  unsigned int nsbx_N;
+
+  /// @brief Number of slack variables used by control bounds
+  unsigned int nsbu;
+
+  /// @brief Number of slack variables used by non-linear constraints
+  unsigned int nsh;
+
+  /// @brief Number of slack variables used by (terminal) non-linear constraints
+  unsigned int nsh_N;
+
+  /// @brief Number of slack variables used by polytopic constraints
+  unsigned int nsg;
+
+  /// @brief Number of slack variables used by (terminal) polytopic constraints
+  unsigned int nsg_N;
+
+
+  /// @brief Number of slack variables used by convex-over-nonlinear constraints
+  unsigned int nsphi;
+
+  /// @brief Number of slack variables used by (terminal) convex-over-nonlinear constraints
+  unsigned int nsphi_N;
+
 // Cost ref.
-  int ny = -1;
-  int ny0 = -1;
-  int nyN = -1;
+  /// @brief Size of the reference vector
+  unsigned int ny;
+
+  /// @brief Size of the reference vector at initial stage
+  unsigned int ny_0;
+
+  /// @brief Size of the reference vector at terminal stage
+  unsigned int ny_N;
+
 // Misc.
-  int nr = -1;
+
+  /// @brief Dimension of the image of the inner nonlinear function in positive definite constraints. See Acados documentation.
+  unsigned int nr;
 };
 
 }  // namespace acados
