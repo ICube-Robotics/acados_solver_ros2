@@ -40,8 +40,8 @@ protected:
   virtual int internal_free_capsule();
 
   virtual int internal_update_qp_solver_cond_N(int qp_solver_cond_N);
-  virtual int internal_update_params(int stage, double * value, int np);
-  virtual int internal_update_params_sparse(int stage, int * idx, double * p, int n_update);
+  virtual int internal_update_params(unsigned int stage, double * value, int np);
+  virtual int internal_update_params_sparse(unsigned int stage, int * idx, double * p, int n_update);
   virtual int internal_solve();
   virtual void internal_print_stats() const;
 

@@ -23,13 +23,15 @@ namespace acados
 
 AcadosSolver::AcadosSolver()
 {
+
 }
 
 AcadosSolver::~AcadosSolver()
 {
+
 }
 
-int AcadosSolver::init(int N, double Ts)
+int AcadosSolver::init(unsigned int N, double Ts)
 {
   // Create capsule
   int status = internal_create_capsule();
@@ -41,24 +43,24 @@ int AcadosSolver::init(int N, double Ts)
   // Create index maps
   status = create_index_maps();
   if (!is_map_size_consistent(_x_index_map, nx())) {
-    status = -1;
+    status = 1;
     std::cout << "Inconsistent index map for diff. state variables x!" << std::endl;
   }
   if (!is_map_size_consistent(_z_index_map, nz())) {
-    status = -1;
+    status = 1;
     std::cout << "Inconsistent index map for algebraic state variables z!" << std::endl;
   }
   if (!is_map_size_consistent(_p_index_map, np())) {
-    status = -1;
+    status = 1;
     std::cout << "Inconsistent index map for runtime parameters variables p!" << std::endl;
   }
   if (!is_map_size_consistent(_u_index_map, nu())) {
-    status = -1;
+    status = 1;
     std::cout << "Inconsistent index map for control variables u!" << std::endl;
   }
   if (status < 1) {
     std::cout << "ERROR: the index maps could not be initialized correctly!" << std::endl;
-    return -1;
+    return 1;
   }
 
   return reset();
@@ -91,7 +93,6 @@ int AcadosSolver::solve()
   return solver_status;
 }
 
-
 //####################################################
 //                     SETTERS
 //####################################################
@@ -101,7 +102,7 @@ int AcadosSolver::solve()
 // ------------------------------------------
 int AcadosSolver::set_initial_state_values(std::vector<double> & x_0)
 {
-  if (static_cast<int>(x_0.size()) != nx()) {
+  if (x_0.size() != nx()) {
     std::string err_msg =
       "Error in 'AcadosSolver::set_initial_state_values()': "
       "Inconsistent parameters, the size of x_0 should match nx!";
@@ -116,7 +117,7 @@ int AcadosSolver::set_initial_state_values(std::vector<double> & x_0)
 int AcadosSolver::set_initial_state_values(ValueMap const & x_0_map)
 {
   if (!is_values_map_complete(x_index_map(), x_0_map)) {
-    return -1;
+    return 1;
   }
   std::vector<double> x_0;
   x_0.reserve(nx());
@@ -128,10 +129,10 @@ int AcadosSolver::set_initial_state_values(ValueMap const & x_0_map)
 // Bounds and constraints
 // ------------------------------------------
 int AcadosSolver::set_state_bounds(
-  int stage, std::vector<int> & idxbx, std::vector<double> & lbx,
+  unsigned int stage, std::vector<int> & idxbx, std::vector<double> & lbx,
   std::vector<double> & ubx)
 {
-  if (stage < 0 || stage > N()) {
+  if (stage > N()) {
     std::string err_msg = "Error in 'AcadosSolver::set_state_bounds()': Invalid stage request!";
     throw std::range_error(err_msg);
   }
@@ -141,7 +142,7 @@ int AcadosSolver::set_state_bounds(
       "Inconsistent parameters (idxbx, lbx, and ubx should have the same length)!";
     throw std::range_error(err_msg);
   }
-  int expected_dim;
+  unsigned int expected_dim;
   if (stage == 0) {
     expected_dim = dims().nbx_0;
   } else if (stage < N()) {
@@ -149,7 +150,7 @@ int AcadosSolver::set_state_bounds(
   } else {
     expected_dim = dims().nbx_N;
   }
-  if (static_cast<int>(idxbx.size()) > expected_dim) {
+  if (idxbx.size() > expected_dim) {
     std::string err_msg =
       "Error in 'AcadosSolver::set_state_bounds()': "
       "Inconsistent parameters! The size of idxbx, lbx, or ubx cannot be of length ";
@@ -172,17 +173,17 @@ int AcadosSolver::set_state_bounds(
   std::vector<double> & ubx)
 {
   // From 0 to N as there is no control at terminal node!
-  for (int stage = 0; stage < N(); stage++) {
+  for (unsigned int stage = 0; stage < N(); stage++) {
     set_state_bounds(stage, idxbx, lbx, ubx);
   }
   return 0;
 }
 
 int AcadosSolver::set_control_bounds(
-  int stage, std::vector<int> & idxbu, std::vector<double> & lbu,
+  unsigned int stage, std::vector<int> & idxbu, std::vector<double> & lbu,
   std::vector<double> & ubu)
 {
-  if (stage < 0 || stage > N()) {
+  if (stage > N()) {
     std::string err_msg =
       "Error in 'AcadosSolver::set_control_bounds()': "
       "Invalid stage request!";
@@ -194,7 +195,7 @@ int AcadosSolver::set_control_bounds(
       "Inconsistent parameters (idxbu, lbu, and ubu should have the same length)!";
     throw std::range_error(err_msg);
   }
-  if (static_cast<int>(idxbu.size()) != dims().nbu) {
+  if (idxbu.size() != dims().nbu) {
     std::string err_msg =
       "Error in 'AcadosSolver::set_control_bounds()': "
       "Inconsistent parameters (the size of idxbu, lbu, or ubu should be of length ";
@@ -217,7 +218,7 @@ int AcadosSolver::set_control_bounds(
   std::vector<double> & ubu)
 {
   // From 0 to N-1 as there is no control at terminal node!
-  for (int stage = 0; stage < N(); stage++) {
+  for (unsigned int stage = 0; stage < N(); stage++) {
     set_control_bounds(stage, idxbu, lbu, ubu);
   }
   return 0;
@@ -226,15 +227,15 @@ int AcadosSolver::set_control_bounds(
 // ------------------------------------------
 // Solver state/control values initialization
 // ------------------------------------------
-int AcadosSolver::initialize_state_values(int stage, std::vector<double> & x_i)
+int AcadosSolver::initialize_state_values(unsigned int stage, std::vector<double> & x_i)
 {
-  if (static_cast<int>(x_i.size()) != nx()) {
+  if (x_i.size() != nx()) {
     std::cout << "WARNING: Failed to set x_" << stage << "!"
               << "A vector of length " << nx() << " is expected (" << x_i.size() << " provided)." <<
       std::endl;
-    return -1;
+    return 1;
   }
-  if (stage < 0 || stage > N()) {
+  if (stage > N()) {
     std::string err_msg =
       "Error in 'AcadosSolver::initialize_state_values()': Invalid stage request!";
     throw std::range_error(err_msg);
@@ -242,10 +243,10 @@ int AcadosSolver::initialize_state_values(int stage, std::vector<double> & x_i)
   ocp_nlp_out_set(get_nlp_config(), get_nlp_dims(), get_nlp_out(), stage, "x", x_i.data());
   return 0;
 }
-int AcadosSolver::initialize_state_values(int stage, ValueMap const & x_i_map)
+int AcadosSolver::initialize_state_values(unsigned int stage, ValueMap const & x_i_map)
 {
   if (!is_values_map_complete(x_index_map(), x_i_map)) {
-    return -1;
+    return 1;
   }
   std::vector<double> x_i;
   x_i.reserve(nx());
@@ -257,7 +258,7 @@ int AcadosSolver::initialize_state_values(std::vector<double> & x_i)
 {
   int status = 0;
   // From 0 to N to also set terminal state!
-  for (int stage = 0; stage <= N(); stage++) {
+  for (unsigned int stage = 0; stage <= N(); stage++) {
     status += initialize_state_values(stage, x_i);
   }
   return 0;
@@ -266,7 +267,7 @@ int AcadosSolver::initialize_state_values(std::vector<double> & x_i)
 int AcadosSolver::initialize_state_values(ValueMap const & x_i_map)
 {
   if (!is_values_map_complete(x_index_map(), x_i_map)) {
-    return -1;
+    return 1;
   }
   std::vector<double> x_i;
   x_i.reserve(nx());
@@ -274,15 +275,15 @@ int AcadosSolver::initialize_state_values(ValueMap const & x_i_map)
   return initialize_state_values(x_i);
 }
 
-int AcadosSolver::initialize_control_values(int stage, std::vector<double> & u_i)
+int AcadosSolver::initialize_control_values(unsigned int stage, std::vector<double> & u_i)
 {
-  if (static_cast<int>(u_i.size()) != nu()) {
+  if (u_i.size() != nu()) {
     std::cout << "WARNING: Failed to set u_" << stage << "!"
               << "A vector of length " << nu() << " is expected (" << u_i.size() << " provided)." <<
       std::endl;
-    return -1;
+    return 1;
   }
-  if (stage < 0 || stage >= N()) {
+  if (stage >= N()) {
     std::string err_msg =
       "Error in 'AcadosSolver::initialize_control_values()': Invalid stage request!";
     throw std::range_error(err_msg);
@@ -290,10 +291,10 @@ int AcadosSolver::initialize_control_values(int stage, std::vector<double> & u_i
   ocp_nlp_out_set(get_nlp_config(), get_nlp_dims(), get_nlp_out(), stage, "u", u_i.data());
   return 0;
 }
-int AcadosSolver::initialize_control_values(int stage, ValueMap const & u_i_map)
+int AcadosSolver::initialize_control_values(unsigned int stage, ValueMap const & u_i_map)
 {
   if (!is_values_map_complete(u_index_map(), u_i_map)) {
-    return -1;
+    return 1;
   }
   std::vector<double> u_i;
   u_i.reserve(nu());
@@ -304,7 +305,7 @@ int AcadosSolver::initialize_control_values(std::vector<double> & u_i)
 {
   int status = 0;
   // From 0 to N-1 as there is no control at terminal node!
-  for (int stage = 0; stage < N(); stage++) {
+  for (unsigned int stage = 0; stage < N(); stage++) {
     status += initialize_control_values(stage, u_i);
   }
   return status;
@@ -312,7 +313,7 @@ int AcadosSolver::initialize_control_values(std::vector<double> & u_i)
 int AcadosSolver::initialize_control_values(ValueMap const & u_i_map)
 {
   if (!is_values_map_complete(u_index_map(), u_i_map)) {
-    return -1;
+    return 1;
   }
   std::vector<double> u_i;
   u_i.reserve(nu());
@@ -323,25 +324,25 @@ int AcadosSolver::initialize_control_values(ValueMap const & u_i_map)
 // ------------------------------------------
 // Runtime parameters
 // ------------------------------------------
-int AcadosSolver::set_runtime_parameters(int stage, std::vector<double> & p_i)
+int AcadosSolver::set_runtime_parameters(unsigned int stage, std::vector<double> & p_i)
 {
-  if (static_cast<int>(p_i.size()) != np()) {
+  if (p_i.size() != np()) {
     std::cout << "WARNING: Failed to set p_" << stage << "!"
               << "A vector of length " << np() << " is expected (" << p_i.size() << " provided)." <<
       std::endl;
-    return -1;
+    return 1;
   }
-  if (stage < 0 || stage > N()) {
+  if (stage > N()) {
     std::string err_msg =
       "Error in 'AcadosSolver::set_runtime_parameters()': Invalid stage request!";
     throw std::range_error(err_msg);
   }
   return internal_update_params(stage, p_i.data(), np());
 }
-int AcadosSolver::set_runtime_parameters(int stage, ValueMap const & p_i_map)
+int AcadosSolver::set_runtime_parameters(unsigned int stage, ValueMap const & p_i_map)
 {
   if (!is_values_map_complete(p_index_map(), p_i_map)) {
-    return -1;
+    return 1;
   }
   std::vector<double> p_i;
   p_i.reserve(np());
@@ -352,7 +353,7 @@ int AcadosSolver::set_runtime_parameters(std::vector<double> & p_i)
 {
   // From 0 to N to also set terminal node parameters!
   int status = 0;
-  for (int stage = 0; stage <= N(); stage++) {
+  for (unsigned int stage = 0; stage <= N(); stage++) {
     status += set_runtime_parameters(stage, p_i);
   }
   return 0;
@@ -360,7 +361,7 @@ int AcadosSolver::set_runtime_parameters(std::vector<double> & p_i)
 int AcadosSolver::set_runtime_parameters(ValueMap const & p_i_map)
 {
   if (!is_values_map_complete(p_index_map(), p_i_map)) {
-    return -1;
+    return 1;
   }
   std::vector<double> p_i;
   p_i.reserve(np());
@@ -373,9 +374,9 @@ int AcadosSolver::set_runtime_parameters(ValueMap const & p_i_map)
 //                     GETTERS
 //####################################################
 
-std::vector<double> AcadosSolver::get_state_values(int stage)
+std::vector<double> AcadosSolver::get_state_values(unsigned int stage)
 {
-  if (stage < 0 || stage > N()) {
+  if (stage > N()) {
     std::string err_msg = "Error in 'AcadosSolver::get_state_values()': Invalid stage request!";
     throw std::range_error(err_msg);
   }
@@ -383,9 +384,9 @@ std::vector<double> AcadosSolver::get_state_values(int stage)
   ocp_nlp_out_get(get_nlp_config(), get_nlp_dims(), get_nlp_out(), stage, "x", x_i.data());
   return x_i;
 }
-std::vector<double> AcadosSolver::get_algebraic_state_values(int stage)
+std::vector<double> AcadosSolver::get_algebraic_state_values(unsigned int stage)
 {
-  if (stage < 0 || stage >= N()) {
+  if (stage >= N()) {
     std::string err_msg =
       "Error in 'AcadosSolver::get_algebraic_state_values()': Invalid stage request!";
     throw std::range_error(err_msg);
@@ -394,9 +395,9 @@ std::vector<double> AcadosSolver::get_algebraic_state_values(int stage)
   ocp_nlp_out_get(get_nlp_config(), get_nlp_dims(), get_nlp_out(), stage, "z", z_i.data());
   return z_i;
 }
-std::vector<double> AcadosSolver::get_control_values(int stage)
+std::vector<double> AcadosSolver::get_control_values(unsigned int stage)
 {
-  if (stage < 0 || stage >= N()) {
+  if (stage >= N()) {
     std::string err_msg = "Error in 'AcadosSolver::get_control_values()': Invalid stage request!";
     throw std::range_error(err_msg);
   }
@@ -492,7 +493,7 @@ ValueMap AcadosSolver::create_map_from_values(
   IndexMap const & index_map,
   std::vector<double> const & values)
 {
-  if (!is_map_size_consistent(index_map, static_cast<int>(values.size()))) {
+  if (!is_map_size_consistent(index_map, values.size())) {
     throw std::invalid_argument("Inconsistent data provided to 'create_map_from_values()'!");
   }
   ValueMap value_map;
@@ -515,27 +516,27 @@ const AcadosSolver::Dimensions & AcadosSolver::dims() const
 {
   return _dims;
 }
-int AcadosSolver::nx() const
+unsigned int AcadosSolver::nx() const
 {
   // return *(get_nlp_dims()->nx);
   return dims().nx;
 }
-int AcadosSolver::nz() const
+unsigned int AcadosSolver::nz() const
 {
   // return *(get_nlp_dims()->nz);
   return dims().nz;
 }
-int AcadosSolver::np() const
+unsigned int AcadosSolver::np() const
 {
   // return static_cast<int>(get_nlp_np());
   return dims().np;
 }
-int AcadosSolver::nu() const
+unsigned int AcadosSolver::nu() const
 {
   // return *(get_nlp_dims()->nu);
   return dims().nu;
 }
-int AcadosSolver::N() const
+unsigned int AcadosSolver::N() const
 {
   return get_nlp_dims()->N;
 }

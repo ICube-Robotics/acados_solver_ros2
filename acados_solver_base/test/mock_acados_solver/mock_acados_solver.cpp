@@ -126,13 +126,13 @@ int MockAcadosSolver::internal_update_qp_solver_cond_N(int qp_solver_cond_N)
 {
   return mock_acados_solver_acados_update_qp_solver_cond_N(_capsule, qp_solver_cond_N);
 }
-int MockAcadosSolver::internal_update_params(int stage, double * value, int np)
+int MockAcadosSolver::internal_update_params(unsigned int stage, double * value, int np)
 {
-  return mock_acados_solver_acados_update_params(_capsule, stage, value, np);
+  return mock_acados_solver_acados_update_params(_capsule, static_cast<int>(stage), value, np);
 }
-int MockAcadosSolver::internal_update_params_sparse(int stage, int * idx, double * p, int n_update)
+int MockAcadosSolver::internal_update_params_sparse(unsigned int stage, int * idx, double * p, int n_update)
 {
-  return mock_acados_solver_acados_update_params_sparse(_capsule, stage, idx, p, n_update);
+  return mock_acados_solver_acados_update_params_sparse(_capsule, static_cast<int>(stage), idx, p, n_update);
 }
 int MockAcadosSolver::internal_solve()
 {

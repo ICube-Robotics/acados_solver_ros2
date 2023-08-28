@@ -17,7 +17,7 @@
 
 TEST(TestCreateMockSolver, test_init)
 {
-  int N = 10;
+  unsigned int N = 10;
   double Ts = 0.01;
 
   acados::MockAcadosSolver solver;

@@ -31,11 +31,15 @@ namespace acados
 {
 
 class AcadosSolver
+/**
+* @brief Abstract C++ wrapper of generated Acados solver C-code.
+*
+*/
 {
 public:
   class Dimensions
     /**
-    * @brief A container for the (fixed) dimensions of the imported Acados OCP.
+    * @brief Container for the (fixed) dimensions of the imported Acados OCP.
     *
     */
   {
@@ -150,7 +154,7 @@ public:
   virtual ~AcadosSolver();
 
   // Solver management
-  int init(int N, double Ts);
+  int init(unsigned int N, double Ts);
   int reset();
   int free_memory();
 
@@ -162,43 +166,43 @@ public:
   int set_initial_state_values(ValueMap const & x_0_map);
 
   int set_state_bounds(
-    int stage, std::vector<int> & idxbx, std::vector<double> & lbx,
+    unsigned int stage, std::vector<int> & idxbx, std::vector<double> & lbx,
     std::vector<double> & ubx);
   int set_state_bounds(
     std::vector<int> & idxbx, std::vector<double> & lbx,
     std::vector<double> & ubx);
 
   int set_control_bounds(
-    int stage, std::vector<int> & idxbu, std::vector<double> & lbu,
+    unsigned int stage, std::vector<int> & idxbu, std::vector<double> & lbu,
     std::vector<double> & ubu);
   int set_control_bounds(
     std::vector<int> & idxbu, std::vector<double> & lbu,
     std::vector<double> & ubu);
 
-  int set_runtime_parameters(int stage, std::vector<double> & p_i);
-  int set_runtime_parameters(int stage, ValueMap const & p_i_map);
+  int set_runtime_parameters(unsigned int stage, std::vector<double> & p_i);
+  int set_runtime_parameters(unsigned int stage, ValueMap const & p_i_map);
   int set_runtime_parameters(std::vector<double> & p_i);
   int set_runtime_parameters(ValueMap const & p_i_map);
 
-  int initialize_state_values(int stage, std::vector<double> & x_i);
-  int initialize_state_values(int stage, ValueMap const & x_i_map);
+  int initialize_state_values(unsigned int stage, std::vector<double> & x_i);
+  int initialize_state_values(unsigned int stage, ValueMap const & x_i_map);
   int initialize_state_values(std::vector<double> & x_i);
   int initialize_state_values(ValueMap const & x_i_map);
 
-  int initialize_control_values(int stage, std::vector<double> & u_i);
-  int initialize_control_values(int stage, ValueMap const & u_i_map);
+  int initialize_control_values(unsigned int stage, std::vector<double> & u_i);
+  int initialize_control_values(unsigned int stage, ValueMap const & u_i_map);
   int initialize_control_values(std::vector<double> & u_i);
   int initialize_control_values(ValueMap const & u_i_map);
 
   // Getters
-  std::vector<double> get_state_values(int stage);
-  std::vector<double> get_state_values_as_map(int stage);
+  std::vector<double> get_state_values(unsigned int stage);
+  std::vector<double> get_state_values_as_map(unsigned int stage);
 
-  std::vector<double> get_algebraic_state_values(int stage);
-  std::vector<double> get_algebraic_state_values_as_map(int stage);
+  std::vector<double> get_algebraic_state_values(unsigned int stage);
+  std::vector<double> get_algebraic_state_values_as_map(unsigned int stage);
 
-  std::vector<double> get_control_values(int stage);
-  std::vector<double> get_control_values_as_map(int stage);
+  std::vector<double> get_control_values(unsigned int stage);
+  std::vector<double> get_control_values_as_map(unsigned int stage);
 
   // Getters variable mappings
   const IndexMap & x_index_map() const;
@@ -219,11 +223,11 @@ public:
 
   // Problem dimensions and convenience getters for commonly used attributes
   const Dimensions & dims() const;
-  int nx() const;
-  int nz() const;
-  int np() const;
-  int nu() const;
-  int N() const;
+  unsigned int  nx() const;
+  unsigned int  nz() const;
+  unsigned int  np() const;
+  unsigned int  nu() const;
+  unsigned int  N() const;
   double Ts() const;
   std::vector<double> sampling_intervals() const;
 
@@ -245,8 +249,8 @@ protected:
   virtual int internal_free() = 0;
   virtual int internal_free_capsule() = 0;
   virtual int internal_update_qp_solver_cond_N(int qp_solver_cond_N) = 0;
-  virtual int internal_update_params(int stage, double * value, int np) = 0;
-  virtual int internal_update_params_sparse(int stage, int * idx, double * p, int n_update) = 0;
+  virtual int internal_update_params(unsigned int stage, double * value, int np) = 0;
+  virtual int internal_update_params_sparse(unsigned int stage, int * idx, double * p, int n_update) = 0;
   virtual int internal_solve() = 0;
   virtual void internal_print_stats() const = 0;
 
