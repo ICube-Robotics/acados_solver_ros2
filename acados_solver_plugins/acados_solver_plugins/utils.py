@@ -5,6 +5,7 @@
 # Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
 import os
+import re
 from shutil import rmtree
 
 # Files/folders management utils
@@ -29,3 +30,28 @@ def delete_dir_recursively(dir_path, keep_empty_folder=True):
     # rmtree completely remove the dir, so it has to be recreated
     if keep_empty_folder:
         ensure_dir_exists(dir_path)
+
+# Reformat strings from capital to underscore
+
+
+_uppercase_part = re.compile('[A-Z][^A-Z]*')
+
+
+def uppercase_to_underscore(string: str) -> str:
+    """
+    Reformat a camel case string to snake case.
+
+    :param string: The string to reformat
+    :type string: str
+    :return: Snake case reformated string
+    :rtype: str
+
+    >>> uppercase_to_underscore("TestClass")
+    "test_class"
+    """
+    result = ''
+    for match in _uppercase_part.finditer(string):
+        if match.span()[0] > 0:
+            result += '_'
+        result += match.group().lower()
+    return result

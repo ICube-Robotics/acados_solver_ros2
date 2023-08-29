@@ -8,23 +8,12 @@ from acados_template import AcadosOcp, AcadosOcpSolver, ocp_get_default_cmake_bu
 from jinja2 import PackageLoader, Environment
 
 import os
-import re
 from copy import deepcopy
 from acados_solver_plugins.utils import ensure_dir_exists, delete_dir_recursively
+from acados_solver_plugins.utils import uppercase_to_underscore
 
 _library_name = "acados_solver_plugins"
 
-# Reformat strings from capital to underscore
-_uppercase_part = re.compile('[A-Z][^A-Z]*')
-
-
-def uppercase_to_underscore(name):
-    result = ''
-    for match in _uppercase_part.finditer(name):
-        if match.span()[0] > 0:
-            result += '_'
-        result += match.group().lower()
-    return result
 
 # Custom filters for jinja2
 
@@ -36,10 +25,19 @@ def filter_uppercase_to_underscore(name):
 def filter_curly_bracket_list(list_of_index):
     return '{%s}' % str(list_of_index).strip('[]')
 
+
 # Plugin generator
 
-
 class SolverPluginGenerator:
+    """
+    Minimalist template-based code generation module to generate `acados::AcadosSolver` \
+    derived objects.
+
+    Relevant external API documentation : \
+    `jinja2 <https://jinja.palletsprojects.com/en/3.0.x/api/>`_, \
+    `acados_template <https://docs.acados.org/python_interface/index.html#>`_.
+    """
+
     def __init__(self, custom_export_path=None, library_name=None):
         # Setup paths
         if custom_export_path is not None:
@@ -52,7 +50,11 @@ class SolverPluginGenerator:
                All generated files will be exported to "' + self.__plugin_export_path + '".')
 
         # Setup jinja2 environment
-        self.jinga_env_loader = PackageLoader("acados_solver_plugins")
+
+        #: Jinja environment loader initialized as a `jinja2.PackageLoader` \
+        #: looking for templates in the installation folder of the module.
+        self.jinga_env_loader = PackageLoader(_library_name)
+
         self.jinja_env = Environment(loader=self.jinga_env_loader)
         self.jinja_env.filters['curly_bracket_list'] = filter_curly_bracket_list
         self.jinja_env.filters['uppercase_to_underscore'] = filter_uppercase_to_underscore
@@ -92,7 +94,7 @@ class SolverPluginGenerator:
                                x_index_map: dict = None,
                                z_index_map: dict = None,
                                p_index_map: dict = None,
-                               u_index_map: dict = None) -> int:
+                               u_index_map: dict = None) -> AcadosOcpSolver:
         # Make sure dir exist and clean if it does
         path_plugin_dir = os.path.join(
             self.__plugin_export_path, uppercase_to_underscore(plugin_class_name))

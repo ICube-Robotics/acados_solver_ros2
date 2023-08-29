@@ -17,15 +17,14 @@ TODO
 
 .. toctree::
   :maxdepth: 1
-  :caption: User Guide
+  :caption: Python modules
   :glob:
 
-  user_guide/todo
+  developer_guide/solver_plugins_python_API
 
 .. toctree::
   :maxdepth: 1
-  :caption: Developer Guide
+  :caption: Extra documentation
   :glob:
 
-  developer_guide/todo
   developer_guide/API

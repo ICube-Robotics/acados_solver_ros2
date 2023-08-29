@@ -4,7 +4,8 @@
 
 # Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
-from acados_solver_plugins.acados_solver_plugins import SolverPluginGenerator # noqa
+from .solver_plugin_generator import SolverPluginGenerator  # noqa
+from .solver_plugin_loader import SolverPluginLoader       # noqa
 
 
 __author__ = "Thibault Poignonec"

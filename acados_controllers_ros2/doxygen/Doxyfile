@@ -4,7 +4,10 @@ PROJECT_NAME           = "acados_controllers_ros2"
 PROJECT_NUMBER         = main
 PROJECT_BRIEF          = "Acados-based NMPC controllers for ROS2 control"
 
+
 INPUT                  = ../../acados_solver_base/include ../../acados_solver_plugins/acados_solver_plugins
+INPUT += mainpage.md
+USE_MDFILE_AS_MAINPAGE = mainpage.md
 
 RECURSIVE              = YES
 OUTPUT_DIRECTORY       = _build

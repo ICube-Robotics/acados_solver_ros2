@@ -23,12 +23,10 @@ namespace acados
 
 AcadosSolver::AcadosSolver()
 {
-
 }
 
 AcadosSolver::~AcadosSolver()
 {
-
 }
 
 int AcadosSolver::init(unsigned int N, double Ts)

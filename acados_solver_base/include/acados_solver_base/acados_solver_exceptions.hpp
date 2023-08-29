@@ -14,8 +14,8 @@
 //
 // Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
-#ifndef ACADOS_SOLVER_BASE__ACADOS_EXCEPTIONS_HPP_
-#define ACADOS_SOLVER_BASE__ACADOS_EXCEPTIONS_HPP_
+#ifndef ACADOS_SOLVER_BASE__ACADOS_SOLVER_EXCEPTIONS_HPP_
+#define ACADOS_SOLVER_BASE__ACADOS_SOLVER_EXCEPTIONS_HPP_
 
 #include <string>
 #include <unordered_map>
@@ -27,4 +27,4 @@ namespace acados
 
 }  // namespace acados
 
-#endif  // ACADOS_SOLVER_BASE__ACADOS_EXCEPTIONS_HPP_
+#endif  // ACADOS_SOLVER_BASE__ACADOS_SOLVER_EXCEPTIONS_HPP_

@@ -143,7 +143,8 @@ public:
 
     // Misc.
 
-    /// @brief Dimension of the image of the inner nonlinear function in positive definite constraints. See Acados documentation.
+    /// @brief Dimensions of the image of the inner nonlinear function in positive definite constr.
+    /// See Acados documentation.
     unsigned int nr;
   };
 
@@ -654,7 +655,7 @@ protected:
 
 // Solver-specific functions
 
-  /// @brief Reinitialize the different maps used to set or retrieve value using string variable names.
+  /// @brief Reinitialize the maps used to set or retrieve value using string variable names.
   virtual int create_index_maps() = 0;
 
 protected:

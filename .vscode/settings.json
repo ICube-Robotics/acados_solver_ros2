@@ -1,5 +1,6 @@
 {
     "ros2.rosRootDir": "/opt/ros/humble/",
     "python.terminal.activateEnvironment": false,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "autoDocstring.docstringFormat": "sphinx"
 }

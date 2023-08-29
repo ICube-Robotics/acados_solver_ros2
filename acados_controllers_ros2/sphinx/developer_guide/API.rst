@@ -1,8 +1,6 @@
-API reference
+Full API reference
 ===========================================
 
-Full API reference
--------------------
 
 .. raw:: html
 
@@ -11,11 +9,3 @@ Full API reference
   Break line
 
 |
-
-Python API
-----------
-
-.. automodule:: acados_solver_plugins.acados_solver_plugins
-    :members:
-    :private-members:
-    :exclude-members:
