@@ -9,6 +9,8 @@ RUN pip install pre-commit
 RUN apt update && \
     cd ros2_dev/src/acados_controllers_ros2 && \
     git submodule update --init --recursive
+RUN cd ros2_dev/src && \
+    vcs import . < acados_controllers_ros2/acados_controllers_ros2.repos
 RUN cd ros2_dev/ && \
     . /opt/ros/${ROS_DISTRO}/setup.sh && \
     rosdep install --ignore-src --from-paths . -y -r

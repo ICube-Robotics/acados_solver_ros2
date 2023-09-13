@@ -38,11 +38,13 @@ jobs:
             cd src/acados_controllers_ros2
             git config --global --add safe.directory '*'
             git submodule update --init --recursive
-            cd ../..
+            cd .. # = ros/src/
+            vcs import . < acados_controllers_ros2/acados_controllers_ros2.repos
+            cd .. # = ros/
             tree -L 4
             rosdep install --ignore-src --from-paths . -y -r
-            colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_ACADOS_TEMPLATE=OFF
-            colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_ACADOS_TEMPLATE=ON
+            colcon build
+            colcon build
 
       - name: Tests
         uses: addnab/docker-run-action@v3
@@ -53,8 +55,8 @@ jobs:
             cd /ros
             . /opt/ros/humble/setup.sh
             rosdep install --ignore-src --from-paths . -y -r
-            colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_ACADOS_TEMPLATE=OFF
-            colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_ACADOS_TEMPLATE=ON
+            colcon build
+            colcon build
             colcon test
             colcon test-result
 
