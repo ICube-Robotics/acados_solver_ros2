@@ -3,8 +3,9 @@
 # Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
 from acados_template import AcadosModel, AcadosOcp
+from casadi import cos, sin, vertcat
+from casadi import SX
 import numpy as np
-from casadi import SX, vertcat, sin, cos
 
 
 def export_pendulum_ode_model() -> AcadosModel:

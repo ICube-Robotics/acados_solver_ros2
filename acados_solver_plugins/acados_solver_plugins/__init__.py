@@ -8,8 +8,8 @@ from .solver_plugin_generator import SolverPluginGenerator  # noqa
 from .solver_plugin_loader import SolverPluginLoader       # noqa
 
 
-__author__ = "Thibault Poignonec"
-__license__ = "Apache License 2.0"
+__author__ = 'Thibault Poignonec'
+__license__ = 'Apache License 2.0'
 __copyright__ = """
     Copyright 2023 ICUBE Laboratory, University of Strasbourg
 

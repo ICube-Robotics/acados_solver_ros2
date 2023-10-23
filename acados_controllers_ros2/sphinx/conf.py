@@ -29,7 +29,7 @@ import subprocess
 
 # Doxygen
 subprocess.call('cd ../doxygen; doxygen Doxyfile', shell=True)
-html_extra_path = ['../doxygen/_build']  # Copy doxygen files into "sphinx/_build"
+html_extra_path = ['../doxygen/_build']  # Export files to "sphinx/_build"
 
 # -- Project information -----------------------------------------------------
 
@@ -63,7 +63,9 @@ breathe_default_project = "acados_controllers_ros2"
 
 
 def get_package(package: str):
-    path = Path(__file__).parent.parent.parent.joinpath(f"{package}/include/{package}")
+    path = Path(__file__).parent.parent.parent.joinpath(
+        f"{package}/include/{package}"
+    )
     files_gen = path.glob("*.hpp")
     files = []
     for file in files_gen:
