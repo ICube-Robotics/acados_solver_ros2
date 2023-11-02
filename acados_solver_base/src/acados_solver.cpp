@@ -56,7 +56,7 @@ int AcadosSolver::init(unsigned int N, double Ts)
     status = 1;
     std::cout << "Inconsistent index map for control variables u!" << std::endl;
   }
-  if (status < 1) {
+  if (status > 0) {
     std::cout << "ERROR: the index maps could not be initialized correctly!" << std::endl;
     return 1;
   }
