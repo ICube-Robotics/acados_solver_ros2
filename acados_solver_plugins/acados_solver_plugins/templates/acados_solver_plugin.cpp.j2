@@ -185,11 +185,11 @@ unsigned int {{plugin_class_name}}::get_nlp_np() const
 {
   return _capsule->nlp_np;
 }
+
+}  // using namespace acados
+
 {%- if export_plugin %}
 
 #include <pluginlib/class_list_macros.hpp>
 PLUGINLIB_EXPORT_CLASS(acados::{{plugin_class_name}}, acados::AcadosSolver)
 {%- endif %}
-
-
-}  // using namespace acados
