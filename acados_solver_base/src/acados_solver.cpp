@@ -42,22 +42,22 @@ int AcadosSolver::init(unsigned int N, double Ts)
   status = create_index_maps();
   if (!is_map_size_consistent(_x_index_map, nx())) {
     status = 1;
-    std::cout << "Inconsistent index map for diff. state variables x!" << std::endl;
+    std::cerr << "Inconsistent index map for diff. state variables x!" << std::endl;
   }
   if (!is_map_size_consistent(_z_index_map, nz())) {
     status = 1;
-    std::cout << "Inconsistent index map for algebraic state variables z!" << std::endl;
+    std::cerr << "Inconsistent index map for algebraic state variables z!" << std::endl;
   }
   if (!is_map_size_consistent(_p_index_map, np())) {
     status = 1;
-    std::cout << "Inconsistent index map for runtime parameters variables p!" << std::endl;
+    std::cerr << "Inconsistent index map for runtime parameters variables p!" << std::endl;
   }
   if (!is_map_size_consistent(_u_index_map, nu())) {
     status = 1;
-    std::cout << "Inconsistent index map for control variables u!" << std::endl;
+    std::cerr << "Inconsistent index map for control variables u!" << std::endl;
   }
-  if (status > 0) {
-    std::cout << "ERROR: the index maps could not be initialized correctly!" << std::endl;
+  if (status < 1) {
+    std::cerr << "ERROR: the index maps could not be initialized correctly!" << std::endl;
     return 1;
   }
 
@@ -85,7 +85,7 @@ int AcadosSolver::solve()
   ocp_nlp_solver_opts_set(get_nlp_config(), get_nlp_opts(), "rti_phase", &_rti_phase);
   int solver_status = internal_solve();
   if (solver_status != ACADOS_SUCCESS) {
-    std::cout << "WARNING! AcadosSolver::solve() failed with status " << solver_status << '!' <<
+    std::cerr << "WARNING! AcadosSolver::solve() failed with status " << solver_status << '!' <<
       std::endl;
   }
   return solver_status;
@@ -241,7 +241,7 @@ int AcadosSolver::set_control_bounds(IndexVector & idxbu, ValueVector & lbu, Val
 int AcadosSolver::initialize_state_values(unsigned int stage, ValueVector & x_i)
 {
   if (x_i.size() != nx()) {
-    std::cout << "WARNING: Failed to set x_" << stage << "!"
+    std::cerr << "WARNING: Failed to set x_" << stage << "!"
               << "A vector of length " << nx() << " is expected (" << x_i.size() << " provided)." <<
       std::endl;
     return 1;
@@ -290,7 +290,7 @@ int AcadosSolver::initialize_state_values(ValueMap const & x_i_map)
 int AcadosSolver::initialize_control_values(unsigned int stage, ValueVector & u_i)
 {
   if (u_i.size() != nu()) {
-    std::cout << "WARNING: Failed to set u_" << stage << "!"
+    std::cerr << "WARNING: Failed to set u_" << stage << "!"
               << "A vector of length " << nu() << " is expected (" << u_i.size() << " provided)." <<
       std::endl;
     return 1;
@@ -339,7 +339,7 @@ int AcadosSolver::initialize_control_values(ValueMap const & u_i_map)
 int AcadosSolver::set_runtime_parameters(unsigned int stage, ValueVector & p_i)
 {
   if (p_i.size() != np()) {
-    std::cout << "WARNING: Failed to set p_" << stage << "!"
+    std::cerr << "WARNING: Failed to set p_" << stage << "!"
               << "A vector of length " << np() << " is expected (" << p_i.size() << " provided)." <<
       std::endl;
     return 1;
@@ -479,13 +479,13 @@ bool AcadosSolver::is_values_map_complete(
   bool all_ok = true;
   for (const auto & [key, indexes] : index_map) {
     if (values_map.find(key) == values_map.end()) {
-      std::cout << "key '" << key << "' not found!" << std::endl;
+      std::cerr << "key '" << key << "' not found!" << std::endl;
       all_ok = false;
       break;
     }
     all_ok &= (indexes.size() == values_map.at(key).size());
     if (!all_ok) {
-      std::cout << "key '" << key << "' has values of incorrect size!" << std::endl;
+      std::cerr << "key '" << key << "' has values of incorrect size!" << std::endl;
     }
     if (!all_ok) {
       break;

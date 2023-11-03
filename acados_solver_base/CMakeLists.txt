@@ -9,11 +9,17 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_ros REQUIRED)
 
+find_package(eigen3_cmake_module REQUIRED)
+find_package(Eigen3 REQUIRED)
+
 find_package(acados_vendor_ros2 REQUIRED)
+
 
 add_library(${PROJECT_NAME}
   # Base class
   src/acados_solver.cpp
+  # Base class (details)
+  src/acados_solver_utils.cpp
 )
 target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -21,7 +27,12 @@ target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
   $<INSTALL_INTERFACE:include>)
 
-ament_target_dependencies(${PROJECT_NAME} PUBLIC acados_vendor_ros2)
+ament_target_dependencies(
+  ${PROJECT_NAME}
+    acados_vendor_ros2
+    eigen3_cmake_module
+    Eigen3
+)
 target_compile_definitions(${PROJECT_NAME} PRIVATE "ACADOS_SOLVERS_BUILDING_LIBRARY")
 
 install(
@@ -77,6 +88,11 @@ ament_export_libraries(
 ament_export_targets(
   export_${PROJECT_NAME}
 )
-ament_export_dependencies(acados_vendor_ros2)
+
+ament_export_dependencies(
+  acados_vendor_ros2
+  eigen3_cmake_module
+  Eigen3
+)
 
 ament_package()

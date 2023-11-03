@@ -17,6 +17,8 @@
 #ifndef ACADOS_SOLVER_BASE__ACADOS_TYPES_HPP_
 #define ACADOS_SOLVER_BASE__ACADOS_TYPES_HPP_
 
+#include <Eigen/Dense>
+
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -35,6 +37,12 @@ using IndexMap = std::unordered_map<std::string, IndexVector>;
 
 /// @brief Mapping between keys (`std::string`) and data (`acados::ValueVector`).
 using ValueMap = std::unordered_map<std::string, ValueVector>;
+
+/// @brief Dynamic size row-major array (hence compatible with Acados C-arrays).
+using RowMajorXd = Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>;
+
+/// @brief Dynamic size colum-major array (by default in Eigen).
+using ColumnMajorXd = Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor>;
 
 }  // namespace acados
 

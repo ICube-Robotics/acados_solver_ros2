@@ -17,6 +17,8 @@
 #ifndef ACADOS_SOLVER_BASE__ACADOS_SOLVER_HPP_
 #define ACADOS_SOLVER_BASE__ACADOS_SOLVER_HPP_
 
+#include <Eigen/Dense>
+
 #include <iostream>
 #include <vector>
 #include <exception>
@@ -24,8 +26,10 @@
 #include "acados_solver_base/visibility_control.h"
 #include "acados_solver_base/acados_types.hpp"
 
+
 // Acados C interface
 #include "acados_c/ocp_nlp_interface.h"
+
 
 namespace acados
 {

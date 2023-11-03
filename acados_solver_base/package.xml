@@ -9,6 +9,8 @@
 
   <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
+  <depend>eigen3_cmake_module</depend>
+  <depend>Eigen3</depend>
   <depend>acados_vendor_ros2</depend>
 
   <test_depend>ament_lint_auto</test_depend>
