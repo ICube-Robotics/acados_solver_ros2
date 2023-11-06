@@ -32,17 +32,22 @@ bool utils::set_cost_Vx(AcadosSolver & solver, unsigned int stage, RowMajorXd & 
 
   if (Vx.cols() != solver.nx()) {dimension_ok = false;}
 
+  int expected_rows = 0;
   if (stage == 0) {
-    if (Vx.rows() != solver.dims().ny_0) {dimension_ok = false;}
+    expected_rows = solver.dims().ny_0;
   } else if (stage == solver.N()) {
-    if (Vx.rows() != solver.dims().ny_N) {dimension_ok = false;}
+    expected_rows = solver.dims().ny_N;
   } else {
-    if (Vx.rows() != solver.dims().ny) {dimension_ok = false;}
+    expected_rows = solver.dims().ny;
   }
+  if (Vx.rows() != expected_rows) {dimension_ok = false;}
 
   if (!dimension_ok) {
     std::string err_msg = \
-      "Error in 'Acados::utils::set_Vx()': Invalid matrix dimension!";
+      std::string("Error in 'Acados::utils::set_Vx()': Invalid matrix dimension!") + \
+      "Hint: expected dimension are (" + \
+      std::to_string(expected_rows) + ", " + \
+      std::to_string(solver.nx()) + ").";
     throw std::invalid_argument(err_msg);
   }
 
@@ -68,17 +73,22 @@ bool utils::set_cost_Vu(AcadosSolver & solver, unsigned int stage, RowMajorXd & 
 
   if (Vu.cols() != solver.nu()) {dimension_ok = false;}
 
+  int expected_rows = 0;
   if (stage == 0) {
-    if (Vu.rows() != solver.dims().ny_0) {dimension_ok = false;}
+    expected_rows = solver.dims().ny_0;
   } else if (stage == solver.N()) {
-    if (Vu.rows() != solver.dims().ny_N) {dimension_ok = false;}
+    expected_rows = solver.dims().ny_N;
   } else {
-    if (Vu.rows() != solver.dims().ny) {dimension_ok = false;}
+    expected_rows = solver.dims().ny;
   }
+  if (Vu.rows() != expected_rows) {dimension_ok = false;}
 
   if (!dimension_ok) {
     std::string err_msg = \
-      "Error in 'Acados::utils::set_Vu()': Invalid matrix dimension!";
+      std::string("Error in 'Acados::utils::set_Vu()': Invalid matrix dimension!") + \
+      "Hint: expected dimension are (" + \
+      std::to_string(expected_rows) + ", " + \
+      std::to_string(solver.nu()) + ").";
     throw std::invalid_argument(err_msg);
   }
 
@@ -101,20 +111,22 @@ bool utils::set_cost_Vz(AcadosSolver & solver, unsigned int stage, RowMajorXd & 
   }
 
   bool dimension_ok = true;
-
-  if (Vz.cols() != solver.nz()) {dimension_ok = false;}
-
+  int expected_rows = 0;
   if (stage == 0) {
-    if (Vz.rows() != solver.dims().ny_0) {dimension_ok = false;}
+    expected_rows = solver.dims().ny_0;
   } else if (stage == solver.N()) {
-    if (Vz.rows() != solver.dims().ny_N) {dimension_ok = false;}
+    expected_rows = solver.dims().ny_N;
   } else {
-    if (Vz.rows() != solver.dims().ny) {dimension_ok = false;}
+    expected_rows = solver.dims().ny;
   }
+  if (Vz.rows() != expected_rows) {dimension_ok = false;}
 
   if (!dimension_ok) {
     std::string err_msg = \
-      "Error in 'Acados::utils::set_Vz()': Invalid matrix dimension!";
+      std::string("Error in 'Acados::utils::set_Vz()': Invalid matrix dimension!") + \
+      "Hint: expected dimension are (" + \
+      std::to_string(expected_rows) + ", " + \
+      std::to_string(solver.nz()) + ").";
     throw std::invalid_argument(err_msg);
   }
 
@@ -137,23 +149,24 @@ bool utils::set_cost_W(AcadosSolver & solver, unsigned int stage, RowMajorXd & W
   }
 
   bool dimension_ok = true;
+  int expected_size = 0;
   if (stage == 0) {
-    if (W.rows() != solver.dims().ny_0 || W.cols() != solver.dims().ny_0) {
-      dimension_ok = false;
-    }
+    expected_size = solver.dims().ny_0;
   } else if (stage == solver.N()) {
-    if (W.rows() != solver.dims().ny_N || W.cols() != solver.dims().ny_N) {
-      dimension_ok = false;
-    }
+    expected_size = solver.dims().ny_N;
   } else {
-    if (W.rows() != solver.dims().ny || W.cols() != solver.dims().ny) {
-      dimension_ok = false;
-    }
+    expected_size = solver.dims().ny;
+  }
+  if ((W.rows() != expected_size) || (W.cols() != expected_size)) {
+    dimension_ok = false;
   }
 
   if (!dimension_ok) {
     std::string err_msg = \
-      "Error in 'Acados::utils::set_W()': Invalid matrix dimension!";
+      std::string("Error in 'Acados::utils::set_W()': Invalid matrix dimension!") + \
+      "Hint: expected dimension are (" + \
+      std::to_string(expected_size) + ", " + \
+      std::to_string(expected_size) + ").";
     throw std::invalid_argument(err_msg);
   }
 
@@ -176,17 +189,20 @@ bool utils::set_cost_y_ref(AcadosSolver & solver, unsigned int stage, Eigen::Vec
   }
 
   bool dimension_ok = true;
+  int expected_size = 0;
   if (stage == 0) {
-    if (y_ref.size() != solver.dims().ny_0) {dimension_ok = false;}
+    expected_size = solver.dims().ny_0;
   } else if (stage == solver.N()) {
-    if (y_ref.size() != solver.dims().ny_N) {dimension_ok = false;}
+    expected_size = solver.dims().ny_N;
   } else {
-    if (y_ref.size() != solver.dims().ny) {dimension_ok = false;}
+    expected_size = solver.dims().ny;
   }
+  if (y_ref.size() != expected_size) {dimension_ok = false;}
 
   if (!dimension_ok) {
     std::string err_msg = \
-      "Error in 'Acados::utils::set_y_ref()': Invalid matrix dimension!";
+      std::string("Error in 'Acados::utils::set_y_ref()': Invalid matrix dimension!") + \
+      "Hint: expected vector length : " + std::to_string(expected_size) + ".";
     throw std::invalid_argument(err_msg);
   }
 

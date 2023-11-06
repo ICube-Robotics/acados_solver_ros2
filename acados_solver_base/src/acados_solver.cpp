@@ -56,7 +56,7 @@ int AcadosSolver::init(unsigned int N, double Ts)
     status = 1;
     std::cerr << "Inconsistent index map for control variables u!" << std::endl;
   }
-  if (status < 1) {
+  if (status > 0) {
     std::cerr << "ERROR: the index maps could not be initialized correctly!" << std::endl;
     return 1;
   }
@@ -378,7 +378,7 @@ int AcadosSolver::set_runtime_parameters(ValueMap const & p_i_map)
   std::vector<double> p_i;
   p_i.reserve(np());
   fill_vector_from_map(p_index_map(), p_i_map, np(), p_i);
-  return initialize_control_values(p_i);
+  return set_runtime_parameters(p_i);
 }
 
 
