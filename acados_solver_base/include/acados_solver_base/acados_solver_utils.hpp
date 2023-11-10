@@ -88,6 +88,17 @@ bool set_cost_y_ref(AcadosSolver & solver, unsigned int stage, Eigen::VectorXd &
 
 // TODO(tpoignonec): add h constr. setters and such
 
+
+// ------------------------------------------------------------
+// Convenience getters for solver stats
+// ------------------------------------------------------------
+
+double get_stats_cost_value(AcadosSolver & solver);
+
+double get_stats_sqp_iter(AcadosSolver & solver);
+
+double get_stats_cpu_time(AcadosSolver & solver);
+
 }  // namespace utils
 
 }  // namespace acados

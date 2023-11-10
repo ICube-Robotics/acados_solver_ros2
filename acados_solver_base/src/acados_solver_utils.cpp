@@ -217,4 +217,51 @@ bool utils::set_cost_y_ref(AcadosSolver & solver, unsigned int stage, Eigen::Vec
   return ret == 0;
 }
 
+// ------------------------------------------------------------
+// Convenience setters for commonly used constraint variables
+// ------------------------------------------------------------
+
+// TODO(tpoignonec): add h constr. setters and such
+
+
+// ------------------------------------------------------------
+// Convenience getters for solver stats
+// ------------------------------------------------------------
+
+double utils::get_stats_cost_value(AcadosSolver & solver)
+{
+  double cost_value = 0.0;
+  ocp_nlp_get(
+    solver.get_nlp_config(),
+    solver.get_nlp_solver(),
+    "cost_value",
+    &cost_value
+  );
+  return cost_value;
+}
+
+double utils::get_stats_sqp_iter(AcadosSolver & solver)
+{
+  double sqp_iter = 0.0;
+  ocp_nlp_get(
+    solver.get_nlp_config(),
+    solver.get_nlp_solver(),
+    "sqp_iter",
+    &sqp_iter
+  );
+  return sqp_iter;
+}
+
+double utils::get_stats_cpu_time(AcadosSolver & solver)
+{
+  double cpu_time = 0.0;
+  ocp_nlp_get(
+    solver.get_nlp_config(),
+    solver.get_nlp_solver(),
+    "time_tot",
+    &cpu_time
+  );
+  return cpu_time;
+}
+
 }  // namespace acados
