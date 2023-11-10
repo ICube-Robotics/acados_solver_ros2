@@ -17,38 +17,57 @@
 #include "acados_solver_base/acados_solver_utils.hpp"
 #include <numeric>  // for std::iota
 #include <stdexcept>
+#include <iostream>
 
 namespace acados
 {
 
-bool utils::set_cost_Vx(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & Vx)
+
+// ---------------------------------------------------------
+// Convenience setters for commonly used cost variables
+// ---------------------------------------------------------
+
+template<typename Derived>
+bool utils::set_cost_field(
+  AcadosSolver & solver,
+  unsigned int stage,
+  const std::string & field,
+  Eigen::EigenBase<Derived> & value)
 {
   if (stage > solver.N()) {
-    std::string err_msg = "Error in 'Acados::utils::set_Vx()': Invalid stage request!";
-    throw std::range_error(err_msg);
+    throw std::range_error(
+            "Acados::utils::set_cost_field could not set '" + \
+            field + "'! Invalid stage request.");
   }
 
-  bool dimension_ok = true;
+  std::vector dim_field = {0, 0};
+  ocp_nlp_cost_dims_get_from_attr(
+    solver.get_nlp_config(),
+    solver.get_nlp_dims(),
+    solver.get_nlp_out(),
+    stage,
+    field.c_str(),
+    dim_field.data()
+  );
 
-  if (Vx.cols() != solver.nx()) {dimension_ok = false;}
-
-  int expected_rows = 0;
-  if (stage == 0) {
-    expected_rows = solver.dims().ny_0;
-  } else if (stage == solver.N()) {
-    expected_rows = solver.dims().ny_N;
+  bool valid_dimensions = true;
+  if (dim_field[1] == 0) {
+    // Vector: test length
+    valid_dimensions = (value.size() == dim_field[0]);
   } else {
-    expected_rows = solver.dims().ny;
+    // Matrix: test both dimensions
+    valid_dimensions = ((value.rows() == dim_field[0]) && (value.cols() == dim_field[1]));
   }
-  if (Vx.rows() != expected_rows) {dimension_ok = false;}
 
-  if (!dimension_ok) {
-    std::string err_msg = \
-      std::string("Error in 'Acados::utils::set_Vx()': Invalid matrix dimension!") + \
-      "Hint: expected dimension are (" + \
-      std::to_string(expected_rows) + ", " + \
-      std::to_string(solver.nx()) + ").";
-    throw std::invalid_argument(err_msg);
+  if (!valid_dimensions) {
+    std::ostringstream stringStream_msg;
+    stringStream_msg << "" \
+                     << "Acados::utils::set_cost_field could not set ' " << field << "'!" \
+                     << "Invalid dimensions: expected (" \
+                     << dim_field[0] << ", " << dim_field[1] << "), but got (" \
+                     << value.rows() << ", " << value.cols() << ")." << std::endl;
+    std::string error_msg = stringStream_msg.str();
+    throw std::runtime_error(error_msg);
   }
 
   int ret = ocp_nlp_cost_model_set(
@@ -56,212 +75,181 @@ bool utils::set_cost_Vx(AcadosSolver & solver, unsigned int stage, Eigen::Matrix
     solver.get_nlp_dims(),
     solver.get_nlp_in(),
     stage,
-    "Vx",
-    Vx.data()
+    field.c_str(),
+    value.derived().data()
   );
   return ret == 0;
+}
+
+
+// Linear cost
+// ---------------------------------------------------------
+
+bool utils::set_cost_Vx(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & Vx)
+{
+  return set_cost_field(solver, stage, "Vx", Vx);
 }
 
 bool utils::set_cost_Vu(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & Vu)
 {
-  if (stage > solver.N()) {
-    std::string err_msg = "Error in 'Acados::utils::set_Vu()': Invalid stage request!";
-    throw std::range_error(err_msg);
-  }
-
-  bool dimension_ok = true;
-
-  if (Vu.cols() != solver.nu()) {dimension_ok = false;}
-
-  int expected_rows = 0;
-  if (stage == 0) {
-    expected_rows = solver.dims().ny_0;
-  } else if (stage == solver.N()) {
-    expected_rows = solver.dims().ny_N;
-  } else {
-    expected_rows = solver.dims().ny;
-  }
-  if (Vu.rows() != expected_rows) {dimension_ok = false;}
-
-  if (!dimension_ok) {
-    std::string err_msg = \
-      std::string("Error in 'Acados::utils::set_Vu()': Invalid matrix dimension!") + \
-      "Hint: expected dimension are (" + \
-      std::to_string(expected_rows) + ", " + \
-      std::to_string(solver.nu()) + ").";
-    throw std::invalid_argument(err_msg);
-  }
-
-  int ret = ocp_nlp_cost_model_set(
-    solver.get_nlp_config(),
-    solver.get_nlp_dims(),
-    solver.get_nlp_in(),
-    stage,
-    "Vu",
-    Vu.data()
-  );
-  return ret == 0;
+  return set_cost_field(solver, stage, "Vu", Vu);
 }
 
 bool utils::set_cost_Vz(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & Vz)
 {
-  if (stage > solver.N()) {
-    std::string err_msg = "Error in 'Acados::utils::set_Vz()': Invalid stage request!";
-    throw std::range_error(err_msg);
-  }
-
-  bool dimension_ok = true;
-  int expected_rows = 0;
-  if (stage == 0) {
-    expected_rows = solver.dims().ny_0;
-  } else if (stage == solver.N()) {
-    expected_rows = solver.dims().ny_N;
-  } else {
-    expected_rows = solver.dims().ny;
-  }
-  if (Vz.rows() != expected_rows) {dimension_ok = false;}
-
-  if (!dimension_ok) {
-    std::string err_msg = \
-      std::string("Error in 'Acados::utils::set_Vz()': Invalid matrix dimension!") + \
-      "Hint: expected dimension are (" + \
-      std::to_string(expected_rows) + ", " + \
-      std::to_string(solver.nz()) + ").";
-    throw std::invalid_argument(err_msg);
-  }
-
-  int ret = ocp_nlp_cost_model_set(
-    solver.get_nlp_config(),
-    solver.get_nlp_dims(),
-    solver.get_nlp_in(),
-    stage,
-    "Vz",
-    Vz.data()
-  );
-  return ret == 0;
+  return set_cost_field(solver, stage, "Vz", Vz);
 }
 
 bool utils::set_cost_W(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & W)
 {
-  if (stage > solver.N()) {
-    std::string err_msg = "Error in 'Acados::utils::set_W()': Invalid stage request!";
-    throw std::range_error(err_msg);
-  }
-
-  bool dimension_ok = true;
-  int expected_size = 0;
-  if (stage == 0) {
-    expected_size = solver.dims().ny_0;
-  } else if (stage == solver.N()) {
-    expected_size = solver.dims().ny_N;
-  } else {
-    expected_size = solver.dims().ny;
-  }
-  if ((W.rows() != expected_size) || (W.cols() != expected_size)) {
-    dimension_ok = false;
-  }
-
-  if (!dimension_ok) {
-    std::string err_msg = \
-      std::string("Error in 'Acados::utils::set_W()': Invalid matrix dimension!") + \
-      "Hint: expected dimension are (" + \
-      std::to_string(expected_size) + ", " + \
-      std::to_string(expected_size) + ").";
-    throw std::invalid_argument(err_msg);
-  }
-
-  int ret = ocp_nlp_cost_model_set(
-    solver.get_nlp_config(),
-    solver.get_nlp_dims(),
-    solver.get_nlp_in(),
-    stage,
-    "W",
-    W.data()
-  );
-  return ret == 0;
+  return set_cost_field(solver, stage, "W", W);
 }
 
 bool utils::set_cost_y_ref(AcadosSolver & solver, unsigned int stage, Eigen::VectorXd & y_ref)
 {
-  if (stage > solver.N()) {
-    std::string err_msg = "Error in 'Acados::utils::set_y_ref()': Invalid stage request!";
-    throw std::range_error(err_msg);
-  }
-
-  bool dimension_ok = true;
-  int expected_size = 0;
-  if (stage == 0) {
-    expected_size = solver.dims().ny_0;
-  } else if (stage == solver.N()) {
-    expected_size = solver.dims().ny_N;
-  } else {
-    expected_size = solver.dims().ny;
-  }
-  if (y_ref.size() != expected_size) {dimension_ok = false;}
-
-  if (!dimension_ok) {
-    std::string err_msg = \
-      std::string("Error in 'Acados::utils::set_y_ref()': Invalid matrix dimension!") + \
-      "Hint: expected vector length : " + std::to_string(expected_size) + ".";
-    throw std::invalid_argument(err_msg);
-  }
-
-  int ret = ocp_nlp_cost_model_set(
-    solver.get_nlp_config(),
-    solver.get_nlp_dims(),
-    solver.get_nlp_in(),
-    stage,
-    "y_ref",
-    y_ref.data()
-  );
-  return ret == 0;
+  return set_cost_field(solver, stage, "y_ref", y_ref);
 }
+
+// Non-linear linear cost
+// ---------------------------------------------------------
+
 
 // ------------------------------------------------------------
 // Convenience setters for commonly used constraint variables
 // ------------------------------------------------------------
 
-// TODO(tpoignonec): add h constr. setters and such
+template<typename Derived>
+bool utils::set_constraint_field(
+  AcadosSolver & solver,
+  unsigned int stage,
+  const std::string & field,
+  Eigen::EigenBase<Derived> & value)
+{
+  if (stage > solver.N()) {
+    throw std::range_error(
+            "Acados::utils::set_constraint_field could not set '" + \
+            field + "'! Invalid stage request.");
+  }
+
+  std::vector dim_field = {0, 0};
+  ocp_nlp_constraint_dims_get_from_attr(
+    solver.get_nlp_config(),
+    solver.get_nlp_dims(),
+    solver.get_nlp_out(),
+    stage,
+    field.c_str(),
+    dim_field.data()
+  );
+
+  bool valid_dimensions = true;
+  if (dim_field[1] == 0) {
+    // Vector: test length
+    valid_dimensions = (value.size() == dim_field[0]);
+  } else {
+    // Matrix: test both dimensions
+    valid_dimensions = ((value.rows() == dim_field[0]) && (value.cols() == dim_field[1]));
+  }
+
+  if (!valid_dimensions) {
+    std::ostringstream stringStream_msg;
+    stringStream_msg << "" \
+                     << "Acados::utils::set_constraint_field could not set ' " << field << "'!" \
+                     << "Invalid dimensions: expected (" \
+                     << dim_field[0] << ", " << dim_field[1] << "), but got (" \
+                     << value.rows() << ", " << value.cols() << ")." << std::endl;
+    std::string error_msg = stringStream_msg.str();
+    throw std::runtime_error(error_msg);
+  }
+
+  int ret = ocp_nlp_constraints_model_set(
+    solver.get_nlp_config(),
+    solver.get_nlp_dims(),
+    solver.get_nlp_in(),
+    stage,
+    field.c_str(),
+    value.derived().data()
+  );
+  return ret == 0;
+}
+
+// Linear constraints
+// ---------------------------------------------------------
+
+// For basic utils, see `AcadosSolver::set_state_bounds` and `AcadosSolver::set_control_bounds`
+
+// General linear constraints
+// ---------------------------------------------------------
+
+bool utils::set_const_C(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & C)
+{
+  return set_constraint_field(solver, stage, "C", C);
+}
+
+bool utils::set_const_D(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & D)
+{
+  return set_constraint_field(solver, stage, "D", D);
+}
+
+bool utils::set_const_g_min(AcadosSolver & solver, unsigned int stage, Eigen::VectorXd & g_min)
+{
+  return set_constraint_field(solver, stage, "lg", g_min);
+}
+
+bool utils::set_const_g_max(AcadosSolver & solver, unsigned int stage, Eigen::VectorXd & g_max)
+{
+  return set_constraint_field(solver, stage, "ug", g_max);
+}
+
+
+// Non-linear constraints
+// ---------------------------------------------------------
+
+bool utils::set_const_h_min(AcadosSolver & solver, unsigned int stage, Eigen::VectorXd & h_min)
+{
+  return set_constraint_field(solver, stage, "lh", h_min);
+}
+
+
+bool utils::set_const_h_max(AcadosSolver & solver, unsigned int stage, Eigen::VectorXd & h_max)
+{
+  return set_constraint_field(solver, stage, "uh", h_max);
+}
 
 
 // ------------------------------------------------------------
 // Convenience getters for solver stats
 // ------------------------------------------------------------
 
+template<typename T>
+void utils::unsafe_get_stats_field(AcadosSolver & solver, const std::string & field, T & value)
+{
+  ocp_nlp_get(
+    solver.get_nlp_config(),
+    solver.get_nlp_solver(),
+    field.c_str(),
+    &value
+  );
+}
+
 double utils::get_stats_cost_value(AcadosSolver & solver)
 {
   double cost_value = 0.0;
-  ocp_nlp_get(
-    solver.get_nlp_config(),
-    solver.get_nlp_solver(),
-    "cost_value",
-    &cost_value
-  );
+  unsafe_get_stats_field(solver, "cost_value", cost_value);
   return cost_value;
 }
 
-double utils::get_stats_sqp_iter(AcadosSolver & solver)
+int utils::get_stats_sqp_iter(AcadosSolver & solver)
 {
-  double sqp_iter = 0.0;
-  ocp_nlp_get(
-    solver.get_nlp_config(),
-    solver.get_nlp_solver(),
-    "sqp_iter",
-    &sqp_iter
-  );
+  int sqp_iter = 0.0;
+  unsafe_get_stats_field(solver, "sqp_iter", sqp_iter);
   return sqp_iter;
 }
 
 double utils::get_stats_cpu_time(AcadosSolver & solver)
 {
-  double cpu_time = 0.0;
-  ocp_nlp_get(
-    solver.get_nlp_config(),
-    solver.get_nlp_solver(),
-    "time_tot",
-    &cpu_time
-  );
-  return cpu_time;
+  double time_tot = 0.0;
+  unsafe_get_stats_field(solver, "time_tot", time_tot);
+  return time_tot;
 }
 
 }  // namespace acados
