@@ -2,4 +2,4 @@ repositories:
   acados_vendor_ros2:
     type: git
     url: https://github.com/tpoignonec/acados_vendor_ros2.git
-    version: main
+    version: v2.2.3
