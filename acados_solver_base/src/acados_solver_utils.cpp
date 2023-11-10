@@ -21,7 +21,7 @@
 namespace acados
 {
 
-bool utils::set_cost_Vx(AcadosSolver & solver, unsigned int stage, RowMajorXd & Vx)
+bool utils::set_cost_Vx(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & Vx)
 {
   if (stage > solver.N()) {
     std::string err_msg = "Error in 'Acados::utils::set_Vx()': Invalid stage request!";
@@ -62,7 +62,7 @@ bool utils::set_cost_Vx(AcadosSolver & solver, unsigned int stage, RowMajorXd & 
   return ret == 0;
 }
 
-bool utils::set_cost_Vu(AcadosSolver & solver, unsigned int stage, RowMajorXd & Vu)
+bool utils::set_cost_Vu(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & Vu)
 {
   if (stage > solver.N()) {
     std::string err_msg = "Error in 'Acados::utils::set_Vu()': Invalid stage request!";
@@ -103,7 +103,7 @@ bool utils::set_cost_Vu(AcadosSolver & solver, unsigned int stage, RowMajorXd & 
   return ret == 0;
 }
 
-bool utils::set_cost_Vz(AcadosSolver & solver, unsigned int stage, RowMajorXd & Vz)
+bool utils::set_cost_Vz(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & Vz)
 {
   if (stage > solver.N()) {
     std::string err_msg = "Error in 'Acados::utils::set_Vz()': Invalid stage request!";
@@ -141,7 +141,7 @@ bool utils::set_cost_Vz(AcadosSolver & solver, unsigned int stage, RowMajorXd & 
   return ret == 0;
 }
 
-bool utils::set_cost_W(AcadosSolver & solver, unsigned int stage, RowMajorXd & W)
+bool utils::set_cost_W(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & W)
 {
   if (stage > solver.N()) {
     std::string err_msg = "Error in 'Acados::utils::set_W()': Invalid stage request!";

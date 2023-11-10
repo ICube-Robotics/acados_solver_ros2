@@ -43,7 +43,7 @@ namespace utils
 * @param Vx Matrix Vx
 * @return bool Status (true if all OK).
 */
-bool set_cost_Vx(AcadosSolver & solver, unsigned int stage, RowMajorXd & Vx);
+bool set_cost_Vx(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & Vx);
 
 /**
 * @brief Set the Vu matrix used for 'LINEAR_LS' cost.
@@ -52,7 +52,7 @@ bool set_cost_Vx(AcadosSolver & solver, unsigned int stage, RowMajorXd & Vx);
 * @param Vu Matrix Vu
 * @return bool Status (true if all OK).
 */
-bool set_cost_Vu(AcadosSolver & solver, unsigned int stage, RowMajorXd & Vu);
+bool set_cost_Vu(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & Vu);
 
 /**
 * @brief Set the Vz matrix used for 'LINEAR_LS' cost.
@@ -61,7 +61,7 @@ bool set_cost_Vu(AcadosSolver & solver, unsigned int stage, RowMajorXd & Vu);
 * @param Vz Matrix Vz
 * @return bool Status (true if all OK).
 */
-bool set_cost_Vz(AcadosSolver & solver, unsigned int stage, RowMajorXd & Vz);
+bool set_cost_Vz(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & Vz);
 
 /**
 * @brief Set the W cost matrix used for 'LINEAR_LS' cost.
@@ -70,7 +70,7 @@ bool set_cost_Vz(AcadosSolver & solver, unsigned int stage, RowMajorXd & Vz);
 * @param W Matrix W
 * @return bool Status (true if all OK).
 */
-bool set_cost_W(AcadosSolver & solver, unsigned int stage, RowMajorXd & W);
+bool set_cost_W(AcadosSolver & solver, unsigned int stage, Eigen::MatrixXd & W);
 
 /**
 * @brief Set the y_ref vector for a given stage.
