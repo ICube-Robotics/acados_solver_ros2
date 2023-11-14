@@ -2,10 +2,10 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>acados_solvers_test</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="tpoignonec@unistra.fr">tpoignonec</maintainer>
-  <license>TODO: License declaration</license>
+  <version>0.1.1</version>
+  <description>Test package for the acados_controllers_ros2 stack.</description>
+  <maintainer email="tpoignonec@unistra.fr">Thibault Poignonec</maintainer>
+  <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
