@@ -25,12 +25,12 @@ target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_17)  # Require C
 target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-  $<INSTALL_INTERFACE:include>)
+  $<INSTALL_INTERFACE:include>
+)
 
 ament_target_dependencies(
   ${PROJECT_NAME}
     acados_vendor_ros2
-    eigen3_cmake_module
     Eigen3
 )
 target_compile_definitions(${PROJECT_NAME} PRIVATE "ACADOS_SOLVERS_BUILDING_LIBRARY")

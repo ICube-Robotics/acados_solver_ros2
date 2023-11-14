@@ -8,10 +8,13 @@
   <license>Apache License 2.0</license>  <!-- the contents of this package are Apache 2.0 -->
 
   <buildtool_depend>ament_cmake_ros</buildtool_depend>
+  <buildtool_depend>eigen3_cmake_module</buildtool_depend>
+  <build_depend>eigen</build_depend>
 
-  <depend>eigen3_cmake_module</depend>
-  <depend>Eigen3</depend>
   <depend>acados_vendor_ros2</depend>
+
+  <buildtool_export_depend>eigen3_cmake_module</buildtool_export_depend>
+  <build_export_depend>eigen</build_export_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
