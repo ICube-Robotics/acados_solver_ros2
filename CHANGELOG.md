@@ -1,7 +1,15 @@
 
 # Change Log
 
-## [Unreleased] - 2023-11-15
+## [Unreleased] - XXXX-XX-XX
+
+### Added
+
+### Changed
+
+### Fixed
+
+## [0.1.2] - 2023-11-15
 
 ### Added
 - [PR #25](https://github.com/tpoignonec/acados_controllers_ros2/pull/25)

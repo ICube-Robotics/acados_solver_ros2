@@ -93,7 +93,7 @@ class SolverPluginGenerator:
         self.__generate_libplugin_export = True
         self.__default_plugin_description = \
             'Acados solver plugin based on "acados_solver_base".'
-        self.__flag_regenerate_cmake = ".flag_regenerate_cmake"
+        self.__flag_regenerate_cmake = '.flag_regenerate_cmake'
 
     def generate_file_from_template(
             self,
