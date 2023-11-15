@@ -55,6 +55,14 @@ message(STATUS "SOLVER_PLUGINS_SOURCES : '${SOLVER_PLUGINS_SOURCES}'")
 message(STATUS "SOLVER_PLUGINS_PRE_GENERATED_LIBS : '${SOLVER_PLUGINS_PRE_GENERATED_LIBS}'")
 message(STATUS "SOLVER_PLUGINS_EXPORT_XML_FILES : '${SOLVER_PLUGINS_EXPORT_XML_FILES}'")
 
+#-----------------------------------------------------
+#   Setup CMAKE config regeneration from flag
+#-----------------------------------------------------
+include("${CMAKE_CURRENT_LIST_DIR}/cmake/regenerate_if_flag_modified.cmake")
+regenerate_if_flag_modified()
+message(
+  "${PROJECT_NAME}: the cmake config will be regenerated if the flag 'src/plugins/.flag_regenerate_cmake' is modified/deleted."
+)
 
 #-----------------------------------------------------
 #   Export cpp library

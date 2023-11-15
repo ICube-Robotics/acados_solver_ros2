@@ -93,6 +93,7 @@ class SolverPluginGenerator:
         self.__generate_libplugin_export = True
         self.__default_plugin_description = \
             'Acados solver plugin based on "acados_solver_base".'
+        self.__flag_regenerate_cmake = ".flag_regenerate_cmake"
 
     def generate_file_from_template(
             self,
@@ -213,5 +214,27 @@ class SolverPluginGenerator:
                 os.path.join(path_plugin_dir,
                              'generated_c_code/legacy_CMakeLists.txt')
             )
+
+        # Trigger CMAKE build
+        cmake_flag_name = os.path.join(
+            self.__plugin_export_path,
+            self.__flag_regenerate_cmake
+        )
+        if (os.path.exists(cmake_flag_name)):
+            try:
+                os.remove(cmake_flag_name)
+                with open(cmake_flag_name, mode='a'):
+                    pass
+            except Exception as error:
+                print(
+                    'Warning, failed to reset the CMAKE flag ',
+                    '"{cmake_flag_name}". Error: ',
+                    error
+                )
+        else:
+            print(
+                f'Warning, the CMAKE flag "{cmake_flag_name}" does not exist.'
+            )
+
         # return the python wrapper of the acados ocp in case of
         return ocp_solver

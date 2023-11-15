@@ -1,1 +1,7 @@
 acados_controllers_ros2/*/_build/*
+
+# Python
+**/__pycache__/**
+
+# Misc.
+acados_solver_plugins/src/plugins/
