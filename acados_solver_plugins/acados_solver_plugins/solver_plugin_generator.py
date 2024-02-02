@@ -10,6 +10,8 @@ from acados_template import ocp_get_default_cmake_builder
 # import casadi as ca
 from jinja2 import Environment, PackageLoader  # noqa: I100
 
+import numpy as np
+
 from acados_solver_plugins.utils import delete_dir_recursively  # noqa: I100
 from acados_solver_plugins.utils import ensure_dir_exists
 from acados_solver_plugins.utils import uppercase_to_underscore
@@ -25,7 +27,13 @@ def filter_uppercase_to_underscore(name):
 
 
 def filter_curly_bracket_list(list_of_index):
-    return '{%s}' % str(list_of_index).strip('[]')
+    if isinstance(list_of_index, list):
+        return '{%s}' % str(list_of_index).strip('[]')
+    elif isinstance(list_of_index, np.ndarray):
+        return '{%s}' % str(list_of_index.reshape((-1,)).tolist()).strip('[]')
+    else:
+        raise Exception(
+            'jinja2:filter_curly_bracket_list -> unsupported type!!!')
 
 
 # Plugin generator
