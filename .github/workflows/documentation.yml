@@ -1,0 +1,44 @@
+name: Documentation
+
+on:
+  push:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build_documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq python3-sphinx doxygen doxygen-gui doxygen-doc graphviz plantuml
+            cd ./acados_controllers_ros2/
+            pip install -r requirements.txt
+      - name: Build documentation
+        run: |
+            cd ./acados_controllers_ros2
+            sphinx-build -b html sphinx sphinx/_build
+            cd ../
+      - name: Create commit
+        run: |
+            git clone https://github.com/tpoignonec/acados_controllers_ros2.git --branch gh-pages --single-branch gh-pages
+            mkdir -p gh-pages/docs/
+            mkdir -p gh-pages/api/
+            cp -r ./acados_controllers_ros2/sphinx/_build/html/* gh-pages/
+            cp -r ./acados_controllers_ros2/doxygen/_build/html/* gh-pages/api/
+            cd gh-pages
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add .
+            git commit -m "Update documentation" -a || true
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: gh-pages
+          directory: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
