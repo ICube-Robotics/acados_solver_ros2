@@ -27,9 +27,9 @@ jobs:
       - name: Create commit
         run: |
             git clone https://github.com/tpoignonec/acados_controllers_ros2.git --branch gh-pages --single-branch gh-pages
+            cd gh-pages && rm -r * && cd ..
             mkdir -p gh-pages/docs/
             mkdir -p gh-pages/api/
-            cd gh-pages && rm -r * && cd ..
             cp -r ./acados_controllers_ros2/sphinx/_build/* gh-pages/
             cp -r ./acados_controllers_ros2/doxygen/_build/html/* gh-pages/api/
             cd gh-pages
