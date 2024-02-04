@@ -29,7 +29,7 @@ jobs:
             git clone https://github.com/tpoignonec/acados_controllers_ros2.git --branch gh-pages --single-branch gh-pages
             mkdir -p gh-pages/docs/
             mkdir -p gh-pages/api/
-            cp -r ./acados_controllers_ros2/sphinx/_build/html/* gh-pages/
+            cp -r ./acados_controllers_ros2/sphinx/_build/* gh-pages/
             cp -r ./acados_controllers_ros2/doxygen/_build/html/* gh-pages/api/
             cd gh-pages
             git config --local user.email "action@github.com"
