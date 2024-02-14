@@ -1,4 +1,4 @@
-Acados controllers ROS2 Stack
+Acados solver ROS2 Stack
 =============================
 
 Helper packages to use the Acados solver for non-linear optimization in ROS2 applications.
