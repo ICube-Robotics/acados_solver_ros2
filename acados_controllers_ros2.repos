@@ -1,5 +1,5 @@
 repositories:
   acados_vendor_ros2:
     type: git
-    url: https://github.com/tpoignonec/acados_vendor_ros2.git
+    url: https://github.com/ICube-Robotics/acados_vendor_ros2.git
     version: v0.2.5
