@@ -1,16 +1,16 @@
 ARG ROS_DISTRO="humble"
 FROM ros:${ROS_DISTRO}
 
-COPY . /ros2_dev/src/acados_controllers_ros2
+COPY . /ros2_dev/src/acados_solver_ros2
 RUN apt update && apt upgrade -y
 RUN apt install -y python3-pip
 RUN apt install -y git clang-format-14 cppcheck
 RUN pip install pre-commit
 RUN apt update && \
-    cd ros2_dev/src/acados_controllers_ros2 && \
+    cd ros2_dev/src/acados_solver_ros2 && \
     git submodule update --init --recursive
 RUN cd ros2_dev/src && \
-    vcs import . < acados_controllers_ros2/acados_controllers_ros2.repos
+    vcs import . < acados_solver_ros2/acados_solver_ros2.repos
 RUN cd ros2_dev/ && \
     . /opt/ros/${ROS_DISTRO}/setup.sh && \
     rosdep install --ignore-src --from-paths . -y -r

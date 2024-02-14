@@ -3,9 +3,16 @@
 
 ## [Unreleased] - XXXX-XX-XX
 
+Note: the URL has changed from `https://github.com/tpoignonec/acados_controllers_ros2` to  `https://github.com/tpoignonec/acados_solver_ros2`. See [PR #32](https://github.com/tpoignonec/acados_controllers_ros2/pull/32)
+
 ### Added
 
+- [PR #32](https://github.com/tpoignonec/acados_controllers_ros2/pull/32) An example package for plugin export.
+- Some more documentation in the "getting started" section.
+
 ### Changed
+
+- [PR #32](https://github.com/tpoignonec/acados_controllers_ros2/pull/32) Package export namespace.
 
 ### Fixed
 

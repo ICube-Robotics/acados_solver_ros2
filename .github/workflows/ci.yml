@@ -18,28 +18,28 @@ jobs:
           mkdir -p ${{github.workspace}}/src
       - uses: actions/checkout@v4
         with:
-          path: src/acados_controllers_ros2
+          path: src/acados_solver_ros2
 
       - name: Build Docker Image
         uses: docker/build-push-action@v5
         with:
-          tags: acados_controllers_ros2:humble
+          tags: acados_solver_ros2:humble
           file: .docker/ci/Dockerfile
           push: false
 
       - name: Build
         uses: addnab/docker-run-action@v3
         with:
-          image: acados_controllers_ros2:humble
+          image: acados_solver_ros2:humble
           options: -v ${{github.workspace}}/:/ros/
           run: |
-            cd /ros # structure = <...>/ros/src/acados_controllers_ros2/<...>
+            cd /ros # structure = <...>/ros/src/acados_solver_ros2/<...>
             . /opt/ros/humble/setup.sh
-            cd src/acados_controllers_ros2
+            cd src/acados_solver_ros2
             git config --global --add safe.directory '*'
             git submodule update --init --recursive
             cd .. # = ros/src/
-            vcs import . < acados_controllers_ros2/acados_controllers_ros2.repos
+            vcs import . < acados_solver_ros2/acados_solver_ros2.repos
             cd .. # = ros/
             tree -L 4
             rosdep install --ignore-src --from-paths . -y -r
@@ -49,7 +49,7 @@ jobs:
       - name: Tests
         uses: addnab/docker-run-action@v3
         with:
-          image: acados_controllers_ros2:humble
+          image: acados_solver_ros2:humble
           options: -v ${{github.workspace}}/:/ros/
           run: |
             cd /ros

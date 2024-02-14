@@ -14,7 +14,7 @@
 #
 # Author: Thibault Poignonec (thibault.poignonec@gmail.com)
 
-# Part of the 'acados_controller_ros2' package
+# Part of the 'acados_solver_ros2' package
 
 function(regenerate_if_flag_modified)
     set( FLAG_FILE_REBUILD ${CMAKE_CURRENT_SOURCE_DIR}/src/plugins/.flag_regenerate_cmake )

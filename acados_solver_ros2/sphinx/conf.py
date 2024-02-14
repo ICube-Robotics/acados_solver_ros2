@@ -33,7 +33,7 @@ html_extra_path = ['../doxygen/_build']  # Export files to "sphinx/_build"
 
 # -- Project information -----------------------------------------------------
 
-project = "acados_controllers_ros2"
+project = "acados_solver_ros2"
 copyright = "2023, ICUBE Laboratory, University of Strasbourg"
 author = "Thibault Poignonec"
 
@@ -60,7 +60,7 @@ extensions = [
     "breathe",
 ]
 
-breathe_default_project = "acados_controllers_ros2"
+breathe_default_project = "acados_solver_ros2"
 
 
 def get_package(package: str):
@@ -79,9 +79,9 @@ primary_domain = "cpp"
 highlight_language = "cpp"
 
 breathe_projects = {
-    "acados_controllers_ros2": "_build/xml/",
+    "acados_solver_ros2": "_build/xml/",
 }
-breathe_default_project = "acados_controllers_ros2"
+breathe_default_project = "acados_solver_ros2"
 breathe_default_members = ('members', 'undoc-members')
 
 

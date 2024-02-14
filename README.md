@@ -1,7 +1,7 @@
-# acados_controllers_ros2
+# acados_solver_ros2
 
 [![Licence](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![CI](https://github.com/tpoignonec/acados_controllers_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tpoignonec/acados_controllers_ros2/actions/workflows/ci.yml)
+[![CI](https://github.com/tpoignonec/acados_solver_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tpoignonec/acados_solver_ros2/actions/workflows/ci.yml)
 [![Build tests (iron)](../../actions/workflows/ci-iron.yaml/badge.svg?branch=main)](../../actions/workflows/ci-iron.yaml?query=branch:main)
 [![Build tests (rolling)](../../actions/workflows/ci-rolling.yaml/badge.svg?branch=main)](../../actions/workflows/ci-rolling.yaml?query=branch:main)
 
@@ -16,7 +16,7 @@ To date, the stack includes:
   - `acados_solver_plugins_example`: a package to be used as a demo and as a template when starting a project using the acados solvers.
 
 
-**For more information, please check the [documentation](https://tpoignonec.github.io/acados_controllers_ros2/).**
+**For more information, please check the [documentation](https://tpoignonec.github.io/acados_solver_ros2/).**
 
 ## Contacts ##
 ![icube](https://icube.unistra.fr/fileadmin/templates/DUN/icube/images/logo.png)
