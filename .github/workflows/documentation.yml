@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: |
             sudo apt-get update -qq
-            sudo apt-get install -y -qq python3-sphinx doxygen doxygen-gui doxygen-doc graphviz plantuml
+            sudo apt-get install -y -qq python3-sphinx doxygen doxygen-gui doxygen-doc graphviz plantuml tree
             cd ./acados_solver_ros2/
             pip install -r requirements.txt
       - name: Build documentation
@@ -27,6 +27,7 @@ jobs:
       - name: Create commit
         run: |
             git clone https://github.com/tpoignonec/acados_solver_ros2.git --branch gh-pages --single-branch gh-pages
+            tree -L 2 # for debg purposes
             cd gh-pages && rm -r * && cd ..
             mkdir -p gh-pages/docs/
             mkdir -p gh-pages/api/
