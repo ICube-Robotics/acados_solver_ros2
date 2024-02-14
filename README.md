@@ -16,7 +16,7 @@ To date, the stack includes:
   - `acados_solver_plugins_example`: a package to be used as a demo and as a template when starting a project using the acados solvers.
 
 
-**For more information, please check the [documentation](https://tpoignonec.github.io/acados_solver_ros2/).**
+**For more information, please check the [documentation](https://icube-robotics.github.io/acados_solver_ros2/).**
 
 ## Installation ##
 
