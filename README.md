@@ -18,6 +18,22 @@ To date, the stack includes:
 
 **For more information, please check the [documentation](https://tpoignonec.github.io/acados_solver_ros2/).**
 
+## Installation ##
+
+```bash
+source /opt/ros/humble/setup.bash
+
+mkdir ~/ros2_ws/src
+cd ~/ros2_ws/src
+git clone https://github.com/tpoignonec/acados_solver_ros2.git
+vcs import . < acados_solver_ros2/acados_solver_ros2.repos
+rosdep install --ignore-src --from-paths . -y -r
+
+cd ..
+colcon build && colcon build
+source install/setup.bash
+```
+
 ## Contacts ##
 ![icube](https://icube.unistra.fr/fileadmin/templates/DUN/icube/images/logo.png)
 
