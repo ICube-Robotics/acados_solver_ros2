@@ -23,9 +23,10 @@
 #include "generated_c_code/acados_solver_{{solver_c_prefix}}.h"
 
 
-namespace acados
+namespace {{library_name}}
 {
 
+using namespace acados;
 
 // Constructor
 {{plugin_class_name}}::{{plugin_class_name}}()
@@ -186,10 +187,10 @@ unsigned int {{plugin_class_name}}::get_nlp_np() const
   return _capsule->nlp_np;
 }
 
-}  // using namespace acados
+}  // namespace {{library_name}}
 
 {%- if export_plugin %}
 
 #include <pluginlib/class_list_macros.hpp>
-PLUGINLIB_EXPORT_CLASS(acados::{{plugin_class_name}}, acados::AcadosSolver)
+PLUGINLIB_EXPORT_CLASS({{library_name}}::{{plugin_class_name}}, acados::AcadosSolver)
 {%- endif %}

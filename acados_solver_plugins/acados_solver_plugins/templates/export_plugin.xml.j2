@@ -1,5 +1,9 @@
 <library path="{{library_name}}">
-  <class type="acados::{{plugin_class_name}}" base_class_type="acados::AcadosSolver">
-    <description>{{solver_description}}</description>
+  <class name="{{library_name}}/{{plugin_class_name}}"
+         type="{{library_name}}::{{plugin_class_name}}"
+         base_class_type="acados::AcadosSolver">
+    <description>
+      {{solver_description}}
+    </description>
   </class>
 </library>

@@ -103,7 +103,7 @@ class SolverPluginGenerator:
             'Acados solver plugin based on "acados_solver_base".'
         self.__flag_regenerate_cmake = '.flag_regenerate_cmake'
 
-    def generate_file_from_template(
+    def _generate_file_from_template(
             self,
             template_filename,
             export_filename,
@@ -127,6 +127,29 @@ class SolverPluginGenerator:
                                z_index_map: dict = None,
                                p_index_map: dict = None,
                                u_index_map: dict = None) -> AcadosOcpSolver:
+        """
+        Generate the solver plugin from a python Acados OCP model.
+
+        :param acados_ocp: Acados OCP model
+        :type acados_ocp: AcadosOcp
+        :param plugin_class_name:
+            Class name for the generated plugin of type
+            "acados::<plugin_class_name>"
+        :type plugin_class_name: str
+        :param solver_description:
+            Short description for the exported plugin, defaults to None
+        :type solver_description: str, optional
+        :param x_index_map: Differential state index map, defaults to None
+        :type x_index_map: dict, optional
+        :param z_index_map: Algebraic state index map, defaults to None
+        :type z_index_map: dict, optional
+        :param p_index_map: Parameters index map, defaults to None
+        :type p_index_map: dict, optional
+        :param u_index_map: Parameters index map, defaults to None
+        :type u_index_map: dict, optional
+        :return: the acados OCP solver generated as a by-product
+        :rtype: AcadosOcpSolver
+        """
         # Make sure dir exist and clean if it does
         path_plugin_dir = os.path.join(
             self.__plugin_export_path,
@@ -178,13 +201,13 @@ class SolverPluginGenerator:
             ''+uppercase_to_underscore(plugin_class_name)+'.hpp'
         )
         print('Generating "%s" from template...' % (cpp_impl_file))
-        self.generate_file_from_template(
+        self._generate_file_from_template(
             self.__solver_pluging_cpp_template,
             cpp_impl_file,
             **template_render_args
         )
         print('Generating "%s" from template...' % (hpp_impl_file))
-        self.generate_file_from_template(
+        self._generate_file_from_template(
             self.__solver_pluging_hpp_template,
             hpp_impl_file,
             **template_render_args
@@ -195,13 +218,13 @@ class SolverPluginGenerator:
             path_plugin_dir, 'add_pluging_to_build.cmake')
         plugin_xml_file = os.path.join(path_plugin_dir, 'export_plugin.xml')
         print('Generating "%s" from template...' % (cmake_file))
-        self.generate_file_from_template(
+        self._generate_file_from_template(
             self.__solver_pluging_cmake_template,
             cmake_file,
             **template_render_args
         )
         print('Generating "%s" from template...' % (plugin_xml_file))
-        self.generate_file_from_template(
+        self._generate_file_from_template(
             self.__solver_pluging_export_xml_template,
             plugin_xml_file,
             **template_render_args

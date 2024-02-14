@@ -5,3 +5,4 @@ acados_controllers_ros2/*/_build/*
 
 # Misc.
 acados_solver_plugins/src/plugins/
+acados_solver_plugins_example/src/plugins/

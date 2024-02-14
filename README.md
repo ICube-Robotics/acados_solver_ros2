@@ -1,33 +1,26 @@
 # acados_controllers_ros2
 
-Ros2 controllers using Acados and ros2-control.
-
 [![Licence](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![CI](https://github.com/tpoignonec/acados_controllers_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tpoignonec/acados_controllers_ros2/actions/workflows/ci.yml)
 [![Build tests (iron)](../../actions/workflows/ci-iron.yaml/badge.svg?branch=main)](../../actions/workflows/ci-iron.yaml?query=branch:main)
 [![Build tests (rolling)](../../actions/workflows/ci-rolling.yaml/badge.svg?branch=main)](../../actions/workflows/ci-rolling.yaml?query=branch:main)
 
-## Getting started
+## About ##
 
-1. Install the `ros2` distribution (current dev. based on `ros2 humble`). See the [documentation](https://docs.ros.org/en/humble/Installation.html) for installation steps.
+Helper packages to use the Acados solver for non-linear optimization in ROS2 applications.
+The goal is to prototype NMPC solvers in Python and to seamlessly use them in C++ ROS2 applications (i.e., `ros2-control` controllers).
 
-2. Source the `ros2` environment:
-    ```shell
-    source /opt/ros/humble/setup.bash
-    ```
-3. Prepare the workspace and install dependencies
-    ```shell
-    sudo apt install python3-colcon-common-extensions
-    cd ~/ros2_ws
-    cd src
-    git clone https://github.com/tpoignonec/acados_controllers_ros2.git
-    vcs import . < acados_controllers_ros2/acados_controllers_ros2.repos
-    rosdep install --ignore-src --from-paths . -y -r
-    ```
+To date, the stack includes:
+  - `acados_solver_base`: a wrapper C++ class for Acados solvers;
+  - `acados_solver_plugins`: a templated interface between the wrapper and Acados auto-generated C-code. A minimalistic Python library provides simple generation of C++ solver plugins from Python Acados models;
+  - `acados_solver_plugins_example`: a package to be used as a demo and as a template when starting a project using the acados solvers.
 
-4. Build stack and source
-    ```shell
-    cd ~/ros2_ws
-    colcon build && colcon build
-    source install/setup.bash
-    ```
+
+**For more information, please check the [documentation](https://tpoignonec.github.io/acados_controllers_ros2/).**
+
+## Contacts ##
+![icube](https://icube.unistra.fr/fileadmin/templates/DUN/icube/images/logo.png)
+
+[ICube Laboratory](https://icube.unistra.fr), [University of Strasbourg](https://www.unistra.fr/), France
+
+__Thibault Poignonec:__ [tpoignonec@unistra.fr](mailto:tpoignonec@unistra.fr), @github: [tpoignonec](https://github.com/tpoignonec)

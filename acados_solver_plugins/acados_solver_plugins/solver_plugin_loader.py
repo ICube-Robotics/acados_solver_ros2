@@ -31,7 +31,8 @@ class SolverPluginLoader:
             is set to "acados_solver_plugins" internally)
         :type library_name: str, optional
         """
-        pass
+        raise NotImplementedError('TODO')
 
     def load_solver_plugin(self, solver_plugin_name: str):
-        pass
+        """Load a Acados OCP solver from previously exported plugin. TODO."""
+        raise NotImplementedError('TODO')

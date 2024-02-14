@@ -51,14 +51,15 @@ int main(int argc, char ** argv)
   (void) argc;
   (void) argv;
 
-  printf("hello world acados_solvers_test package\n");
-
+  std::string solver_plugin_name = "acados_solver_plugins_example/MockAcadosSolver";
 
   pluginlib::ClassLoader<acados::AcadosSolver> acados_solver_loader("acados_solver_base",
     "acados::AcadosSolver");
   std::shared_ptr<acados::AcadosSolver> solver = acados_solver_loader.createSharedInstance(
-    "acados::MockAcadosSolver");
+    solver_plugin_name);
 
+
+  std::cout << "Loading solver plugin \"" << solver_plugin_name << "\"" << std::endl;
 
   int N = 10;
   double Ts = 0.01;
@@ -84,22 +85,22 @@ int main(int argc, char ** argv)
 
   // Test map utils
   acados::ValueMap x_values_map;
-  x_values_map["p"] = std::vector<double>{1.0};
-  x_values_map["p_dot"] = std::vector<double>{0.0};
-  x_values_map["theta"] = std::vector<double>{3.1415};
-  x_values_map["theta_dot"] = std::vector<double>{0.0};
-  x_values_map["useless_key_for_test"] = std::vector<double>{0.0, 10.0};
+  x_values_map["p"] = acados::ValueVector{1.0};
+  x_values_map["p_dot"] = acados::ValueVector{0.0};
+  x_values_map["theta"] = acados::ValueVector{3.1415};
+  x_values_map["theta_dot"] = acados::ValueVector{0.0};
+  x_values_map["useless_key_for_test"] = acados::ValueVector{0.0, 10.0};
 
   std::cout << "Provided values_map = " << std::endl;
   print_map(x_values_map);
-  std::vector<double> x_values;
+  acados::ValueVector x_values;
   acados::AcadosSolver::fill_vector_from_map(solver->x_index_map(), x_values_map, 4, x_values);
   std::cout << "Generated values = ";
   print_vector(x_values);
   std::cout << std::endl << std::endl;
 
   std::cout << "Test set p :" << std::endl;
-  std::vector<double> p_i {
+  acados::ValueVector p_i {
     1.0,  // Cart mass
     0.1   // Ball mass
   };
@@ -109,7 +110,7 @@ int main(int argc, char ** argv)
 
   std::cout << "Set initial state = [0, pi, 0, 0]" << std::endl;
   {
-    std::vector<double> x0 {0., 3.14, 0.0, 0.0};
+    acados::ValueVector x0 {0., 3.14, 0.0, 0.0};
     solver->set_initial_state_values(x0);
     solver->initialize_state_values(x0);
   }
@@ -120,17 +121,17 @@ int main(int argc, char ** argv)
   }
 
   std::cout << "Set some u bounds (nbu = " << solver->dims().nbu << "):" << std::endl;
-  std::vector<int> idxbu = {0};
-  std::vector<double> lbu = {-10};
-  std::vector<double> ubu = {10};
+  acados::IndexVector idxbu = {0};
+  acados::ValueVector lbu = {-10};
+  acados::ValueVector ubu = {10};
   for (int idx = 0; idx < N; idx++) {
     solver->set_control_bounds(idx, idxbu, lbu, ubu);
   }
 
   std::cout << "Set some x bounds (nbx = " << solver->dims().nbx << "):" << std::endl;
-  std::vector<int> idxbx = {2};
-  std::vector<double> lbx = {0.0};
-  std::vector<double> ubx = {0.5};
+  acados::IndexVector idxbx = {2};
+  acados::ValueVector lbx = {0.0};
+  acados::ValueVector ubx = {0.5};
   for (int idx = 1; idx <= N; idx++) {
     solver->set_state_bounds(idx, idxbx, lbx, ubx);
   }

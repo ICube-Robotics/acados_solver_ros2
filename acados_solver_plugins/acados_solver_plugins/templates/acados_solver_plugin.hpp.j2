@@ -20,9 +20,9 @@
 
 struct {{solver_c_prefix|lower}}_solver_capsule;
 
-namespace acados
+namespace {{library_name}}
 {
-class {{plugin_class_name}} : public AcadosSolver
+class {{plugin_class_name}} : public acados::AcadosSolver
 {
 public:
   // Constructor
@@ -59,4 +59,4 @@ private:
   {{solver_c_prefix|lower}}_solver_capsule * _capsule = nullptr;
 };
 
-} // namespace acados
+} // namespace {{library_name}}
