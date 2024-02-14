@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(acados_controllers_ros2 NONE)
+project(acados_solver_ros2 NONE)
 find_package(ament_cmake REQUIRED)
 
 

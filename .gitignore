@@ -1,4 +1,4 @@
-acados_controllers_ros2/*/_build/*
+acados_solver_ros2/*/_build/*
 
 # Python
 **/__pycache__/**

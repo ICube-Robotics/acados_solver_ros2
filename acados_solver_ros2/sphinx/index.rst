@@ -11,7 +11,7 @@ To date, the stack includes:
     A minimalistic Python library provides simple generation of C++ solver plugins from Python Acados models;
   * ``acados_solver_plugins_example``: a package to be used as a demo and as a template when starting a project using the acados solvers.
 
-**Project GitHub repository:** `acados_controllers_ros2 <https://github.com/tpoignonec/acados_controllers_ros2>`_
+**Project GitHub repository:** `acados_solver_ros2 <https://github.com/tpoignonec/acados_solver_ros2>`_
 
 .. toctree::
   :maxdepth: 1

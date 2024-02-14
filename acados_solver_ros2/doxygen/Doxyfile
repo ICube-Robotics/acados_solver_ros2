@@ -1,6 +1,6 @@
 # All settings not listed here will use the Doxygen default values.
 
-PROJECT_NAME           = "acados_controllers_ros2"
+PROJECT_NAME           = "acados_solver_ros2"
 PROJECT_NUMBER         = main
 PROJECT_BRIEF          = "Acados-based NMPC controllers for ROS2 control"
 

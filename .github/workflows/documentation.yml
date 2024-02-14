@@ -17,21 +17,21 @@ jobs:
         run: |
             sudo apt-get update -qq
             sudo apt-get install -y -qq python3-sphinx doxygen doxygen-gui doxygen-doc graphviz plantuml
-            cd ./acados_controllers_ros2/
+            cd ./acados_solver_ros2/
             pip install -r requirements.txt
       - name: Build documentation
         run: |
-            cd ./acados_controllers_ros2
+            cd ./acados_solver_ros2
             sphinx-build -b html sphinx sphinx/_build
             cd ../
       - name: Create commit
         run: |
-            git clone https://github.com/tpoignonec/acados_controllers_ros2.git --branch gh-pages --single-branch gh-pages
+            git clone https://github.com/tpoignonec/acados_solver_ros2.git --branch gh-pages --single-branch gh-pages
             cd gh-pages && rm -r * && cd ..
             mkdir -p gh-pages/docs/
             mkdir -p gh-pages/api/
-            cp -r ./acados_controllers_ros2/sphinx/_build/* gh-pages/
-            cp -r ./acados_controllers_ros2/doxygen/_build/html/* gh-pages/api/
+            cp -r ./acados_solver_ros2/sphinx/_build/* gh-pages/
+            cp -r ./acados_solver_ros2/doxygen/_build/html/* gh-pages/api/
             cd gh-pages
             touch .nojekyll
             git config --local user.email "action@github.com"

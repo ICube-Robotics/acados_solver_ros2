@@ -1,6 +1,6 @@
-### Acados Controllers for ROS2 control
+### Acados solver utils for ROS2 applications
 
-## Meta-package `acados_controllers_ros2`
+## Meta-package `acados_solver_ros2`
 
 This is a meta-package Acados ROS2 controllers stack.
 
@@ -14,7 +14,7 @@ sudo apt install python3-sphinx doxygen doxygen-gui doxygen-doc
 
 2) Install the necessary sphinx extensions
 ```bash
-cd acados_controllers_ros2/acados_controllers_ros2
+cd acados_solver_ros2/acados_solver_ros2
 pip install -r requirements.txt
 ```
 

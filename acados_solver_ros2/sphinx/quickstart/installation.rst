@@ -22,8 +22,8 @@ See the `official documentation <https://docs.ros.org/en/humble/Installation.htm
     sudo apt install python3-colcon-common-extensions
     cd ~/ros2_ws
     cd src
-    git clone https://github.com/tpoignonec/acados_controllers_ros2.git
-    vcs import . < acados_controllers_ros2/acados_controllers_ros2.repos
+    git clone https://github.com/tpoignonec/acados_solver_ros2.git
+    vcs import . < acados_solver_ros2/acados_solver_ros2.repos
     rosdep install --ignore-src --from-paths . -y -r
 
 4. Build stack and source
@@ -46,7 +46,7 @@ First, export the Acados solver plugin:
     cd ~/ros2_ws
     source install/setup.bash
 
-    cd src/acados_controllers_ros2/acados_solver_plugins_example/script
+    cd src/acados_solver_ros2/acados_solver_plugins_example/script
     python3 -m demo_export_plugin_to_custom_pkg
 
     # Note: if used for the first time, Acados will ask you to install "Tera renderer"

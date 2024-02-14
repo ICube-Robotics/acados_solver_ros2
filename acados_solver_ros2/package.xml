@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>acados_controllers_ros2</name>
+  <name>acados_solver_ros2</name>
   <version>0.1.2</version>
-  <description>Meta-package aggregating the acados_controllers_ros2 packages and documentation</description>
+  <description>Meta-package aggregating the acados_solver_ros2 packages and documentation</description>
   <maintainer email="tpoignonec@unistra.fr">Thibault Poignonec</maintainer>
   <license>Apache License 2.0</license>
 
