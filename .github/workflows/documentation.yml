@@ -26,7 +26,7 @@ jobs:
             cd ../
       - name: Create commit
         run: |
-            git clone https://github.com/tpoignonec/acados_solver_ros2.git --branch gh-pages --single-branch gh-pages
+            git clone https://github.com/ICube-Robotics/acados_solver_ros2.git --branch gh-pages --single-branch gh-pages
             tree -L 2 # for debg purposes
             cd gh-pages && rm -r * && cd ..
             mkdir -p gh-pages/docs/

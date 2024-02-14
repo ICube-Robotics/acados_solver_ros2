@@ -1,7 +1,7 @@
 # acados_solver_ros2
 
 [![Licence](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![CI](https://github.com/tpoignonec/acados_solver_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/tpoignonec/acados_solver_ros2/actions/workflows/ci.yml)
+[![CI](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci.yml)
 [![Build tests (iron)](../../actions/workflows/ci-iron.yaml/badge.svg?branch=main)](../../actions/workflows/ci-iron.yaml?query=branch:main)
 [![Build tests (rolling)](../../actions/workflows/ci-rolling.yaml/badge.svg?branch=main)](../../actions/workflows/ci-rolling.yaml?query=branch:main)
 
@@ -16,7 +16,7 @@ To date, the stack includes:
   - `acados_solver_plugins_example`: a package to be used as a demo and as a template when starting a project using the acados solvers.
 
 
-**For more information, please check the [documentation](https://tpoignonec.github.io/acados_solver_ros2/).**
+**For more information, please check the [documentation](https://icube-robotics.github.io/acados_solver_ros2/).**
 
 ## Installation ##
 
@@ -25,7 +25,7 @@ source /opt/ros/humble/setup.bash
 
 mkdir ~/ros2_ws/src
 cd ~/ros2_ws/src
-git clone https://github.com/tpoignonec/acados_solver_ros2.git
+git clone https://github.com/ICube-Robotics/acados_solver_ros2.git
 vcs import . < acados_solver_ros2/acados_solver_ros2.repos
 rosdep install --ignore-src --from-paths . -y -r
 
@@ -39,4 +39,4 @@ source install/setup.bash
 
 [ICube Laboratory](https://icube.unistra.fr), [University of Strasbourg](https://www.unistra.fr/), France
 
-__Thibault Poignonec:__ [tpoignonec@unistra.fr](mailto:tpoignonec@unistra.fr), @github: [tpoignonec](https://github.com/tpoignonec)
+__Thibault Poignonec:__ [tpoignonec@unistra.fr](mailto:tpoignonec@unistra.fr), @github: [tpoignonec](https://github.com/ICube-Robotics)

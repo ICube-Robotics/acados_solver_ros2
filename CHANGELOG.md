@@ -3,7 +3,7 @@
 
 ## [0.2.0] - 2024-02-14
 
-Note: the URL has changed from `https://github.com/tpoignonec/acados_controllers_ros2` to  `https://github.com/tpoignonec/acados_solver_ros2`. See [PR #1 (acados_solver_ros2)](https://github.com/tpoignonec/acados_solver_ros2/pull/1)
+Note: the URL has changed from `https://github.com/tpoignonec/acados_controllers_ros2` to  `https://github.com/ICube-Robotics/acados_solver_ros2`. See [PR #1 (acados_solver_ros2)](https://github.com/tpoignonec/acados_solver_ros2/pull/1)
 
 ### Added
 
