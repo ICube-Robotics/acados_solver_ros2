@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceacados" kind="namespace" language="C++">
+    <compoundname>acados</compoundname>
+    <innerclass refid="classacados_1_1AcadosSolver" prot="public">acados::AcadosSolver</innerclass>
+    <innernamespace refid="namespaceacados_1_1utils">acados::utils</innernamespace>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceacados_1a4b3855444d13957dce438bfb70df609b" prot="public" static="no">
+        <type>std::vector&lt; unsigned int &gt;</type>
+        <definition>using acados::IndexVector = typedef std::vector&lt;unsigned int&gt;</definition>
+        <argsstring></argsstring>
+        <name>IndexVector</name>
+        <briefdescription>
+<para>List of indexes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" line="30" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" prot="public" static="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>using acados::ValueVector = typedef std::vector&lt;double&gt;</definition>
+        <argsstring></argsstring>
+        <name>ValueVector</name>
+        <briefdescription>
+<para>List of values (double). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" line="33" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" prot="public" static="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" kindref="member">IndexVector</ref> &gt;</type>
+        <definition>using acados::IndexMap = typedef std::unordered_map&lt;std::string, IndexVector&gt;</definition>
+        <argsstring></argsstring>
+        <name>IndexMap</name>
+        <briefdescription>
+<para>Mapping between keys (<computeroutput>std::string</computeroutput>) and indexes (<computeroutput><ref refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" kindref="member">acados::IndexVector</ref></computeroutput>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" line="36" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" prot="public" static="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref> &gt;</type>
+        <definition>using acados::ValueMap = typedef std::unordered_map&lt;std::string, ValueVector&gt;</definition>
+        <argsstring></argsstring>
+        <name>ValueMap</name>
+        <briefdescription>
+<para>Mapping between keys (<computeroutput>std::string</computeroutput>) and data (<computeroutput><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">acados::ValueVector</ref></computeroutput>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" line="39" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceacados_1a1d969b09ab7077713fef736f6ddfb260" prot="public" static="no">
+        <type>Eigen::Matrix&lt; double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor &gt;</type>
+        <definition>using acados::RowMajorXd = typedef Eigen::Matrix&lt;double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor&gt;</definition>
+        <argsstring></argsstring>
+        <name>RowMajorXd</name>
+        <briefdescription>
+<para>Dynamic size row-major array (hence compatible with Acados C-arrays). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" line="42" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceacados_1aeec75a8df82483006004d76eabc267bb" prot="public" static="no">
+        <type>Eigen::Matrix&lt; double, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor &gt;</type>
+        <definition>using acados::ColumnMajorXd = typedef Eigen::Matrix&lt;double, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor&gt;</definition>
+        <argsstring></argsstring>
+        <name>ColumnMajorXd</name>
+        <briefdescription>
+<para>Dynamic size colum-major array (by default in Eigen). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" line="45" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="34" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="classacados_1_1AcadosSolver" kind="class"><name>acados::AcadosSolver</name>
+    <member refid="classacados_1_1AcadosSolver_1a9ff8864185558e8a0942c8737551b30b" kind="variable"><name>_dims</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a8dd3b69a60cf37d1a69997d36ff377ad" kind="variable"><name>_x_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a08d39420a08a791822cdcaac8a998230" kind="variable"><name>_z_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a46d83835fd145fba0ca3de0539035047" kind="variable"><name>_p_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ab205a74572e636433c300b6e7909a1e3" kind="variable"><name>_u_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1aa28f59e93f2bd03429331a8ccd23ab1e" kind="variable"><name>_is_initialized</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a336d8e58498ba1e116d80dcecd656282" kind="variable"><name>_Ts</name></member>
+    <member refid="classacados_1_1AcadosSolver_1adf7bcd9dd5f9984333285b3aa0188eaa" kind="variable"><name>_rti_phase</name></member>
+    <member refid="classacados_1_1AcadosSolver_1acdd73246fe15bb274a9f7a1ff40563b1" kind="function"><name>AcadosSolver</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ad63b041ee98a55d0cc9b3b2f14820a53" kind="function"><name>~AcadosSolver</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a8ea324590b8abc71b97e66e24c2181f1" kind="function"><name>init</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a4c18d1f743bf03e249a1ee2b6f13406f" kind="function"><name>reset</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a15d6ca39d87ce1440e0b926a1f224d0d" kind="function"><name>solve</name></member>
+    <member refid="classacados_1_1AcadosSolver_1aaca413f68e006eba5ca75ff02b7831d6" kind="function"><name>set_initial_state_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a0aea73d23b755434f01d6a3485d51260" kind="function"><name>set_initial_state_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a37944dc0500d89cc53b60aa3a9c59de2" kind="function"><name>set_state_bounds</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a5630ba4afb1e30b793f23bb5848393a8" kind="function"><name>set_state_bounds</name></member>
+    <member refid="classacados_1_1AcadosSolver_1aac276e01de203a072242a5b2bc1dc155" kind="function"><name>set_control_bounds</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a0d752774d72ba4510eaf45bba2e2366b" kind="function"><name>set_control_bounds</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ac778d4f9bc7e0e22cb4c995f972f74ad" kind="function"><name>set_runtime_parameters</name></member>
+    <member refid="classacados_1_1AcadosSolver_1afb0b7bcc07828abcfe6a5a331b8b4f87" kind="function"><name>set_runtime_parameters</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a096ab9cdc73b9ab423a6b8b441f2e4d8" kind="function"><name>set_runtime_parameters</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a721f0280a2f372a236b1a9991a3928e8" kind="function"><name>set_runtime_parameters</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a80d32f14feaf8a4486d9eb2b57703e3d" kind="function"><name>initialize_state_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a887c32a3282ec9bbad438ea62d78fcff" kind="function"><name>initialize_state_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a1bbcc1bd51a5ce5fc44a5535af4d1b4d" kind="function"><name>initialize_state_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a1b2fecbb2253afbb804a61e2b61caa33" kind="function"><name>initialize_state_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a4a769cfe43fa2650afab6ee4a06efa23" kind="function"><name>initialize_control_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a688117959a8b5202fa04fc53e5a02bf5" kind="function"><name>initialize_control_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1afbca0a305e0976c48dd90ce1acb44875" kind="function"><name>initialize_control_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a0119ce0fb38812c8d41a6fd9f3f5227e" kind="function"><name>initialize_control_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ad4742b1ea3857463a3987161d208e9f8" kind="function"><name>get_state_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ad86c6c0ef89f84088299c2ecb39854bf" kind="function"><name>get_state_values_as_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a018315f74749a500f2ceebf4292ff688" kind="function"><name>get_algebraic_state_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a0f8acec62481850619eb15415fc69cc1" kind="function"><name>get_algebraic_state_values_as_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a15ba80234cc00619642c996ab2876c5c" kind="function"><name>get_control_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a659154c1023a0ff0c1cb76914d58d1cb" kind="function"><name>get_control_values_as_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a9a1ba18ecaf0b80f038b4a609926475a" kind="function"><name>x_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a123efb93819a6663d07f045e15ddd844" kind="function"><name>z_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ab78a7fefd320246589eea43766d14385" kind="function"><name>p_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a0fcfe8d877ab1793295b07961cd41b9d" kind="function"><name>u_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" kind="function"><name>dims</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ae58d31b0910fed6e22f598b88c571a6e" kind="function"><name>nx</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a8c0dafbe532f2978e44d7ff10e828008" kind="function"><name>nz</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a51e348e29f69d4af55f4f5536430eaed" kind="function"><name>np</name></member>
+    <member refid="classacados_1_1AcadosSolver_1afc709b72edcf36008ac6c73cfef7051c" kind="function"><name>nu</name></member>
+    <member refid="classacados_1_1AcadosSolver_1abb11cab9c0513ba624909c4d3cefcd36" kind="function"><name>N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a6c890d274c16b3d609fdf393d72a7488" kind="function"><name>Ts</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a5de6731b0b6549ee3d7f6416531b8fbc" kind="function"><name>sampling_intervals</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a8879b8a2aac44cd388d635cc2f45866c" kind="function"><name>get_nlp_in</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a3f199c606d64e86b07925d306c0c67ef" kind="function"><name>get_nlp_out</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a015186b011bf5591ca37964fd2e6487b" kind="function"><name>get_sens_out</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ab1e051c908f0829b62dc652c94610dca" kind="function"><name>get_nlp_solver</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a4cad95287bee722aebbfd218aa2f0778" kind="function"><name>get_nlp_config</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a521e5dbafd4623ca0a0b2054004c3a06" kind="function"><name>get_nlp_opts</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a79b358797980397aba1b91b5f6ef0633" kind="function"><name>get_nlp_dims</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a1d0e8d2a7c5d14ed00f965b5af3aa22c" kind="function"><name>get_nlp_plan</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ae17665db1de958ddf899df7fcc22e4cc" kind="function"><name>get_nlp_np</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a70815bbfd88d129e24a99ad1b8d53906" kind="function"><name>is_map_size_consistent</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ae1a41122ae313470b779c6886bda9b17" kind="function"><name>is_map_size_consistent</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a297efbc7d31d5b8a7fbbb4f9585a292c" kind="function"><name>is_values_map_complete</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a7c5af1bdb69808cc5b34383afcc27672" kind="function"><name>fill_vector_from_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a3c93bc306d103cf2a32117ab0f59f4a8" kind="function"><name>value_vector_from_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a9af7492cce80e96ab83bb817ea89aeaa" kind="function"><name>create_map_from_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1aa02e7d99110b12a4f54e9b063c2c61d3" kind="function"><name>create_index_maps</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a42b02f546b0a15d3795b87d84e45fbca" kind="function"><name>free_memory</name></member>
+    <member refid="classacados_1_1AcadosSolver_1adda893dbba22cf03cfc00ba31630faad" kind="function"><name>internal_create_capsule</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a6d057af053444e87f78b8122571692f4" kind="function"><name>internal_create_with_discretization</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a843ed6fb31d2d252861cbe69fd3114d4" kind="function"><name>internal_reset</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a896fef9f7b11f483c5543cb00bfc4ecf" kind="function"><name>internal_free</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a6f9d7c7b3d0b50164f1a127d8e0b0fba" kind="function"><name>internal_free_capsule</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a8faa696a9baf2a6b338545bb429f4f96" kind="function"><name>internal_update_qp_solver_cond_N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a655cafa35ab723df7f70535e5ad56c59" kind="function"><name>internal_update_params</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a21fb49c8fe0965f37121d3e6347496c0" kind="function"><name>internal_update_params_sparse</name></member>
+    <member refid="classacados_1_1AcadosSolver_1abf00fdef6fae25c65436c3ebd6611fda" kind="function"><name>internal_solve</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a2128bf11592a4f1b22605cf09b5f343b" kind="function"><name>internal_print_stats</name></member>
+  </compound>
+  <compound refid="classacados_1_1AcadosSolver_1_1Dimensions" kind="class"><name>acados::AcadosSolver::Dimensions</name>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ac9117f9fceff5e00bedee61830c10da7" kind="variable"><name>nx</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ad7e50da37ff138e63d4a94fa37170e7f" kind="variable"><name>nz</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a4d4368ef7117a038504b606219901125" kind="variable"><name>np</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a1237a06072cfecdf2c7abb35b5b749ae" kind="variable"><name>nu</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a08cc475a2e773cccf63f2d90c28bbe9f" kind="variable"><name>nbx</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a1fb91e03454717fb1e923f242d529e8f" kind="variable"><name>nbx_0</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a7d7d525f290c8e806abd566807b796bb" kind="variable"><name>nbx_N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1af2526c9d1e78a1abf99840b92d7fda43" kind="variable"><name>nbu</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a2f3310f155529d98ab8eb57610e117c7" kind="variable"><name>ng</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ac24eca1ba434f950aabb2f0048611b32" kind="variable"><name>ng_N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1aa91bcd513644eed081e50b6d74e8f376" kind="variable"><name>nh</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a9a83acd9abd118375065804fefaee607" kind="variable"><name>nh_N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a14abbeb78f18e39c664fcff617969000" kind="variable"><name>nphi</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a389249cdaa0b1acd1b25f91ac15c9d34" kind="variable"><name>nphi_N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a09b8bcd78ca9f1579861c161617bc4e6" kind="variable"><name>ns</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ad3bb50fdf6a09d3b6e30668f80158634" kind="variable"><name>ns_N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a443369330cae17dec5af608a4737cae3" kind="variable"><name>nsbx</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a9dfc4d5014908469bd91a4f797925a03" kind="variable"><name>nsbx_N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a8cb0dd834efbf69fff5ffcde4624cfb9" kind="variable"><name>nsbu</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1addcca0ac53bc509cfefd30a8d114316c" kind="variable"><name>nsh</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ad9feed78450be42ca95aaf3e64d91b1c" kind="variable"><name>nsh_N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a188532899ce3ee8be0f4028122587cde" kind="variable"><name>nsg</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1abe9c5193e1c45d394677c357e2eaff52" kind="variable"><name>nsg_N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a0a7eb0f8d0b4b8a3d61001f5b7115bda" kind="variable"><name>nsphi</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ad3c09a1a9abf79c709d5cdc8a35e5512" kind="variable"><name>nsphi_N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a7353ea12651bc40bb4e0294241423cdd" kind="variable"><name>ny</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a5f6427bbb55a3a156c5f736db8133d53" kind="variable"><name>ny_0</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1aa3c62eb9556bda6d0b0f579c4323dac9" kind="variable"><name>ny_N</name></member>
+    <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ace00cd602acfa16650fa223782fe4c23" kind="variable"><name>nr</name></member>
+  </compound>
+  <compound refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator" kind="class"><name>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</name>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a9ec9ed954522ff8d0a0c689bf480f4ee" kind="variable"><name>__plugin_export_path</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1af15f552d24664f783c8c7c12a867be99" kind="variable"><name>__solver_pluging_cpp_template</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1aae30438546fae63305c0f6b3e8f7644d" kind="variable"><name>__solver_pluging_hpp_template</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a72265abb2cf5639fb7a9e89703c533b8" kind="variable"><name>__solver_pluging_cmake_template</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a4d66207d6a55bf5cf1b57d4d4ba85bad" kind="variable"><name>__solver_pluging_export_xml_template</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a32ff4e310f663027dd093173bc0f945f" kind="variable"><name>__library_name</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a377c068d838ca3e0b2411c6b99a16777" kind="variable"><name>__clean_c_build_folder</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a255ed7b038d9115b7d1bc66aa5fceee2" kind="variable"><name>__generate_libplugin_export</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1aa8543b45329d862a1b15489885f9dd10" kind="variable"><name>__default_plugin_description</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1af62b1bbbc940a855871d4c5f2b860e57" kind="variable"><name>__flag_regenerate_cmake</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a8f81f02567c7607a1c2f2f5fd23159ca" kind="variable"><name>jinga_env_loader</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1ad293c5615d1daf42c1530c00955ebe51" kind="variable"><name>jinja_env</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1ae8600e2e9e9a3bb6333c9b6b62f5afff" kind="function"><name>__init__</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a60e76952af6b95aa160ad9825db7ce45" kind="function"><name>generate_solver_plugin</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a21318b940eb17f296fb131deedf575c7" kind="function"><name>_generate_file_from_template</name></member>
+  </compound>
+  <compound refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader" kind="class"><name>acados_solver_plugins::solver_plugin_loader::SolverPluginLoader</name>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1ad1232278c1b593ef6d8bfc318ffc05bc" kind="function"><name>__init__</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1abac302f09014192460fb2048f4c9b529" kind="function"><name>load_solver_plugin</name></member>
+  </compound>
+  <compound refid="namespaceacados" kind="namespace"><name>acados</name>
+    <member refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" kind="typedef"><name>IndexVector</name></member>
+    <member refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kind="typedef"><name>ValueVector</name></member>
+    <member refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kind="typedef"><name>IndexMap</name></member>
+    <member refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kind="typedef"><name>ValueMap</name></member>
+    <member refid="namespaceacados_1a1d969b09ab7077713fef736f6ddfb260" kind="typedef"><name>RowMajorXd</name></member>
+    <member refid="namespaceacados_1aeec75a8df82483006004d76eabc267bb" kind="typedef"><name>ColumnMajorXd</name></member>
+  </compound>
+  <compound refid="namespaceacados_1_1utils" kind="namespace"><name>acados::utils</name>
+    <member refid="namespaceacados_1_1utils_1a345975644bfd3a92ff59a5137240555c" kind="function"><name>set_cost_field</name></member>
+    <member refid="namespaceacados_1_1utils_1aa8b2e16f319a75e98ff801a0eac4c07e" kind="function"><name>set_cost_Vx</name></member>
+    <member refid="namespaceacados_1_1utils_1a56c12eac5ca418929cad2ada1ca28379" kind="function"><name>set_cost_Vu</name></member>
+    <member refid="namespaceacados_1_1utils_1a8e278521bdd294895d6807bdf623c381" kind="function"><name>set_cost_Vz</name></member>
+    <member refid="namespaceacados_1_1utils_1a563b4ac0ab43067be9d3646a66b158d4" kind="function"><name>set_cost_W</name></member>
+    <member refid="namespaceacados_1_1utils_1a5970f18551bf44cdde5a13400eda20cf" kind="function"><name>set_cost_y_ref</name></member>
+    <member refid="namespaceacados_1_1utils_1aee680a48e065bdace5d3d60e0615cde1" kind="function"><name>set_constraint_field</name></member>
+    <member refid="namespaceacados_1_1utils_1a926ce863a65667722a6b5b1ab5dad24e" kind="function"><name>set_const_C</name></member>
+    <member refid="namespaceacados_1_1utils_1a47cbd1c97309da83ac382df949415053" kind="function"><name>set_const_D</name></member>
+    <member refid="namespaceacados_1_1utils_1abdf83ff216df8e7a9045cd2d8081b5f3" kind="function"><name>set_const_g_min</name></member>
+    <member refid="namespaceacados_1_1utils_1a1ee9114b3ff98b5832378157913b717b" kind="function"><name>set_const_g_max</name></member>
+    <member refid="namespaceacados_1_1utils_1a89f9a6417d020913e68672c415363adc" kind="function"><name>set_const_h_min</name></member>
+    <member refid="namespaceacados_1_1utils_1aabf85487b24117f173221b24b78ac62d" kind="function"><name>set_const_h_max</name></member>
+    <member refid="namespaceacados_1_1utils_1a697e07c5c28248b61f3317279a15740a" kind="function"><name>unsafe_get_stats_field</name></member>
+    <member refid="namespaceacados_1_1utils_1a064c9543b379abc3ec1b1195722c27c4" kind="function"><name>get_stats_cost_value</name></member>
+    <member refid="namespaceacados_1_1utils_1a647425758ca0af8e9e91e56564963c03" kind="function"><name>get_stats_sqp_iter</name></member>
+    <member refid="namespaceacados_1_1utils_1aee666c935c24b454a0b323000561a4fa" kind="function"><name>get_stats_cpu_time</name></member>
+  </compound>
+  <compound refid="namespaceacados__solver__plugins" kind="namespace"><name>acados_solver_plugins</name>
+    <member refid="namespaceacados__solver__plugins_1ac5e6f8333f5e14881b7e7ac50cc70583" kind="variable"><name>__author__</name></member>
+    <member refid="namespaceacados__solver__plugins_1abf76e2d772525b3a2236a3b721e59818" kind="variable"><name>__license__</name></member>
+    <member refid="namespaceacados__solver__plugins_1a9ad9340d7d1c6e4166c431e0301e618b" kind="variable"><name>__copyright__</name></member>
+  </compound>
+  <compound refid="namespaceacados__solver__plugins_1_1solver__plugin__generator" kind="namespace"><name>acados_solver_plugins::solver_plugin_generator</name>
+    <member refid="namespaceacados__solver__plugins_1_1solver__plugin__generator_1accf03d90afac162f2ff26b789c3db966" kind="variable"><name>_library_name</name></member>
+    <member refid="namespaceacados__solver__plugins_1_1solver__plugin__generator_1ab2587dd1f3bbadbab82ae6095359f60c" kind="function"><name>filter_uppercase_to_underscore</name></member>
+    <member refid="namespaceacados__solver__plugins_1_1solver__plugin__generator_1ae042be002f7cd120ebf49decd77db056" kind="function"><name>filter_curly_bracket_list</name></member>
+  </compound>
+  <compound refid="namespaceacados__solver__plugins_1_1solver__plugin__loader" kind="namespace"><name>acados_solver_plugins::solver_plugin_loader</name>
+  </compound>
+  <compound refid="namespaceacados__solver__plugins_1_1utils" kind="namespace"><name>acados_solver_plugins::utils</name>
+    <member refid="namespaceacados__solver__plugins_1_1utils_1a7187aaf642d18e9a8303c792a9f7d2b5" kind="variable"><name>_uppercase_part</name></member>
+    <member refid="namespaceacados__solver__plugins_1_1utils_1a2e0840e451d0b9bdfeacf4c3f51262e7" kind="function"><name>ensure_dir_exists</name></member>
+    <member refid="namespaceacados__solver__plugins_1_1utils_1a30c79321f4dcf1b182e3d90d9981cda4" kind="function"><name>delete_dir_recursively</name></member>
+    <member refid="namespaceacados__solver__plugins_1_1utils_1a377ea9b381f11e8a90977e512bb9f1a1" kind="function"><name>uppercase_to_underscore</name></member>
+  </compound>
+  <compound refid="acados__solver_8hpp" kind="file"><name>acados_solver.hpp</name>
+  </compound>
+  <compound refid="acados__solver__exceptions_8hpp" kind="file"><name>acados_solver_exceptions.hpp</name>
+  </compound>
+  <compound refid="acados__solver__utils_8hpp" kind="file"><name>acados_solver_utils.hpp</name>
+  </compound>
+  <compound refid="acados__types_8hpp" kind="file"><name>acados_types.hpp</name>
+  </compound>
+  <compound refid="visibility__control_8h" kind="file"><name>visibility_control.h</name>
+    <member refid="visibility__control_8h_1aa9d803621248aa500b4821672eae2989" kind="define"><name>ACADOS_SOLVER_BASE_EXPORT</name></member>
+    <member refid="visibility__control_8h_1a7dbe964f22c0fd84872c1b35b3bd6853" kind="define"><name>ACADOS_SOLVER_BASE_IMPORT</name></member>
+    <member refid="visibility__control_8h_1a274f59263068752c11d88af4cc04bd96" kind="define"><name>ACADOS_SOLVER_BASE_PUBLIC</name></member>
+    <member refid="visibility__control_8h_1a43600114c596a0eccab8d24fc227e3fc" kind="define"><name>ACADOS_SOLVER_BASE_LOCAL</name></member>
+    <member refid="visibility__control_8h_1a73bf8e07872467058d47da821b9b3373" kind="define"><name>ACADOS_SOLVER_BASE_PUBLIC_TYPE</name></member>
+  </compound>
+  <compound refid="____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="solver__plugin__generator_8py" kind="file"><name>solver_plugin_generator.py</name>
+  </compound>
+  <compound refid="solver__plugin__loader_8py" kind="file"><name>solver_plugin_loader.py</name>
+  </compound>
+  <compound refid="utils_8py" kind="file"><name>utils.py</name>
+  </compound>
+  <compound refid="mainpage_8md" kind="file"><name>mainpage.md</name>
+  </compound>
+  <compound refid="todo" kind="page"><name>todo</name>
+  </compound>
+  <compound refid="dir_0187490a4308e6d5a37a6551253013ae" kind="dir"><name>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base</name>
+  </compound>
+  <compound refid="dir_73996b9fcfaf130635cb8b3210a47c02" kind="dir"><name>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base</name>
+  </compound>
+  <compound refid="dir_42d94b6388139e1d66998d64b9f7fe4b" kind="dir"><name>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins</name>
+  </compound>
+  <compound refid="dir_262fc9d5bac64d174aa89782e6d51bb8" kind="dir"><name>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins</name>
+  </compound>
+  <compound refid="dir_850b6683a8418dc51ef5923bf3e8ec55" kind="dir"><name>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

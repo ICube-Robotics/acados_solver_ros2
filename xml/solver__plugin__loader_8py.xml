@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="solver__plugin__loader_8py" kind="file" language="Python">
+    <compoundname>solver_plugin_loader.py</compoundname>
+    <innerclass refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader" prot="public">acados_solver_plugins::solver_plugin_loader::SolverPluginLoader</innerclass>
+    <innernamespace refid="namespaceacados__solver__plugins_1_1solver__plugin__loader">acados_solver_plugins::solver_plugin_loader</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespaceacados__solver__plugins_1_1solver__plugin__loader" refkind="compound"><highlight class="comment">#<sp/>Copyright<sp/>2023<sp/>ICUBE<sp/>Laboratory,<sp/>University<sp/>of<sp/>Strasbourg</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">#<sp/>License:<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Author:<sp/>Thibault<sp/>Poignonec<sp/>(tpoignonec@unistra.fr)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">#<sp/>from<sp/>acados_template<sp/>import<sp/>AcadosOcp,<sp/>AcadosOcpSolver</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">#<sp/>from<sp/>acados_template<sp/>import<sp/><sp/>ocp_get_default_cmake_builder</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">#<sp/>import<sp/>casadi<sp/>as<sp/>ca</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">#<sp/>from<sp/>copy<sp/>import<sp/>deepcopy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">#<sp/>import<sp/>os</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">#<sp/>from<sp/>acados_solver_plugins.utils<sp/>import<sp/>uppercase_to_underscore</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Plugin<sp/>loader</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader" kindref="compound">SolverPluginLoader</ref>:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1ad1232278c1b593ef6d8bfc318ffc05bc" kindref="member">__init__</ref>(</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>custom_import_path:<sp/>str<sp/>=<sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>library_name:<sp/>str<sp/>=<sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>):</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Solver<sp/>plugin<sp/>loader<sp/>constructor.</highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:param<sp/>custom_import_path:<sp/>Dir<sp/>where<sp/>the<sp/>generated<sp/>files<sp/>were<sp/>\</highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exported<sp/>by<sp/>the<sp/>generator,<sp/>defaults<sp/>to<sp/>None</highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:type<sp/>custom_import_path:<sp/>str,<sp/>optional</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:param<sp/>library_name:<sp/>Name<sp/>of<sp/>the<sp/>library<sp/>that<sp/>the<sp/>generated<sp/>files<sp/>\</highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>are<sp/>part<sp/>of,<sp/>defaults<sp/>to<sp/>None<sp/>(in<sp/>which<sp/>case<sp/>the<sp/>library<sp/>\</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is<sp/>set<sp/>to<sp/>&quot;acados_solver_plugins&quot;<sp/>internally)</highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:type<sp/>library_name:<sp/>str,<sp/>optional</highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">raise</highlight><highlight class="normal"><sp/>NotImplementedError(</highlight><highlight class="stringliteral">&apos;TODO&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1abac302f09014192460fb2048f4c9b529" kindref="member">load_solver_plugin</ref>(self,<sp/>solver_plugin_name:<sp/>str):</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Load<sp/>a<sp/>Acados<sp/>OCP<sp/>solver<sp/>from<sp/>previously<sp/>exported<sp/>plugin.<sp/>TODO.&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">raise</highlight><highlight class="normal"><sp/>NotImplementedError(</highlight><highlight class="stringliteral">&apos;TODO&apos;</highlight><highlight class="normal">)</highlight></codeline>
+    </programlisting>
+    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_loader.py"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="mainpage_8md" kind="file" language="Markdown">
+    <compoundname>mainpage.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Acados<sp/>Controller<sp/>ROS2<sp/>-<sp/>API<sp/>reference</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>the<sp/>auto-generated<sp/>(Doxygen)<sp/>API<sp/>reference<sp/>covering:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>`acados_solver_base`<sp/>(C++<sp/>package)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>acados::AcadosSolver</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>acados::AcadosSolver::Dimensions</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>[Type<sp/>definitions](@ref<sp/>acados_types.hpp)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>`acados_controller_base`<sp/>(C++<sp/>package)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>TODO</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>`acados_solver_plugins`<sp/>(Python<sp/>package)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>[SolverPluginGenerator](@ref<sp/>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>[SolverPluginLoader](@ref<sp/>acados_solver_plugins.solver_plugin_loader.SolverPluginLoader)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>[utils](@ref<sp/>acados_solver_plugins.utils)</highlight></codeline>
+    </programlisting>
+    <location file="mainpage.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,903 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceacados_1_1utils" kind="namespace" language="C++">
+    <compoundname>acados::utils</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a345975644bfd3a92ff59a5137240555c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Derived</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool acados::utils::set_cost_field</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, const std::string &amp;field, Eigen::EigenBase&lt; Derived &gt; &amp;value)</argsstring>
+        <name>set_cost_field</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>field</declname>
+        </param>
+        <param>
+          <type>Eigen::EigenBase&lt; Derived &gt; &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Generic setter for the cost. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>See the definition of <computeroutput>ocp_nlp_cost_model_set</computeroutput> in acados/interfaces/acados_c/ocp_nlp_interface.c (<ulink url="https://github.com/acados">https://github.com/acados</ulink>) </para>
+</simplesect>
+<simplesect kind="note"><para>Available fields: &apos;Vx&apos;, &apos;Vu&apos;, &apos;Vz&apos;, &apos;yref&apos;, &apos;W&apos;, &apos;ext_cost_num_hess&apos;, &apos;zl&apos;, &apos;zu&apos;, &apos;Zl&apos;, &apos;Zu&apos;, etc.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N] </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>field</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the field </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Matrix or vector containing the data (not modified) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="55" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="55" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1aa8b2e16f319a75e98ff801a0eac4c07e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acados::utils::set_cost_Vx</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;Vx)</argsstring>
+        <name>set_cost_Vx</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>Eigen::MatrixXd &amp;</type>
+          <declname>Vx</declname>
+        </param>
+        <briefdescription>
+<para>Set the Vx matrix used for &apos;LINEAR_LS&apos; cost. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N]. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Vx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Matrix Vx </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="74" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="74" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a56c12eac5ca418929cad2ada1ca28379" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acados::utils::set_cost_Vu</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;Vu)</argsstring>
+        <name>set_cost_Vu</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>Eigen::MatrixXd &amp;</type>
+          <declname>Vu</declname>
+        </param>
+        <briefdescription>
+<para>Set the Vu matrix used for &apos;LINEAR_LS&apos; cost. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N]. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Vu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Matrix Vu </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="84" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="84" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a8e278521bdd294895d6807bdf623c381" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acados::utils::set_cost_Vz</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;Vz)</argsstring>
+        <name>set_cost_Vz</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>Eigen::MatrixXd &amp;</type>
+          <declname>Vz</declname>
+        </param>
+        <briefdescription>
+<para>Set the Vz matrix used for &apos;LINEAR_LS&apos; cost. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N]. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Vz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Matrix Vz </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="94" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="94" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a563b4ac0ab43067be9d3646a66b158d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acados::utils::set_cost_W</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;W)</argsstring>
+        <name>set_cost_W</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>Eigen::MatrixXd &amp;</type>
+          <declname>W</declname>
+        </param>
+        <briefdescription>
+<para>Set the W cost matrix used for &apos;LINEAR_LS&apos; cost. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N]. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>W</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Matrix W </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="104" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="104" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a5970f18551bf44cdde5a13400eda20cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acados::utils::set_cost_y_ref</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::VectorXd &amp;y_ref)</argsstring>
+        <name>set_cost_y_ref</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>Eigen::VectorXd &amp;</type>
+          <declname>y_ref</declname>
+        </param>
+        <briefdescription>
+<para>Set the y_ref vector for a given stage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N]. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y_ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="114" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="114" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1aee680a48e065bdace5d3d60e0615cde1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Derived</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool acados::utils::set_constraint_field</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, const std::string &amp;field, Eigen::EigenBase&lt; Derived &gt; &amp;value)</argsstring>
+        <name>set_constraint_field</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>field</declname>
+        </param>
+        <param>
+          <type>Eigen::EigenBase&lt; Derived &gt; &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Generic setter for the constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>See the definition of <computeroutput>ocp_nlp_constraints_model_set</computeroutput> in acados/interfaces/acados_c/ocp_nlp_interface.c (<ulink url="https://github.com/acados">https://github.com/acados</ulink>) </para>
+</simplesect>
+<simplesect kind="note"><para>Available fields: &apos;lbx&apos;, &apos;ubx&apos;, &apos;lbu&apos;, &apos;ubu&apos;, &apos;lg&apos;, &apos;ug&apos;, &apos;lh&apos;, &apos;uh&apos;, &apos;uphi&apos;, &apos;C&apos;, &apos;D&apos;</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N] </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>field</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the field </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Matrix or vector containing the data (not modified, ) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="134" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="134" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a926ce863a65667722a6b5b1ab5dad24e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acados::utils::set_const_C</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;C)</argsstring>
+        <name>set_const_C</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>Eigen::MatrixXd &amp;</type>
+          <declname>C</declname>
+        </param>
+        <briefdescription>
+<para>Set the C matrix used by polytopic constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N]. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>C</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Matrix C </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="166" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="166" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a47cbd1c97309da83ac382df949415053" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acados::utils::set_const_D</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;D)</argsstring>
+        <name>set_const_D</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>Eigen::MatrixXd &amp;</type>
+          <declname>D</declname>
+        </param>
+        <briefdescription>
+<para>Set the D matrix used by polytopic constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N]. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>D</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Matrix D </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="176" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="176" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1abdf83ff216df8e7a9045cd2d8081b5f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acados::utils::set_const_g_min</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::VectorXd &amp;g_min)</argsstring>
+        <name>set_const_g_min</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>Eigen::VectorXd &amp;</type>
+          <declname>g_min</declname>
+        </param>
+        <briefdescription>
+<para>Set the lower bound g_min used by polytopic constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N]. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>g_min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lower bounds on polytopic constraints. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="186" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="186" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a1ee9114b3ff98b5832378157913b717b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acados::utils::set_const_g_max</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::VectorXd &amp;g_max)</argsstring>
+        <name>set_const_g_max</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>Eigen::VectorXd &amp;</type>
+          <declname>g_max</declname>
+        </param>
+        <briefdescription>
+<para>Set the upper bound g_max used by polytopic constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N]. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>g_max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Upper bounds on polytopic constraints. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="196" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="196" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a89f9a6417d020913e68672c415363adc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acados::utils::set_const_h_min</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::VectorXd &amp;h_min)</argsstring>
+        <name>set_const_h_min</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>Eigen::VectorXd &amp;</type>
+          <declname>h_min</declname>
+        </param>
+        <briefdescription>
+<para>Set the lower bound h_min used by non-linear constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N]. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h_min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lower bounds on non-linear constraints. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="209" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="209" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1aabf85487b24117f173221b24b78ac62d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acados::utils::set_const_h_max</definition>
+        <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::VectorXd &amp;h_max)</argsstring>
+        <name>set_const_h_max</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>Eigen::VectorXd &amp;</type>
+          <declname>h_max</declname>
+        </param>
+        <briefdescription>
+<para>Set the upper bound h_max used by non-linear constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stage in [0;N]. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h_max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Upper bounds on non-linear constraints. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Status (true if all OK). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="219" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="219" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a697e07c5c28248b61f3317279a15740a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void acados::utils::unsafe_get_stats_field</definition>
+        <argsstring>(AcadosSolver &amp;solver, const std::string &amp;field, T &amp;value)</argsstring>
+        <name>unsafe_get_stats_field</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>field</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Read a given field from the solver stats (solve must be called before...) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Dangerous method because the field type can be double or int!!! Prefer the other get_stats_&lt;field&gt; methods when possible or check the documentation.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>field</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the field to retrieve (e.g., &quot;time_tot&quot;, &quot;cost_value&quot;, etc.) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>double Value of the field </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="236" column="6" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="236" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a064c9543b379abc3ec1b1195722c27c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double acados::utils::get_stats_cost_value</definition>
+        <argsstring>(AcadosSolver &amp;solver)</argsstring>
+        <name>get_stats_cost_value</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve the current cost value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <computeroutput>acados::utils::get_stats_field</computeroutput> for implementation details.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>double cost value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="246" column="8" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="246" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1a647425758ca0af8e9e91e56564963c03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int acados::utils::get_stats_sqp_iter</definition>
+        <argsstring>(AcadosSolver &amp;solver)</argsstring>
+        <name>get_stats_sqp_iter</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve the SQP iteration at the last solve() call. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <computeroutput>acados::utils::get_stats_field</computeroutput> for implementation details.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int SQP iteration </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="256" column="5" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="256" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados_1_1utils_1aee666c935c24b454a0b323000561a4fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double acados::utils::get_stats_cpu_time</definition>
+        <argsstring>(AcadosSolver &amp;solver)</argsstring>
+        <name>get_stats_cpu_time</name>
+        <param>
+          <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
+          <declname>solver</declname>
+        </param>
+        <briefdescription>
+<para>Retrieve the CPU time needed for the last solve() call. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <computeroutput>acados::utils::get_stats_field</computeroutput> for implementation details.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>solver</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acados solver C++ wrapper handle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>double CPU time in seconds </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="266" column="8" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="266" declcolumn="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="34" column="1"/>
+  </compounddef>
+</doxygen>

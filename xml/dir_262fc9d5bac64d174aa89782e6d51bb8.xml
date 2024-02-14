@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_262fc9d5bac64d174aa89782e6d51bb8" kind="dir">
+    <compoundname>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins</compoundname>
+    <innerfile refid="____init_____8py">__init__.py</innerfile>
+    <innerfile refid="solver__plugin__generator_8py">solver_plugin_generator.py</innerfile>
+    <innerfile refid="solver__plugin__loader_8py">solver_plugin_loader.py</innerfile>
+    <innerfile refid="utils_8py">utils.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/"/>
+  </compounddef>
+</doxygen>

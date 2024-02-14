@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Acados Controller ROS2 - API reference</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md_mainpage"/> This is the auto-generated (Doxygen) API reference covering:<itemizedlist>
+<listitem><para><computeroutput>acados_solver_base</computeroutput> (C++ package)<itemizedlist>
+<listitem><para><ref refid="classacados_1_1AcadosSolver" kindref="compound">acados::AcadosSolver</ref></para>
+</listitem><listitem><para><ref refid="classacados_1_1AcadosSolver_1_1Dimensions" kindref="compound">acados::AcadosSolver::Dimensions</ref></para>
+</listitem><listitem><para><ref refid="acados__types_8hpp" kindref="compound">Type definitions</ref></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><computeroutput>acados_controller_base</computeroutput> (C++ package)<itemizedlist>
+<listitem><para>TODO</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><computeroutput><ref refid="namespaceacados__solver__plugins" kindref="compound">acados_solver_plugins</ref></computeroutput> (Python package)<itemizedlist>
+<listitem><para><ref refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator" kindref="compound">SolverPluginGenerator</ref></para>
+</listitem><listitem><para><ref refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader" kindref="compound">SolverPluginLoader</ref></para>
+</listitem><listitem><para><ref refid="namespaceacados__solver__plugins_1_1utils" kindref="compound">utils</ref> </para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="mainpage.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="todo" kind="page">
+    <compoundname>todo</compoundname>
+    <title>Todo List</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><variablelist>
+<varlistentry><term>Member <ref refid="classacados_1_1AcadosSolver_1a7c5af1bdb69808cc5b34383afcc27672" kindref="member">acados::AcadosSolver::fill_vector_from_map</ref>  (IndexMap const &amp;index_map, ValueMap const &amp;values_map, unsigned int vector_size, ValueVector &amp;values)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000002"/>Overloaded function without the <computeroutput>vector_size</computeroutput> argument. The <computeroutput>vector_size</computeroutput> argument could (should?) be optional since it can be retrieved from the number of indexes contained in <computeroutput>index_map</computeroutput>. </para>
+</listitem>
+<varlistentry><term>Member <ref refid="classacados_1_1AcadosSolver_1a8ea324590b8abc71b97e66e24c2181f1" kindref="member">acados::AcadosSolver::init</ref>  (unsigned int N, double Ts)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000001"/>Add alternative <computeroutput><ref refid="classacados_1_1AcadosSolver_1a8ea324590b8abc71b97e66e24c2181f1" kindref="member">init()</ref></computeroutput> function for non-constant sampling intervals.</para>
+</listitem>
+</variablelist>
+</para>
+    </detaileddescription>
+    <location file="todo"/>
+  </compounddef>
+</doxygen>

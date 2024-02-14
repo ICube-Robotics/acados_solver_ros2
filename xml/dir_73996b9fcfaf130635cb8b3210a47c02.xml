@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_73996b9fcfaf130635cb8b3210a47c02" kind="dir">
+    <compoundname>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base</compoundname>
+    <innerfile refid="acados__solver_8hpp">acados_solver.hpp</innerfile>
+    <innerfile refid="acados__solver__exceptions_8hpp">acados_solver_exceptions.hpp</innerfile>
+    <innerfile refid="acados__solver__utils_8hpp">acados_solver_utils.hpp</innerfile>
+    <innerfile refid="acados__types_8hpp">acados_types.hpp</innerfile>
+    <innerfile refid="visibility__control_8h">visibility_control.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/"/>
+  </compounddef>
+</doxygen>

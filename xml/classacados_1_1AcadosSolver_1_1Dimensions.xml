@@ -1,0 +1,458 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classacados_1_1AcadosSolver_1_1Dimensions" kind="class" language="C++" prot="public">
+    <compoundname>acados::AcadosSolver::Dimensions</compoundname>
+    <includes refid="acados__solver_8hpp" local="no">acados_solver.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1ac9117f9fceff5e00bedee61830c10da7" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nx</definition>
+        <argsstring></argsstring>
+        <name>nx</name>
+        <briefdescription>
+<para>Differential state vector size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="53" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1ad7e50da37ff138e63d4a94fa37170e7f" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nz</definition>
+        <argsstring></argsstring>
+        <name>nz</name>
+        <briefdescription>
+<para>Algebraic state vector size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="56" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a4d4368ef7117a038504b606219901125" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::np</definition>
+        <argsstring></argsstring>
+        <name>np</name>
+        <briefdescription>
+<para>Runtime parameters vector size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="59" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a1237a06072cfecdf2c7abb35b5b749ae" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nu</definition>
+        <argsstring></argsstring>
+        <name>nu</name>
+        <briefdescription>
+<para>Control vector size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="62" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a08cc475a2e773cccf63f2d90c28bbe9f" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nbx</definition>
+        <argsstring></argsstring>
+        <name>nbx</name>
+        <briefdescription>
+<para>Number of state stage bounds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="67" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a1fb91e03454717fb1e923f242d529e8f" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nbx_0</definition>
+        <argsstring></argsstring>
+        <name>nbx_0</name>
+        <briefdescription>
+<para>Number of initial state stage bounds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Typically equal to nx, used to set initial state before calling <computeroutput><ref refid="classacados_1_1AcadosSolver_1a15d6ca39d87ce1440e0b926a1f224d0d" kindref="member">solve()</ref></computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="71" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a7d7d525f290c8e806abd566807b796bb" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nbx_N</definition>
+        <argsstring></argsstring>
+        <name>nbx_N</name>
+        <briefdescription>
+<para>Number of terminal state bounds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="74" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1af2526c9d1e78a1abf99840b92d7fda43" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nbu</definition>
+        <argsstring></argsstring>
+        <name>nbu</name>
+        <briefdescription>
+<para>Number of control bounds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Warning, not defined at stage N. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="78" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a2f3310f155529d98ab8eb57610e117c7" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::ng</definition>
+        <argsstring></argsstring>
+        <name>ng</name>
+        <briefdescription>
+<para>Number of polytopic constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="83" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1ac24eca1ba434f950aabb2f0048611b32" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::ng_N</definition>
+        <argsstring></argsstring>
+        <name>ng_N</name>
+        <briefdescription>
+<para>Number of polytopic constraints at stage N. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="86" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1aa91bcd513644eed081e50b6d74e8f376" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nh</definition>
+        <argsstring></argsstring>
+        <name>nh</name>
+        <briefdescription>
+<para>Number of non-linear constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="91" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a9a83acd9abd118375065804fefaee607" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nh_N</definition>
+        <argsstring></argsstring>
+        <name>nh_N</name>
+        <briefdescription>
+<para>Number of non-linear constraints at stage N. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="94" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a14abbeb78f18e39c664fcff617969000" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nphi</definition>
+        <argsstring></argsstring>
+        <name>nphi</name>
+        <briefdescription>
+<para>Number of &quot;convex-over-nonlinear&quot; constraints (see Acados documentation) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="97" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a389249cdaa0b1acd1b25f91ac15c9d34" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nphi_N</definition>
+        <argsstring></argsstring>
+        <name>nphi_N</name>
+        <briefdescription>
+<para>Number of &quot;convex-over-nonlinear&quot; constraints at stage N. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="100" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a09b8bcd78ca9f1579861c161617bc4e6" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::ns</definition>
+        <argsstring></argsstring>
+        <name>ns</name>
+        <briefdescription>
+<para>Total number of slack variable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="105" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1ad3bb50fdf6a09d3b6e30668f80158634" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::ns_N</definition>
+        <argsstring></argsstring>
+        <name>ns_N</name>
+        <briefdescription>
+<para>Total number of slack variable at stage N. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="108" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a443369330cae17dec5af608a4737cae3" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nsbx</definition>
+        <argsstring></argsstring>
+        <name>nsbx</name>
+        <briefdescription>
+<para>Number of slack variables used by state bounds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="111" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a9dfc4d5014908469bd91a4f797925a03" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nsbx_N</definition>
+        <argsstring></argsstring>
+        <name>nsbx_N</name>
+        <briefdescription>
+<para>Number of slack variables used by terminal state bounds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="114" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a8cb0dd834efbf69fff5ffcde4624cfb9" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nsbu</definition>
+        <argsstring></argsstring>
+        <name>nsbu</name>
+        <briefdescription>
+<para>Number of slack variables used by control bounds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="117" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1addcca0ac53bc509cfefd30a8d114316c" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nsh</definition>
+        <argsstring></argsstring>
+        <name>nsh</name>
+        <briefdescription>
+<para>Number of slack variables used by non-linear constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="120" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1ad9feed78450be42ca95aaf3e64d91b1c" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nsh_N</definition>
+        <argsstring></argsstring>
+        <name>nsh_N</name>
+        <briefdescription>
+<para>Number of slack variables used by (terminal) non-linear constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="123" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a188532899ce3ee8be0f4028122587cde" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nsg</definition>
+        <argsstring></argsstring>
+        <name>nsg</name>
+        <briefdescription>
+<para>Number of slack variables used by polytopic constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="126" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1abe9c5193e1c45d394677c357e2eaff52" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nsg_N</definition>
+        <argsstring></argsstring>
+        <name>nsg_N</name>
+        <briefdescription>
+<para>Number of slack variables used by (terminal) polytopic constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="129" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a0a7eb0f8d0b4b8a3d61001f5b7115bda" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nsphi</definition>
+        <argsstring></argsstring>
+        <name>nsphi</name>
+        <briefdescription>
+<para>Number of slack variables used by convex-over-nonlinear constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="133" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1ad3c09a1a9abf79c709d5cdc8a35e5512" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nsphi_N</definition>
+        <argsstring></argsstring>
+        <name>nsphi_N</name>
+        <briefdescription>
+<para>Number of slack variables used by (terminal) convex-over-nonlinear constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="136" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a7353ea12651bc40bb4e0294241423cdd" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::ny</definition>
+        <argsstring></argsstring>
+        <name>ny</name>
+        <briefdescription>
+<para>Size of the reference vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="140" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1a5f6427bbb55a3a156c5f736db8133d53" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::ny_0</definition>
+        <argsstring></argsstring>
+        <name>ny_0</name>
+        <briefdescription>
+<para>Size of the reference vector at initial stage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="143" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1aa3c62eb9556bda6d0b0f579c4323dac9" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::ny_N</definition>
+        <argsstring></argsstring>
+        <name>ny_N</name>
+        <briefdescription>
+<para>Size of the reference vector at terminal stage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="146" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1ace00cd602acfa16650fa223782fe4c23" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int acados::AcadosSolver::Dimensions::nr</definition>
+        <argsstring></argsstring>
+        <name>nr</name>
+        <briefdescription>
+<para><ref refid="classacados_1_1AcadosSolver_1_1Dimensions" kindref="compound">Dimensions</ref> of the image of the inner nonlinear function in positive definite constr. See Acados documentation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="152" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Container for the (fixed) dimensions of the imported Acados OCP. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="44" column="3" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="48" bodyend="153"/>
+    <listofallmembers>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1af2526c9d1e78a1abf99840b92d7fda43" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nbu</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a08cc475a2e773cccf63f2d90c28bbe9f" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nbx</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a1fb91e03454717fb1e923f242d529e8f" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nbx_0</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a7d7d525f290c8e806abd566807b796bb" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nbx_N</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a2f3310f155529d98ab8eb57610e117c7" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>ng</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ac24eca1ba434f950aabb2f0048611b32" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>ng_N</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1aa91bcd513644eed081e50b6d74e8f376" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nh</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a9a83acd9abd118375065804fefaee607" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nh_N</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a4d4368ef7117a038504b606219901125" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>np</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a14abbeb78f18e39c664fcff617969000" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nphi</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a389249cdaa0b1acd1b25f91ac15c9d34" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nphi_N</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ace00cd602acfa16650fa223782fe4c23" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nr</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a09b8bcd78ca9f1579861c161617bc4e6" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>ns</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ad3bb50fdf6a09d3b6e30668f80158634" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>ns_N</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a8cb0dd834efbf69fff5ffcde4624cfb9" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nsbu</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a443369330cae17dec5af608a4737cae3" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nsbx</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a9dfc4d5014908469bd91a4f797925a03" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nsbx_N</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a188532899ce3ee8be0f4028122587cde" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nsg</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1abe9c5193e1c45d394677c357e2eaff52" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nsg_N</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1addcca0ac53bc509cfefd30a8d114316c" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nsh</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ad9feed78450be42ca95aaf3e64d91b1c" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nsh_N</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a0a7eb0f8d0b4b8a3d61001f5b7115bda" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nsphi</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ad3c09a1a9abf79c709d5cdc8a35e5512" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nsphi_N</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a1237a06072cfecdf2c7abb35b5b749ae" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nu</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ac9117f9fceff5e00bedee61830c10da7" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nx</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a7353ea12651bc40bb4e0294241423cdd" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>ny</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1a5f6427bbb55a3a156c5f736db8133d53" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>ny_0</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1aa3c62eb9556bda6d0b0f579c4323dac9" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>ny_N</name></member>
+      <member refid="classacados_1_1AcadosSolver_1_1Dimensions_1ad7e50da37ff138e63d4a94fa37170e7f" prot="public" virt="non-virtual"><scope>acados::AcadosSolver::Dimensions</scope><name>nz</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

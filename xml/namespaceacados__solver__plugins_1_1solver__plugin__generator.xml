@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceacados__solver__plugins_1_1solver__plugin__generator" kind="namespace" language="Python">
+    <compoundname>acados_solver_plugins::solver_plugin_generator</compoundname>
+    <innerclass refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator" prot="public">acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceacados__solver__plugins_1_1solver__plugin__generator_1accf03d90afac162f2ff26b789c3db966" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string acados_solver_plugins::solver_plugin_generator._library_name</definition>
+        <argsstring></argsstring>
+        <name>_library_name</name>
+        <initializer>=  &apos;acados_solver_plugins&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="19" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceacados__solver__plugins_1_1solver__plugin__generator_1ab2587dd1f3bbadbab82ae6095359f60c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def acados_solver_plugins.solver_plugin_generator.filter_uppercase_to_underscore</definition>
+        <argsstring>(name)</argsstring>
+        <name>filter_uppercase_to_underscore</name>
+        <param>
+          <type>name</type>
+          <defname>name</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="25" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceacados__solver__plugins_1_1solver__plugin__generator_1ae042be002f7cd120ebf49decd77db056" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def acados_solver_plugins.solver_plugin_generator.filter_curly_bracket_list</definition>
+        <argsstring>(list_of_index)</argsstring>
+        <name>filter_curly_bracket_list</name>
+        <param>
+          <type>list_of_index</type>
+          <defname>list_of_index</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="29" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="29" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

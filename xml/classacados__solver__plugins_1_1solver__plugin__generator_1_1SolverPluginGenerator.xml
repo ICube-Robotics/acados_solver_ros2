@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator" kind="class" language="Python" prot="public">
+    <compoundname>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a9ec9ed954522ff8d0a0c689bf480f4ee" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::__plugin_export_path</definition>
+        <argsstring></argsstring>
+        <name>__plugin_export_path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="69" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1af15f552d24664f783c8c7c12a867be99" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::__solver_pluging_cpp_template</definition>
+        <argsstring></argsstring>
+        <name>__solver_pluging_cpp_template</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="91" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1aae30438546fae63305c0f6b3e8f7644d" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::__solver_pluging_hpp_template</definition>
+        <argsstring></argsstring>
+        <name>__solver_pluging_hpp_template</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="92" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a72265abb2cf5639fb7a9e89703c533b8" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::__solver_pluging_cmake_template</definition>
+        <argsstring></argsstring>
+        <name>__solver_pluging_cmake_template</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="93" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a4d66207d6a55bf5cf1b57d4d4ba85bad" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::__solver_pluging_export_xml_template</definition>
+        <argsstring></argsstring>
+        <name>__solver_pluging_export_xml_template</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="94" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a32ff4e310f663027dd093173bc0f945f" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::__library_name</definition>
+        <argsstring></argsstring>
+        <name>__library_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="97" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a377c068d838ca3e0b2411c6b99a16777" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::__clean_c_build_folder</definition>
+        <argsstring></argsstring>
+        <name>__clean_c_build_folder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="100" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a255ed7b038d9115b7d1bc66aa5fceee2" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::__generate_libplugin_export</definition>
+        <argsstring></argsstring>
+        <name>__generate_libplugin_export</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="101" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1aa8543b45329d862a1b15489885f9dd10" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::__default_plugin_description</definition>
+        <argsstring></argsstring>
+        <name>__default_plugin_description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="102" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1af62b1bbbc940a855871d4c5f2b860e57" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::__flag_regenerate_cmake</definition>
+        <argsstring></argsstring>
+        <name>__flag_regenerate_cmake</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="104" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a8f81f02567c7607a1c2f2f5fd23159ca" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::jinga_env_loader</definition>
+        <argsstring></argsstring>
+        <name>jinga_env_loader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="82" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1ad293c5615d1daf42c1530c00955ebe51" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator::jinja_env</definition>
+        <argsstring></argsstring>
+        <name>jinja_env</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="84" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1ae8600e2e9e9a3bb6333c9b6b62f5afff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator.__init__</definition>
+        <argsstring>(self, str custom_export_path=None, str library_name=None)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>custom_export_path</declname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>library_name</declname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Solver plugin generator constructor.
+
+:param custom_export_path: Dir where the generated files will \
+    be exported, defaults to None
+:type custom_export_path: str, optional
+:param library_name: Name of the library that the generated files \
+    will be part of, defaults to None (in which case the library \
+    is set to &quot;acados_solver_plugins&quot; internally)
+:type library_name: str, optional
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="51" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="55" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a60e76952af6b95aa160ad9825db7ce45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>AcadosOcpSolver</type>
+        <definition> AcadosOcpSolver acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator.generate_solver_plugin</definition>
+        <argsstring>(self, AcadosOcp acados_ocp, str plugin_class_name, str solver_description=None, dict x_index_map=None, dict z_index_map=None, dict p_index_map=None, dict u_index_map=None)</argsstring>
+        <name>generate_solver_plugin</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>AcadosOcp</type>
+          <declname>acados_ocp</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>plugin_class_name</declname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>solver_description</declname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>x_index_map</declname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>z_index_map</declname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>p_index_map</declname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>dict</type>
+          <declname>u_index_map</declname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Generate the solver plugin from a python Acados OCP model.
+
+:param acados_ocp: Acados OCP model
+:type acados_ocp: AcadosOcp
+:param plugin_class_name:
+    Class name for the generated plugin of type
+    &quot;acados::&lt;plugin_class_name&gt;&quot;
+:type plugin_class_name: str
+:param solver_description:
+    Short description for the exported plugin, defaults to None
+:type solver_description: str, optional
+:param x_index_map: Differential state index map, defaults to None
+:type x_index_map: dict, optional
+:param z_index_map: Algebraic state index map, defaults to None
+:type z_index_map: dict, optional
+:param p_index_map: Parameters index map, defaults to None
+:type p_index_map: dict, optional
+:param u_index_map: Parameters index map, defaults to None
+:type u_index_map: dict, optional
+:return: the acados OCP solver generated as a by-product
+:rtype: AcadosOcpSolver
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="122" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="129" bodyend="272"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a21318b940eb17f296fb131deedf575c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator._generate_file_from_template</definition>
+        <argsstring>(self, template_filename, export_filename, **template_render_args)</argsstring>
+        <name>_generate_file_from_template</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>template_filename</type>
+          <defname>template_filename</defname>
+        </param>
+        <param>
+          <type>export_filename</type>
+          <defname>export_filename</defname>
+        </param>
+        <param>
+          <type>**</type>
+          <declname>template_render_args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="106" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="110" bodyend="121"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Minimalist template-based code generation module to generate \
+`acados::AcadosSolver` derived objects.
+
+Relevant external API documentation : \
+`jinja2 &lt;https://jinja.palletsprojects.com/en/3.0.x/api/&gt;`_, \
+`acados_template &lt;https://docs.acados.org/python_interface/index.html#&gt;`_.
+</verbatim> </para>
+    </detaileddescription>
+    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" line="41" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_generator.py" bodystart="41" bodyend="272"/>
+    <listofallmembers>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a377c068d838ca3e0b2411c6b99a16777" prot="private" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>__clean_c_build_folder</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1aa8543b45329d862a1b15489885f9dd10" prot="private" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>__default_plugin_description</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1af62b1bbbc940a855871d4c5f2b860e57" prot="private" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>__flag_regenerate_cmake</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a255ed7b038d9115b7d1bc66aa5fceee2" prot="private" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>__generate_libplugin_export</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1ae8600e2e9e9a3bb6333c9b6b62f5afff" prot="public" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>__init__</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a32ff4e310f663027dd093173bc0f945f" prot="private" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>__library_name</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a9ec9ed954522ff8d0a0c689bf480f4ee" prot="private" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>__plugin_export_path</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a72265abb2cf5639fb7a9e89703c533b8" prot="private" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>__solver_pluging_cmake_template</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1af15f552d24664f783c8c7c12a867be99" prot="private" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>__solver_pluging_cpp_template</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a4d66207d6a55bf5cf1b57d4d4ba85bad" prot="private" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>__solver_pluging_export_xml_template</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1aae30438546fae63305c0f6b3e8f7644d" prot="private" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>__solver_pluging_hpp_template</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a21318b940eb17f296fb131deedf575c7" prot="private" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>_generate_file_from_template</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a60e76952af6b95aa160ad9825db7ce45" prot="public" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>generate_solver_plugin</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a8f81f02567c7607a1c2f2f5fd23159ca" prot="public" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>jinga_env_loader</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1ad293c5615d1daf42c1530c00955ebe51" prot="public" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_generator::SolverPluginGenerator</scope><name>jinja_env</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

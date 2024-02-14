@@ -1,0 +1,4 @@
+<map id="acados::AcadosSolver" name="acados::AcadosSolver">
+<area shape="rect" id="node1" title="Abstract C++ wrapper of generated Acados solver C&#45;code." alt="" coords="5,109,169,136"/>
+<area shape="rect" id="node2" href="$classacados_1_1AcadosSolver_1_1Dimensions.html" title="Container for the (fixed) dimensions of the imported Acados OCP." alt="" coords="5,5,169,47"/>
+</map>

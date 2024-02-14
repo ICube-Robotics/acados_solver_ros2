@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_42d94b6388139e1d66998d64b9f7fe4b" kind="dir">
+    <compoundname>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins</compoundname>
+    <innerdir refid="dir_262fc9d5bac64d174aa89782e6d51bb8">/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/"/>
+  </compounddef>
+</doxygen>

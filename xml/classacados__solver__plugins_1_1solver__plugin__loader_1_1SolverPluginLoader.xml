@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader" kind="class" language="Python" prot="public">
+    <compoundname>acados_solver_plugins::solver_plugin_loader::SolverPluginLoader</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1ad1232278c1b593ef6d8bfc318ffc05bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def acados_solver_plugins.solver_plugin_loader.SolverPluginLoader.__init__</definition>
+        <argsstring>(self, str custom_import_path=None, str library_name=None)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>custom_import_path</declname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>library_name</declname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Solver plugin loader constructor.
+
+:param custom_import_path: Dir where the generated files were \
+    exported by the generator, defaults to None
+:type custom_import_path: str, optional
+:param library_name: Name of the library that the generated files \
+    are part of, defaults to None (in which case the library \
+    is set to &quot;acados_solver_plugins&quot; internally)
+:type library_name: str, optional
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_loader.py" line="18" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_loader.py" bodystart="22" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1abac302f09014192460fb2048f4c9b529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def acados_solver_plugins.solver_plugin_loader.SolverPluginLoader.load_solver_plugin</definition>
+        <argsstring>(self, str solver_plugin_name)</argsstring>
+        <name>load_solver_plugin</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>str</type>
+          <declname>solver_plugin_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Load a Acados OCP solver from previously exported plugin. TODO.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_loader.py" line="36" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_loader.py" bodystart="36" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_loader.py" line="17" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/solver_plugin_loader.py" bodystart="17" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1ad1232278c1b593ef6d8bfc318ffc05bc" prot="public" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_loader::SolverPluginLoader</scope><name>__init__</name></member>
+      <member refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1abac302f09014192460fb2048f4c9b529" prot="public" virt="non-virtual"><scope>acados_solver_plugins::solver_plugin_loader::SolverPluginLoader</scope><name>load_solver_plugin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
