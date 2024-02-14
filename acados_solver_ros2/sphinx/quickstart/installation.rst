@@ -22,7 +22,7 @@ See the `official documentation <https://docs.ros.org/en/humble/Installation.htm
     sudo apt install python3-colcon-common-extensions
     cd ~/ros2_ws
     cd src
-    git clone https://github.com/tpoignonec/acados_solver_ros2.git
+    git clone https://github.com/ICube-Robotics/acados_solver_ros2.git
     vcs import . < acados_solver_ros2/acados_solver_ros2.repos
     rosdep install --ignore-src --from-paths . -y -r
 
