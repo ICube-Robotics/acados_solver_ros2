@@ -359,7 +359,7 @@ int AcadosSolver::set_runtime_parameters(unsigned int stage, ValueMap const & p_
   std::vector<double> p_i;
   p_i.reserve(np());
   fill_vector_from_map(p_index_map(), p_i_map, np(), p_i);
-  return initialize_control_values(stage, p_i);
+  return set_runtime_parameters(stage, p_i);
 }
 int AcadosSolver::set_runtime_parameters(ValueVector & p_i)
 {
