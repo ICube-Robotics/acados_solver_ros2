@@ -57,14 +57,15 @@ if(BUILD_TESTING)
   set(ament_cmake_copyright_FOUND TRUE)
   set(ament_cmake_cpplint_FOUND TRUE)
 
-  set(C_CODE_TEST_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test/mock_acados_solver/generated_c_code)
+  set(MOCK_SOLVER_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test/mock_acados_solver)
   file(GLOB_RECURSE AMENT_LINT_AUTO_FILE_EXCLUDE
     # Exclude auto generated c-code and CMakeLists
-    ${C_CODE_TEST_DIR}/**
+    ${MOCK_SOLVER_DIR}/**
   )
   ament_lint_auto_find_test_dependencies()
 
   # Test solver interface
+  find_package(ament_cmake_gmock REQUIRED)
   ament_add_gmock(
     test_acados_solver_base
     test/mock_acados_solver/mock_acados_solver.cpp
@@ -75,7 +76,7 @@ if(BUILD_TESTING)
   # Link generated C-code
   target_link_libraries(test_acados_solver_base
     ${PROJECT_NAME}
-    ${C_CODE_TEST_DIR}/libacados_ocp_solver_mock_acados_solver.so
+    ${MOCK_SOLVER_DIR}/generated_c_code/libacados_ocp_solver_mock_acados_solver.so
   )
 endif()
 

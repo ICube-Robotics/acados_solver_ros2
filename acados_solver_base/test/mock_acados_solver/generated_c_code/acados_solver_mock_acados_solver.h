@@ -46,13 +46,16 @@
 #define MOCK_ACADOS_SOLVER_NSBX   0
 #define MOCK_ACADOS_SOLVER_NSBU   0
 #define MOCK_ACADOS_SOLVER_NSH    0
+#define MOCK_ACADOS_SOLVER_NSH0   0
 #define MOCK_ACADOS_SOLVER_NSG    0
 #define MOCK_ACADOS_SOLVER_NSPHI  0
 #define MOCK_ACADOS_SOLVER_NSHN   0
 #define MOCK_ACADOS_SOLVER_NSGN   0
 #define MOCK_ACADOS_SOLVER_NSPHIN 0
+#define MOCK_ACADOS_SOLVER_NSPHI0 0
 #define MOCK_ACADOS_SOLVER_NSBXN  0
 #define MOCK_ACADOS_SOLVER_NS     0
+#define MOCK_ACADOS_SOLVER_NS0    0
 #define MOCK_ACADOS_SOLVER_NSN    0
 #define MOCK_ACADOS_SOLVER_NG     0
 #define MOCK_ACADOS_SOLVER_NBXN   1
@@ -62,8 +65,10 @@
 #define MOCK_ACADOS_SOLVER_NYN    0
 #define MOCK_ACADOS_SOLVER_N      20
 #define MOCK_ACADOS_SOLVER_NH     0
-#define MOCK_ACADOS_SOLVER_NPHI   0
 #define MOCK_ACADOS_SOLVER_NHN    0
+#define MOCK_ACADOS_SOLVER_NH0    0
+#define MOCK_ACADOS_SOLVER_NPHI0  0
+#define MOCK_ACADOS_SOLVER_NPHI   0
 #define MOCK_ACADOS_SOLVER_NPHIN  0
 #define MOCK_ACADOS_SOLVER_NR     0
 
@@ -75,110 +80,102 @@ extern "C" {
 // ** capsule for solver data **
 typedef struct mock_acados_solver_solver_capsule
 {
-  // acados objects
-  ocp_nlp_in * nlp_in;
-  ocp_nlp_out * nlp_out;
-  ocp_nlp_out * sens_out;
-  ocp_nlp_solver * nlp_solver;
-  void * nlp_opts;
-  ocp_nlp_plan_t * nlp_solver_plan;
-  ocp_nlp_config * nlp_config;
-  ocp_nlp_dims * nlp_dims;
+    // acados objects
+    ocp_nlp_in *nlp_in;
+    ocp_nlp_out *nlp_out;
+    ocp_nlp_out *sens_out;
+    ocp_nlp_solver *nlp_solver;
+    void *nlp_opts;
+    ocp_nlp_plan_t *nlp_solver_plan;
+    ocp_nlp_config *nlp_config;
+    ocp_nlp_dims *nlp_dims;
 
-  // number of expected runtime parameters
-  unsigned int nlp_np;
+    // number of expected runtime parameters
+    unsigned int nlp_np;
 
-  /* external functions */
-  // dynamics
+    /* external functions */
+    // dynamics
 
-  external_function_param_casadi * impl_dae_fun;
-  external_function_param_casadi * impl_dae_fun_jac_x_xdot_z;
-  external_function_param_casadi * impl_dae_jac_x_xdot_u_z;
+    external_function_param_casadi *impl_dae_fun;
+    external_function_param_casadi *impl_dae_fun_jac_x_xdot_z;
+    external_function_param_casadi *impl_dae_jac_x_xdot_u_z;
 
-  external_function_param_casadi * impl_dae_hess;
-
-
-  // cost
-
-  external_function_param_casadi * ext_cost_fun;
-  external_function_param_casadi * ext_cost_fun_jac;
-  external_function_param_casadi * ext_cost_fun_jac_hess;
+    external_function_param_casadi *impl_dae_hess;
 
 
-  external_function_param_casadi ext_cost_0_fun;
-  external_function_param_casadi ext_cost_0_fun_jac;
-  external_function_param_casadi ext_cost_0_fun_jac_hess;
+
+    // cost
+
+    external_function_param_casadi *ext_cost_fun;
+    external_function_param_casadi *ext_cost_fun_jac;
+    external_function_param_casadi *ext_cost_fun_jac_hess;
 
 
-  external_function_param_casadi ext_cost_e_fun;
-  external_function_param_casadi ext_cost_e_fun_jac;
-  external_function_param_casadi ext_cost_e_fun_jac_hess;
 
-  // constraints
+
+
+    external_function_param_casadi ext_cost_0_fun;
+    external_function_param_casadi ext_cost_0_fun_jac;
+    external_function_param_casadi ext_cost_0_fun_jac_hess;
+
+
+
+
+    external_function_param_casadi ext_cost_e_fun;
+    external_function_param_casadi ext_cost_e_fun_jac;
+    external_function_param_casadi ext_cost_e_fun_jac_hess;
+
+
+
+    // constraints
+
+
+
+
+
 
 
 } mock_acados_solver_solver_capsule;
 
-ACADOS_SYMBOL_EXPORT mock_acados_solver_solver_capsule * mock_acados_solver_acados_create_capsule(
-  void);
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_free_capsule(
-  mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT mock_acados_solver_solver_capsule * mock_acados_solver_acados_create_capsule(void);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_free_capsule(mock_acados_solver_solver_capsule *capsule);
 
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_create(
-  mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_create(mock_acados_solver_solver_capsule * capsule);
 
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_reset(
-  mock_acados_solver_solver_capsule * capsule, int reset_qp_solver_mem);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_reset(mock_acados_solver_solver_capsule* capsule, int reset_qp_solver_mem);
 
 /**
  * Generic version of mock_acados_solver_acados_create which allows to use a different number of shooting intervals than
  * the number used for code generation. If new_time_steps=NULL and n_time_steps matches the number used for code
  * generation, the time-steps from code generation is used.
  */
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_create_with_discretization(
-  mock_acados_solver_solver_capsule * capsule, int n_time_steps, double * new_time_steps);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_create_with_discretization(mock_acados_solver_solver_capsule * capsule, int n_time_steps, double* new_time_steps);
 /**
  * Update the time step vector. Number N must be identical to the currently set number of shooting nodes in the
  * nlp_solver_plan. Returns 0 if no error occurred and a otherwise a value other than 0.
  */
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_time_steps(
-  mock_acados_solver_solver_capsule * capsule, int N, double * new_time_steps);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_time_steps(mock_acados_solver_solver_capsule * capsule, int N, double* new_time_steps);
 /**
  * This function is used for updating an already initialized solver with a different number of qp_cond_N.
  */
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_qp_solver_cond_N(
-  mock_acados_solver_solver_capsule * capsule, int qp_solver_cond_N);
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_params(
-  mock_acados_solver_solver_capsule * capsule, int stage, double * value, int np);
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_params_sparse(
-  mock_acados_solver_solver_capsule * capsule, int stage, int * idx, double * p, int n_update);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_qp_solver_cond_N(mock_acados_solver_solver_capsule * capsule, int qp_solver_cond_N);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_params(mock_acados_solver_solver_capsule * capsule, int stage, double *value, int np);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_params_sparse(mock_acados_solver_solver_capsule * capsule, int stage, int *idx, double *p, int n_update);
 
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_solve(
-  mock_acados_solver_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_free(
-  mock_acados_solver_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT void mock_acados_solver_acados_print_stats(
-  mock_acados_solver_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_custom_update(
-  mock_acados_solver_solver_capsule * capsule, double * data, int data_len);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_solve(mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_free(mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT void mock_acados_solver_acados_print_stats(mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_custom_update(mock_acados_solver_solver_capsule* capsule, double* data, int data_len);
 
 
-ACADOS_SYMBOL_EXPORT ocp_nlp_in * mock_acados_solver_acados_get_nlp_in(
-  mock_acados_solver_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT ocp_nlp_out * mock_acados_solver_acados_get_nlp_out(
-  mock_acados_solver_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT ocp_nlp_out * mock_acados_solver_acados_get_sens_out(
-  mock_acados_solver_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT ocp_nlp_solver * mock_acados_solver_acados_get_nlp_solver(
-  mock_acados_solver_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT ocp_nlp_config * mock_acados_solver_acados_get_nlp_config(
-  mock_acados_solver_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT void * mock_acados_solver_acados_get_nlp_opts(
-  mock_acados_solver_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT ocp_nlp_dims * mock_acados_solver_acados_get_nlp_dims(
-  mock_acados_solver_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT ocp_nlp_plan_t * mock_acados_solver_acados_get_nlp_plan(
-  mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT ocp_nlp_in *mock_acados_solver_acados_get_nlp_in(mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT ocp_nlp_out *mock_acados_solver_acados_get_nlp_out(mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT ocp_nlp_out *mock_acados_solver_acados_get_sens_out(mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT ocp_nlp_solver *mock_acados_solver_acados_get_nlp_solver(mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT ocp_nlp_config *mock_acados_solver_acados_get_nlp_config(mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT void *mock_acados_solver_acados_get_nlp_opts(mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT ocp_nlp_dims *mock_acados_solver_acados_get_nlp_dims(mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT ocp_nlp_plan_t *mock_acados_solver_acados_get_nlp_plan(mock_acados_solver_solver_capsule * capsule);
 
 #ifdef __cplusplus
 } /* extern "C" */

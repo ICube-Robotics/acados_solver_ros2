@@ -15,7 +15,7 @@
 #
 # See https://github.com/pre-commit/pre-commit
 
-exclude: 'acados_solver_base/test/mock_acados_solver/generated_c_code/.*'
+exclude: 'acados_solver_base/test/mock_acados_solver/*'
 repos:
   # Standard hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks

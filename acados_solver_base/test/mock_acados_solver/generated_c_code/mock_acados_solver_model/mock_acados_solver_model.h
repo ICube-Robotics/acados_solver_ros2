@@ -36,54 +36,48 @@ extern "C" {
 #endif
 
 
+  
 // implicit ODE: function
-int mock_acados_solver_impl_dae_fun(
-  const real_t ** arg, real_t ** res, int * iw, real_t * w,
-  void * mem);
+int mock_acados_solver_impl_dae_fun(const real_t** arg, real_t** res, int* iw, real_t* w, void *mem);
 int mock_acados_solver_impl_dae_fun_work(int *, int *, int *, int *);
-const int * mock_acados_solver_impl_dae_fun_sparsity_in(int);
-const int * mock_acados_solver_impl_dae_fun_sparsity_out(int);
+const int *mock_acados_solver_impl_dae_fun_sparsity_in(int);
+const int *mock_acados_solver_impl_dae_fun_sparsity_out(int);
 int mock_acados_solver_impl_dae_fun_n_in(void);
 int mock_acados_solver_impl_dae_fun_n_out(void);
 
 // implicit ODE: function + jacobians
-int mock_acados_solver_impl_dae_fun_jac_x_xdot_z(
-  const real_t ** arg, real_t ** res, int * iw,
-  real_t * w, void * mem);
+int mock_acados_solver_impl_dae_fun_jac_x_xdot_z(const real_t** arg, real_t** res, int* iw, real_t* w, void *mem);
 int mock_acados_solver_impl_dae_fun_jac_x_xdot_z_work(int *, int *, int *, int *);
-const int * mock_acados_solver_impl_dae_fun_jac_x_xdot_z_sparsity_in(int);
-const int * mock_acados_solver_impl_dae_fun_jac_x_xdot_z_sparsity_out(int);
+const int *mock_acados_solver_impl_dae_fun_jac_x_xdot_z_sparsity_in(int);
+const int *mock_acados_solver_impl_dae_fun_jac_x_xdot_z_sparsity_out(int);
 int mock_acados_solver_impl_dae_fun_jac_x_xdot_z_n_in(void);
 int mock_acados_solver_impl_dae_fun_jac_x_xdot_z_n_out(void);
 
 // implicit ODE: jacobians only
-int mock_acados_solver_impl_dae_jac_x_xdot_u_z(
-  const real_t ** arg, real_t ** res, int * iw,
-  real_t * w, void * mem);
+int mock_acados_solver_impl_dae_jac_x_xdot_u_z(const real_t** arg, real_t** res, int* iw, real_t* w, void *mem);
 int mock_acados_solver_impl_dae_jac_x_xdot_u_z_work(int *, int *, int *, int *);
-const int * mock_acados_solver_impl_dae_jac_x_xdot_u_z_sparsity_in(int);
-const int * mock_acados_solver_impl_dae_jac_x_xdot_u_z_sparsity_out(int);
+const int *mock_acados_solver_impl_dae_jac_x_xdot_u_z_sparsity_in(int);
+const int *mock_acados_solver_impl_dae_jac_x_xdot_u_z_sparsity_out(int);
 int mock_acados_solver_impl_dae_jac_x_xdot_u_z_n_in(void);
 int mock_acados_solver_impl_dae_jac_x_xdot_u_z_n_out(void);
 
 // implicit ODE - for lifted_irk
-int mock_acados_solver_impl_dae_fun_jac_x_xdot_u(
-  const real_t ** arg, real_t ** res, int * iw,
-  real_t * w, void * mem);
+int mock_acados_solver_impl_dae_fun_jac_x_xdot_u(const real_t** arg, real_t** res, int* iw, real_t* w, void *mem);
 int mock_acados_solver_impl_dae_fun_jac_x_xdot_u_work(int *, int *, int *, int *);
-const int * mock_acados_solver_impl_dae_fun_jac_x_xdot_u_sparsity_in(int);
-const int * mock_acados_solver_impl_dae_fun_jac_x_xdot_u_sparsity_out(int);
+const int *mock_acados_solver_impl_dae_fun_jac_x_xdot_u_sparsity_in(int);
+const int *mock_acados_solver_impl_dae_fun_jac_x_xdot_u_sparsity_out(int);
 int mock_acados_solver_impl_dae_fun_jac_x_xdot_u_n_in(void);
 int mock_acados_solver_impl_dae_fun_jac_x_xdot_u_n_out(void);
 // implicit ODE - hessian
-int mock_acados_solver_impl_dae_hess(
-  const real_t ** arg, real_t ** res, int * iw, real_t * w,
-  void * mem);
+int mock_acados_solver_impl_dae_hess(const real_t** arg, real_t** res, int* iw, real_t* w, void *mem);
 int mock_acados_solver_impl_dae_hess_work(int *, int *, int *, int *);
-const int * mock_acados_solver_impl_dae_hess_sparsity_in(int);
-const int * mock_acados_solver_impl_dae_hess_sparsity_out(int);
+const int *mock_acados_solver_impl_dae_hess_sparsity_in(int);
+const int *mock_acados_solver_impl_dae_hess_sparsity_out(int);
 int mock_acados_solver_impl_dae_hess_n_in(void);
 int mock_acados_solver_impl_dae_hess_n_out(void);
+	
+  
+
 
 
 #ifdef __cplusplus

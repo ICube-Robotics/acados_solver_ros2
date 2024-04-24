@@ -43,9 +43,20 @@ option(BUILD_ACADOS_SIM_SOLVER_LIB "Should the simulation solver library acados_
 
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU" AND CMAKE_SYSTEM_NAME MATCHES "Windows")
-    # MinGW, change to .lib such that mex recognizes it
-    set(CMAKE_SHARED_LIBRARY_SUFFIX ".lib")
+    # MinGW: remove prefix and change suffix to match MSVC
+    # (such that Matlab mex recognizes the libraries)
     set(CMAKE_SHARED_LIBRARY_PREFIX "")
+    set(CMAKE_IMPORT_LIBRARY_SUFFIX ".lib")
+    set(CMAKE_IMPORT_LIBRARY_PREFIX "")
+    set(CMAKE_STATIC_LIBRARY_SUFFIX ".lib")
+    set(CMAKE_STATIC_LIBRARY_PREFIX "")
+endif()
+
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2_workspaces/ws_passive_nmpic_ros2/src/external/acados_solver_ros2/acados_solver_plugins/src/plugins/mock_acados_solver/generated_c_code)
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2_workspaces/ws_passive_nmpic_ros2/src/external/acados_solver_ros2/acados_solver_plugins/src/plugins/mock_acados_solver/generated_c_code)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2_workspaces/ws_passive_nmpic_ros2/src/external/acados_solver_ros2/acados_solver_plugins/src/plugins/mock_acados_solver/generated_c_code)
 endif()
 
 
@@ -69,12 +80,18 @@ if(${BUILD_ACADOS_SOLVER_LIB} OR ${BUILD_ACADOS_OCP_SOLVER_LIB} OR ${BUILD_EXAMP
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_0_fun.c
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_0_fun_jac.c
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_0_fun_jac_hess.c
+        
+        
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_fun.c
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_fun_jac.c
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_fun_jac_hess.c
+        
+        
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_e_fun.c
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_e_fun_jac.c
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_e_fun_jac_hess.c
+        
+        
         acados_solver_mock_acados_solver.c)
     add_library(${OCP_OBJ} OBJECT ${OCP_SRC})
 endif()
@@ -92,8 +109,8 @@ set(EXTERNAL_DIR)
 set(EXTERNAL_LIB)
 
 # set some search paths for preprocessor and linker
-set(ACADOS_INCLUDE_PATH /home/tpoignonec/dev/ros2_ws/install/acados_vendor_ros2/opt/acados_vendor_ros2/include CACHE PATH "Define the path which contains the include directory for acados.")
-set(ACADOS_LIB_PATH /home/tpoignonec/dev/ros2_ws/install/acados_vendor_ros2/opt/acados_vendor_ros2/lib CACHE PATH "Define the path which contains the lib directory for acados.")
+set(ACADOS_INCLUDE_PATH /home/tpoignonec/dev/ros2_workspaces/ws_passive_nmpic_ros2/install/acados_vendor_ros2/opt/acados_vendor_ros2/include CACHE PATH "Define the path which contains the include directory for acados.")
+set(ACADOS_LIB_PATH /home/tpoignonec/dev/ros2_workspaces/ws_passive_nmpic_ros2/install/acados_vendor_ros2/opt/acados_vendor_ros2/lib CACHE PATH "Define the path which contains the lib directory for acados.")
 
 # c-compiler flags for debugging
 set(CMAKE_C_FLAGS_DEBUG "-O0 -ggdb")
@@ -159,3 +176,10 @@ if(${BUILD_ACADOS_SIM_SOLVER_LIB})
     add_library(${LIB_ACADOS_SIM_SOLVER} SHARED $<TARGET_OBJECTS:${MODEL_OBJ}> $<TARGET_OBJECTS:${SIM_OBJ}>)
     install(TARGETS ${LIB_ACADOS_SIM_SOLVER} DESTINATION ${CMAKE_INSTALL_PREFIX})
 endif(${BUILD_ACADOS_SIM_SOLVER_LIB})
+
+# unset options for clean cmake cache on subsequent cmake runs
+unset(BUILD_ACADOS_SOLVER_LIB CACHE)
+unset(BUILD_ACADOS_OCP_SOLVER_LIB CACHE)
+unset(BUILD_EXAMPLE CACHE)
+unset(BUILD_SIM_EXAMPLE CACHE)
+unset(BUILD_ACADOS_SIM_SOLVER_LIB CACHE)
