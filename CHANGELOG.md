@@ -11,7 +11,7 @@
 
 ### Fixed
 
-- [PR #7](https://github.com/ICube-Robotics/acados_solver_ros2/pull/7) Fixed `utils::get_stats_cost_value()` getter.F
+- [PR #7](https://github.com/ICube-Robotics/acados_solver_ros2/pull/7) Fixed `utils::get_stats_cost_value()` getter.
 
 - [PR #6](https://github.com/ICube-Robotics/acados_solver_ros2/pull/6) Fixed `AcadosSolver::set_runtime_parameters()` getter.
 
