@@ -46,76 +46,91 @@
 
 int main()
 {
-  int status = 0;
-  sim_solver_capsule * capsule = mock_acados_solver_acados_sim_solver_create_capsule();
-  status = mock_acados_solver_acados_sim_create(capsule);
+    int status = 0;
+    mock_acados_solver_sim_solver_capsule *capsule = mock_acados_solver_acados_sim_solver_create_capsule();
+    status = mock_acados_solver_acados_sim_create(capsule);
 
-  if (status) {
-    printf("acados_create() returned status %d. Exiting.\n", status);
-    exit(1);
-  }
-
-  sim_config * acados_sim_config = mock_acados_solver_acados_get_sim_config(capsule);
-  sim_in * acados_sim_in = mock_acados_solver_acados_get_sim_in(capsule);
-  sim_out * acados_sim_out = mock_acados_solver_acados_get_sim_out(capsule);
-  void * acados_sim_dims = mock_acados_solver_acados_get_sim_dims(capsule);
-
-  // initial condition
-  double x_current[NX];
-  x_current[0] = 0.0;
-  x_current[1] = 0.0;
-  x_current[2] = 0.0;
-  x_current[3] = 0.0;
-
-
-  x_current[0] = 0;
-  x_current[1] = 3.141592653589793;
-  x_current[2] = 0;
-  x_current[3] = 0;
-
-
-  // initial value for control input
-  double u0[NU];
-  u0[0] = 0.0;
-  // set parameters
-  double p[NP];
-  p[0] = 1;
-  p[1] = 0.1;
-
-  mock_acados_solver_acados_sim_update_params(capsule, p, NP);
-
-
-  int n_sim_steps = 3;
-  // solve ocp in loop
-  for (int ii = 0; ii < n_sim_steps; ii++) {
-    sim_in_set(
-      acados_sim_config, acados_sim_dims,
-      acados_sim_in, "x", x_current);
-    status = mock_acados_solver_acados_sim_solve(capsule);
-
-    if (status != ACADOS_SUCCESS) {
-      printf("acados_solve() failed with status %d.\n", status);
+    if (status)
+    {
+        printf("acados_create() returned status %d. Exiting.\n", status);
+        exit(1);
     }
 
-    sim_out_get(
-      acados_sim_config, acados_sim_dims,
-      acados_sim_out, "x", x_current);
+    sim_config *acados_sim_config = mock_acados_solver_acados_get_sim_config(capsule);
+    sim_in *acados_sim_in = mock_acados_solver_acados_get_sim_in(capsule);
+    sim_out *acados_sim_out = mock_acados_solver_acados_get_sim_out(capsule);
+    void *acados_sim_dims = mock_acados_solver_acados_get_sim_dims(capsule);
 
-    printf("\nx_current, %d\n", ii);
-    for (int jj = 0; jj < NX; jj++) {
-      printf("%e\n", x_current[jj]);
+    // initial condition
+    double x_current[NX];
+    x_current[0] = 0.0;
+    x_current[1] = 0.0;
+    x_current[2] = 0.0;
+    x_current[3] = 0.0;
+
+  
+    x_current[0] = 0;
+    x_current[1] = 3.141592653589793;
+    x_current[2] = 0;
+    x_current[3] = 0;
+    
+  
+
+
+    // initial value for control input
+    double u0[NU];
+    u0[0] = 0.0;
+    // set parameters
+    double p[NP];
+    p[0] = 1;
+    p[1] = 0.1;
+
+    mock_acados_solver_acados_sim_update_params(capsule, p, NP);
+  
+
+  
+
+
+    int n_sim_steps = 3;
+    // solve ocp in loop
+    for (int ii = 0; ii < n_sim_steps; ii++)
+    {
+        // set inputs
+        sim_in_set(acados_sim_config, acados_sim_dims,
+            acados_sim_in, "x", x_current);
+        sim_in_set(acados_sim_config, acados_sim_dims,
+            acados_sim_in, "u", u0);
+
+        // solve
+        status = mock_acados_solver_acados_sim_solve(capsule);
+        if (status != ACADOS_SUCCESS)
+        {
+            printf("acados_solve() failed with status %d.\n", status);
+        }
+
+        // get outputs
+        sim_out_get(acados_sim_config, acados_sim_dims,
+               acados_sim_out, "x", x_current);
+
+    
+
+        // print solution
+        printf("\nx_current, %d\n", ii);
+        for (int jj = 0; jj < NX; jj++)
+        {
+            printf("%e\n", x_current[jj]);
+        }
     }
-  }
 
-  printf("\nPerformed %d simulation steps with acados integrator successfully.\n\n", n_sim_steps);
+    printf("\nPerformed %d simulation steps with acados integrator successfully.\n\n", n_sim_steps);
 
-  // free solver
-  status = mock_acados_solver_acados_sim_free(capsule);
-  if (status) {
-    printf("mock_acados_solver_acados_sim_free() returned status %d. \n", status);
-  }
+    // free solver
+    status = mock_acados_solver_acados_sim_free(capsule);
+    if (status) {
+        printf("mock_acados_solver_acados_sim_free() returned status %d. \n", status);
+    }
 
-  mock_acados_solver_acados_sim_solver_free_capsule(capsule);
+    mock_acados_solver_acados_sim_solver_free_capsule(capsule);
 
-  return status;
+    return status;
 }

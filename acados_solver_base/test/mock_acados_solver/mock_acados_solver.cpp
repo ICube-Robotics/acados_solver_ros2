@@ -26,6 +26,8 @@
 namespace acados
 {
 
+using namespace acados;
+
 // Constructor
 MockAcadosSolver::MockAcadosSolver()
 {
@@ -105,9 +107,7 @@ int MockAcadosSolver::internal_create_with_discretization(
   int n_time_steps,
   double * new_time_steps)
 {
-  return mock_acados_solver_acados_create_with_discretization(
-    _capsule, n_time_steps,
-    new_time_steps);
+  return mock_acados_solver_acados_create_with_discretization(_capsule, n_time_steps, new_time_steps);
 }
 int MockAcadosSolver::internal_reset(int reset_qp_solver_mem)
 {
@@ -130,13 +130,9 @@ int MockAcadosSolver::internal_update_params(unsigned int stage, double * value,
 {
   return mock_acados_solver_acados_update_params(_capsule, static_cast<int>(stage), value, np);
 }
-int MockAcadosSolver::internal_update_params_sparse(
-  unsigned int stage, int * idx, double * p,
-  int n_update)
+int MockAcadosSolver::internal_update_params_sparse(unsigned int stage, int * idx, double * p, int n_update)
 {
-  return mock_acados_solver_acados_update_params_sparse(
-    _capsule, static_cast<int>(stage), idx, p,
-    n_update);
+  return mock_acados_solver_acados_update_params_sparse(_capsule, static_cast<int>(stage), idx, p, n_update);
 }
 int MockAcadosSolver::internal_solve()
 {
@@ -186,4 +182,4 @@ unsigned int MockAcadosSolver::get_nlp_np() const
   return _capsule->nlp_np;
 }
 
-}  // using namespace acados
+}  // namespace acados

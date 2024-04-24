@@ -45,60 +45,54 @@ extern "C" {
 
 
 // ** capsule for solver data **
-typedef struct sim_solver_capsule
+typedef struct mock_acados_solver_sim_solver_capsule
 {
-  // acados objects
-  sim_in * acados_sim_in;
-  sim_out * acados_sim_out;
-  sim_solver * acados_sim_solver;
-  sim_opts * acados_sim_opts;
-  sim_config * acados_sim_config;
-  void * acados_sim_dims;
+    // acados objects
+    sim_in *acados_sim_in;
+    sim_out *acados_sim_out;
+    sim_solver *acados_sim_solver;
+    sim_opts *acados_sim_opts;
+    sim_config *acados_sim_config;
+    void *acados_sim_dims;
 
-  /* external functions */
-  // ERK
-  external_function_param_casadi * sim_forw_vde_casadi;
-  external_function_param_casadi * sim_vde_adj_casadi;
-  external_function_param_casadi * sim_expl_ode_fun_casadi;
-  external_function_param_casadi * sim_expl_ode_hess;
+    /* external functions */
+    // ERK
+    external_function_param_casadi * sim_forw_vde_casadi;
+    external_function_param_casadi * sim_vde_adj_casadi;
+    external_function_param_casadi * sim_expl_ode_fun_casadi;
+    external_function_param_casadi * sim_expl_ode_hess;
 
-  // IRK
-  external_function_param_casadi * sim_impl_dae_fun;
-  external_function_param_casadi * sim_impl_dae_fun_jac_x_xdot_z;
-  external_function_param_casadi * sim_impl_dae_jac_x_xdot_u_z;
-  external_function_param_casadi * sim_impl_dae_hess;
+    // IRK
+    external_function_param_casadi * sim_impl_dae_fun;
+    external_function_param_casadi * sim_impl_dae_fun_jac_x_xdot_z;
+    external_function_param_casadi * sim_impl_dae_jac_x_xdot_u_z;
+    external_function_param_casadi * sim_impl_dae_hess;
 
-  // GNSF
-  external_function_param_casadi * sim_gnsf_phi_fun;
-  external_function_param_casadi * sim_gnsf_phi_fun_jac_y;
-  external_function_param_casadi * sim_gnsf_phi_jac_y_uhat;
-  external_function_param_casadi * sim_gnsf_f_lo_jac_x1_x1dot_u_z;
-  external_function_param_casadi * sim_gnsf_get_matrices_fun;
+    // GNSF
+    external_function_param_casadi * sim_gnsf_phi_fun;
+    external_function_param_casadi * sim_gnsf_phi_fun_jac_y;
+    external_function_param_casadi * sim_gnsf_phi_jac_y_uhat;
+    external_function_param_casadi * sim_gnsf_f_lo_jac_x1_x1dot_u_z;
+    external_function_param_casadi * sim_gnsf_get_matrices_fun;
 
-} sim_solver_capsule;
-
-
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_create(sim_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_solve(sim_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_free(sim_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_update_params(
-  sim_solver_capsule * capsule,
-  double * value, int np);
-
-ACADOS_SYMBOL_EXPORT sim_config * mock_acados_solver_acados_get_sim_config(
-  sim_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT sim_in * mock_acados_solver_acados_get_sim_in(sim_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT sim_out * mock_acados_solver_acados_get_sim_out(sim_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT void * mock_acados_solver_acados_get_sim_dims(sim_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT sim_opts * mock_acados_solver_acados_get_sim_opts(
-  sim_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT sim_solver * mock_acados_solver_acados_get_sim_solver(
-  sim_solver_capsule * capsule);
+} mock_acados_solver_sim_solver_capsule;
 
 
-ACADOS_SYMBOL_EXPORT sim_solver_capsule * mock_acados_solver_acados_sim_solver_create_capsule(void);
-ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_solver_free_capsule(
-  sim_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_create(mock_acados_solver_sim_solver_capsule *capsule);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_solve(mock_acados_solver_sim_solver_capsule *capsule);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_free(mock_acados_solver_sim_solver_capsule *capsule);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_update_params(mock_acados_solver_sim_solver_capsule *capsule, double *value, int np);
+
+ACADOS_SYMBOL_EXPORT sim_config * mock_acados_solver_acados_get_sim_config(mock_acados_solver_sim_solver_capsule *capsule);
+ACADOS_SYMBOL_EXPORT sim_in * mock_acados_solver_acados_get_sim_in(mock_acados_solver_sim_solver_capsule *capsule);
+ACADOS_SYMBOL_EXPORT sim_out * mock_acados_solver_acados_get_sim_out(mock_acados_solver_sim_solver_capsule *capsule);
+ACADOS_SYMBOL_EXPORT void * mock_acados_solver_acados_get_sim_dims(mock_acados_solver_sim_solver_capsule *capsule);
+ACADOS_SYMBOL_EXPORT sim_opts * mock_acados_solver_acados_get_sim_opts(mock_acados_solver_sim_solver_capsule *capsule);
+ACADOS_SYMBOL_EXPORT sim_solver * mock_acados_solver_acados_get_sim_solver(mock_acados_solver_sim_solver_capsule *capsule);
+
+
+ACADOS_SYMBOL_EXPORT mock_acados_solver_sim_solver_capsule * mock_acados_solver_acados_sim_solver_create_capsule(void);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_solver_free_capsule(mock_acados_solver_sim_solver_capsule *capsule);
 
 #ifdef __cplusplus
 }
