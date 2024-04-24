@@ -234,6 +234,11 @@ void utils::unsafe_get_stats_field(AcadosSolver & solver, const std::string & fi
 double utils::get_stats_cost_value(AcadosSolver & solver)
 {
   double cost_value = 0.0;
+  ocp_nlp_eval_cost(
+    solver.get_nlp_solver(),
+    solver.get_nlp_in(),
+    solver.get_nlp_out()
+  );
   unsafe_get_stats_field(solver, "cost_value", cost_value);
   return cost_value;
 }
