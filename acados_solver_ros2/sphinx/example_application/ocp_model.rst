@@ -93,7 +93,7 @@ Here, the geometry and mass properties of the robot are defined as model paramet
 
 2) Define the Acados model
 
-The second step is to define the Acados model, which includes the state, controls, paremeters, and dynamics.
+The second step is to define the Acados model, which includes the state, controls, parameters, and dynamics.
 More details can be found in the Acados documentation.
 
 .. code-block:: python
@@ -233,7 +233,6 @@ It should be noted that we use a nonlinear cost function, but a linear cost coul
     ...
 
 
-At this point, the OCP is fully defined and can be solved using the Acados solver.
+All done, at this point, the OCP is fully defined and can be used in Python applications (see `AcadosOcpSolver <https://docs.acados.org/python_interface/index.html#acados_template.acados_ocp_solver.AcadosOcpSolver>`_).
+
 The full code can be found in the `export_acados_solver_plugin.py` file in the `example_acados_controller/script` directory of the `acados_solver_ros2_examples` repository.
-
-
