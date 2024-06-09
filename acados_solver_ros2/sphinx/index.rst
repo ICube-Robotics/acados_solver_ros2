@@ -20,8 +20,15 @@ To date, the stack includes:
 
   quickstart/installation
   quickstart/usage
-  quickstart/generate_new_solvers
-  quickstart/write_controllers
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Example application
+  :glob:
+
+  example_application/ocp_model
+  example_application/controller
+  example_application/demo
 
 .. toctree::
   :maxdepth: 1
