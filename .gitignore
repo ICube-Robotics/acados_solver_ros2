@@ -1,4 +1,5 @@
 acados_solver_ros2/*/_build/*
+acados_solver_ros2/documentation.html
 
 # Python
 **/__pycache__/**
