@@ -57,10 +57,16 @@ extensions = [
     'sphinx.ext.inheritance_diagram',
     "sphinx.ext.githubpages",
     "sphinxcontrib.plantuml",
+    "sphinxcontrib.video",
+    "sphinx_copybutton",
     "breathe",
 ]
 
 breathe_default_project = "acados_solver_ros2"
+
+
+# Automatic numbering
+numfig = True
 
 
 def get_package(package: str):

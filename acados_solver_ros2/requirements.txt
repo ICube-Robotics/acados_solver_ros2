@@ -13,3 +13,5 @@ sphinx-autobuild # See https://sublime-and-sphinx-guide.readthedocs.io/en/latest
 breathe
 sphinx_mdinclude
 sphinxcontrib.plantuml
+sphinxcontrib-video
+sphinx-copybutton
