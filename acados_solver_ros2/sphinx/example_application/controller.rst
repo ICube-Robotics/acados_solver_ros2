@@ -60,7 +60,7 @@ For the RRBot example, the export script is as follows:
     solver_plugin_generator.generate_solver_plugin(
         ocp=ocp,
         plugin_class_name='RrbotCartesianTracking',
-        solver_description='Acados solver plugin to track a cartesian trajectory with the RRBot planar robot',  # noqa: E501
+        solver_description='Acados solver plugin to track a Cartesian trajectory with the RRBot planar robot',  # noqa: E501
         x_index_map=x_index_map,
         z_index_map=z_index_map,
         p_index_map=p_index_map,
@@ -76,7 +76,7 @@ To export the plugin, simply run the script with Python:
     source install/setup.bash
     python3 ./<relative_path_to_script>.py
 
-Which result in the following workspace tree:
+Which results in the following workspace tree:
 
 .. figure:: ../images/workspace_tree.png
    :width: 800
@@ -93,7 +93,7 @@ The wrapper inherits from the :class:`acados::AcadosSolver` class, resulting in 
             type="acados_solver_plugins::RrbotCartesianTracking"
             base_class_type="acados::AcadosSolver">
         <description>
-        Acados solver plugin to track a cartesian trajectory with the RRBot planar robot
+        Acados solver plugin to track a Cartesian trajectory with the RRBot planar robot
         </description>
     </class>
     </library>
@@ -289,7 +289,7 @@ The OCP can be solved in the ``update`` method of the ROS2 controller:
             return controller_interface::return_type::ERROR;
         }
 
-        // get the cartesian reference
+        // get the Cartesian reference
         std::vector<double> p_ref = {0.0, 0.0};
         std::vector<double> p_dot_ref = {0.0, 0.0};
 
@@ -334,7 +334,7 @@ The OCP can be solved in the ``update`` method of the ROS2 controller:
 
 The full code can be found in the `example_acados_controller.cpp <https://github.com/ICube-Robotics/acados_solver_ros2_examples/blob/main/example_acados_controller/src/example_acados_controller.cpp>`_ files in the ``example_acados_controller/src`` directory of the `acados_solver_ros2_examples <https://github.com/ICube-Robotics/acados_solver_ros2_examples>`_ repository.
 
-Notes and recommandations
+Notes and recommendations
 --------------------------
 
 - If not provided, the semantic map is constructed from CasADI variable names.
@@ -342,7 +342,7 @@ Notes and recommandations
 - By default, the plugin sources are exported to the src directory of the ``acados_solver_plugins`` package.
   This can be changed by setting the ``plugin_sources_dir`` argument of the ``generate_solver_plugin`` method.
 
-- If the Acados solver C library is generated for the first time, the user will be prompted to install some Acados ecternal dependencies.
+- If the Acados solver C library is generated for the first time, the user will be prompted to install some Acados external dependencies.
   This can be avoided by running the script as follows:
 
     .. code-block:: bash

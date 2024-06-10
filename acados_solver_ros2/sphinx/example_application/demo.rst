@@ -77,7 +77,7 @@ Constraints satisfaction
 The robot joint state plots are shown in :numref:`fig-fig-demo-plotjuggler-view`.
 The first row shows the joint positions, the second shows the joint velocities, and the bottom raw the torques.
 NMPC state and control constraints are displayed using the blue and red lines.
-As visible in :numref:`fig-fig-demo-plotjuggler-view`, the controller successfully respect the constraints while tracking the desired position.
+As visible in :numref:`fig-fig-demo-plotjuggler-view`, the controller successfully respects the constraints while tracking the desired position.
 
 .. _fig-fig-demo-plotjuggler-view:
 .. figure:: ../images/demo_plotjuggler_view.png

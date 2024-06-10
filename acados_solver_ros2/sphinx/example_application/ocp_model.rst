@@ -2,7 +2,7 @@ Robot modeling and OCP formulation
 ==================================
 
 
-Let us consider a torque-controlled planr robot with links of unit link lengths and masses.
+Let us consider a torque-controlled planar robot with links of unit link lengths and masses.
 As represented in the figure below, the robot is contained in the XZ plane such that it is subjected to gravity.
 
 .. figure:: ../images/robot_description.png
@@ -12,10 +12,10 @@ As represented in the figure below, the robot is contained in the XZ plane such 
 The goal of the controller is to compute control torques :math:`\tau` such that the robot tracks a desired Cartesian trajectory composed of a desired end-effector position  :math:`p^d` and velocity :math:`\dot{p}^d`.
 
 
-Robot dynamical modeling
+Robot dynamic modeling
 ---------------------------------------
 
-The system can be described by the following dynamical model:
+The system can be described by the following dynamic model:
 
 .. math::
 
@@ -29,7 +29,7 @@ where
 
 - :math:`B(q) \in \mathbb{R}^{2 \times 2}`, :math:`C(q, \dot{q}) \in \mathbb{R}^{2 \times 2}`, and :math:`G(q)  \in \mathbb{R}^{2}` are the inertia matrix, the Coriolis matrix, and the gravity vector, respectively.
 
-We can write the dynamical model in the form of a first-order differential equation with state :math:`x = [q, \dot{q}]^T` and control :math:`u = \tau` as follows:
+We can write the dynamic model in the form of a first-order differential equation with state :math:`x = [q, \dot{q}]^T` and control :math:`u = \tau` as follows:
 
 .. math::
 
@@ -40,7 +40,7 @@ We can write the dynamical model in the form of a first-order differential equat
 OCP formulation
 ---------------------------------------
 
-In order to track the desired trajectory, the cost function :math:`\mathcal{L}(t_k)` minimized by the predictive controller is defined at discret time :math:`t_k` as
+In order to track the desired trajectory, the cost function :math:`\mathcal{L}(t_k)` minimized by the predictive controller is defined at discrete time :math:`t_k` as
 
 .. math::
 
