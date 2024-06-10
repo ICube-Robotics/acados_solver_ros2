@@ -69,6 +69,7 @@ The optimal control problem (OCP) is transcribed into a nonlinear program (NLP) 
 The NLP is then solved by the Acados solver, which is a high-performance NMPC solver.
 
 1) Define the CasADi symbols and parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 The first step is to define the CasADi symbols and parameters of the robot model.
@@ -84,14 +85,15 @@ Here, the geometry and mass properties of the robot are defined as model paramet
     sym_tau = ca.SX.sym('tau', 2)     # Joint torques (controls)
 
     # Define the CasADi model parameters
-    sym_l0 = SX.sym('l0', 1)  # position along Z axis of the joint [m]
-    sym_l1 = SX.sym('l1', 1)  # length of the first link [m]
-    sym_l2 = SX.sym('l2', 1)  # length of the second link [m]
-    sym_m1 = SX.sym('m1', 1)  # mass of the first link [Kg]
-    sym_m2 = SX.sym('m2', 1)  # mass of the second link [Kg]
+    sym_l0 = ca.SX.sym('l0', 1)  # position along Z axis of the joint [m]
+    sym_l1 = ca.SX.sym('l1', 1)  # length of the first link [m]
+    sym_l2 = ca.SX.sym('l2', 1)  # length of the second link [m]
+    sym_m1 = ca.SX.sym('m1', 1)  # mass of the first link [Kg]
+    sym_m2 = ca.SX.sym('m2', 1)  # mass of the second link [Kg]
 
 
 2) Define the Acados model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The second step is to define the Acados model, which includes the state, controls, parameters, and dynamics.
 More details can be found in the Acados documentation.
@@ -116,7 +118,7 @@ More details can be found in the Acados documentation.
         sym_m2
     )
 
-    sym_xdot = SX.sym('x_dot', x.shape[0], 1)
+    sym_xdot = ca.SX.sym('x_dot', x.shape[0], 1)
     model.xdot = sym_xdot
 
     # Define the dynamics (not actually zeros...)
@@ -126,13 +128,13 @@ More details can be found in the Acados documentation.
     expr_q_dot2 = ca.inv(B) @ (sym_tau - C @ sym_q_dot - G)
 
     # Explicit ODE model
-    model.f_expl_expr = vertcat(
+    model.f_expl_expr = ca.vertcat(
         self.sym_q_dot,
         expr_q_dot2  # joint acc. from torques
     )
 
     # Implicit DAE model
-    model.f_impl_expr =  vertcat(xdot - model.f_expl_expr)
+    model.f_impl_expr = ca.vertcat(xdot - model.f_expl_expr)
 
     # Forward kinematics
     #  - Cartesian position of the end-effector
@@ -143,10 +145,11 @@ More details can be found in the Acados documentation.
     #  - Cartesian velocity of the end-effector
     sym_p_dot = ca.jacobian(sym_p, sym_q) @ sym_q_dot
 
-The full code can be found in the `rrbot_model.py` file in the `example_acados_controller/script` directory of the `acados_solver_ros2_examples` repository.
+The full code can be found in the `rrbot_model.py <https://github.com/ICube-Robotics/acados_solver_ros2_examples/blob/main/example_acados_controller/script/rrbot_model.py>`_ file in the ``example_acados_controller/script`` directory of the `acados_solver_ros2_examples <https://github.com/ICube-Robotics/acados_solver_ros2_examples>`_ repository.
 
 
 3) Define the Acados OCP
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 The third step is to define the Acados optimal control problem (OCP) by specifying the cost function, constraints, and solver settings.
@@ -181,6 +184,8 @@ It should be noted that we use a nonlinear cost function, but a linear cost coul
         sym_Q_vel_diag,  # weight for velocity error
         sym_R_diag,      # weight for control (torques)
     )
+    # set default parameter values
+    ocp.parameter_values = np.zeros((model.p.shape[0],))
 
     # Define the (non-linear) cost function
     Q_pos = ca.diag(sym_Q_pos_diag)
@@ -230,9 +235,19 @@ It should be noted that we use a nonlinear cost function, but a linear cost coul
     ocp.solver_options.tf = N * Ts  # prediction horizon in seconds
     ocp.solver_options.nlp_solver_type = 'SQP_RTI'
     ocp.solver_options.integrator_type = 'IRK'  # use implicit DAE model
-    ...
+    ...  # other solver options (see the full code or Acados documentation details)
 
 
 All done, at this point, the OCP is fully defined and can be used in Python applications (see `AcadosOcpSolver <https://docs.acados.org/python_interface/index.html#acados_template.acados_ocp_solver.AcadosOcpSolver>`_).
 
-The full code can be found in the `export_acados_solver_plugin.py` file in the `example_acados_controller/script` directory of the `acados_solver_ros2_examples` repository.
+The full code can be found in the `export_acados_solver_plugin.py <https://github.com/ICube-Robotics/acados_solver_ros2_examples/blob/main/example_acados_controller/script/export_acados_solver_plugin.py>`_ file in the ``example_acados_controller/script`` directory of the `acados_solver_ros2_examples <https://github.com/ICube-Robotics/acados_solver_ros2_examples>`_ repository.
+
+Notes
+------
+
+- The cost function is implepmeneted as a ``EXTERNAL`` non-linear function, but the ``NONLINEAR_LS`` cost function could be used instead for better performance.
+
+- This is an example application, but in practice additional features could be implemented, such as:
+    - considering a more rigorous terminal cost function (e.g., LQR-like) and constraints (e.g., terminal set);
+    - adding some slack to state constraints;
+    - using the derivative of the torque as control variable (instead of the torque itself) so as to limit jerk.
