@@ -13,8 +13,8 @@ Gnererate new acados solver plugins
     :exclude-members:
 
 
-Load previously built acados solver plugins
-==============================================
+Load previously built acados solver plugins (not implemented yet)
+==================================================================
 
 .. autoclass:: acados_solver_plugins.SolverPluginLoader
     :members:

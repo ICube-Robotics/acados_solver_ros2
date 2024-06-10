@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robot modeling and OCP formulation &mdash; acados_solver_ros2 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=efd85694" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS2 controller" href="controller.html" />
+    <link rel="prev" title="Usage" href="../quickstart/usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            acados_solver_ros2
+              <img src="../_static/logo-icube.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/installation.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/usage.html">Usage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example application</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Robot modeling and OCP formulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#robot-dynamic-modeling">Robot dynamic modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ocp-formulation">OCP formulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transcription-using-casadi-and-acados">Transcription using CasADI and Acados</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#define-the-casadi-symbols-and-parameters">1) Define the CasADi symbols and parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#define-the-acados-model">2) Define the Acados model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#define-the-acados-ocp">3) Define the Acados OCP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controller.html">ROS2 controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Illustrative results</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/solver_plugins_python_API.html">Acados Solver Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/API.html">Full API reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">acados_solver_ros2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Robot modeling and OCP formulation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/example_application/ocp_model.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="robot-modeling-and-ocp-formulation">
+<h1>Robot modeling and OCP formulation<a class="headerlink" href="#robot-modeling-and-ocp-formulation" title="Link to this heading"></a></h1>
+<p>Let us consider a torque-controlled planar robot with links of unit link lengths and masses.
+As represented in the figure below, the robot is contained in the XZ plane such that it is subjected to gravity.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/robot_description.png"><img alt="../_images/robot_description.png" src="../_images/robot_description.png" style="width: 400px;" /></a>
+</figure>
+<p>The goal of the controller is to compute control torques <span class="math">\tau</span> such that the robot tracks a desired Cartesian trajectory composed of a desired end-effector position  <span class="math">p^d</span> and velocity <span class="math">\dot{p}^d</span>.</p>
+<section id="robot-dynamic-modeling">
+<h2>Robot dynamic modeling<a class="headerlink" href="#robot-dynamic-modeling" title="Link to this heading"></a></h2>
+<p>The system can be described by the following dynamic model:</p>
+<div class="math">
+<p><span class="math">B(q) \ddot{q} + C(q, \dot{q}) \dot{q} + g(q) = \tau</span></p>
+</div><p>where</p>
+<ul class="simple">
+<li><p><span class="math">q = [q_1, \, q_2]^T</span> are the joint angles of the first and second links;</p></li>
+<li><p><span class="math">\tau = [\tau_1, \, \tau_2]^T</span> are the torques applied to the first and second links;</p></li>
+<li><p><span class="math">B(q) \in \mathbb{R}^{2 \times 2}</span>, <span class="math">C(q, \dot{q}) \in \mathbb{R}^{2 \times 2}</span>, and <span class="math">G(q)  \in \mathbb{R}^{2}</span> are the inertia matrix, the Coriolis matrix, and the gravity vector, respectively.</p></li>
+</ul>
+<p>We can write the dynamic model in the form of a first-order differential equation with state <span class="math">x = [q, \dot{q}]^T</span> and control <span class="math">u = \tau</span> as follows:</p>
+<div class="math">
+<p><span class="math">\dot{x} = \begin{bmatrix} \dot{q} \\ \ddot{q} \end{bmatrix}
+        = f(x, u)
+        = \begin{bmatrix} \dot{q} \\ B(q)^{-1} (\tau - C(q, \dot{q}) \dot{q} - g(q)) \end{bmatrix}</span></p>
+</div></section>
+<section id="ocp-formulation">
+<h2>OCP formulation<a class="headerlink" href="#ocp-formulation" title="Link to this heading"></a></h2>
+<p>In order to track the desired trajectory, the cost function <span class="math">\mathcal{L}(t_k)</span> minimized by the predictive controller is defined at discrete time <span class="math">t_k</span> as</p>
+<div class="math">
+<p><span class="math">\mathcal{L}(t_k) = \int_{t_k}^{t_k + T_f} \left( \| e(t) \|^2_{Q_p} + \| \dot{e}(t) \|^2_{Q_v} + \| \tau(t) \|^2_R \right) dt</span></p>
+</div><p>where <span class="math">e</span> and <span class="math">\dot{e}</span> are the position and velocity tracking errors, respectively, and <span class="math">T_f</span> is the prediction horizon duration.
+The weighting matrices <span class="math">Q_p</span>, <span class="math">Q_v</span>, and <span class="math">R \in \mathbb{R}^{2 \times 2}</span> are positive definite matrices used to tune the closed-loop behavior of the robot.</p>
+<p>The control problem is subject to the following constraints:</p>
+<ul class="simple">
+<li><p>the initial state <span class="math">x(t_k) = x_k</span> is given;</p></li>
+<li><p>the joint positions are bounded by <span class="math">q_{\min} \leq q(t) \leq q_{\max}</span>, with <span class="math">q_{\min} = [-\pi, 0]^T</span> and <span class="math">q_{\max} = [-\cfrac{\pi}{2}, \cfrac{\pi}{2}]^T</span>;</p></li>
+<li><p>the joint velocities are bounded by <span class="math">\dot{q}_{\min} \leq \dot{q}(t) \leq \dot{q}_{\max}</span>, with <span class="math">\dot{q}_{\min} = [-2, -2]^T</span> and <span class="math">\dot{q}_{\max} = [2, 2]^T</span>;</p></li>
+<li><p>the control torques are bounded by <span class="math">\tau_{\min} \leq \tau(t) \leq \tau_{\max}</span>, with <span class="math">\tau_{\min} = [-25, -10]^T</span> and <span class="math">\tau_{\max} = [20, 10]^T</span>.</p></li>
+</ul>
+</section>
+<section id="transcription-using-casadi-and-acados">
+<h2>Transcription using CasADI and Acados<a class="headerlink" href="#transcription-using-casadi-and-acados" title="Link to this heading"></a></h2>
+<p>The optimal control problem (OCP) is transcribed into a nonlinear program (NLP) using CasADi and Acados.
+The NLP is then solved by the Acados solver, which is a high-performance NMPC solver.</p>
+<section id="define-the-casadi-symbols-and-parameters">
+<h3>1) Define the CasADi symbols and parameters<a class="headerlink" href="#define-the-casadi-symbols-and-parameters" title="Link to this heading"></a></h3>
+<p>The first step is to define the CasADi symbols and parameters of the robot model.
+Here, the geometry and mass properties of the robot are defined as model parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">casadi</span> <span class="k">as</span> <span class="nn">ca</span>
+
+<span class="c1"># Define the CasADi symbols</span>
+<span class="n">sym_q</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>         <span class="c1"># joint angles</span>
+<span class="n">sym_q_dot</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;q_dot&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># Joint velocity</span>
+<span class="n">sym_tau</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;tau&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>     <span class="c1"># Joint torques (controls)</span>
+
+<span class="c1"># Define the CasADi model parameters</span>
+<span class="n">sym_l0</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;l0&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># position along Z axis of the joint [m]</span>
+<span class="n">sym_l1</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># length of the first link [m]</span>
+<span class="n">sym_l2</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># length of the second link [m]</span>
+<span class="n">sym_m1</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;m1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># mass of the first link [Kg]</span>
+<span class="n">sym_m2</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;m2&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># mass of the second link [Kg]</span>
+</pre></div>
+</div>
+</section>
+<section id="define-the-acados-model">
+<h3>2) Define the Acados model<a class="headerlink" href="#define-the-acados-model" title="Link to this heading"></a></h3>
+<p>The second step is to define the Acados model, which includes the state, controls, parameters, and dynamics.
+More details can be found in the Acados documentation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">acados_template</span> <span class="kn">import</span> <span class="n">AcadosModel</span>
+
+<span class="c1"># Create an Acados model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AcadosModel</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;rrbot&#39;</span>
+
+<span class="c1"># Define the state, control, and parameters variables</span>
+<span class="n">model</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">vertcat</span><span class="p">(</span><span class="n">sym_q</span><span class="p">,</span> <span class="n">sym_q_dot</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">vertcat</span><span class="p">(</span><span class="n">sym_tau</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">vertcat</span><span class="p">([])</span>  <span class="c1"># algebraic variables. N.B., actually used in the demo code</span>
+<span class="n">model</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">vertcat</span><span class="p">(</span>
+    <span class="n">sym_l0</span><span class="p">,</span>
+    <span class="n">sym_l1</span><span class="p">,</span>
+    <span class="n">sym_l2</span><span class="p">,</span>
+    <span class="n">sym_m1</span><span class="p">,</span>
+    <span class="n">sym_m2</span>
+<span class="p">)</span>
+
+<span class="n">sym_xdot</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;x_dot&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">xdot</span> <span class="o">=</span> <span class="n">sym_xdot</span>
+
+<span class="c1"># Define the dynamics (not actually zeros...)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">SX</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Inertia matrix, function of q, l1, l2, m1, m2</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">SX</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Coriolis matrix, function of q, q_dot, l1, l2, m1, m2</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">SX</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Gravity vector, function of q, l1, l2, m1, m2</span>
+<span class="n">expr_q_dot2</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="o">@</span> <span class="p">(</span><span class="n">sym_tau</span> <span class="o">-</span> <span class="n">C</span> <span class="o">@</span> <span class="n">sym_q_dot</span> <span class="o">-</span> <span class="n">G</span><span class="p">)</span>
+
+<span class="c1"># Explicit ODE model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">f_expl_expr</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">vertcat</span><span class="p">(</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sym_q_dot</span><span class="p">,</span>
+    <span class="n">expr_q_dot2</span>  <span class="c1"># joint acc. from torques</span>
+<span class="p">)</span>
+
+<span class="c1"># Implicit DAE model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">f_impl_expr</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">vertcat</span><span class="p">(</span><span class="n">xdot</span> <span class="o">-</span> <span class="n">model</span><span class="o">.</span><span class="n">f_expl_expr</span><span class="p">)</span>
+
+<span class="c1"># Forward kinematics</span>
+<span class="c1">#  - Cartesian position of the end-effector</span>
+<span class="n">sym_p</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">vertcat</span><span class="p">(</span>
+    <span class="n">sym_l0</span> <span class="o">+</span> <span class="n">sym_l1</span> <span class="o">*</span> <span class="n">ca</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">sym_q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">sym_l2</span> <span class="o">*</span> <span class="n">ca</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">sym_q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sym_q</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+    <span class="n">sym_l1</span> <span class="o">*</span> <span class="n">ca</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">sym_q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">sym_l2</span> <span class="o">*</span> <span class="n">ca</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">sym_q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sym_q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="p">)</span>
+<span class="c1">#  - Cartesian velocity of the end-effector</span>
+<span class="n">sym_p_dot</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">sym_p</span><span class="p">,</span> <span class="n">sym_q</span><span class="p">)</span> <span class="o">@</span> <span class="n">sym_q_dot</span>
+</pre></div>
+</div>
+<p>The full code can be found in the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples/blob/main/example_acados_controller/script/rrbot_model.py">rrbot_model.py</a> file in the <code class="docutils literal notranslate"><span class="pre">example_acados_controller/script</span></code> directory of the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples">acados_solver_ros2_examples</a> repository.</p>
+</section>
+<section id="define-the-acados-ocp">
+<h3>3) Define the Acados OCP<a class="headerlink" href="#define-the-acados-ocp" title="Link to this heading"></a></h3>
+<p>The third step is to define the Acados optimal control problem (OCP) by specifying the cost function, constraints, and solver settings.
+It should be noted that we use a nonlinear cost function, but a linear cost could easily be used instead.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">acados_template</span> <span class="kn">import</span> <span class="n">AcadosOcp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># default prediction horizon length (num of sampling periods)</span>
+<span class="n">Ts</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># sampling time</span>
+
+<span class="c1"># Create an Acados OCP</span>
+<span class="n">ocp</span> <span class="o">=</span> <span class="n">AcadosOcp</span><span class="p">()</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">dims</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">N</span>
+
+<span class="c1"># Declare extra parameters to use in the cost function</span>
+<span class="n">sym_p_ref</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;p_ref&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sym_p_dot_ref</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;p_dot_ref&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sym_Q_pos_diag</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;Q_pos_diag&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sym_Q_vel_diag</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;Q_vel_diag&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sym_R_diag</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;R_diag&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Append extra parameters to the model parameters</span>
+<span class="n">model</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">vertcat</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">p</span><span class="p">,</span>         <span class="c1"># original model parameters (see rrbot_model.py)</span>
+    <span class="n">sym_p_ref</span><span class="p">,</span>       <span class="c1"># reference position</span>
+    <span class="n">sym_p_dot_ref</span><span class="p">,</span>   <span class="c1"># reference velocity</span>
+    <span class="n">sym_Q_pos_diag</span><span class="p">,</span>  <span class="c1"># weight for position error</span>
+    <span class="n">sym_Q_vel_diag</span><span class="p">,</span>  <span class="c1"># weight for velocity error</span>
+    <span class="n">sym_R_diag</span><span class="p">,</span>      <span class="c1"># weight for control (torques)</span>
+<span class="p">)</span>
+<span class="c1"># set default parameter values</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">parameter_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">model</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
+
+<span class="c1"># Define the (non-linear) cost function</span>
+<span class="n">Q_pos</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">sym_Q_pos_diag</span><span class="p">)</span>
+<span class="n">Q_vel</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">sym_Q_vel_diag</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">sym_R_diag</span><span class="p">)</span>
+
+<span class="n">err_p</span> <span class="o">=</span> <span class="n">sym_p_ref</span> <span class="o">-</span> <span class="n">sym_p</span>
+<span class="n">err_p_dot</span> <span class="o">=</span> <span class="n">sym_p_dot_ref</span> <span class="o">-</span> <span class="n">sym_p_dot</span>
+
+<span class="n">ocp</span><span class="o">.</span><span class="n">cost</span><span class="o">.</span><span class="n">cost_type</span> <span class="o">=</span> <span class="s1">&#39;EXTERNAL&#39;</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">cost</span><span class="o">.</span><span class="n">cost_type_e</span> <span class="o">=</span> <span class="s1">&#39;EXTERNAL&#39;</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cost_expr_ext_cost</span> <span class="o">=</span> \
+    <span class="n">err_p</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q_err_p</span> <span class="o">@</span> <span class="n">err_p</span> \
+    <span class="o">+</span> <span class="n">err_p_dot</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q_err_p_dot</span> <span class="o">@</span> <span class="n">err_p_dot</span> \
+    <span class="o">+</span> <span class="n">rrbot_model</span><span class="o">.</span><span class="n">sym_tau</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">R</span> <span class="o">@</span> <span class="n">rrbot_model</span><span class="o">.</span><span class="n">sym_tau</span>
+<span class="c1"># Note: the terminal cost should be chosen more carefully in practice.</span>
+<span class="c1"># This is not very rigorous, but enough for the purpose of this example.</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cost_expr_ext_cost_e</span> <span class="o">=</span> \
+    <span class="n">err_p</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q_err_p</span> <span class="o">@</span> <span class="n">err_p</span> \
+    <span class="o">+</span> <span class="n">err_p_dot</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q_err_p_dot</span> <span class="o">@</span> <span class="n">err_p_dot</span>
+
+<span class="c1"># Define the constraints</span>
+
+<span class="c1">#   - placeholder for initial state</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">model</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
+
+<span class="c1">#   - joint torque limits</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">idxbu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">lbu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span> <span class="mf">25.</span><span class="p">,</span> <span class="o">-</span> <span class="mf">10.</span><span class="p">])</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">ubu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+
+<span class="c1">#   - joint position and velocity limits</span>
+<span class="n">q_dot_max</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">idxbx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">lbx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span><span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="n">q_dot_max</span><span class="p">,</span> <span class="o">-</span><span class="n">q_dot_max</span><span class="p">])</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">ubx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="o">+</span><span class="n">q_dot_max</span><span class="p">,</span> <span class="o">+</span><span class="n">q_dot_max</span><span class="p">])</span>
+
+<span class="c1">#    - terminal (state) constraints</span>
+<span class="c1">#      (we simply replicate stage state constraints)</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">lbx_e</span> <span class="o">=</span> <span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">lbx</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">ubx_e</span> <span class="o">=</span> <span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">ubx</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">idxbx_e</span> <span class="o">=</span> <span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">idxbx</span>
+
+<span class="c1"># Set solver options</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">solver_options</span><span class="o">.</span><span class="n">tf</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="n">Ts</span>  <span class="c1"># prediction horizon in seconds</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">solver_options</span><span class="o">.</span><span class="n">nlp_solver_type</span> <span class="o">=</span> <span class="s1">&#39;SQP_RTI&#39;</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">solver_options</span><span class="o">.</span><span class="n">integrator_type</span> <span class="o">=</span> <span class="s1">&#39;IRK&#39;</span>  <span class="c1"># use implicit DAE model</span>
+<span class="o">...</span>  <span class="c1"># other solver options (see the full code or Acados documentation details)</span>
+</pre></div>
+</div>
+<p>All done, at this point, the OCP is fully defined and can be used in Python applications (see <a class="reference external" href="https://docs.acados.org/python_interface/index.html#acados_template.acados_ocp_solver.AcadosOcpSolver">AcadosOcpSolver</a>).</p>
+<p>The full code can be found in the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples/blob/main/example_acados_controller/script/export_acados_solver_plugin.py">export_acados_solver_plugin.py</a> file in the <code class="docutils literal notranslate"><span class="pre">example_acados_controller/script</span></code> directory of the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples">acados_solver_ros2_examples</a> repository.</p>
+</section>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The cost function is implepmeneted as a <code class="docutils literal notranslate"><span class="pre">EXTERNAL</span></code> non-linear function, but the <code class="docutils literal notranslate"><span class="pre">NONLINEAR_LS</span></code> cost function could be used instead for better performance.</p></li>
+<li><dl class="simple">
+<dt>This is an example application, but in practice additional features could be implemented, such as:</dt><dd><ul>
+<li><p>considering a more rigorous terminal cost function (e.g., LQR-like) and constraints (e.g., terminal set);</p></li>
+<li><p>adding some slack to state constraints;</p></li>
+<li><p>using the derivative of the torque as control variable (instead of the torque itself) so as to limit jerk.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../quickstart/usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="controller.html" class="btn btn-neutral float-right" title="ROS2 controller" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ICUBE Laboratory, University of Strasbourg.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

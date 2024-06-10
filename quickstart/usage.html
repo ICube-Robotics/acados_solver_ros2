@@ -8,6 +8,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=efd85694" />
 
   
@@ -20,10 +21,12 @@
         <script src="../_static/documentation_options.js?v=01f34227"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Generate new solver plugins" href="generate_new_solvers.html" />
+    <link rel="next" title="Robot modeling and OCP formulation" href="../example_application/ocp_model.html" />
     <link rel="prev" title="Getting started" href="installation.html" /> 
 </head>
 
@@ -51,11 +54,19 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Getting started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#todo">TODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-acados-model">1) Build Acados model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formulate-the-optimal-control-problem-ocp-using-acados">2) Formulate the optimal control problem (OCP) using Acados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-the-solver">3) Configure the solver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gnererate-the-c-plugin">4) Gnererate the C++ plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-the-plugin-in-a-c-application">5) Use the plugin in a C++ application</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="generate_new_solvers.html">Generate new solver plugins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="write_controllers.html">Write a controller</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example application</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example_application/ocp_model.html">Robot modeling and OCP formulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_application/controller.html">ROS2 controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example_application/demo.html">Illustrative results</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python modules</span></p>
 <ul>
@@ -92,8 +103,20 @@
              
   <section id="usage">
 <h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
-<section id="todo">
-<h2>TODO<a class="headerlink" href="#todo" title="Link to this heading"></a></h2>
+<section id="build-acados-model">
+<h2>1) Build Acados model<a class="headerlink" href="#build-acados-model" title="Link to this heading"></a></h2>
+</section>
+<section id="formulate-the-optimal-control-problem-ocp-using-acados">
+<h2>2) Formulate the optimal control problem (OCP) using Acados<a class="headerlink" href="#formulate-the-optimal-control-problem-ocp-using-acados" title="Link to this heading"></a></h2>
+</section>
+<section id="configure-the-solver">
+<h2>3) Configure the solver<a class="headerlink" href="#configure-the-solver" title="Link to this heading"></a></h2>
+</section>
+<section id="gnererate-the-c-plugin">
+<h2>4) Gnererate the C++ plugin<a class="headerlink" href="#gnererate-the-c-plugin" title="Link to this heading"></a></h2>
+</section>
+<section id="use-the-plugin-in-a-c-application">
+<h2>5) Use the plugin in a C++ application<a class="headerlink" href="#use-the-plugin-in-a-c-application" title="Link to this heading"></a></h2>
 </section>
 </section>
 
@@ -102,7 +125,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="installation.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="generate_new_solvers.html" class="btn btn-neutral float-right" title="Generate new solver plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../example_application/ocp_model.html" class="btn btn-neutral float-right" title="Robot modeling and OCP formulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

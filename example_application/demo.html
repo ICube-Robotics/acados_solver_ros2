@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Illustrative results &mdash; acados_solver_ros2 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=efd85694" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Acados Solver Plugins" href="../developer_guide/solver_plugins_python_API.html" />
+    <link rel="prev" title="ROS2 controller" href="controller.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            acados_solver_ros2
+              <img src="../_static/logo-icube.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/installation.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/usage.html">Usage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example application</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ocp_model.html">Robot modeling and OCP formulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controller.html">ROS2 controller</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Illustrative results</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-the-example-package-and-launch">Installation of the example package and launch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-dependencies">1) Install dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-and-install-ros2-packages">2) Build and install ros2 packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-and-build-the-acados-solver-plugins">3) Export and build the Acados solver plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launch-demo">4) Launch demo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#constraints-satisfaction">Constraints satisfaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cartesian-position-tracking">Cartesian position tracking</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/solver_plugins_python_API.html">Acados Solver Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/API.html">Full API reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">acados_solver_ros2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Illustrative results</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/example_application/demo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="illustrative-results">
+<h1>Illustrative results<a class="headerlink" href="#illustrative-results" title="Link to this heading"></a></h1>
+<p>This section presents the results of the example package provided in the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples/tree/main">ICube-Robotics/acados_solver_ros2_examples</a> repository.</p>
+<p>An interactive Rviz marker is used to set the desired position (i.e., <span class="math">p^d</span>) of the end-effector of the robot.
+The user can change the desired position of the end-effector by dragging the interactive marker (see red marker in <a class="reference internal" href="#fig-demo-rviz-view"><span class="std std-numref">Fig. 1</span></a>).</p>
+<p>A Python node updates the marker server and publishes the desired position and velocity (that is simply set to <span class="math">\dot{p}^d = 0</span>) to the controller.
+The controller computes the control input to track the desired position and velocity of the end-effector.
+It is implemented as described in the previous sections.</p>
+<figure class="align-center" id="id1">
+<span id="fig-demo-rviz-view"></span><a class="reference internal image-reference" href="../_images/demo_rviz_view.png"><img alt="../_images/demo_rviz_view.png" src="../_images/demo_rviz_view.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Visualization of the robot in Rviz2.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="installation-of-the-example-package-and-launch">
+<h2>Installation of the example package and launch<a class="headerlink" href="#installation-of-the-example-package-and-launch" title="Link to this heading"></a></h2>
+<section id="install-dependencies">
+<h3>1) Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+
+mkdir<span class="w"> </span>~/ros2_ws/src
+<span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ICube-Robotics/acados_solver_ros2_examples.git
+vcs<span class="w"> </span>import<span class="w"> </span>.<span class="w"> </span>&lt;<span class="w"> </span>acados_solver_ros2_examples/acados_solver_ros2_examples.repos
+rosdep<span class="w"> </span>install<span class="w"> </span>--ignore-src<span class="w"> </span>--from-paths<span class="w"> </span>.<span class="w"> </span>-y<span class="w"> </span>-r
+</pre></div>
+</div>
+</section>
+<section id="build-and-install-ros2-packages">
+<h3>2) Build and install ros2 packages<a class="headerlink" href="#build-and-install-ros2-packages" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/
+colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--symlink-install
+<span class="c1"># N.B., build a second time to export the acados_template python package</span>
+colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--symlink-install
+</pre></div>
+</div>
+</section>
+<section id="export-and-build-the-acados-solver-plugins">
+<h3>3) Export and build the Acados solver plugins<a class="headerlink" href="#export-and-build-the-acados-solver-plugins" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+
+<span class="nb">cd</span><span class="w"> </span>src/acados_solver_ros2_examples
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>./example_acados_controller/script/export_acados_solver_plugin.py
+<span class="nb">cd</span><span class="w"> </span>../..
+
+colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--symlink-install
+</pre></div>
+</div>
+</section>
+<section id="launch-demo">
+<h3>4) Launch demo<a class="headerlink" href="#launch-demo" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+
+ros2<span class="w"> </span>launch<span class="w"> </span>example_acados_bringup<span class="w"> </span>launch_demo.launch.py<span class="w"> </span>launch_plotjuggler:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="constraints-satisfaction">
+<h2>Constraints satisfaction<a class="headerlink" href="#constraints-satisfaction" title="Link to this heading"></a></h2>
+<p>The robot joint state plots are shown in <a class="reference internal" href="#fig-fig-demo-plotjuggler-view"><span class="std std-numref">Fig. 2</span></a>.
+The first row shows the joint positions, the second shows the joint velocities, and the bottom raw the torques.
+NMPC state and control constraints are displayed using the blue and red lines.
+As visible in <a class="reference internal" href="#fig-fig-demo-plotjuggler-view"><span class="std std-numref">Fig. 2</span></a>, the controller successfully respects the constraints while tracking the desired position.</p>
+<figure class="align-center" id="id2">
+<span id="fig-fig-demo-plotjuggler-view"></span><a class="reference internal image-reference" href="../_images/demo_plotjuggler_view.png"><img alt="../_images/demo_plotjuggler_view.png" src="../_images/demo_plotjuggler_view.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Robot joint state plots in Plotjuggler</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="cartesian-position-tracking">
+<h2>Cartesian position tracking<a class="headerlink" href="#cartesian-position-tracking" title="Link to this heading"></a></h2>
+<video controls="True" preload="auto" width="800"><source src="../_images/video_tracking_position_rviz2.mp4" type="video/mp4"></video></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="controller.html" class="btn btn-neutral float-left" title="ROS2 controller" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../developer_guide/solver_plugins_python_API.html" class="btn btn-neutral float-right" title="Acados Solver Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ICUBE Laboratory, University of Strasbourg.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

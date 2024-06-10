@@ -13,10 +13,8 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>`acados_solver_base`<sp/>(C++<sp/>package)</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>acados::AcadosSolver</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>acados::AcadosSolver::Dimensions</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>acados::utils<sp/>(a<sp/>set<sp/>of<sp/>utility<sp/>functions<sp/>for<sp/>AcadosSolver)</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>[Type<sp/>definitions](@ref<sp/>acados_types.hpp)</highlight></codeline>
-<codeline></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>`acados_controller_base`<sp/>(C++<sp/>package)</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>TODO</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>`acados_solver_plugins`<sp/>(Python<sp/>package)</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>[SolverPluginGenerator](@ref<sp/>acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator)</highlight></codeline>

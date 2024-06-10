@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS2 controller &mdash; acados_solver_ros2 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=efd85694" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Illustrative results" href="demo.html" />
+    <link rel="prev" title="Robot modeling and OCP formulation" href="ocp_model.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            acados_solver_ros2
+              <img src="../_static/logo-icube.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/installation.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/usage.html">Usage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example application</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ocp_model.html">Robot modeling and OCP formulation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROS2 controller</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#export-the-solver-plugin">Export the solver plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-the-plugin-in-a-c-controller">Use the plugin in a C++ controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-the-ros2-controller-package-dependencies">1) Setup the ROS2 controller package dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-the-solver-plugin-in-the-ros2-controller">2) Load the solver plugin in the ROS2 controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-solver-plugin-in-the-ros2-controller">3) Configure the solver plugin in the ROS2 controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solve-the-ocp">3) Solve the OCP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notes-and-recommendations">Notes and recommendations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Illustrative results</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/solver_plugins_python_API.html">Acados Solver Plugins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/API.html">Full API reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">acados_solver_ros2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS2 controller</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/example_application/controller.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros2-controller">
+<h1>ROS2 controller<a class="headerlink" href="#ros2-controller" title="Link to this heading"></a></h1>
+<p>In the previous section, we used Acados to define an optimal control problem (OCP) and solver with Acados.</p>
+<p>In this section, we will show how to generate a solver for C++ ROS2 controllers and how to use it.</p>
+<section id="export-the-solver-plugin">
+<h2>Export the solver plugin<a class="headerlink" href="#export-the-solver-plugin" title="Link to this heading"></a></h2>
+<p>To use the Acados solver in a C++ ROS2 controller, we first need to export the solver as a <code class="docutils literal notranslate"><span class="pre">pluginlib</span></code> plugin.
+The Python module <code class="docutils literal notranslate"><span class="pre">acados_solver_plugins</span></code> provides a class <code class="docutils literal notranslate"><span class="pre">SolverPluginGenerator</span></code> to generate the plugin:</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">generate_solver_plugin</span></code> method of the <code class="docutils literal notranslate"><span class="pre">SolverPluginGenerator</span></code> class takes semantic maps as arguments, mapping variable names to their indices in the state, control, and parameter vectors.</p>
+<p>For the RRBot example, the export script is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">AcadosModel</span><span class="p">()</span>
+<span class="o">...</span>  <span class="c1"># define the model (see previous section)</span>
+<span class="n">ocp</span> <span class="o">=</span> <span class="n">AcadosOcp</span><span class="p">()</span>
+<span class="o">...</span>  <span class="c1"># define the OCP (see previous section)</span>
+
+<span class="c1"># define the semantic map of the OCP variables</span>
+<span class="n">x_index_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;q_dot&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">z_index_map</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># N.B., actually not empty in demo code</span>
+<span class="n">p_index_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;l0&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;l1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;l2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="s1">&#39;m1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+    <span class="s1">&#39;m2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+    <span class="s1">&#39;p_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+    <span class="s1">&#39;p_dot_ref&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+    <span class="s1">&#39;Q_pos_diag&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="s1">&#39;Q_vel_diag&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span>
+    <span class="s1">&#39;R_diag&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">u_index_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;tau&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">}</span>
+
+
+<span class="c1"># export the solver plugin</span>
+<span class="kn">from</span> <span class="nn">acados_solver_plugins</span> <span class="kn">import</span> <span class="n">SolverPluginGenerator</span>
+
+<span class="n">solver_plugin_generator</span> <span class="o">=</span> <span class="n">SolverPluginGenerator</span><span class="p">()</span>
+
+<span class="n">solver_plugin_generator</span><span class="o">.</span><span class="n">generate_solver_plugin</span><span class="p">(</span>
+    <span class="n">ocp</span><span class="o">=</span><span class="n">ocp</span><span class="p">,</span>
+    <span class="n">plugin_class_name</span><span class="o">=</span><span class="s1">&#39;RrbotCartesianTracking&#39;</span><span class="p">,</span>
+    <span class="n">solver_description</span><span class="o">=</span><span class="s1">&#39;Acados solver plugin to track a Cartesian trajectory with the RRBot planar robot&#39;</span><span class="p">,</span>  <span class="c1"># noqa: E501</span>
+    <span class="n">x_index_map</span><span class="o">=</span><span class="n">x_index_map</span><span class="p">,</span>
+    <span class="n">z_index_map</span><span class="o">=</span><span class="n">z_index_map</span><span class="p">,</span>
+    <span class="n">p_index_map</span><span class="o">=</span><span class="n">p_index_map</span><span class="p">,</span>
+    <span class="n">u_index_map</span><span class="o">=</span><span class="n">u_index_map</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The full code can be found in the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples/blob/main/example_acados_controller/script/export_acados_solver_plugin.py">export_acados_solver_plugin.py</a> file in the <code class="docutils literal notranslate"><span class="pre">example_acados_controller/script</span></code> directory of the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples">acados_solver_ros2_examples</a> repository.</p>
+<p>To export the plugin, simply run the script with Python:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+python3<span class="w"> </span>./&lt;relative_path_to_script&gt;.py
+</pre></div>
+</div>
+<p>Which results in the following workspace tree:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/workspace_tree.png"><img alt="../_images/workspace_tree.png" src="../_images/workspace_tree.png" style="width: 800px;" /></a>
+</figure>
+<p>As shown in the figure, the plugin sources are exported to the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory of the <code class="docutils literal notranslate"><span class="pre">acados_solver_plugins</span></code> package.</p>
+<p>The wrapper inherits from the <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">acados::AcadosSolver</span></code> class, resulting in the following pluginlib XML config (i.e., the <code class="docutils literal notranslate"><span class="pre">export_plugin.xml</span></code> file):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;library</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;acados_solver_plugins&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;class</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;acados_solver_plugins/RrbotCartesianTracking&quot;</span>
+<span class="w">        </span><span class="na">type=</span><span class="s">&quot;acados_solver_plugins::RrbotCartesianTracking&quot;</span>
+<span class="w">        </span><span class="na">base_class_type=</span><span class="s">&quot;acados::AcadosSolver&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>
+<span class="w">    </span>Acados<span class="w"> </span>solver<span class="w"> </span>plugin<span class="w"> </span>to<span class="w"> </span>track<span class="w"> </span>a<span class="w"> </span>Cartesian<span class="w"> </span>trajectory<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>RRBot<span class="w"> </span>planar<span class="w"> </span>robot
+<span class="w">    </span><span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/class&gt;</span>
+<span class="nt">&lt;/library&gt;</span>
+</pre></div>
+</div>
+<p>In order to use the plugin in a C++ ROS2 controller, we will need to rebuild the <code class="docutils literal notranslate"><span class="pre">acados_solver_plugins</span></code> package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>--symlink-install
+</pre></div>
+</div>
+</section>
+<section id="use-the-plugin-in-a-c-controller">
+<h2>Use the plugin in a C++ controller<a class="headerlink" href="#use-the-plugin-in-a-c-controller" title="Link to this heading"></a></h2>
+<section id="setup-the-ros2-controller-package-dependencies">
+<h3>1) Setup the ROS2 controller package dependencies<a class="headerlink" href="#setup-the-ros2-controller-package-dependencies" title="Link to this heading"></a></h3>
+<p>Add the <code class="docutils literal notranslate"><span class="pre">acados_solver_base</span></code> and <code class="docutils literal notranslate"><span class="pre">acados_solver_plugins</span></code> packages as dependencies of the ROS2 controller package :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!-- In package.xml&gt;</span>
+
+...
+<span class="nt">&lt;build_depend&gt;</span>acados_solver_base<span class="nt">&lt;/build_depend&gt;</span>
+
+<span class="nt">&lt;exec_depend&gt;</span>acados_solver_base<span class="nt">&lt;/exec_depend&gt;</span>
+<span class="nt">&lt;exec_depend&gt;</span>acados_solver_plugins<span class="nt">&lt;/exec_depend&gt;</span>
+...
+</pre></div>
+</div>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># In CMakeLists.txt</span>
+<span class="c"># ...</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">acados_solver_base</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="c"># ...</span>
+<span class="nb">ament_target_dependencies</span><span class="p">(</span>
+<span class="w">    </span><span class="s">example_acados_controller</span>
+<span class="w">    </span><span class="s">PUBLIC</span>
+<span class="w">        </span><span class="c"># ...</span>
+<span class="w">        </span><span class="s">acados_solver_base</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The full code can be found in the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples/blob/main/example_acados_controller/package.xml">package.xml</a> and <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples/blob/main/example_acados_controller/CMakeLists.txt">CMakeLists.txt</a> files in the <code class="docutils literal notranslate"><span class="pre">example_acados_controller</span></code> directory of the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples">acados_solver_ros2_examples</a> repository.</p>
+</section>
+<section id="load-the-solver-plugin-in-the-ros2-controller">
+<h3>2) Load the solver plugin in the ROS2 controller<a class="headerlink" href="#load-the-solver-plugin-in-the-ros2-controller" title="Link to this heading"></a></h3>
+<p>Define a ROS2 controller with a pluginlib loader to load the solver plugin:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// In example_acados_controller.hpp</span>
+
+<span class="c1">// ...</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;acados_solver_base/acados_solver_base.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pluginlib/class_loader.hpp&quot;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">example_acados_controller</span>
+<span class="p">{</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ExampleAcadosController</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">controller_interface</span><span class="o">::</span><span class="n">ControllerInterface</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">ExampleAcadosController</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">CallbackReturn</span><span class="w"> </span><span class="nf">on_init</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">controller_interface</span><span class="o">::</span><span class="n">InterfaceConfiguration</span><span class="w"> </span><span class="nf">command_interface_configuration</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">controller_interface</span><span class="o">::</span><span class="n">InterfaceConfiguration</span><span class="w"> </span><span class="nf">state_interface_configuration</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">CallbackReturn</span><span class="w"> </span><span class="nf">on_configure</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp_lifecycle</span><span class="o">::</span><span class="n">State</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">previous_state</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// ...</span>
+
+<span class="w">    </span><span class="n">controller_interface</span><span class="o">::</span><span class="n">return_type</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">time</span><span class="p">,</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Duration</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">period</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+
+<span class="k">protected</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// ...</span>
+
+<span class="w">    </span><span class="c1">/// Acados solver pluginlib loader</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">pluginlib</span><span class="o">::</span><span class="n">ClassLoader</span><span class="o">&lt;</span><span class="n">acados</span><span class="o">::</span><span class="n">AcadosSolver</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">acados_solver_loader_</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">/// Acados solver</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">acados</span><span class="o">::</span><span class="n">AcadosSolver</span><span class="o">&gt;</span><span class="w"> </span><span class="n">acados_solver_</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">};</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace example_acados_controller</span>
+</pre></div>
+</div>
+<p>The full code can be found in the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples/blob/main/example_acados_controller/include/example_acados_controller/example_acados_controller.hpp">example_acados_controller.hpp</a> files in the <code class="docutils literal notranslate"><span class="pre">example_acados_controller/include</span></code> directory of the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples">acados_solver_ros2_examples</a> repository.</p>
+</section>
+<section id="configure-the-solver-plugin-in-the-ros2-controller">
+<h3>3) Configure the solver plugin in the ROS2 controller<a class="headerlink" href="#configure-the-solver-plugin-in-the-ros2-controller" title="Link to this heading"></a></h3>
+<p>The solver plugin can be loaded and configured in the <code class="docutils literal notranslate"><span class="pre">on_configure</span></code> method of the ROS2 controller.
+Additionally, the solver should be reset in the <code class="docutils literal notranslate"><span class="pre">on_activate</span></code> method (not shown here).
+Note that the solver settings (e.g., the number of shooting nodes and the sampling time) can be changed at runtime:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// In example_acados_controller.cpp</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;example_acados_controller/example_acados_controller.hpp&quot;</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">example_acados_controller</span>
+<span class="p">{</span>
+
+<span class="c1">// ...</span>
+
+<span class="n">CallbackReturn</span>
+<span class="nf">ExampleAcadosController::on_configure</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp_lifecycle</span><span class="o">::</span><span class="n">State</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="cm">/*previous_state*/</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// ...</span>
+
+<span class="w">    </span><span class="c1">// get solver settings</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">nmpc_plugin_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;acados_solver_plugins/RrbotCartesianTracking&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// number of shooting nodes (i.e., the prediction horizon)</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">Ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.002</span><span class="p">;</span><span class="w"> </span><span class="c1">// 500 Hz</span>
+
+<span class="w">    </span><span class="c1">// load the solver plugin</span>
+<span class="w">    </span><span class="n">acados_solver_loader_</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">pluginlib</span><span class="o">::</span><span class="n">ClassLoader</span><span class="o">&lt;</span><span class="n">acados</span><span class="o">::</span><span class="n">AcadosSolver</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="s">&quot;acados_solver_base&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;acados::AcadosSolver&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">acados_solver_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">acados</span><span class="o">::</span><span class="n">AcadosSolver</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="n">acados_solver_loader_</span><span class="o">-&gt;</span><span class="n">createUnmanagedInstance</span><span class="p">(</span><span class="n">nmpc_plugin_name</span><span class="p">));</span>
+
+<span class="w">    </span><span class="c1">// configure the solver</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">acados_solver_</span><span class="o">-&gt;</span><span class="n">init</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">Ts</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">RCLCPP_ERROR</span><span class="p">(</span>
+<span class="w">            </span><span class="n">get_node</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Failed to configure the Acados solver!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">CallbackReturn</span><span class="o">::</span><span class="n">FAILURE</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="c1">// ...</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace example_acados_controller</span>
+</pre></div>
+</div>
+<p>The full code can be found in the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples/blob/main/example_acados_controller/src/example_acados_controller.cpp">example_acados_controller.cpp</a> files in the <code class="docutils literal notranslate"><span class="pre">example_acados_controller/src</span></code> directory of the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples">acados_solver_ros2_examples</a> repository.</p>
+</section>
+<section id="solve-the-ocp">
+<h3>3) Solve the OCP<a class="headerlink" href="#solve-the-ocp" title="Link to this heading"></a></h3>
+<p>The OCP can be solved in the <code class="docutils literal notranslate"><span class="pre">update</span></code> method of the ROS2 controller:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// In example_acados_controller.cpp</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">example_acados_controller</span>
+<span class="p">{</span>
+
+<span class="c1">// ...</span>
+
+<span class="n">controller_interface</span><span class="o">::</span><span class="n">return_type</span>
+<span class="nf">ExampleAcadosController::update</span><span class="p">(</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">time</span><span class="p">,</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Duration</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">period</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// get runtime parameters</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Q_pos_diag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Q_vel_diag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">R_diag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">};</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">l0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// ...</span>
+
+<span class="w">    </span><span class="c1">// get the current joint state</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q_pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q_vel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// set the OCP initial state</span>
+<span class="w">    </span><span class="n">acados</span><span class="o">::</span><span class="n">ValueMap</span><span class="w"> </span><span class="n">x_values_map</span><span class="p">;</span>
+<span class="w">    </span><span class="n">x_values_map</span><span class="p">[</span><span class="s">&quot;q&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q_pos</span><span class="p">;</span>
+<span class="w">    </span><span class="n">x_values_map</span><span class="p">[</span><span class="s">&quot;q_dot&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q_vel</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">acados_solver_</span><span class="o">-&gt;</span><span class="n">set_initial_state_values</span><span class="p">(</span><span class="n">x_values_map</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">RCLCPP_ERROR</span><span class="p">(</span>
+<span class="w">            </span><span class="n">get_node</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Failed to set NMPC initial state values!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">controller_interface</span><span class="o">::</span><span class="n">return_type</span><span class="o">::</span><span class="n">ERROR</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// get the Cartesian reference</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p_ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p_dot_ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// set the OCP parameters</span>
+<span class="w">    </span><span class="n">acados</span><span class="o">::</span><span class="n">ValueMap</span><span class="w"> </span><span class="n">p_values_map</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p_values_map</span><span class="p">[</span><span class="s">&quot;l0&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="p">{</span><span class="n">l0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">p_values_map</span><span class="p">[</span><span class="s">&quot;l1&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="p">{</span><span class="n">l1</span><span class="p">};</span>
+<span class="w">    </span><span class="n">p_values_map</span><span class="p">[</span><span class="s">&quot;l2&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="p">{</span><span class="n">l2</span><span class="p">};</span>
+<span class="w">    </span><span class="n">p_values_map</span><span class="p">[</span><span class="s">&quot;m1&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="p">{</span><span class="n">m1</span><span class="p">};</span>
+<span class="w">    </span><span class="n">p_values_map</span><span class="p">[</span><span class="s">&quot;m2&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="p">{</span><span class="n">m2</span><span class="p">};</span>
+<span class="w">    </span><span class="n">p_values_map</span><span class="p">[</span><span class="s">&quot;p_ref&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_ref</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p_values_map</span><span class="p">[</span><span class="s">&quot;p_dot_ref&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p_dot_ref</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p_values_map</span><span class="p">[</span><span class="s">&quot;Q_pos_diag&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q_pos_diag</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p_values_map</span><span class="p">[</span><span class="s">&quot;Q_vel_diag&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q_vel_diag</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p_values_map</span><span class="p">[</span><span class="s">&quot;R_diag&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R_diag</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">acados_solver_</span><span class="o">-&gt;</span><span class="n">set_runtime_parameters</span><span class="p">(</span><span class="n">p_values_map</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">RCLCPP_ERROR</span><span class="p">(</span>
+<span class="w">            </span><span class="n">get_node</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Failed to set NMPC runtime parameters!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">controller_interface</span><span class="o">::</span><span class="n">return_type</span><span class="o">::</span><span class="n">ERROR</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// solve the OCP</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">all_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tau_cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">};</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">acados_solver_</span><span class="o">-&gt;</span><span class="n">solve</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">RCLCPP_ERROR</span><span class="p">(</span><span class="n">get_node</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Failed to solve the NMPC SQP problem!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">all_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Get optimal control input</span>
+<span class="w">        </span><span class="n">acados</span><span class="o">::</span><span class="n">ValueMap</span><span class="w"> </span><span class="n">u_values_map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acados_solver_</span><span class="o">-&gt;</span><span class="n">get_control_values_as_map</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">tau_cmd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u_values_map</span><span class="p">[</span><span class="s">&quot;tau&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">        </span><span class="n">tau_cmd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u_values_map</span><span class="p">[</span><span class="s">&quot;tau&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Send command to robot</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span>
+<span class="c1">// ...</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace example_acados_controller</span>
+</pre></div>
+</div>
+<p>The full code can be found in the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples/blob/main/example_acados_controller/src/example_acados_controller.cpp">example_acados_controller.cpp</a> files in the <code class="docutils literal notranslate"><span class="pre">example_acados_controller/src</span></code> directory of the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples">acados_solver_ros2_examples</a> repository.</p>
+</section>
+</section>
+<section id="notes-and-recommendations">
+<h2>Notes and recommendations<a class="headerlink" href="#notes-and-recommendations" title="Link to this heading"></a></h2>
+<ul>
+<li><p>If not provided, the semantic map is constructed from CasADI variable names.</p></li>
+<li><p>By default, the plugin sources are exported to the src directory of the <code class="docutils literal notranslate"><span class="pre">acados_solver_plugins</span></code> package.
+This can be changed by setting the <code class="docutils literal notranslate"><span class="pre">plugin_sources_dir</span></code> argument of the <code class="docutils literal notranslate"><span class="pre">generate_solver_plugin</span></code> method.</p></li>
+<li><p>If the Acados solver C library is generated for the first time, the user will be prompted to install some Acados external dependencies.
+This can be avoided by running the script as follows:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>./&lt;relative_path_to_script&gt;.py
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>The <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ValueMap</span></code> class is a simple wrapper around a <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">std::map</span></code> to store the values of the OCP variables.
+It is a convenient way to pass the values to the Acados solver, but it is not mandatory.
+The user can directly set the values from a <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">std::vector</span></code> object, which might be more efficient as the <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ValueMap</span></code> setters are not especially optimized.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ocp_model.html" class="btn btn-neutral float-left" title="Robot modeling and OCP formulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="demo.html" class="btn btn-neutral float-right" title="Illustrative results" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ICUBE Laboratory, University of Strasbourg.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -10,11 +10,8 @@
 <listitem><para><computeroutput>acados_solver_base</computeroutput> (C++ package)<itemizedlist>
 <listitem><para><ref refid="classacados_1_1AcadosSolver" kindref="compound">acados::AcadosSolver</ref></para>
 </listitem><listitem><para><ref refid="classacados_1_1AcadosSolver_1_1Dimensions" kindref="compound">acados::AcadosSolver::Dimensions</ref></para>
+</listitem><listitem><para><ref refid="namespaceacados_1_1utils" kindref="compound">acados::utils</ref> (a set of utility functions for AcadosSolver)</para>
 </listitem><listitem><para><ref refid="acados__types_8hpp" kindref="compound">Type definitions</ref></para>
-</listitem></itemizedlist>
-</para>
-</listitem><listitem><para><computeroutput>acados_controller_base</computeroutput> (C++ package)<itemizedlist>
-<listitem><para>TODO</para>
 </listitem></itemizedlist>
 </para>
 </listitem><listitem><para><computeroutput><ref refid="namespaceacados__solver__plugins" kindref="compound">acados_solver_plugins</ref></computeroutput> (Python package)<itemizedlist>
