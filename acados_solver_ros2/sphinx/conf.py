@@ -24,12 +24,21 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+import sys
 from pathlib import Path
 import subprocess
 
 # Doxygen
 subprocess.call('cd ../doxygen; doxygen Doxyfile', shell=True)
 html_extra_path = ['../doxygen/_build']  # Export files to "sphinx/_build"
+
+# Autodoc configuration (see https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_mock_imports)
+sys.path.insert(0, os.path.abspath('../../../acados_solver_plugins/acados_solver_plugins'))
+autodoc_mock_imports = [
+    "acados_template",
+    "jinja2",
+    "casadi",
+]
 
 # -- Project information -----------------------------------------------------
 
