@@ -36,6 +36,9 @@ html_extra_path = ['../doxygen/_build']  # Export files to "sphinx/_build"
 # Autodoc configuration (see https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_mock_imports)
 sys.path.insert(0, os.path.abspath('../../acados_solver_plugins/acados_solver_plugins'))
 sys.path.insert(0, os.path.abspath('../../acados_solver_plugins'))
+from .solver_plugin_generator import SolverPluginGenerator # noqa
+from .solver_plugin_loader import SolverPluginLoader # noqa
+
 autodoc_mock_imports = [
     "acados_template",
     "jinja2",
