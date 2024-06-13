@@ -40,6 +40,8 @@ autodoc_mock_imports = [
     "acados_template",
     "jinja2",
     "casadi",
+    "numpy",
+    "shutil"
 ]
 
 # -- Project information -----------------------------------------------------
