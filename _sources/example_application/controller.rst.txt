@@ -11,7 +11,7 @@ Export the solver plugin
 To use the Acados solver in a C++ ROS2 controller, we first need to export the solver as a ``pluginlib`` plugin.
 The Python module ``acados_solver_plugins`` provides a class ``SolverPluginGenerator`` to generate the plugin:
 
-.. autoclass:: acados_solver_plugins.SolverPluginGenerator
+.. autoclass:: acados_solver_plugins.solver_plugin_generator::SolverPluginGenerator
     :noindex:
     :members:
     :undoc-members:
