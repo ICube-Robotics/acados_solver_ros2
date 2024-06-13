@@ -18,7 +18,8 @@ jobs:
       - name: Install dependencies
         run: |
             sudo apt-get update -qq
-            sudo apt-get install -y -qq python3-sphinx doxygen doxygen-gui doxygen-doc graphviz plantuml tree
+            sudo apt-get install -y -qq python3-sphinx doxygen doxygen-gui doxygen-doc graphviz plantuml tree dvisvgm
+            sudo apt-get install -y -qq texlive-latex-base
             cd ./acados_solver_ros2/
             pip install -r requirements.txt
       - name: Build documentation
