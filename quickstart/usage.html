@@ -55,10 +55,9 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Getting started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#build-acados-model">1) Build Acados model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#formulate-the-optimal-control-problem-ocp-using-acados">2) Formulate the optimal control problem (OCP) using Acados</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configure-the-solver">3) Configure the solver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gnererate-the-c-plugin">4) Gnererate the C++ plugin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#use-the-plugin-in-a-c-application">5) Use the plugin in a C++ application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#formulate-the-optimal-control-problem-ocp">2) Formulate the optimal control problem (OCP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gnererate-the-c-plugin">3) Gnererate the C++ plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-the-plugin-in-a-c-application">4) Use the plugin in a C++ application</a></li>
 </ul>
 </li>
 </ul>
@@ -103,20 +102,108 @@
              
   <section id="usage">
 <h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
+<figure class="align-center" id="id1">
+<span id="fig-overview-software"></span><a class="reference internal image-reference" href="../_images/overview_soft.png"><img alt="../_images/overview_soft.png" src="../_images/overview_soft.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Overview of the prototyping steps.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 <section id="build-acados-model">
 <h2>1) Build Acados model<a class="headerlink" href="#build-acados-model" title="Link to this heading"></a></h2>
+<p>Use <a class="reference external" href="https://web.casadi.org/">CasADI</a> to define the symbolic variables of the problem (i.e., state variables, control inputs, etc.) and the functions necessary to model dynamics of the system (i.e., explicit ODE or DAE).
+Then use <a class="reference external" href="https://docs.acados.org/python_interface/index.html">acados_template</a> to instantiate an <code class="docutils literal notranslate"><span class="pre">AcadosModel</span></code> object that will be used to define the optimal control problem (OCP) in the next step.
+We refer to the <a class="reference external" href="https://docs.acados.org/python_interface/index.html">Acados documentation</a> and <a class="reference external" href="https://github.com/acados/acados/tree/master/examples/acados_python">examples</a> for more details on how to build an Acados model.</p>
 </section>
-<section id="formulate-the-optimal-control-problem-ocp-using-acados">
-<h2>2) Formulate the optimal control problem (OCP) using Acados<a class="headerlink" href="#formulate-the-optimal-control-problem-ocp-using-acados" title="Link to this heading"></a></h2>
-</section>
-<section id="configure-the-solver">
-<h2>3) Configure the solver<a class="headerlink" href="#configure-the-solver" title="Link to this heading"></a></h2>
+<section id="formulate-the-optimal-control-problem-ocp">
+<h2>2) Formulate the optimal control problem (OCP)<a class="headerlink" href="#formulate-the-optimal-control-problem-ocp" title="Link to this heading"></a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">AcadosOcp</span></code> class to define the optimal control problem (OCP) by specifying the <a class="reference external" href="https://docs.acados.org/python_interface/index.html#acados_template.acados_ocp_cost.AcadosOcpCost">cost function</a>, <a class="reference external" href="https://docs.acados.org/python_interface/index.html#acados_template.acados_ocp_constraints.AcadosOcpConstraints">constraints</a>, etc.
+Then, set the solver options, especially the choice of QP solver (e.g., HPIPM, qpOASES, etc.) and integrator (e.g., ERK, IRK, etc.).</p>
 </section>
 <section id="gnererate-the-c-plugin">
-<h2>4) Gnererate the C++ plugin<a class="headerlink" href="#gnererate-the-c-plugin" title="Link to this heading"></a></h2>
+<h2>3) Gnererate the C++ plugin<a class="headerlink" href="#gnererate-the-c-plugin" title="Link to this heading"></a></h2>
+<p>Once the OCP is defined, use the <code class="docutils literal notranslate"><span class="pre">acados_solver_plugins</span></code> package to generate the solver C++ plugin.
+The generation function takes as input the OCP, the name of the plugin class, the description of the solver, and the semantic map of the OCP variables.
+The latter is used to provide a mapping between the OCP variables and the vector indices of the corresponding variables in the solver C++ interface (see the next step).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">AcadosModel</span><span class="p">()</span>
+<span class="o">...</span>  <span class="c1"># define the model</span>
+<span class="n">ocp</span> <span class="o">=</span> <span class="n">AcadosOcp</span><span class="p">()</span>
+<span class="o">...</span>  <span class="c1"># define the OCP</span>
+
+<span class="c1"># define the semantic map of the OCP variables</span>
+<span class="c1"># N.B., this example is for illustration purpose only</span>
+<span class="n">x_index_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;a_state_variable&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;a_set_of_state_variables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s1">&#39;another_state_variable&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">z_index_map</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># N.B., actually not empty in demo code</span>
+<span class="n">p_index_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;a_parameter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;another_parameter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;a_set_of_parameters&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">u_index_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;some_control_variables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c1"># export the solver plugin</span>
+<span class="kn">from</span> <span class="nn">acados_solver_plugins</span> <span class="kn">import</span> <span class="n">SolverPluginGenerator</span>
+
+<span class="n">solver_plugin_generator</span> <span class="o">=</span> <span class="n">SolverPluginGenerator</span><span class="p">()</span>
+
+<span class="n">solver_plugin_generator</span><span class="o">.</span><span class="n">generate_solver_plugin</span><span class="p">(</span>
+    <span class="n">ocp</span><span class="o">=</span><span class="n">ocp</span><span class="p">,</span>
+    <span class="n">plugin_class_name</span><span class="o">=</span><span class="s1">&#39;name_of_the_plugin_class&#39;</span><span class="p">,</span>
+    <span class="n">solver_description</span><span class="o">=</span><span class="s1">&#39;description_of_the_solver&#39;</span><span class="p">,</span>
+    <span class="n">x_index_map</span><span class="o">=</span><span class="n">x_index_map</span><span class="p">,</span>
+    <span class="n">z_index_map</span><span class="o">=</span><span class="n">z_index_map</span><span class="p">,</span>
+    <span class="n">p_index_map</span><span class="o">=</span><span class="n">p_index_map</span><span class="p">,</span>
+    <span class="n">u_index_map</span><span class="o">=</span><span class="n">u_index_map</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="use-the-plugin-in-a-c-application">
-<h2>5) Use the plugin in a C++ application<a class="headerlink" href="#use-the-plugin-in-a-c-application" title="Link to this heading"></a></h2>
+<h2>4) Use the plugin in a C++ application<a class="headerlink" href="#use-the-plugin-in-a-c-application" title="Link to this heading"></a></h2>
+<p>The generated plugin can be used in a C++ application to solve the OCP.
+Start by loading the plugin and creating an instance of the solver (e.g., in the <code class="docutils literal notranslate"><span class="pre">configure()</span></code> method of your controller):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;acados_solver_base/acados_solver_base.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;pluginlib/class_loader.hpp&quot;</span>
+
+<span class="c1">// Acados solver pluginlib loader</span>
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">pluginlib</span><span class="o">::</span><span class="n">ClassLoader</span><span class="o">&lt;</span><span class="n">acados</span><span class="o">::</span><span class="n">AcadosSolver</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">acados_solver_loader_</span><span class="p">;</span>
+
+<span class="c1">// Acados solver</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">acados</span><span class="o">::</span><span class="n">AcadosSolver</span><span class="o">&gt;</span><span class="w"> </span><span class="n">acados_solver_</span><span class="p">;</span>
+
+<span class="c1">// load the solver plugin</span>
+<span class="n">acados_solver_loader_</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">pluginlib</span><span class="o">::</span><span class="n">ClassLoader</span><span class="o">&lt;</span><span class="n">acados</span><span class="o">::</span><span class="n">AcadosSolver</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;acados_solver_base&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;acados::AcadosSolver&quot;</span><span class="p">);</span>
+<span class="n">acados_solver_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">acados</span><span class="o">::</span><span class="n">AcadosSolver</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">    </span><span class="n">acados_solver_loader_</span><span class="o">-&gt;</span><span class="n">createUnmanagedInstance</span><span class="p">(</span><span class="n">nmpc_plugin_name</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>When you configure the solver at runtime, you can change the sampling period and the prediction horizon :</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// configure the solver</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acados_solver_</span><span class="o">-&gt;</span><span class="n">init</span><span class="p">(</span><span class="n">prediction_horizon</span><span class="p">,</span><span class="w"> </span><span class="n">sampling_period_in_seconds</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Then simply use the solver to solve the OCP at each control loop iteration (e.g., in the <code class="docutils literal notranslate"><span class="pre">update()</span></code> method of your controller).
+Some basic functionalities are wrapped in the <code class="docutils literal notranslate"><span class="pre">acados::AcadosSolver</span></code> class, such as :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">set_initial_state_values()</span></code>: set the initial state of the OCP</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_runtime_parameters()</span></code>: set the parameters of the OCP</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_control_bounds()</span></code>: set the control variables upper and lower bounds</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_state_bounds()</span></code>: set the state variables upper and lower bounds</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">solve()</span></code>: solve the OCP</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_control_values()</span></code>: get the control values of the solution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_state_values()</span></code>: get the predicted state values at a given stage (i.e., time step of the prediction horizon)</p></li>
+</ul>
+<p>The solver variables (i.e., state, control, etc.) can be accessed as <code class="docutils literal notranslate"><span class="pre">std::vector&lt;double&gt;</span></code> or using the semantic map of the OCP variables.
+A set of helper functions is also provided to access higher-level functionalities of the solver, such as the cost function value.
+Finally, the C interface can be used to access more advanced functionalities of the solver that are not wrapped in the <code class="docutils literal notranslate"><span class="pre">AcadosSolver</span></code> class.
+To retrieve the C interface, use the methods <code class="docutils literal notranslate"><span class="pre">get_nlp_out</span> <span class="pre">()</span></code>, <code class="docutils literal notranslate"><span class="pre">get_nlp_in</span> <span class="pre">()</span></code>, <code class="docutils literal notranslate"><span class="pre">get_nlp_opts</span> <span class="pre">()</span></code>, etc.</p>
 </section>
 </section>
 

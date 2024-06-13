@@ -109,14 +109,14 @@
 <h1>Illustrative results<a class="headerlink" href="#illustrative-results" title="Link to this heading"></a></h1>
 <p>This section presents the results of the example package provided in the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples/tree/main">ICube-Robotics/acados_solver_ros2_examples</a> repository.</p>
 <p>An interactive Rviz marker is used to set the desired position (i.e., <img class="math" src="../_images/math/c0709f7729d8e0bc3c342e5436ae26dcda499d1d.png" alt="p^d"/>) of the end-effector of the robot.
-The user can change the desired position of the end-effector by dragging the interactive marker (see red marker in <a class="reference internal" href="#fig-demo-rviz-view"><span class="std std-numref">Fig. 1</span></a>).</p>
+The user can change the desired position of the end-effector by dragging the interactive marker (see red marker in <a class="reference internal" href="#fig-demo-rviz-view"><span class="std std-numref">Fig. 2</span></a>).</p>
 <p>A Python node updates the marker server and publishes the desired position and velocity (that is simply set to <img class="math" src="../_images/math/b1d9ba11251ad1907d80128272e5dbdfb8b182de.png" alt="\dot{p}^d = 0"/>) to the controller.
 The controller computes the control input to track the desired position and velocity of the end-effector.
 It is implemented as described in the previous sections.</p>
 <figure class="align-center" id="id1">
 <span id="fig-demo-rviz-view"></span><a class="reference internal image-reference" href="../_images/demo_rviz_view.png"><img alt="../_images/demo_rviz_view.png" src="../_images/demo_rviz_view.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Visualization of the robot in Rviz2.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Visualization of the robot in Rviz2.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <section id="installation-of-the-example-package-and-launch">
@@ -167,14 +167,14 @@ ros2<span class="w"> </span>launch<span class="w"> </span>example_acados_bringup
 </section>
 <section id="constraints-satisfaction">
 <h2>Constraints satisfaction<a class="headerlink" href="#constraints-satisfaction" title="Link to this heading"></a></h2>
-<p>The robot joint state plots are shown in <a class="reference internal" href="#fig-fig-demo-plotjuggler-view"><span class="std std-numref">Fig. 2</span></a>.
+<p>The robot joint state plots are shown in <a class="reference internal" href="#fig-fig-demo-plotjuggler-view"><span class="std std-numref">Fig. 3</span></a>.
 The first row shows the joint positions, the second shows the joint velocities, and the bottom raw the torques.
 NMPC state and control constraints are displayed using the blue and red lines.
-As visible in <a class="reference internal" href="#fig-fig-demo-plotjuggler-view"><span class="std std-numref">Fig. 2</span></a>, the controller successfully respects the constraints while tracking the desired position.</p>
+As visible in <a class="reference internal" href="#fig-fig-demo-plotjuggler-view"><span class="std std-numref">Fig. 3</span></a>, the controller successfully respects the constraints while tracking the desired position.</p>
 <figure class="align-center" id="id2">
 <span id="fig-fig-demo-plotjuggler-view"></span><a class="reference internal image-reference" href="../_images/demo_plotjuggler_view.png"><img alt="../_images/demo_plotjuggler_view.png" src="../_images/demo_plotjuggler_view.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Robot joint state plots in Plotjuggler</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Robot joint state plots in Plotjuggler</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
