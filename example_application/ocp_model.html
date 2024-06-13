@@ -112,37 +112,37 @@ As represented in the figure below, the robot is contained in the XZ plane such 
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/robot_description.png"><img alt="../_images/robot_description.png" src="../_images/robot_description.png" style="width: 400px;" /></a>
 </figure>
-<p>The goal of the controller is to compute control torques <span class="math">\tau</span> such that the robot tracks a desired Cartesian trajectory composed of a desired end-effector position  <span class="math">p^d</span> and velocity <span class="math">\dot{p}^d</span>.</p>
+<p>The goal of the controller is to compute control torques <img class="math" src="../_images/math/914b2d4b6659b86d3153d5510839dfb254dfc8a3.png" alt="\tau"/> such that the robot tracks a desired Cartesian trajectory composed of a desired end-effector position  <img class="math" src="../_images/math/c0709f7729d8e0bc3c342e5436ae26dcda499d1d.png" alt="p^d"/> and velocity <img class="math" src="../_images/math/098b86214664d563876782b67ffc11a3c9109796.png" alt="\dot{p}^d"/>.</p>
 <section id="robot-dynamic-modeling">
 <h2>Robot dynamic modeling<a class="headerlink" href="#robot-dynamic-modeling" title="Link to this heading"></a></h2>
 <p>The system can be described by the following dynamic model:</p>
 <div class="math">
-<p><span class="math">B(q) \ddot{q} + C(q, \dot{q}) \dot{q} + g(q) = \tau</span></p>
+<p><img src="../_images/math/6daddf4829307d88f78fc8712566daa1550a61bc.png" alt="B(q) \ddot{q} + C(q, \dot{q}) \dot{q} + g(q) = \tau"/></p>
 </div><p>where</p>
 <ul class="simple">
-<li><p><span class="math">q = [q_1, \, q_2]^T</span> are the joint angles of the first and second links;</p></li>
-<li><p><span class="math">\tau = [\tau_1, \, \tau_2]^T</span> are the torques applied to the first and second links;</p></li>
-<li><p><span class="math">B(q) \in \mathbb{R}^{2 \times 2}</span>, <span class="math">C(q, \dot{q}) \in \mathbb{R}^{2 \times 2}</span>, and <span class="math">G(q)  \in \mathbb{R}^{2}</span> are the inertia matrix, the Coriolis matrix, and the gravity vector, respectively.</p></li>
+<li><p><img class="math" src="../_images/math/d845aaa16ceea072ceab9f24df83b63a54ef82af.png" alt="q = [q_1, \, q_2]^T"/> are the joint angles of the first and second links;</p></li>
+<li><p><img class="math" src="../_images/math/1fc1a9a5520602fcffedac2ea02997716f89c21f.png" alt="\tau = [\tau_1, \, \tau_2]^T"/> are the torques applied to the first and second links;</p></li>
+<li><p><img class="math" src="../_images/math/987cb47576a0b3ef4709145615407cbbfce58694.png" alt="B(q) \in \mathbb{R}^{2 \times 2}"/>, <img class="math" src="../_images/math/19874060117e3dfd840138db2812f873d1c5f589.png" alt="C(q, \dot{q}) \in \mathbb{R}^{2 \times 2}"/>, and <img class="math" src="../_images/math/f72048eb85c8b8bfc5f50ff37b4b6c229454fb66.png" alt="G(q)  \in \mathbb{R}^{2}"/> are the inertia matrix, the Coriolis matrix, and the gravity vector, respectively.</p></li>
 </ul>
-<p>We can write the dynamic model in the form of a first-order differential equation with state <span class="math">x = [q, \dot{q}]^T</span> and control <span class="math">u = \tau</span> as follows:</p>
+<p>We can write the dynamic model in the form of a first-order differential equation with state <img class="math" src="../_images/math/f9b6533cd8357a88113fdc6fd4b76f226b3de270.png" alt="x = [q, \dot{q}]^T"/> and control <img class="math" src="../_images/math/f606150de461d32726adeb3bbeac06fe07be7b86.png" alt="u = \tau"/> as follows:</p>
 <div class="math">
-<p><span class="math">\dot{x} = \begin{bmatrix} \dot{q} \\ \ddot{q} \end{bmatrix}
+<p><img src="../_images/math/0c8eef205f2e8e27147aef8945a52aeb5a675521.png" alt="\dot{x} = \begin{bmatrix} \dot{q} \\ \ddot{q} \end{bmatrix}
         = f(x, u)
-        = \begin{bmatrix} \dot{q} \\ B(q)^{-1} (\tau - C(q, \dot{q}) \dot{q} - g(q)) \end{bmatrix}</span></p>
+        = \begin{bmatrix} \dot{q} \\ B(q)^{-1} (\tau - C(q, \dot{q}) \dot{q} - g(q)) \end{bmatrix}"/></p>
 </div></section>
 <section id="ocp-formulation">
 <h2>OCP formulation<a class="headerlink" href="#ocp-formulation" title="Link to this heading"></a></h2>
-<p>In order to track the desired trajectory, the cost function <span class="math">\mathcal{L}(t_k)</span> minimized by the predictive controller is defined at discrete time <span class="math">t_k</span> as</p>
+<p>In order to track the desired trajectory, the cost function <img class="math" src="../_images/math/c5ee73d0c6eea8d144155c0b651cb5017025d6cd.png" alt="\mathcal{L}(t_k)"/> minimized by the predictive controller is defined at discrete time <img class="math" src="../_images/math/8c74d9045685525be2fb8c5299ee2f8f223f1bf4.png" alt="t_k"/> as</p>
 <div class="math">
-<p><span class="math">\mathcal{L}(t_k) = \int_{t_k}^{t_k + T_f} \left( \| e(t) \|^2_{Q_p} + \| \dot{e}(t) \|^2_{Q_v} + \| \tau(t) \|^2_R \right) dt</span></p>
-</div><p>where <span class="math">e</span> and <span class="math">\dot{e}</span> are the position and velocity tracking errors, respectively, and <span class="math">T_f</span> is the prediction horizon duration.
-The weighting matrices <span class="math">Q_p</span>, <span class="math">Q_v</span>, and <span class="math">R \in \mathbb{R}^{2 \times 2}</span> are positive definite matrices used to tune the closed-loop behavior of the robot.</p>
+<p><img src="../_images/math/2395778c8aea4c5e5852b563b0180369845659a0.png" alt="\mathcal{L}(t_k) = \int_{t_k}^{t_k + T_f} \left( \| e(t) \|^2_{Q_p} + \| \dot{e}(t) \|^2_{Q_v} + \| \tau(t) \|^2_R \right) dt"/></p>
+</div><p>where <img class="math" src="../_images/math/60f4822f02b44d931c5d0595da71dcf34e270437.png" alt="e"/> and <img class="math" src="../_images/math/45caf6ec50916d20831d97d7b993c555c15dee9b.png" alt="\dot{e}"/> are the position and velocity tracking errors, respectively, and <img class="math" src="../_images/math/79599ea18577a599167d6b3bfdec2f81449b7587.png" alt="T_f"/> is the prediction horizon duration.
+The weighting matrices <img class="math" src="../_images/math/8886f42280781b028abd963b3a4a0a0d5725899b.png" alt="Q_p"/>, <img class="math" src="../_images/math/b1ef86b46630f9d7482e359cc3257e9528ea58eb.png" alt="Q_v"/>, and <img class="math" src="../_images/math/527a98cdbba4be3387ead590da09700e004edf21.png" alt="R \in \mathbb{R}^{2 \times 2}"/> are positive definite matrices used to tune the closed-loop behavior of the robot.</p>
 <p>The control problem is subject to the following constraints:</p>
 <ul class="simple">
-<li><p>the initial state <span class="math">x(t_k) = x_k</span> is given;</p></li>
-<li><p>the joint positions are bounded by <span class="math">q_{\min} \leq q(t) \leq q_{\max}</span>, with <span class="math">q_{\min} = [-\pi, 0]^T</span> and <span class="math">q_{\max} = [-\cfrac{\pi}{2}, \cfrac{\pi}{2}]^T</span>;</p></li>
-<li><p>the joint velocities are bounded by <span class="math">\dot{q}_{\min} \leq \dot{q}(t) \leq \dot{q}_{\max}</span>, with <span class="math">\dot{q}_{\min} = [-2, -2]^T</span> and <span class="math">\dot{q}_{\max} = [2, 2]^T</span>;</p></li>
-<li><p>the control torques are bounded by <span class="math">\tau_{\min} \leq \tau(t) \leq \tau_{\max}</span>, with <span class="math">\tau_{\min} = [-25, -10]^T</span> and <span class="math">\tau_{\max} = [20, 10]^T</span>.</p></li>
+<li><p>the initial state <img class="math" src="../_images/math/f1519e41488cb27169660c5dc0e56b6d996663e2.png" alt="x(t_k) = x_k"/> is given;</p></li>
+<li><p>the joint positions are bounded by <img class="math" src="../_images/math/81bf9b38375c626f1cef1485f346e9a825e95fdf.png" alt="q_{\min} \leq q(t) \leq q_{\max}"/>, with <img class="math" src="../_images/math/8117fbd9a2dc29c86e239e39cfdaf689b1cbb691.png" alt="q_{\min} = [-\pi, 0]^T"/> and <img class="math" src="../_images/math/864fbb4c98626e3f7e22095bd7d62a3ef6ad7f73.png" alt="q_{\max} = [-\cfrac{\pi}{2}, \cfrac{\pi}{2}]^T"/>;</p></li>
+<li><p>the joint velocities are bounded by <img class="math" src="../_images/math/fee98e45abfced12ea057b69ad69568620d7f212.png" alt="\dot{q}_{\min} \leq \dot{q}(t) \leq \dot{q}_{\max}"/>, with <img class="math" src="../_images/math/b289d6889d9318970a347f88f75b203122b00b7d.png" alt="\dot{q}_{\min} = [-2, -2]^T"/> and <img class="math" src="../_images/math/120da319d76c94b25d815ded9ccbec061764e90c.png" alt="\dot{q}_{\max} = [2, 2]^T"/>;</p></li>
+<li><p>the control torques are bounded by <img class="math" src="../_images/math/2bb0ae1dc2973d541dd897fc4565538363d510b6.png" alt="\tau_{\min} \leq \tau(t) \leq \tau_{\max}"/>, with <img class="math" src="../_images/math/1f56ae79cc2b85b93aabe14181802ed8370e4eb5.png" alt="\tau_{\min} = [-25, -10]^T"/> and <img class="math" src="../_images/math/eb75e771cc6d67de3af54b0fb4a8a0bf7b87e689.png" alt="\tau_{\max} = [20, 10]^T"/>.</p></li>
 </ul>
 </section>
 <section id="transcription-using-casadi-and-acados">
