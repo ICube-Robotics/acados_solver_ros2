@@ -6,7 +6,7 @@ Acados Solver Plugins
 Gnererate new acados solver plugins
 =====================================
 
-.. autoclass:: acados_solver_plugins.SolverPluginGenerator
+.. autoclass:: acados_solver_plugins.solver_plugin_generator::SolverPluginGenerator
     :members:
     :undoc-members:
     :private-members:
@@ -16,7 +16,7 @@ Gnererate new acados solver plugins
 Load previously built acados solver plugins (not implemented yet)
 ==================================================================
 
-.. autoclass:: acados_solver_plugins.SolverPluginLoader
+.. autoclass:: acados_solver_plugins.solver_plugin_loader::SolverPluginLoader
     :members:
     :undoc-members:
     :private-members:
@@ -26,4 +26,4 @@ Load previously built acados solver plugins (not implemented yet)
 Miscellaneous functions
 ========================
 
-.. autofunction:: acados_solver_plugins.utils.uppercase_to_underscore
+.. autofunction:: acados_solver_plugins.utils::uppercase_to_underscore
