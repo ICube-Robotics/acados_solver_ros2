@@ -113,6 +113,50 @@
 <h2>Export the solver plugin<a class="headerlink" href="#export-the-solver-plugin" title="Link to this heading"></a></h2>
 <p>To use the Acados solver in a C++ ROS2 controller, we first need to export the solver as a <code class="docutils literal notranslate"><span class="pre">pluginlib</span></code> plugin.
 The Python module <code class="docutils literal notranslate"><span class="pre">acados_solver_plugins</span></code> provides a class <code class="docutils literal notranslate"><span class="pre">SolverPluginGenerator</span></code> to generate the plugin:</p>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">acados_solver_plugins.solver_plugin_generator.</span></span><span class="sig-name descname"><span class="pre">SolverPluginGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_export_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">library_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/acados_solver_plugins/solver_plugin_generator.html#SolverPluginGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Minimalist template-based code generation module to generate     <cite>acados::AcadosSolver</cite> derived objects.</p>
+<p>Relevant external API documentation :     <a class="reference external" href="https://jinja.palletsprojects.com/en/3.0.x/api/">jinja2</a>,     <a class="reference external" href="https://docs.acados.org/python_interface/index.html#">acados_template</a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">_generate_file_from_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">export_filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">template_render_args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/acados_solver_plugins/solver_plugin_generator.html#SolverPluginGenerator._generate_file_from_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">generate_solver_plugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">acados_ocp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">acados_template.AcadosOcp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugin_class_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_index_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_index_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_index_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_index_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">acados_template.AcadosOcpSolver</span></span></span><a class="reference internal" href="../_modules/acados_solver_plugins/solver_plugin_generator.html#SolverPluginGenerator.generate_solver_plugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Generate the solver plugin from a python Acados OCP model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>acados_ocp</strong> (<em>AcadosOcp</em>) – Acados OCP model</p></li>
+<li><p><strong>plugin_class_name</strong> (<em>str</em>) – Class name for the generated plugin of type
+“acados::&lt;plugin_class_name&gt;”</p></li>
+<li><p><strong>solver_description</strong> (<em>str</em><em>, </em><em>optional</em>) – Short description for the exported plugin, defaults to None</p></li>
+<li><p><strong>x_index_map</strong> (<em>dict</em><em>, </em><em>optional</em>) – Differential state index map, defaults to None</p></li>
+<li><p><strong>z_index_map</strong> (<em>dict</em><em>, </em><em>optional</em>) – Algebraic state index map, defaults to None</p></li>
+<li><p><strong>p_index_map</strong> (<em>dict</em><em>, </em><em>optional</em>) – Parameters index map, defaults to None</p></li>
+<li><p><strong>u_index_map</strong> (<em>dict</em><em>, </em><em>optional</em>) – Parameters index map, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the acados OCP solver generated as a by-product</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AcadosOcpSolver</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">jinga_env_loader</span></span></dt>
+<dd><p>Jinja environment loader initialized as a <cite>jinja2.PackageLoader</cite> looking for templates in the installation folder of the module.</p>
+</dd></dl>
+
+</dd></dl>
+
 <p>Note that the <code class="docutils literal notranslate"><span class="pre">generate_solver_plugin</span></code> method of the <code class="docutils literal notranslate"><span class="pre">SolverPluginGenerator</span></code> class takes semantic maps as arguments, mapping variable names to their indices in the state, control, and parameter vectors.</p>
 <p>For the RRBot example, the export script is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">AcadosModel</span><span class="p">()</span>

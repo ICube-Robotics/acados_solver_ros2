@@ -64,9 +64,26 @@
 <p class="caption" role="heading"><span class="caption-text">Python modules</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Acados Solver Plugins</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#gnererate-new-acados-solver-plugins">Gnererate new acados solver plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#load-previously-built-acados-solver-plugins-not-implemented-yet">Load previously built acados solver plugins (not implemented yet)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#miscellaneous-functions">Miscellaneous functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gnererate-new-acados-solver-plugins">Gnererate new acados solver plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator"><code class="docutils literal notranslate"><span class="pre">SolverPluginGenerator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator._generate_file_from_template"><code class="docutils literal notranslate"><span class="pre">SolverPluginGenerator._generate_file_from_template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator.generate_solver_plugin"><code class="docutils literal notranslate"><span class="pre">SolverPluginGenerator.generate_solver_plugin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator.jinga_env_loader"><code class="docutils literal notranslate"><span class="pre">SolverPluginGenerator.jinga_env_loader</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#load-previously-built-acados-solver-plugins-not-implemented-yet">Load previously built acados solver plugins (not implemented yet)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acados_solver_plugins.solver_plugin_loader.SolverPluginLoader"><code class="docutils literal notranslate"><span class="pre">SolverPluginLoader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#acados_solver_plugins.solver_plugin_loader.SolverPluginLoader.load_solver_plugin"><code class="docutils literal notranslate"><span class="pre">SolverPluginLoader.load_solver_plugin()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#miscellaneous-functions">Miscellaneous functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#acados_solver_plugins.utils.uppercase_to_underscore"><code class="docutils literal notranslate"><span class="pre">uppercase_to_underscore()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -103,12 +120,88 @@
 <h1>Acados Solver Plugins<a class="headerlink" href="#acados-solver-plugins" title="Link to this heading"></a></h1>
 <section id="gnererate-new-acados-solver-plugins">
 <h2>Gnererate new acados solver plugins<a class="headerlink" href="#gnererate-new-acados-solver-plugins" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">acados_solver_plugins.solver_plugin_generator.</span></span><span class="sig-name descname"><span class="pre">SolverPluginGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_export_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">library_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/acados_solver_plugins/solver_plugin_generator.html#SolverPluginGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator" title="Link to this definition"></a></dt>
+<dd><p>Minimalist template-based code generation module to generate     <cite>acados::AcadosSolver</cite> derived objects.</p>
+<p>Relevant external API documentation :     <a class="reference external" href="https://jinja.palletsprojects.com/en/3.0.x/api/">jinja2</a>,     <a class="reference external" href="https://docs.acados.org/python_interface/index.html#">acados_template</a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator._generate_file_from_template">
+<span class="sig-name descname"><span class="pre">_generate_file_from_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">export_filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">template_render_args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/acados_solver_plugins/solver_plugin_generator.html#SolverPluginGenerator._generate_file_from_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator._generate_file_from_template" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator.generate_solver_plugin">
+<span class="sig-name descname"><span class="pre">generate_solver_plugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">acados_ocp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">acados_template.AcadosOcp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugin_class_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_index_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_index_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_index_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_index_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">acados_template.AcadosOcpSolver</span></span></span><a class="reference internal" href="../_modules/acados_solver_plugins/solver_plugin_generator.html#SolverPluginGenerator.generate_solver_plugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator.generate_solver_plugin" title="Link to this definition"></a></dt>
+<dd><p>Generate the solver plugin from a python Acados OCP model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>acados_ocp</strong> (<em>AcadosOcp</em>) – Acados OCP model</p></li>
+<li><p><strong>plugin_class_name</strong> (<em>str</em>) – Class name for the generated plugin of type
+“acados::&lt;plugin_class_name&gt;”</p></li>
+<li><p><strong>solver_description</strong> (<em>str</em><em>, </em><em>optional</em>) – Short description for the exported plugin, defaults to None</p></li>
+<li><p><strong>x_index_map</strong> (<em>dict</em><em>, </em><em>optional</em>) – Differential state index map, defaults to None</p></li>
+<li><p><strong>z_index_map</strong> (<em>dict</em><em>, </em><em>optional</em>) – Algebraic state index map, defaults to None</p></li>
+<li><p><strong>p_index_map</strong> (<em>dict</em><em>, </em><em>optional</em>) – Parameters index map, defaults to None</p></li>
+<li><p><strong>u_index_map</strong> (<em>dict</em><em>, </em><em>optional</em>) – Parameters index map, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the acados OCP solver generated as a by-product</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AcadosOcpSolver</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator.jinga_env_loader">
+<span class="sig-name descname"><span class="pre">jinga_env_loader</span></span><a class="headerlink" href="#acados_solver_plugins.solver_plugin_generator.SolverPluginGenerator.jinga_env_loader" title="Link to this definition"></a></dt>
+<dd><p>Jinja environment loader initialized as a <cite>jinja2.PackageLoader</cite> looking for templates in the installation folder of the module.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="load-previously-built-acados-solver-plugins-not-implemented-yet">
 <h2>Load previously built acados solver plugins (not implemented yet)<a class="headerlink" href="#load-previously-built-acados-solver-plugins-not-implemented-yet" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="acados_solver_plugins.solver_plugin_loader.SolverPluginLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">acados_solver_plugins.solver_plugin_loader.</span></span><span class="sig-name descname"><span class="pre">SolverPluginLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_import_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">library_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/acados_solver_plugins/solver_plugin_loader.html#SolverPluginLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#acados_solver_plugins.solver_plugin_loader.SolverPluginLoader" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="acados_solver_plugins.solver_plugin_loader.SolverPluginLoader.load_solver_plugin">
+<span class="sig-name descname"><span class="pre">load_solver_plugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver_plugin_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/acados_solver_plugins/solver_plugin_loader.html#SolverPluginLoader.load_solver_plugin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#acados_solver_plugins.solver_plugin_loader.SolverPluginLoader.load_solver_plugin" title="Link to this definition"></a></dt>
+<dd><p>Load a Acados OCP solver from previously exported plugin. TODO.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="miscellaneous-functions">
 <h2>Miscellaneous functions<a class="headerlink" href="#miscellaneous-functions" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="acados_solver_plugins.utils.uppercase_to_underscore">
+<span class="sig-prename descclassname"><span class="pre">acados_solver_plugins.utils.</span></span><span class="sig-name descname"><span class="pre">uppercase_to_underscore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/acados_solver_plugins/utils.html#uppercase_to_underscore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#acados_solver_plugins.utils.uppercase_to_underscore" title="Link to this definition"></a></dt>
+<dd><p>Reformat a camel case string to snake case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – The string to reformat</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Snake case reformated string</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">uppercase_to_underscore</span><span class="p">(</span><span class="s2">&quot;TestClass&quot;</span><span class="p">)</span>
+<span class="go">&quot;test_class&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </section>
 </section>
 
