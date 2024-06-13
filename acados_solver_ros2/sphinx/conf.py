@@ -33,7 +33,7 @@ import subprocess
 subprocess.call('cd ../doxygen; doxygen Doxyfile', shell=True)
 html_extra_path = ['../doxygen/_build']  # Export files to "sphinx/_build"
 
-# Autodoc configuration (see https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_mock_imports)
+# Autodoc configuration (see https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_mock_imports) # noqa: E501
 sys.path.insert(0, os.path.abspath('../../acados_solver_plugins'))
 
 autodoc_mock_imports = [
