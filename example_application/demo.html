@@ -108,87 +108,9 @@
   <section id="illustrative-results">
 <h1>Illustrative results<a class="headerlink" href="#illustrative-results" title="Link to this heading"></a></h1>
 <p>This section presents the results of the example package provided in the <a class="reference external" href="https://github.com/ICube-Robotics/acados_solver_ros2_examples/tree/main">ICube-Robotics/acados_solver_ros2_examples</a> repository.</p>
-<p>An interactive Rviz marker is used to set the desired position (i.e., <aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">p^d</span>)</p>
-<p>latex exited with error
-[stdout]
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex)
- restricted \write18 enabled.
-entering extended mode
-(./math.tex
-LaTeX2e &lt;2021-11-15&gt; patch level 1
-L3 programming layer &lt;2022-01-21&gt;
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo))
-(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-For additional information on amsmath, use the `?' option.
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
-(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
-
-! LaTeX Error: File `anyfontsize.sty' not found.
-
-Type X to quit or &lt;RETURN&gt; to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: 
-! Emergency stop.
-&lt;read *&gt; 
-         
-l.8 \usepackage
-               {bm}^^M
-No pages of output.
-Transcript written on math.log.
-</p>
-</aside>
-) of the end-effector of the robot.
+<p>An interactive Rviz marker is used to set the desired position (i.e., <span class="math">p^d</span>) of the end-effector of the robot.
 The user can change the desired position of the end-effector by dragging the interactive marker (see red marker in <a class="reference internal" href="#fig-demo-rviz-view"><span class="std std-numref">Fig. 1</span></a>).</p>
-<p>A Python node updates the marker server and publishes the desired position and velocity (that is simply set to <aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">\dot{p}^d = 0</span>)</p>
-<p>latex exited with error
-[stdout]
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=latex)
- restricted \write18 enabled.
-entering extended mode
-(./math.tex
-LaTeX2e &lt;2021-11-15&gt; patch level 1
-L3 programming layer &lt;2022-01-21&gt;
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo))
-(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-For additional information on amsmath, use the `?' option.
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
-(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
-
-! LaTeX Error: File `anyfontsize.sty' not found.
-
-Type X to quit or &lt;RETURN&gt; to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: 
-! Emergency stop.
-&lt;read *&gt; 
-         
-l.8 \usepackage
-               {bm}^^M
-No pages of output.
-Transcript written on math.log.
-</p>
-</aside>
-) to the controller.
+<p>A Python node updates the marker server and publishes the desired position and velocity (that is simply set to <span class="math">\dot{p}^d = 0</span>) to the controller.
 The controller computes the control input to track the desired position and velocity of the end-effector.
 It is implemented as described in the previous sections.</p>
 <figure class="align-center" id="id1">
