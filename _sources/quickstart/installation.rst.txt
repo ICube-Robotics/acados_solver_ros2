@@ -26,6 +26,8 @@ See the `official documentation <https://docs.ros.org/en/humble/Installation.htm
     vcs import . < acados_solver_ros2/acados_solver_ros2.repos
     rosdep install --ignore-src --from-paths . -y -r
 
+    pip install future-fstrings  # Python retro-compatibility
+
 4. Build stack and source
 
 .. code-block:: bash
