@@ -29,6 +29,8 @@ git clone https://github.com/ICube-Robotics/acados_solver_ros2.git
 vcs import . < acados_solver_ros2/acados_solver_ros2.repos
 rosdep install --ignore-src --from-paths . -y -r
 
+pip install future-fstrings  # Python retro-compatibility
+
 cd ..
 colcon build && colcon build
 source install/setup.bash
