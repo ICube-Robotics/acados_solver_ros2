@@ -2,8 +2,6 @@
 
 [![Licence](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![CI](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci.yml)
-[![Build tests (jazzy)](../../actions/workflows/ci-jazzy.yaml/badge.svg?branch=main)](../../actions/workflows/ci-jazzy.yaml?query=branch:main)
-[![Build tests (rolling)](../../actions/workflows/ci-rolling.yaml/badge.svg?branch=main)](../../actions/workflows/ci-rolling.yaml?query=branch:main)
 
 ## About ##
 
