@@ -20,14 +20,14 @@ TEST(TestCreateMockSolver, test_init)
   unsigned int N = 10;
   double Ts = 0.01;
 
-  acados::MockAcadosSolver solver;
+  acados_solver_plugins_example::MockAcadosSolver solver;
   ASSERT_NO_THROW(solver.init(N, Ts));
   ASSERT_EQ(solver.N(), N);
   ASSERT_EQ(solver.Ts(), Ts);
 }
 TEST(TestCreateMockSolver, test_get_NLP_dimensions)
 {
-  acados::MockAcadosSolver solver;
+  acados_solver_plugins_example::MockAcadosSolver solver;
   ASSERT_NO_THROW(solver.init(10, 0.1));
   ASSERT_EQ(solver.dims().nx, static_cast<unsigned int>(4));
   ASSERT_EQ(solver.dims().nz, static_cast<unsigned int>(0));
