@@ -20,7 +20,7 @@
 
 struct mock_acados_solver_solver_capsule;
 
-namespace acados
+namespace acados_solver_plugins_example
 {
 class MockAcadosSolver : public acados::AcadosSolver
 {
@@ -59,4 +59,4 @@ private:
   mock_acados_solver_solver_capsule * _capsule = nullptr;
 };
 
-} // namespace acados
+} // namespace acados_solver_plugins_example

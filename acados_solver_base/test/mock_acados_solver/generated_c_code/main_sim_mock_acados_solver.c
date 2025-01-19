@@ -69,10 +69,10 @@ int main()
     x_current[3] = 0.0;
 
   
-    x_current[0] = 0;
+    x_current[0] = 0.0;
     x_current[1] = 3.141592653589793;
-    x_current[2] = 0;
-    x_current[3] = 0;
+    x_current[2] = 0.0;
+    x_current[3] = 0.0;
     
   
 
@@ -82,7 +82,7 @@ int main()
     u0[0] = 0.0;
     // set parameters
     double p[NP];
-    p[0] = 1;
+    p[0] = 1.0;
     p[1] = 0.1;
 
     mock_acados_solver_acados_sim_update_params(capsule, p, NP);

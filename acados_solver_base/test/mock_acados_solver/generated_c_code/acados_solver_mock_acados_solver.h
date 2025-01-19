@@ -96,34 +96,34 @@ typedef struct mock_acados_solver_solver_capsule
     /* external functions */
     // dynamics
 
-    external_function_param_casadi *impl_dae_fun;
-    external_function_param_casadi *impl_dae_fun_jac_x_xdot_z;
-    external_function_param_casadi *impl_dae_jac_x_xdot_u_z;
+    external_function_external_param_casadi *impl_dae_fun;
+    external_function_external_param_casadi *impl_dae_fun_jac_x_xdot_z;
+    external_function_external_param_casadi *impl_dae_jac_x_xdot_u_z;
 
-    external_function_param_casadi *impl_dae_hess;
+    external_function_external_param_casadi *impl_dae_hess;
 
 
 
     // cost
 
-    external_function_param_casadi *ext_cost_fun;
-    external_function_param_casadi *ext_cost_fun_jac;
-    external_function_param_casadi *ext_cost_fun_jac_hess;
+    external_function_external_param_casadi *ext_cost_fun;
+    external_function_external_param_casadi *ext_cost_fun_jac;
+    external_function_external_param_casadi *ext_cost_fun_jac_hess;
 
 
 
 
 
-    external_function_param_casadi ext_cost_0_fun;
-    external_function_param_casadi ext_cost_0_fun_jac;
-    external_function_param_casadi ext_cost_0_fun_jac_hess;
+    external_function_external_param_casadi ext_cost_0_fun;
+    external_function_external_param_casadi ext_cost_0_fun_jac;
+    external_function_external_param_casadi ext_cost_0_fun_jac_hess;
 
 
 
 
-    external_function_param_casadi ext_cost_e_fun;
-    external_function_param_casadi ext_cost_e_fun_jac;
-    external_function_param_casadi ext_cost_e_fun_jac_hess;
+    external_function_external_param_casadi ext_cost_e_fun;
+    external_function_external_param_casadi ext_cost_e_fun_jac;
+    external_function_external_param_casadi ext_cost_e_fun_jac_hess;
 
 
 
@@ -163,6 +163,7 @@ ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_params(mock_acados_sol
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_params_sparse(mock_acados_solver_solver_capsule * capsule, int stage, int *idx, double *p, int n_update);
 
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_solve(mock_acados_solver_solver_capsule * capsule);
+ACADOS_SYMBOL_EXPORT void mock_acados_solver_acados_batch_solve(mock_acados_solver_solver_capsule ** capsules, int N_batch);
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_free(mock_acados_solver_solver_capsule * capsule);
 ACADOS_SYMBOL_EXPORT void mock_acados_solver_acados_print_stats(mock_acados_solver_solver_capsule * capsule);
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_custom_update(mock_acados_solver_solver_capsule* capsule, double* data, int data_len);
