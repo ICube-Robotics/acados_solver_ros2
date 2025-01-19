@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="namespaceacados_1_1utils" kind="namespace" language="C++">
     <compoundname>acados::utils</compoundname>
-      <sectiondef kind="func">
+    <sectiondef kind="func">
       <memberdef kind="function" id="namespaceacados_1_1utils_1a345975644bfd3a92ff59a5137240555c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -13,6 +13,7 @@
         <definition>bool acados::utils::set_cost_field</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, const std::string &amp;field, Eigen::EigenBase&lt; Derived &gt; &amp;value)</argsstring>
         <name>set_cost_field</name>
+        <qualifiedname>acados::utils::set_cost_field</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -83,6 +84,7 @@
         <definition>bool acados::utils::set_cost_Vx</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;Vx)</argsstring>
         <name>set_cost_Vx</name>
+        <qualifiedname>acados::utils::set_cost_Vx</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -137,6 +139,7 @@
         <definition>bool acados::utils::set_cost_Vu</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;Vu)</argsstring>
         <name>set_cost_Vu</name>
+        <qualifiedname>acados::utils::set_cost_Vu</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -191,6 +194,7 @@
         <definition>bool acados::utils::set_cost_Vz</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;Vz)</argsstring>
         <name>set_cost_Vz</name>
+        <qualifiedname>acados::utils::set_cost_Vz</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -245,6 +249,7 @@
         <definition>bool acados::utils::set_cost_W</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;W)</argsstring>
         <name>set_cost_W</name>
+        <qualifiedname>acados::utils::set_cost_W</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -299,6 +304,7 @@
         <definition>bool acados::utils::set_cost_y_ref</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::VectorXd &amp;y_ref)</argsstring>
         <name>set_cost_y_ref</name>
+        <qualifiedname>acados::utils::set_cost_y_ref</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -358,6 +364,7 @@
         <definition>bool acados::utils::set_constraint_field</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, const std::string &amp;field, Eigen::EigenBase&lt; Derived &gt; &amp;value)</argsstring>
         <name>set_constraint_field</name>
+        <qualifiedname>acados::utils::set_constraint_field</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -428,6 +435,7 @@
         <definition>bool acados::utils::set_const_C</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;C)</argsstring>
         <name>set_const_C</name>
+        <qualifiedname>acados::utils::set_const_C</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -482,6 +490,7 @@
         <definition>bool acados::utils::set_const_D</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::MatrixXd &amp;D)</argsstring>
         <name>set_const_D</name>
+        <qualifiedname>acados::utils::set_const_D</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -536,6 +545,7 @@
         <definition>bool acados::utils::set_const_g_min</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::VectorXd &amp;g_min)</argsstring>
         <name>set_const_g_min</name>
+        <qualifiedname>acados::utils::set_const_g_min</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -590,6 +600,7 @@
         <definition>bool acados::utils::set_const_g_max</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::VectorXd &amp;g_max)</argsstring>
         <name>set_const_g_max</name>
+        <qualifiedname>acados::utils::set_const_g_max</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -644,6 +655,7 @@
         <definition>bool acados::utils::set_const_h_min</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::VectorXd &amp;h_min)</argsstring>
         <name>set_const_h_min</name>
+        <qualifiedname>acados::utils::set_const_h_min</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -698,6 +710,7 @@
         <definition>bool acados::utils::set_const_h_max</definition>
         <argsstring>(AcadosSolver &amp;solver, unsigned int stage, Eigen::VectorXd &amp;h_max)</argsstring>
         <name>set_const_h_max</name>
+        <qualifiedname>acados::utils::set_const_h_max</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -757,6 +770,7 @@
         <definition>void acados::utils::unsafe_get_stats_field</definition>
         <argsstring>(AcadosSolver &amp;solver, const std::string &amp;field, T &amp;value)</argsstring>
         <name>unsafe_get_stats_field</name>
+        <qualifiedname>acados::utils::unsafe_get_stats_field</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -805,6 +819,7 @@
         <definition>double acados::utils::get_stats_cost_value</definition>
         <argsstring>(AcadosSolver &amp;solver)</argsstring>
         <name>get_stats_cost_value</name>
+        <qualifiedname>acados::utils::get_stats_cost_value</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -836,6 +851,7 @@
         <definition>int acados::utils::get_stats_sqp_iter</definition>
         <argsstring>(AcadosSolver &amp;solver)</argsstring>
         <name>get_stats_sqp_iter</name>
+        <qualifiedname>acados::utils::get_stats_sqp_iter</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -867,6 +883,7 @@
         <definition>double acados::utils::get_stats_cpu_time</definition>
         <argsstring>(AcadosSolver &amp;solver)</argsstring>
         <name>get_stats_cpu_time</name>
+        <qualifiedname>acados::utils::get_stats_cpu_time</qualifiedname>
         <param>
           <type><ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> &amp;</type>
           <declname>solver</declname>
@@ -893,7 +910,7 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" line="266" column="8" declfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp" declline="266" declcolumn="8"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="namespaceacados__solver__plugins_1_1solver__plugin__loader" kind="namespace" language="Python">
     <compoundname>acados_solver_plugins::solver_plugin_loader</compoundname>
     <innerclass refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader" prot="public">acados_solver_plugins::solver_plugin_loader::SolverPluginLoader</innerclass>

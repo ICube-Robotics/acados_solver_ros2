@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="utils_8py" kind="file" language="Python">
     <compoundname>utils.py</compoundname>
+    <innernamespace refid="namespaceacados__solver__plugins">acados_solver_plugins</innernamespace>
     <innernamespace refid="namespaceacados__solver__plugins_1_1utils">acados_solver_plugins::utils</innernamespace>
     <briefdescription>
     </briefdescription>
@@ -21,7 +22,7 @@
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Files/folders<sp/>management<sp/>utils</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespaceacados__solver__plugins_1_1utils_1a2e0840e451d0b9bdfeacf4c3f51262e7" kindref="member">ensure_dir_exists</ref>(dir_path):</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">ensure_dir_exists(dir_path):</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Create<sp/>a<sp/>new<sp/>directory<sp/>if<sp/>it<sp/>does<sp/>not<sp/>exist</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/>os.path.exists(dir_path):</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal">:</highlight></codeline>
@@ -31,7 +32,7 @@
 <codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">raise</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespaceacados__solver__plugins_1_1utils_1a30c79321f4dcf1b182e3d90d9981cda4" kindref="member">delete_dir_recursively</ref>(dir_path,<sp/>keep_empty_folder=True):</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">delete_dir_recursively(dir_path,<sp/>keep_empty_folder=True):</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rmtree(dir_path)</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">except</highlight><highlight class="normal"><sp/>Exception<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>e:</highlight></codeline>
@@ -39,7 +40,7 @@
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">raise</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>rmtree<sp/>completely<sp/>remove<sp/>the<sp/>dir,<sp/>so<sp/>it<sp/>has<sp/>to<sp/>be<sp/>recreated</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>keep_empty_folder:</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacados__solver__plugins_1_1utils_1a2e0840e451d0b9bdfeacf4c3f51262e7" kindref="member">ensure_dir_exists</ref>(dir_path)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ensure_dir_exists(dir_path)</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Reformat<sp/>strings<sp/>from<sp/>capital<sp/>to<sp/>underscore</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
@@ -47,7 +48,7 @@
 <codeline lineno="37"><highlight class="normal">_uppercase_part<sp/>=<sp/>re.compile(</highlight><highlight class="stringliteral">&apos;[A-Z][^A-Z]*&apos;</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespaceacados__solver__plugins_1_1utils_1a377ea9b381f11e8a90977e512bb9f1a1" kindref="member">uppercase_to_underscore</ref>(string:<sp/>str)<sp/>-&gt;<sp/>str:</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">uppercase_to_underscore(string:<sp/>str)<sp/>-&gt;<sp/>str:</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
 <codeline lineno="42"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Reformat<sp/>a<sp/>camel<sp/>case<sp/>string<sp/>to<sp/>snake<sp/>case.</highlight></codeline>
 <codeline lineno="43"><highlight class="stringliteral"></highlight></codeline>

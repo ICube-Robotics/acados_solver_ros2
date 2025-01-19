@@ -1,16 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="namespaceacados__solver__plugins" kind="namespace" language="Python">
     <compoundname>acados_solver_plugins</compoundname>
     <innernamespace refid="namespaceacados__solver__plugins_1_1solver__plugin__generator">acados_solver_plugins::solver_plugin_generator</innernamespace>
     <innernamespace refid="namespaceacados__solver__plugins_1_1solver__plugin__loader">acados_solver_plugins::solver_plugin_loader</innernamespace>
     <innernamespace refid="namespaceacados__solver__plugins_1_1utils">acados_solver_plugins::utils</innernamespace>
-      <sectiondef kind="var">
-      <memberdef kind="variable" id="namespaceacados__solver__plugins_1ac5e6f8333f5e14881b7e7ac50cc70583" prot="private" static="no" mutable="no">
-        <type>string</type>
-        <definition>string acados_solver_plugins.__author__</definition>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceacados__solver__plugins_1ae20c8b6b8044cdd7207c3690a1602738" prot="private" static="no" mutable="no">
+        <type>str</type>
+        <definition>str acados_solver_plugins.__author__</definition>
         <argsstring></argsstring>
         <name>__author__</name>
+        <qualifiedname>acados_solver_plugins.__author__</qualifiedname>
         <initializer>=  &apos;Thibault Poignonec&apos;</initializer>
         <briefdescription>
         </briefdescription>
@@ -20,11 +21,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/__init__.py" line="11" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/__init__.py" bodystart="11" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceacados__solver__plugins_1abf76e2d772525b3a2236a3b721e59818" prot="private" static="no" mutable="no">
-        <type>string</type>
-        <definition>string acados_solver_plugins.__license__</definition>
+      <memberdef kind="variable" id="namespaceacados__solver__plugins_1a73a9957fb389aba36770331c3d1119be" prot="private" static="no" mutable="no">
+        <type>str</type>
+        <definition>str acados_solver_plugins.__license__</definition>
         <argsstring></argsstring>
         <name>__license__</name>
+        <qualifiedname>acados_solver_plugins.__license__</qualifiedname>
         <initializer>=  &apos;Apache License 2.0&apos;</initializer>
         <briefdescription>
         </briefdescription>
@@ -34,11 +36,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/__init__.py" line="12" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/__init__.py" bodystart="12" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="namespaceacados__solver__plugins_1a9ad9340d7d1c6e4166c431e0301e618b" prot="private" static="no" mutable="no">
-        <type>string</type>
-        <definition>string acados_solver_plugins.__copyright__</definition>
+      <memberdef kind="variable" id="namespaceacados__solver__plugins_1a9d063071da825360f171df2550f9cce8" prot="private" static="no" mutable="no">
+        <type>str</type>
+        <definition>str acados_solver_plugins.__copyright__</definition>
         <argsstring></argsstring>
         <name>__copyright__</name>
+        <qualifiedname>acados_solver_plugins.__copyright__</qualifiedname>
         <initializer>=  &quot;&quot;&quot;
     Copyright 2023 ICUBE Laboratory, University of Strasbourg
 
@@ -64,7 +67,7 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/__init__.py" line="13" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/__init__.py" bodystart="13" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,15 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="namespaceacados" kind="namespace" language="C++">
     <compoundname>acados</compoundname>
     <innerclass refid="classacados_1_1AcadosSolver" prot="public">acados::AcadosSolver</innerclass>
     <innernamespace refid="namespaceacados_1_1utils">acados::utils</innernamespace>
-      <sectiondef kind="typedef">
+    <sectiondef kind="typedef">
       <memberdef kind="typedef" id="namespaceacados_1a4b3855444d13957dce438bfb70df609b" prot="public" static="no">
         <type>std::vector&lt; unsigned int &gt;</type>
         <definition>using acados::IndexVector = typedef std::vector&lt;unsigned int&gt;</definition>
         <argsstring></argsstring>
         <name>IndexVector</name>
+        <qualifiedname>acados::IndexVector</qualifiedname>
         <briefdescription>
 <para>List of indexes. </para>
         </briefdescription>
@@ -24,6 +25,7 @@
         <definition>using acados::ValueVector = typedef std::vector&lt;double&gt;</definition>
         <argsstring></argsstring>
         <name>ValueVector</name>
+        <qualifiedname>acados::ValueVector</qualifiedname>
         <briefdescription>
 <para>List of values (double). </para>
         </briefdescription>
@@ -38,6 +40,7 @@
         <definition>using acados::IndexMap = typedef std::unordered_map&lt;std::string, IndexVector&gt;</definition>
         <argsstring></argsstring>
         <name>IndexMap</name>
+        <qualifiedname>acados::IndexMap</qualifiedname>
         <briefdescription>
 <para>Mapping between keys (<computeroutput>std::string</computeroutput>) and indexes (<computeroutput><ref refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" kindref="member">acados::IndexVector</ref></computeroutput>). </para>
         </briefdescription>
@@ -52,6 +55,7 @@
         <definition>using acados::ValueMap = typedef std::unordered_map&lt;std::string, ValueVector&gt;</definition>
         <argsstring></argsstring>
         <name>ValueMap</name>
+        <qualifiedname>acados::ValueMap</qualifiedname>
         <briefdescription>
 <para>Mapping between keys (<computeroutput>std::string</computeroutput>) and data (<computeroutput><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">acados::ValueVector</ref></computeroutput>). </para>
         </briefdescription>
@@ -66,6 +70,7 @@
         <definition>using acados::RowMajorXd = typedef Eigen::Matrix&lt;double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor&gt;</definition>
         <argsstring></argsstring>
         <name>RowMajorXd</name>
+        <qualifiedname>acados::RowMajorXd</qualifiedname>
         <briefdescription>
 <para>Dynamic size row-major array (hence compatible with Acados C-arrays). </para>
         </briefdescription>
@@ -80,6 +85,7 @@
         <definition>using acados::ColumnMajorXd = typedef Eigen::Matrix&lt;double, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor&gt;</definition>
         <argsstring></argsstring>
         <name>ColumnMajorXd</name>
+        <qualifiedname>acados::ColumnMajorXd</qualifiedname>
         <briefdescription>
 <para>Dynamic size colum-major array (by default in Eigen). </para>
         </briefdescription>
@@ -89,7 +95,7 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" line="45" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" bodystart="45" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

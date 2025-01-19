@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="solver__plugin__loader_8py" kind="file" language="Python">
     <compoundname>solver_plugin_loader.py</compoundname>
     <innerclass refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader" prot="public">acados_solver_plugins::solver_plugin_loader::SolverPluginLoader</innerclass>
+    <innernamespace refid="namespaceacados__solver__plugins">acados_solver_plugins</innernamespace>
     <innernamespace refid="namespaceacados__solver__plugins_1_1solver__plugin__loader">acados_solver_plugins::solver_plugin_loader</innernamespace>
     <briefdescription>
     </briefdescription>
@@ -26,7 +27,7 @@
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
 <codeline lineno="17" refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader" kindref="compound">SolverPluginLoader</ref>:</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1ad1232278c1b593ef6d8bfc318ffc05bc" kindref="member">__init__</ref>(</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1a5b78322f0ca455df4a9a24e176b39439" kindref="member">__init__</ref>(</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self,</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>custom_import_path:<sp/>str<sp/>=<sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal">,</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>library_name:<sp/>str<sp/>=<sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal"></highlight></codeline>
@@ -44,7 +45,7 @@
 <codeline lineno="33"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">raise</highlight><highlight class="normal"><sp/>NotImplementedError(</highlight><highlight class="stringliteral">&apos;TODO&apos;</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1abac302f09014192460fb2048f4c9b529" kindref="member">load_solver_plugin</ref>(self,<sp/>solver_plugin_name:<sp/>str):</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1aae35a8b9c48bec5e02623c62cf028c96" kindref="member">load_solver_plugin</ref>(self,<sp/>solver_plugin_name:<sp/>str):</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Load<sp/>a<sp/>Acados<sp/>OCP<sp/>solver<sp/>from<sp/>previously<sp/>exported<sp/>plugin.<sp/>TODO.&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">raise</highlight><highlight class="normal"><sp/>NotImplementedError(</highlight><highlight class="stringliteral">&apos;TODO&apos;</highlight><highlight class="normal">)</highlight></codeline>
     </programlisting>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="acados__solver_8hpp" kind="file" language="C++">
     <compoundname>acados_solver.hpp</compoundname>
     <includes local="no">Eigen/Dense</includes>
@@ -11,25 +11,6 @@
     <includes local="yes">acados_c/ocp_nlp_interface.h</includes>
     <includedby refid="acados__solver__utils_8hpp" local="yes">/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp</includedby>
     <incdepgraph>
-      <node id="6">
-        <label>acados_solver_base/visibility_control.h</label>
-        <link refid="visibility__control_8h"/>
-      </node>
-      <node id="8">
-        <label>string</label>
-      </node>
-      <node id="7">
-        <label>acados_solver_base/acados_types.hpp</label>
-        <link refid="acados__types_8hpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
       <node id="1">
         <label>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp</label>
         <link refid="acados__solver_8hpp"/>
@@ -48,23 +29,42 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="5">
-        <label>exception</label>
+      <node id="7">
+        <label>acados_solver_base/acados_types.hpp</label>
+        <link refid="acados__types_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>acados_solver_base/visibility_control.h</label>
+        <link refid="visibility__control_8h"/>
       </node>
       <node id="2">
         <label>Eigen/Dense</label>
       </node>
-      <node id="4">
-        <label>vector</label>
-      </node>
       <node id="10">
         <label>acados_c/ocp_nlp_interface.h</label>
+      </node>
+      <node id="5">
+        <label>exception</label>
       </node>
       <node id="3">
         <label>iostream</label>
       </node>
+      <node id="8">
+        <label>string</label>
+      </node>
       <node id="9">
         <label>unordered_map</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
@@ -191,7 +191,7 @@
 <codeline lineno="136" refid="classacados_1_1AcadosSolver_1_1Dimensions_1ad3c09a1a9abf79c709d5cdc8a35e5512" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classacados_1_1AcadosSolver_1_1Dimensions_1ad3c09a1a9abf79c709d5cdc8a35e5512" kindref="member">nsphi_N</ref>;</highlight></codeline>
 <codeline lineno="137"><highlight class="normal"></highlight></codeline>
 <codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Cost<sp/>ref.</highlight></codeline>
-<codeline lineno="140" refid="classacados_1_1AcadosSolver_1_1Dimensions_1a7353ea12651bc40bb4e0294241423cdd" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classacados_1_1AcadosSolver_1_1Dimensions_1a7353ea12651bc40bb4e0294241423cdd" kindref="member">ny</ref>;</highlight></codeline>
+<codeline lineno="140" refid="classacados_1_1AcadosSolver_1_1Dimensions_1a7353ea12651bc40bb4e0294241423cdd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classacados_1_1AcadosSolver_1_1Dimensions_1a7353ea12651bc40bb4e0294241423cdd" kindref="member">ny</ref>;</highlight></codeline>
 <codeline lineno="141"><highlight class="normal"></highlight></codeline>
 <codeline lineno="143" refid="classacados_1_1AcadosSolver_1_1Dimensions_1a5f6427bbb55a3a156c5f736db8133d53" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classacados_1_1AcadosSolver_1_1Dimensions_1a5f6427bbb55a3a156c5f736db8133d53" kindref="member">ny_0</ref>;</highlight></codeline>
 <codeline lineno="144"><highlight class="normal"></highlight></codeline>
@@ -278,7 +278,7 @@
 <codeline lineno="409" refid="classacados_1_1AcadosSolver_1a0119ce0fb38812c8d41a6fd9f3f5227e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classacados_1_1AcadosSolver_1a0119ce0fb38812c8d41a6fd9f3f5227e" kindref="member">initialize_control_values</ref>(<ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>u_i_map);</highlight></codeline>
 <codeline lineno="410"><highlight class="normal"></highlight></codeline>
 <codeline lineno="411"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Getters</highlight></codeline>
-<codeline lineno="418" refid="classacados_1_1AcadosSolver_1ad4742b1ea3857463a3987161d208e9f8" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref><sp/><ref refid="classacados_1_1AcadosSolver_1ad4742b1ea3857463a3987161d208e9f8" kindref="member">get_state_values</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>stage);</highlight></codeline>
+<codeline lineno="418" refid="classacados_1_1AcadosSolver_1ad4742b1ea3857463a3987161d208e9f8" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref><sp/><ref refid="classacados_1_1AcadosSolver_1ad4742b1ea3857463a3987161d208e9f8" kindref="member">get_state_values</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>stage);</highlight></codeline>
 <codeline lineno="419"><highlight class="normal"></highlight></codeline>
 <codeline lineno="426" refid="classacados_1_1AcadosSolver_1ad86c6c0ef89f84088299c2ecb39854bf" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref><sp/><ref refid="classacados_1_1AcadosSolver_1ad86c6c0ef89f84088299c2ecb39854bf" kindref="member">get_state_values_as_map</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>stage);</highlight></codeline>
 <codeline lineno="427"><highlight class="normal"></highlight></codeline>
@@ -293,13 +293,13 @@
 <codeline lineno="460"><highlight class="normal"></highlight></codeline>
 <codeline lineno="461"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Getters<sp/>variable<sp/>mappings</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="462"><highlight class="normal"></highlight></codeline>
-<codeline lineno="468" refid="classacados_1_1AcadosSolver_1a9a1ba18ecaf0b80f038b4a609926475a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref><sp/>&amp;<sp/><ref refid="classacados_1_1AcadosSolver_1a9a1ba18ecaf0b80f038b4a609926475a" kindref="member">x_index_map</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="468" refid="classacados_1_1AcadosSolver_1a1d3dedcc41dd17a705cd3f2760678266" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref><sp/>&amp;<sp/><ref refid="classacados_1_1AcadosSolver_1a1d3dedcc41dd17a705cd3f2760678266" kindref="member">x_index_map</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="469"><highlight class="normal"></highlight></codeline>
-<codeline lineno="475" refid="classacados_1_1AcadosSolver_1a123efb93819a6663d07f045e15ddd844" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref><sp/>&amp;<sp/><ref refid="classacados_1_1AcadosSolver_1a123efb93819a6663d07f045e15ddd844" kindref="member">z_index_map</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="475" refid="classacados_1_1AcadosSolver_1a202952013d14e49742f6b4c463c3478d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref><sp/>&amp;<sp/><ref refid="classacados_1_1AcadosSolver_1a202952013d14e49742f6b4c463c3478d" kindref="member">z_index_map</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="476"><highlight class="normal"></highlight></codeline>
-<codeline lineno="482" refid="classacados_1_1AcadosSolver_1ab78a7fefd320246589eea43766d14385" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref><sp/>&amp;<sp/><ref refid="classacados_1_1AcadosSolver_1ab78a7fefd320246589eea43766d14385" kindref="member">p_index_map</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="482" refid="classacados_1_1AcadosSolver_1a3a63706d181d8df692f1e7c0a72cc522" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref><sp/>&amp;<sp/><ref refid="classacados_1_1AcadosSolver_1a3a63706d181d8df692f1e7c0a72cc522" kindref="member">p_index_map</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="483"><highlight class="normal"></highlight></codeline>
-<codeline lineno="489" refid="classacados_1_1AcadosSolver_1a0fcfe8d877ab1793295b07961cd41b9d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref><sp/>&amp;<sp/><ref refid="classacados_1_1AcadosSolver_1a0fcfe8d877ab1793295b07961cd41b9d" kindref="member">u_index_map</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="489" refid="classacados_1_1AcadosSolver_1a1ff28d2a827be9878ab09dfc3e2d88df" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref><sp/>&amp;<sp/><ref refid="classacados_1_1AcadosSolver_1a1ff28d2a827be9878ab09dfc3e2d88df" kindref="member">u_index_map</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="490"><highlight class="normal"></highlight></codeline>
 <codeline lineno="491"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Values<sp/>map<sp/>utils</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="492"><highlight class="normal"></highlight></codeline>
@@ -330,7 +330,7 @@
 <codeline lineno="574"><highlight class="normal"></highlight></codeline>
 <codeline lineno="575"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Problem<sp/>dimensions<sp/>and<sp/>convenience<sp/>getters<sp/>for<sp/>commonly<sp/>used<sp/>attributes</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="576"><highlight class="normal"></highlight></codeline>
-<codeline lineno="582" refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classacados_1_1AcadosSolver_1_1Dimensions" kindref="compound">Dimensions</ref><sp/>&amp;<sp/><ref refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" kindref="member">dims</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="582" refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classacados_1_1AcadosSolver_1_1Dimensions" kindref="compound">Dimensions</ref><sp/>&amp;<sp/><ref refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" kindref="member">dims</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="583"><highlight class="normal"></highlight></codeline>
 <codeline lineno="591" refid="classacados_1_1AcadosSolver_1ae58d31b0910fed6e22f598b88c571a6e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><ref refid="classacados_1_1AcadosSolver_1ae58d31b0910fed6e22f598b88c571a6e" kindref="member">nx</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="592"><highlight class="normal"></highlight></codeline>
@@ -345,7 +345,7 @@
 <codeline lineno="634" refid="classacados_1_1AcadosSolver_1a6c890d274c16b3d609fdf393d72a7488" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classacados_1_1AcadosSolver_1a6c890d274c16b3d609fdf393d72a7488" kindref="member">Ts</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="635"><highlight class="normal"></highlight></codeline>
 <codeline lineno="636"><highlight class="normal"></highlight></codeline>
-<codeline lineno="642" refid="classacados_1_1AcadosSolver_1a5de6731b0b6549ee3d7f6416531b8fbc" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classacados_1_1AcadosSolver_1a5de6731b0b6549ee3d7f6416531b8fbc" kindref="member">sampling_intervals</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="642" refid="classacados_1_1AcadosSolver_1afcd1810c1aaf320b8b003c49bddf2fb0" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classacados_1_1AcadosSolver_1afcd1810c1aaf320b8b003c49bddf2fb0" kindref="member">sampling_intervals</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="643"><highlight class="normal"></highlight></codeline>
 <codeline lineno="644"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="646" refid="classacados_1_1AcadosSolver_1a9ff8864185558e8a0942c8737551b30b" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classacados_1_1AcadosSolver_1_1Dimensions" kindref="compound">Dimensions</ref><sp/><ref refid="classacados_1_1AcadosSolver_1a9ff8864185558e8a0942c8737551b30b" kindref="member">_dims</ref>;</highlight></codeline>
@@ -392,21 +392,21 @@
 <codeline lineno="783" refid="classacados_1_1AcadosSolver_1a2128bf11592a4f1b22605cf09b5f343b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classacados_1_1AcadosSolver_1a2128bf11592a4f1b22605cf09b5f343b" kindref="member">internal_print_stats</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="784"><highlight class="normal"></highlight></codeline>
 <codeline lineno="785"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="793" refid="classacados_1_1AcadosSolver_1a8879b8a2aac44cd388d635cc2f45866c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_in<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a8879b8a2aac44cd388d635cc2f45866c" kindref="member">get_nlp_in</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="793" refid="classacados_1_1AcadosSolver_1a58b0f216e18fc46ba0158bdbd3e4ca2e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_in<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a58b0f216e18fc46ba0158bdbd3e4ca2e" kindref="member">get_nlp_in</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="794"><highlight class="normal"></highlight></codeline>
-<codeline lineno="802" refid="classacados_1_1AcadosSolver_1a3f199c606d64e86b07925d306c0c67ef" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_out<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a3f199c606d64e86b07925d306c0c67ef" kindref="member">get_nlp_out</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="802" refid="classacados_1_1AcadosSolver_1a8b85b654cf086f35d4e196ec24c7ed41" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_out<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a8b85b654cf086f35d4e196ec24c7ed41" kindref="member">get_nlp_out</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="803"><highlight class="normal"></highlight></codeline>
-<codeline lineno="812" refid="classacados_1_1AcadosSolver_1a015186b011bf5591ca37964fd2e6487b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_out<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a015186b011bf5591ca37964fd2e6487b" kindref="member">get_sens_out</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="812" refid="classacados_1_1AcadosSolver_1a8431a6b63bf03d0633df685024f401d1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_out<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a8431a6b63bf03d0633df685024f401d1" kindref="member">get_sens_out</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="813"><highlight class="normal"></highlight></codeline>
-<codeline lineno="821" refid="classacados_1_1AcadosSolver_1ab1e051c908f0829b62dc652c94610dca" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_solver<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1ab1e051c908f0829b62dc652c94610dca" kindref="member">get_nlp_solver</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="821" refid="classacados_1_1AcadosSolver_1a44f25baf4d7ab81c384be96fec1ef5ac" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_solver<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a44f25baf4d7ab81c384be96fec1ef5ac" kindref="member">get_nlp_solver</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="822"><highlight class="normal"></highlight></codeline>
-<codeline lineno="830" refid="classacados_1_1AcadosSolver_1a4cad95287bee722aebbfd218aa2f0778" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_config<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a4cad95287bee722aebbfd218aa2f0778" kindref="member">get_nlp_config</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="830" refid="classacados_1_1AcadosSolver_1adf5a7cacde15725ebb69c490f7af1da3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_config<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1adf5a7cacde15725ebb69c490f7af1da3" kindref="member">get_nlp_config</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="831"><highlight class="normal"></highlight></codeline>
-<codeline lineno="839" refid="classacados_1_1AcadosSolver_1a521e5dbafd4623ca0a0b2054004c3a06" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a521e5dbafd4623ca0a0b2054004c3a06" kindref="member">get_nlp_opts</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="839" refid="classacados_1_1AcadosSolver_1ae6feb884b54ea8e98dbdd7b82fb22c46" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1ae6feb884b54ea8e98dbdd7b82fb22c46" kindref="member">get_nlp_opts</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="840"><highlight class="normal"></highlight></codeline>
-<codeline lineno="848" refid="classacados_1_1AcadosSolver_1a79b358797980397aba1b91b5f6ef0633" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_dims<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a79b358797980397aba1b91b5f6ef0633" kindref="member">get_nlp_dims</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="848" refid="classacados_1_1AcadosSolver_1a7003525e0314f8bd2f571fb8dcb19bec" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_dims<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a7003525e0314f8bd2f571fb8dcb19bec" kindref="member">get_nlp_dims</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="849"><highlight class="normal"></highlight></codeline>
-<codeline lineno="857" refid="classacados_1_1AcadosSolver_1a1d0e8d2a7c5d14ed00f965b5af3aa22c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_plan_t<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a1d0e8d2a7c5d14ed00f965b5af3aa22c" kindref="member">get_nlp_plan</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="857" refid="classacados_1_1AcadosSolver_1a228d30f2f2a3090fa7805a29e6462144" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ocp_nlp_plan_t<sp/>*<sp/><ref refid="classacados_1_1AcadosSolver_1a228d30f2f2a3090fa7805a29e6462144" kindref="member">get_nlp_plan</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="858"><highlight class="normal"></highlight></codeline>
 <codeline lineno="866" refid="classacados_1_1AcadosSolver_1ae17665db1de958ddf899df7fcc22e4cc" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classacados_1_1AcadosSolver_1ae17665db1de958ddf899df7fcc22e4cc" kindref="member">get_nlp_np</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="867"><highlight class="normal"></highlight></codeline>

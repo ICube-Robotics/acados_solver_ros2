@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="acados__types_8hpp" kind="file" language="C++">
     <compoundname>acados_types.hpp</compoundname>
     <includes local="no">Eigen/Dense</includes>
@@ -9,9 +9,6 @@
     <includedby refid="acados__solver_8hpp" local="yes">/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp</includedby>
     <includedby refid="acados__solver__utils_8hpp" local="yes">/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp</includedby>
     <incdepgraph>
-      <node id="3">
-        <label>string</label>
-      </node>
       <node id="1">
         <label>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp</label>
         <link refid="acados__types_8hpp"/>
@@ -27,22 +24,17 @@
       <node id="2">
         <label>Eigen/Dense</label>
       </node>
-      <node id="5">
-        <label>vector</label>
+      <node id="3">
+        <label>string</label>
       </node>
       <node id="4">
         <label>unordered_map</label>
       </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1">
-        <label>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp</label>
-        <link refid="acados__types_8hpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
       <node id="2">
         <label>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp</label>
         <link refid="acados__solver_8hpp"/>
@@ -52,6 +44,14 @@
       <node id="3">
         <label>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp</label>
         <link refid="acados__solver__utils_8hpp"/>
+      </node>
+      <node id="1">
+        <label>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp</label>
+        <link refid="acados__types_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespaceacados">acados</innernamespace>
@@ -88,17 +88,17 @@
 <codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceacados" kindref="compound">acados</ref></highlight></codeline>
 <codeline lineno="27"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30" refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" refkind="member"><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" kindref="member">IndexVector</ref><sp/>=<sp/>std::vector&lt;unsigned<sp/>int&gt;;</highlight></codeline>
+<codeline lineno="30" refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" refkind="member"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" kindref="member">IndexVector</ref><sp/>=<sp/>std::vector&lt;unsigned<sp/>int&gt;;</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33" refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" refkind="member"><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref><sp/>=<sp/>std::vector&lt;double&gt;;</highlight></codeline>
+<codeline lineno="33" refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" refkind="member"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref><sp/>=<sp/>std::vector&lt;double&gt;;</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36" refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" refkind="member"><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref><sp/>=<sp/>std::unordered_map&lt;std::string,<sp/>IndexVector&gt;;</highlight></codeline>
+<codeline lineno="36" refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" refkind="member"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref><sp/>=<sp/>std::unordered_map&lt;std::string,<sp/>IndexVector&gt;;</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" refkind="member"><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref><sp/>=<sp/>std::unordered_map&lt;std::string,<sp/>ValueVector&gt;;</highlight></codeline>
+<codeline lineno="39" refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" refkind="member"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref><sp/>=<sp/>std::unordered_map&lt;std::string,<sp/>ValueVector&gt;;</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42" refid="namespaceacados_1a1d969b09ab7077713fef736f6ddfb260" refkind="member"><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a1d969b09ab7077713fef736f6ddfb260" kindref="member">RowMajorXd</ref><sp/>=<sp/>Eigen::Matrix&lt;double,<sp/>Eigen::Dynamic,<sp/>Eigen::Dynamic,<sp/>Eigen::RowMajor&gt;;</highlight></codeline>
+<codeline lineno="42" refid="namespaceacados_1a1d969b09ab7077713fef736f6ddfb260" refkind="member"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespaceacados_1a1d969b09ab7077713fef736f6ddfb260" kindref="member">RowMajorXd</ref><sp/>=<sp/>Eigen::Matrix&lt;double,<sp/>Eigen::Dynamic,<sp/>Eigen::Dynamic,<sp/>Eigen::RowMajor&gt;;</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45" refid="namespaceacados_1aeec75a8df82483006004d76eabc267bb" refkind="member"><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1aeec75a8df82483006004d76eabc267bb" kindref="member">ColumnMajorXd</ref><sp/>=<sp/>Eigen::Matrix&lt;double,<sp/>Eigen::Dynamic,<sp/>Eigen::Dynamic,<sp/>Eigen::ColMajor&gt;;</highlight></codeline>
+<codeline lineno="45" refid="namespaceacados_1aeec75a8df82483006004d76eabc267bb" refkind="member"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespaceacados_1aeec75a8df82483006004d76eabc267bb" kindref="member">ColumnMajorXd</ref><sp/>=<sp/>Eigen::Matrix&lt;double,<sp/>Eigen::Dynamic,<sp/>Eigen::Dynamic,<sp/>Eigen::ColMajor&gt;;</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
 <codeline lineno="47"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>acados</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>

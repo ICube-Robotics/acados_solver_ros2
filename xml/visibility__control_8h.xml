@@ -1,15 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="visibility__control_8h" kind="file" language="C++">
     <compoundname>visibility_control.h</compoundname>
     <includedby refid="acados__solver_8hpp" local="yes">/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp</includedby>
     <invincdepgraph>
-      <node id="1">
-        <label>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/visibility_control.h</label>
-        <link refid="visibility__control_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
       <node id="2">
         <label>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp</label>
         <link refid="acados__solver_8hpp"/>
@@ -20,8 +14,14 @@
         <label>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp</label>
         <link refid="acados__solver__utils_8hpp"/>
       </node>
+      <node id="1">
+        <label>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/visibility_control.h</label>
+        <link refid="visibility__control_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
     </invincdepgraph>
-      <sectiondef kind="define">
+    <sectiondef kind="define">
       <memberdef kind="define" id="visibility__control_8h_1aa9d803621248aa500b4821672eae2989" prot="public" static="no">
         <name>ACADOS_SOLVER_BASE_EXPORT</name>
         <initializer>__attribute__ ((visibility(&quot;default&quot;)))</initializer>
@@ -73,7 +73,7 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/visibility_control.h" line="48" column="14" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/visibility_control.h" bodystart="48" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -117,11 +117,11 @@
 <codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>ACADOS_SOLVER_BASE_PUBLIC_TYPE<sp/>ACADOS_SOLVER_BASE_PUBLIC</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>ACADOS_SOLVER_BASE_LOCAL</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="visibility__control_8h_1aa9d803621248aa500b4821672eae2989" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>ACADOS_SOLVER_BASE_EXPORT<sp/>__attribute__<sp/>((visibility(&quot;default&quot;</highlight><highlight class="normal">)))</highlight></codeline>
+<codeline lineno="39" refid="visibility__control_8h_1aa9d803621248aa500b4821672eae2989" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>ACADOS_SOLVER_BASE_EXPORT<sp/>__attribute__<sp/>((visibility(&quot;default&quot;)))</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="40" refid="visibility__control_8h_1a7dbe964f22c0fd84872c1b35b3bd6853" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>ACADOS_SOLVER_BASE_IMPORT</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#if<sp/>__GNUC__<sp/>&gt;=<sp/>4</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>ACADOS_SOLVER_BASE_PUBLIC<sp/>__attribute__<sp/>((visibility(&quot;default&quot;</highlight><highlight class="normal">)))</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>ACADOS_SOLVER_BASE_LOCAL<sp/><sp/>__attribute__<sp/>((visibility(&quot;hidden&quot;</highlight><highlight class="normal">)))</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>ACADOS_SOLVER_BASE_PUBLIC<sp/>__attribute__<sp/>((visibility(&quot;default&quot;)))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>ACADOS_SOLVER_BASE_LOCAL<sp/><sp/>__attribute__<sp/>((visibility(&quot;hidden&quot;)))</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="45" refid="visibility__control_8h_1a274f59263068752c11d88af4cc04bd96" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>ACADOS_SOLVER_BASE_PUBLIC</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="46" refid="visibility__control_8h_1a43600114c596a0eccab8d24fc227e3fc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>ACADOS_SOLVER_BASE_LOCAL</highlight><highlight class="normal"></highlight></codeline>

@@ -1,4 +1,5 @@
 <map id="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" name="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,287,76"/>
-<area shape="rect" id="node2" href="$acados__solver__utils_8hpp.html" title=" " alt="" coords="19,124,273,209"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,287,75"/>
+<area shape="rect" id="Node000002" href="$acados__solver__utils_8hpp.html" title=" " alt="" coords="19,123,273,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,88,149,123,143,123,143,88"/>
 </map>

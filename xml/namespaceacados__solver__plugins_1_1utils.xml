@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="namespaceacados__solver__plugins_1_1utils" kind="namespace" language="Python">
     <compoundname>acados_solver_plugins::utils</compoundname>
-      <sectiondef kind="var">
-      <memberdef kind="variable" id="namespaceacados__solver__plugins_1_1utils_1a7187aaf642d18e9a8303c792a9f7d2b5" prot="private" static="no" mutable="no">
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceacados__solver__plugins_1_1utils_1a7187aaf642d18e9a8303c792a9f7d2b5" prot="protected" static="no" mutable="no">
         <type></type>
         <definition>acados_solver_plugins::utils._uppercase_part</definition>
         <argsstring></argsstring>
         <name>_uppercase_part</name>
+        <qualifiedname>acados_solver_plugins.utils._uppercase_part</qualifiedname>
         <initializer>=  re.compile(&apos;[A-Z][^A-Z]*&apos;)</initializer>
         <briefdescription>
         </briefdescription>
@@ -17,13 +18,14 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/utils.py" line="37" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/utils.py" bodystart="37" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceacados__solver__plugins_1_1utils_1a2e0840e451d0b9bdfeacf4c3f51262e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>def</type>
-        <definition>def acados_solver_plugins.utils.ensure_dir_exists</definition>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceacados__solver__plugins_1_1utils_1ae9f0d4c4057322900941233d6ea622b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acados_solver_plugins.utils.ensure_dir_exists</definition>
         <argsstring>(dir_path)</argsstring>
         <name>ensure_dir_exists</name>
+        <qualifiedname>acados_solver_plugins.utils.ensure_dir_exists</qualifiedname>
         <param>
           <type>dir_path</type>
           <defname>dir_path</defname>
@@ -36,11 +38,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/utils.py" line="14" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/utils.py" bodystart="14" bodyend="23"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceacados__solver__plugins_1_1utils_1a30c79321f4dcf1b182e3d90d9981cda4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>def</type>
-        <definition>def acados_solver_plugins.utils.delete_dir_recursively</definition>
+      <memberdef kind="function" id="namespaceacados__solver__plugins_1_1utils_1a52854cf2b6b2ad83bd756b566ee6be9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acados_solver_plugins.utils.delete_dir_recursively</definition>
         <argsstring>(dir_path, keep_empty_folder=True)</argsstring>
         <name>delete_dir_recursively</name>
+        <qualifiedname>acados_solver_plugins.utils.delete_dir_recursively</qualifiedname>
         <param>
           <type>dir_path</type>
           <defname>dir_path</defname>
@@ -63,6 +66,7 @@
         <definition> str acados_solver_plugins.utils.uppercase_to_underscore</definition>
         <argsstring>(str string)</argsstring>
         <name>uppercase_to_underscore</name>
+        <qualifiedname>acados_solver_plugins.utils.uppercase_to_underscore</qualifiedname>
         <param>
           <type>str</type>
           <declname>string</declname>
@@ -85,7 +89,7 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/utils.py" line="40" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_plugins/acados_solver_plugins/utils.py" bodystart="40" bodyend="58"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,5 +1,7 @@
 <map id="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/visibility_control.h" name="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/visibility_control.h">
-<area shape="rect" id="node1" title=" " alt="" coords="25,5,267,91"/>
-<area shape="rect" id="node2" href="$acados__solver_8hpp.html" title=" " alt="" coords="5,139,287,209"/>
-<area shape="rect" id="node3" href="$acados__solver__utils_8hpp.html" title=" " alt="" coords="19,257,273,343"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="25,5,267,89"/>
+<area shape="rect" id="Node000002" href="$acados__solver_8hpp.html" title=" " alt="" coords="5,137,287,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,103,149,137,143,137,143,103"/>
+<area shape="rect" id="Node000003" href="$acados__solver__utils_8hpp.html" title=" " alt="" coords="19,255,273,339"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="149,220,149,255,143,255,143,220"/>
 </map>

@@ -1,7 +1,11 @@
 <map id="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" name="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="80,5,359,76"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,124,108,151"/>
-<area shape="rect" id="node3" title=" " alt="" coords="133,124,191,151"/>
-<area shape="rect" id="node4" title=" " alt="" coords="216,124,340,151"/>
-<area shape="rect" id="node5" title=" " alt="" coords="364,124,427,151"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="80,5,359,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,123,108,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,77,90,118,87,113,159,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="133,123,191,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,76,179,112,174,109,196,73"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="216,123,340,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="243,73,266,109,261,112,238,76"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="364,123,427,148"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="284,72,363,114,360,118,282,77"/>
 </map>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="dir_0187490a4308e6d5a37a6551253013ae" kind="dir">
     <compoundname>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base</compoundname>
     <innerdir refid="dir_850b6683a8418dc51ef5923bf3e8ec55">/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include</innerdir>

@@ -1,14 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="classacados_1_1AcadosSolver_1_1Dimensions" kind="class" language="C++" prot="public">
     <compoundname>acados::AcadosSolver::Dimensions</compoundname>
     <includes refid="acados__solver_8hpp" local="no">acados_solver.hpp</includes>
-      <sectiondef kind="public-attrib">
+    <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="classacados_1_1AcadosSolver_1_1Dimensions_1ac9117f9fceff5e00bedee61830c10da7" prot="public" static="no" mutable="no">
         <type>unsigned int</type>
         <definition>unsigned int acados::AcadosSolver::Dimensions::nx</definition>
         <argsstring></argsstring>
         <name>nx</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nx</qualifiedname>
         <briefdescription>
 <para>Differential state vector size. </para>
         </briefdescription>
@@ -23,6 +24,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nz</definition>
         <argsstring></argsstring>
         <name>nz</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nz</qualifiedname>
         <briefdescription>
 <para>Algebraic state vector size. </para>
         </briefdescription>
@@ -37,6 +39,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::np</definition>
         <argsstring></argsstring>
         <name>np</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::np</qualifiedname>
         <briefdescription>
 <para>Runtime parameters vector size. </para>
         </briefdescription>
@@ -51,6 +54,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nu</definition>
         <argsstring></argsstring>
         <name>nu</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nu</qualifiedname>
         <briefdescription>
 <para>Control vector size. </para>
         </briefdescription>
@@ -65,6 +69,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nbx</definition>
         <argsstring></argsstring>
         <name>nbx</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nbx</qualifiedname>
         <briefdescription>
 <para>Number of state stage bounds. </para>
         </briefdescription>
@@ -79,6 +84,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nbx_0</definition>
         <argsstring></argsstring>
         <name>nbx_0</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nbx_0</qualifiedname>
         <briefdescription>
 <para>Number of initial state stage bounds. </para>
         </briefdescription>
@@ -96,6 +102,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nbx_N</definition>
         <argsstring></argsstring>
         <name>nbx_N</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nbx_N</qualifiedname>
         <briefdescription>
 <para>Number of terminal state bounds. </para>
         </briefdescription>
@@ -110,6 +117,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nbu</definition>
         <argsstring></argsstring>
         <name>nbu</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nbu</qualifiedname>
         <briefdescription>
 <para>Number of control bounds. </para>
         </briefdescription>
@@ -127,6 +135,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::ng</definition>
         <argsstring></argsstring>
         <name>ng</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::ng</qualifiedname>
         <briefdescription>
 <para>Number of polytopic constraints. </para>
         </briefdescription>
@@ -141,6 +150,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::ng_N</definition>
         <argsstring></argsstring>
         <name>ng_N</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::ng_N</qualifiedname>
         <briefdescription>
 <para>Number of polytopic constraints at stage N. </para>
         </briefdescription>
@@ -155,6 +165,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nh</definition>
         <argsstring></argsstring>
         <name>nh</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nh</qualifiedname>
         <briefdescription>
 <para>Number of non-linear constraints. </para>
         </briefdescription>
@@ -169,6 +180,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nh_N</definition>
         <argsstring></argsstring>
         <name>nh_N</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nh_N</qualifiedname>
         <briefdescription>
 <para>Number of non-linear constraints at stage N. </para>
         </briefdescription>
@@ -183,6 +195,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nphi</definition>
         <argsstring></argsstring>
         <name>nphi</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nphi</qualifiedname>
         <briefdescription>
 <para>Number of &quot;convex-over-nonlinear&quot; constraints (see Acados documentation) </para>
         </briefdescription>
@@ -197,6 +210,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nphi_N</definition>
         <argsstring></argsstring>
         <name>nphi_N</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nphi_N</qualifiedname>
         <briefdescription>
 <para>Number of &quot;convex-over-nonlinear&quot; constraints at stage N. </para>
         </briefdescription>
@@ -211,6 +225,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::ns</definition>
         <argsstring></argsstring>
         <name>ns</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::ns</qualifiedname>
         <briefdescription>
 <para>Total number of slack variable. </para>
         </briefdescription>
@@ -225,6 +240,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::ns_N</definition>
         <argsstring></argsstring>
         <name>ns_N</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::ns_N</qualifiedname>
         <briefdescription>
 <para>Total number of slack variable at stage N. </para>
         </briefdescription>
@@ -239,6 +255,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nsbx</definition>
         <argsstring></argsstring>
         <name>nsbx</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nsbx</qualifiedname>
         <briefdescription>
 <para>Number of slack variables used by state bounds. </para>
         </briefdescription>
@@ -253,6 +270,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nsbx_N</definition>
         <argsstring></argsstring>
         <name>nsbx_N</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nsbx_N</qualifiedname>
         <briefdescription>
 <para>Number of slack variables used by terminal state bounds. </para>
         </briefdescription>
@@ -267,6 +285,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nsbu</definition>
         <argsstring></argsstring>
         <name>nsbu</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nsbu</qualifiedname>
         <briefdescription>
 <para>Number of slack variables used by control bounds. </para>
         </briefdescription>
@@ -281,6 +300,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nsh</definition>
         <argsstring></argsstring>
         <name>nsh</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nsh</qualifiedname>
         <briefdescription>
 <para>Number of slack variables used by non-linear constraints. </para>
         </briefdescription>
@@ -295,6 +315,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nsh_N</definition>
         <argsstring></argsstring>
         <name>nsh_N</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nsh_N</qualifiedname>
         <briefdescription>
 <para>Number of slack variables used by (terminal) non-linear constraints. </para>
         </briefdescription>
@@ -309,6 +330,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nsg</definition>
         <argsstring></argsstring>
         <name>nsg</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nsg</qualifiedname>
         <briefdescription>
 <para>Number of slack variables used by polytopic constraints. </para>
         </briefdescription>
@@ -323,6 +345,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nsg_N</definition>
         <argsstring></argsstring>
         <name>nsg_N</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nsg_N</qualifiedname>
         <briefdescription>
 <para>Number of slack variables used by (terminal) polytopic constraints. </para>
         </briefdescription>
@@ -337,6 +360,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nsphi</definition>
         <argsstring></argsstring>
         <name>nsphi</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nsphi</qualifiedname>
         <briefdescription>
 <para>Number of slack variables used by convex-over-nonlinear constraints. </para>
         </briefdescription>
@@ -351,6 +375,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nsphi_N</definition>
         <argsstring></argsstring>
         <name>nsphi_N</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nsphi_N</qualifiedname>
         <briefdescription>
 <para>Number of slack variables used by (terminal) convex-over-nonlinear constraints. </para>
         </briefdescription>
@@ -365,6 +390,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::ny</definition>
         <argsstring></argsstring>
         <name>ny</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::ny</qualifiedname>
         <briefdescription>
 <para>Size of the reference vector. </para>
         </briefdescription>
@@ -379,6 +405,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::ny_0</definition>
         <argsstring></argsstring>
         <name>ny_0</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::ny_0</qualifiedname>
         <briefdescription>
 <para>Size of the reference vector at initial stage. </para>
         </briefdescription>
@@ -393,6 +420,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::ny_N</definition>
         <argsstring></argsstring>
         <name>ny_N</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::ny_N</qualifiedname>
         <briefdescription>
 <para>Size of the reference vector at terminal stage. </para>
         </briefdescription>
@@ -407,6 +435,7 @@
         <definition>unsigned int acados::AcadosSolver::Dimensions::nr</definition>
         <argsstring></argsstring>
         <name>nr</name>
+        <qualifiedname>acados::AcadosSolver::Dimensions::nr</qualifiedname>
         <briefdescription>
 <para><ref refid="classacados_1_1AcadosSolver_1_1Dimensions" kindref="compound">Dimensions</ref> of the image of the inner nonlinear function in positive definite constr. See Acados documentation. </para>
         </briefdescription>
@@ -416,7 +445,7 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="152" column="18" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="152" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
 <para>Container for the (fixed) dimensions of the imported Acados OCP. </para>
     </briefdescription>

@@ -1,15 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="classacados_1_1AcadosSolver" kind="class" language="C++" prot="public" abstract="yes">
     <compoundname>acados::AcadosSolver</compoundname>
     <includes refid="acados__solver_8hpp" local="no">acados_solver.hpp</includes>
     <innerclass refid="classacados_1_1AcadosSolver_1_1Dimensions" prot="public">acados::AcadosSolver::Dimensions</innerclass>
-      <sectiondef kind="protected-attrib">
+    <sectiondef kind="protected-attrib">
       <memberdef kind="variable" id="classacados_1_1AcadosSolver_1a9ff8864185558e8a0942c8737551b30b" prot="protected" static="no" mutable="no">
         <type><ref refid="classacados_1_1AcadosSolver_1_1Dimensions" kindref="compound">Dimensions</ref></type>
         <definition>Dimensions acados::AcadosSolver::_dims</definition>
         <argsstring></argsstring>
         <name>_dims</name>
+        <qualifiedname>acados::AcadosSolver::_dims</qualifiedname>
         <briefdescription>
 <para>Fixed dimensions of the imported Acados OCP. </para>
         </briefdescription>
@@ -24,6 +25,7 @@
         <definition>IndexMap acados::AcadosSolver::_x_index_map</definition>
         <argsstring></argsstring>
         <name>_x_index_map</name>
+        <qualifiedname>acados::AcadosSolver::_x_index_map</qualifiedname>
         <briefdescription>
 <para>Unordered map used to set or retrieve the values of diff. state variables by name. </para>
         </briefdescription>
@@ -38,6 +40,7 @@
         <definition>IndexMap acados::AcadosSolver::_z_index_map</definition>
         <argsstring></argsstring>
         <name>_z_index_map</name>
+        <qualifiedname>acados::AcadosSolver::_z_index_map</qualifiedname>
         <briefdescription>
 <para>Unordered map used to set or retrieve the values of algebraic state variables by name. </para>
         </briefdescription>
@@ -52,6 +55,7 @@
         <definition>IndexMap acados::AcadosSolver::_p_index_map</definition>
         <argsstring></argsstring>
         <name>_p_index_map</name>
+        <qualifiedname>acados::AcadosSolver::_p_index_map</qualifiedname>
         <briefdescription>
 <para>Unordered map used to set the values of runtime parameters by name. </para>
         </briefdescription>
@@ -66,6 +70,7 @@
         <definition>IndexMap acados::AcadosSolver::_u_index_map</definition>
         <argsstring></argsstring>
         <name>_u_index_map</name>
+        <qualifiedname>acados::AcadosSolver::_u_index_map</qualifiedname>
         <briefdescription>
 <para>Unordered map used to set or retrieve the values of control variables by name. </para>
         </briefdescription>
@@ -75,13 +80,14 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="658" column="12" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="658" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="private-attrib">
+    </sectiondef>
+    <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classacados_1_1AcadosSolver_1aa28f59e93f2bd03429331a8ccd23ab1e" prot="private" static="no" mutable="no">
         <type>bool</type>
         <definition>bool acados::AcadosSolver::_is_initialized</definition>
         <argsstring></argsstring>
         <name>_is_initialized</name>
+        <qualifiedname>acados::AcadosSolver::_is_initialized</qualifiedname>
         <initializer>= false</initializer>
         <briefdescription>
 <para>Internal flag set to true when <computeroutput><ref refid="classacados_1_1AcadosSolver_1a8ea324590b8abc71b97e66e24c2181f1" kindref="member">init()</ref></computeroutput> is called. </para>
@@ -97,6 +103,7 @@
         <definition>double acados::AcadosSolver::_Ts</definition>
         <argsstring></argsstring>
         <name>_Ts</name>
+        <qualifiedname>acados::AcadosSolver::_Ts</qualifiedname>
         <initializer>= -1</initializer>
         <briefdescription>
 <para>Sampling time in seconds. If the sampling intervals are variable, then <computeroutput>Ts = -1</computeroutput>. </para>
@@ -112,6 +119,7 @@
         <definition>int acados::AcadosSolver::_rti_phase</definition>
         <argsstring></argsstring>
         <name>_rti_phase</name>
+        <qualifiedname>acados::AcadosSolver::_rti_phase</qualifiedname>
         <initializer>= 0</initializer>
         <briefdescription>
 <para>Internal variable used to store the SQP RTI phase. </para>
@@ -122,13 +130,14 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="887" column="7" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="887" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
+    </sectiondef>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1acdd73246fe15bb274a9f7a1ff40563b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>acados::AcadosSolver::AcadosSolver</definition>
         <argsstring>()</argsstring>
         <name>AcadosSolver</name>
+        <qualifiedname>acados::AcadosSolver::AcadosSolver</qualifiedname>
         <briefdescription>
 <para>Constructor of the <ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> object. </para>
         </briefdescription>
@@ -147,6 +156,7 @@
         <definition>virtual acados::AcadosSolver::~AcadosSolver</definition>
         <argsstring>()</argsstring>
         <name>~AcadosSolver</name>
+        <qualifiedname>acados::AcadosSolver::~AcadosSolver</qualifiedname>
         <briefdescription>
 <para>Destructor of the <ref refid="classacados_1_1AcadosSolver" kindref="compound">AcadosSolver</ref> object. </para>
         </briefdescription>
@@ -164,6 +174,7 @@
         <definition>int acados::AcadosSolver::init</definition>
         <argsstring>(unsigned int N, double Ts)</argsstring>
         <name>init</name>
+        <qualifiedname>acados::AcadosSolver::init</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>N</declname>
@@ -208,6 +219,7 @@
         <definition>int acados::AcadosSolver::reset</definition>
         <argsstring>()</argsstring>
         <name>reset</name>
+        <qualifiedname>acados::AcadosSolver::reset</qualifiedname>
         <briefdescription>
 <para>Resets the Acados solver, including the internal QP solver and the RTI phase cache. </para>
         </briefdescription>
@@ -225,6 +237,7 @@
         <definition>int acados::AcadosSolver::solve</definition>
         <argsstring>()</argsstring>
         <name>solve</name>
+        <qualifiedname>acados::AcadosSolver::solve</qualifiedname>
         <briefdescription>
 <para>Solve the non-linear optimization problem given the provided initial state, constraints, etc. </para>
         </briefdescription>
@@ -253,6 +266,7 @@
         <definition>int acados::AcadosSolver::set_initial_state_values</definition>
         <argsstring>(ValueVector &amp;x_0)</argsstring>
         <name>set_initial_state_values</name>
+        <qualifiedname>acados::AcadosSolver::set_initial_state_values</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref> &amp;</type>
           <declname>x_0</declname>
@@ -283,6 +297,7 @@
         <definition>int acados::AcadosSolver::set_initial_state_values</definition>
         <argsstring>(ValueMap const &amp;x_0_map)</argsstring>
         <name>set_initial_state_values</name>
+        <qualifiedname>acados::AcadosSolver::set_initial_state_values</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref> const &amp;</type>
           <declname>x_0_map</declname>
@@ -313,6 +328,7 @@
         <definition>int acados::AcadosSolver::set_state_bounds</definition>
         <argsstring>(unsigned int stage, IndexVector &amp;idxbx, ValueVector &amp;lbx, ValueVector &amp;ubx)</argsstring>
         <name>set_state_bounds</name>
+        <qualifiedname>acados::AcadosSolver::set_state_bounds</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -379,6 +395,7 @@
         <definition>int acados::AcadosSolver::set_state_bounds</definition>
         <argsstring>(IndexVector &amp;idxbx, ValueVector &amp;lbx, ValueVector &amp;ubx)</argsstring>
         <name>set_state_bounds</name>
+        <qualifiedname>acados::AcadosSolver::set_state_bounds</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" kindref="member">IndexVector</ref> &amp;</type>
           <declname>idxbx</declname>
@@ -434,6 +451,7 @@
         <definition>int acados::AcadosSolver::set_control_bounds</definition>
         <argsstring>(unsigned int stage, IndexVector &amp;idxbu, ValueVector &amp;lbu, ValueVector &amp;ubu)</argsstring>
         <name>set_control_bounds</name>
+        <qualifiedname>acados::AcadosSolver::set_control_bounds</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -500,6 +518,7 @@
         <definition>int acados::AcadosSolver::set_control_bounds</definition>
         <argsstring>(IndexVector &amp;idxbu, ValueVector &amp;lbu, ValueVector &amp;ubu)</argsstring>
         <name>set_control_bounds</name>
+        <qualifiedname>acados::AcadosSolver::set_control_bounds</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" kindref="member">IndexVector</ref> &amp;</type>
           <declname>idxbu</declname>
@@ -555,6 +574,7 @@
         <definition>int acados::AcadosSolver::set_runtime_parameters</definition>
         <argsstring>(unsigned int stage, ValueVector &amp;p_i)</argsstring>
         <name>set_runtime_parameters</name>
+        <qualifiedname>acados::AcadosSolver::set_runtime_parameters</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -597,6 +617,7 @@
         <definition>int acados::AcadosSolver::set_runtime_parameters</definition>
         <argsstring>(unsigned int stage, ValueMap const &amp;p_i_map)</argsstring>
         <name>set_runtime_parameters</name>
+        <qualifiedname>acados::AcadosSolver::set_runtime_parameters</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -609,7 +630,7 @@
 <para>Set the runtime parameters for one stage from a key/values map. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="note"><para>If the parameters are the same for all stages, prefer the <computeroutput><ref refid="classacados_1_1AcadosSolver_1a721f0280a2f372a236b1a9991a3928e8" kindref="member">set_runtime_parameters(ValueMap const &amp;)</ref></computeroutput> alternative.</para>
+<para><simplesect kind="note"><para>If the parameters are the same for all stages, prefer the <computeroutput>set_runtime_parameters(ValueMap const &amp;)</computeroutput> alternative.</para>
 </simplesect>
 <parameterlist kind="param"><parameteritem>
 <parameternamelist>
@@ -641,6 +662,7 @@
         <definition>int acados::AcadosSolver::set_runtime_parameters</definition>
         <argsstring>(ValueVector &amp;p_i)</argsstring>
         <name>set_runtime_parameters</name>
+        <qualifiedname>acados::AcadosSolver::set_runtime_parameters</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref> &amp;</type>
           <declname>p_i</declname>
@@ -672,6 +694,7 @@
         <definition>int acados::AcadosSolver::set_runtime_parameters</definition>
         <argsstring>(ValueMap const &amp;p_i_map)</argsstring>
         <name>set_runtime_parameters</name>
+        <qualifiedname>acados::AcadosSolver::set_runtime_parameters</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref> const &amp;</type>
           <declname>p_i_map</declname>
@@ -680,7 +703,7 @@
 <para>Set the runtime parameters for all stages at once from a key/values map. </para>
         </briefdescription>
         <detaileddescription>
-<para>The runtime parameters for ALL stages are equal. Once the ordered vector of parameters is extracted, it is the <computeroutput><ref refid="classacados_1_1AcadosSolver_1ac778d4f9bc7e0e22cb4c995f972f74ad" kindref="member">set_runtime_parameters(unsigned int, ValueVector &amp;)</ref></computeroutput> function that is used.</para>
+<para>The runtime parameters for ALL stages are equal. Once the ordered vector of parameters is extracted, it is the <computeroutput>set_runtime_parameters(unsigned int, ValueVector &amp;)</computeroutput> function that is used.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>p_i_map</parametername>
@@ -703,6 +726,7 @@
         <definition>int acados::AcadosSolver::initialize_state_values</definition>
         <argsstring>(unsigned int stage, ValueVector &amp;x_i)</argsstring>
         <name>initialize_state_values</name>
+        <qualifiedname>acados::AcadosSolver::initialize_state_values</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -747,6 +771,7 @@
         <definition>int acados::AcadosSolver::initialize_state_values</definition>
         <argsstring>(unsigned int stage, ValueMap const &amp;x_i_map)</argsstring>
         <name>initialize_state_values</name>
+        <qualifiedname>acados::AcadosSolver::initialize_state_values</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -759,7 +784,7 @@
 <para>Initialize the (differential) state values for a stage from a key/values map. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="note"><para>If the parameters are the same for all stages, prefer the <computeroutput><ref refid="classacados_1_1AcadosSolver_1a721f0280a2f372a236b1a9991a3928e8" kindref="member">set_runtime_parameters(ValueMap const &amp;)</ref></computeroutput> alternative.</para>
+<para><simplesect kind="note"><para>If the parameters are the same for all stages, prefer the <computeroutput>set_runtime_parameters(ValueMap const &amp;)</computeroutput> alternative.</para>
 </simplesect>
 <parameterlist kind="param"><parameteritem>
 <parameternamelist>
@@ -791,6 +816,7 @@
         <definition>int acados::AcadosSolver::initialize_state_values</definition>
         <argsstring>(ValueVector &amp;x_i)</argsstring>
         <name>initialize_state_values</name>
+        <qualifiedname>acados::AcadosSolver::initialize_state_values</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref> &amp;</type>
           <declname>x_i</declname>
@@ -821,6 +847,7 @@
         <definition>int acados::AcadosSolver::initialize_state_values</definition>
         <argsstring>(ValueMap const &amp;x_i_map)</argsstring>
         <name>initialize_state_values</name>
+        <qualifiedname>acados::AcadosSolver::initialize_state_values</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref> const &amp;</type>
           <declname>x_i_map</declname>
@@ -851,6 +878,7 @@
         <definition>int acados::AcadosSolver::initialize_control_values</definition>
         <argsstring>(unsigned int stage, ValueVector &amp;u_i)</argsstring>
         <name>initialize_control_values</name>
+        <qualifiedname>acados::AcadosSolver::initialize_control_values</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -893,6 +921,7 @@
         <definition>int acados::AcadosSolver::initialize_control_values</definition>
         <argsstring>(unsigned int stage, ValueMap const &amp;u_i_map)</argsstring>
         <name>initialize_control_values</name>
+        <qualifiedname>acados::AcadosSolver::initialize_control_values</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -935,6 +964,7 @@
         <definition>int acados::AcadosSolver::initialize_control_values</definition>
         <argsstring>(ValueVector &amp;u_i)</argsstring>
         <name>initialize_control_values</name>
+        <qualifiedname>acados::AcadosSolver::initialize_control_values</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref> &amp;</type>
           <declname>u_i</declname>
@@ -965,6 +995,7 @@
         <definition>int acados::AcadosSolver::initialize_control_values</definition>
         <argsstring>(ValueMap const &amp;u_i_map)</argsstring>
         <name>initialize_control_values</name>
+        <qualifiedname>acados::AcadosSolver::initialize_control_values</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref> const &amp;</type>
           <declname>u_i_map</declname>
@@ -995,6 +1026,7 @@
         <definition>ValueVector acados::AcadosSolver::get_state_values</definition>
         <argsstring>(unsigned int stage)</argsstring>
         <name>get_state_values</name>
+        <qualifiedname>acados::AcadosSolver::get_state_values</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -1025,6 +1057,7 @@
         <definition>ValueMap acados::AcadosSolver::get_state_values_as_map</definition>
         <argsstring>(unsigned int stage)</argsstring>
         <name>get_state_values_as_map</name>
+        <qualifiedname>acados::AcadosSolver::get_state_values_as_map</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -1055,6 +1088,7 @@
         <definition>ValueVector acados::AcadosSolver::get_algebraic_state_values</definition>
         <argsstring>(unsigned int stage)</argsstring>
         <name>get_algebraic_state_values</name>
+        <qualifiedname>acados::AcadosSolver::get_algebraic_state_values</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -1085,6 +1119,7 @@
         <definition>ValueMap acados::AcadosSolver::get_algebraic_state_values_as_map</definition>
         <argsstring>(unsigned int stage)</argsstring>
         <name>get_algebraic_state_values_as_map</name>
+        <qualifiedname>acados::AcadosSolver::get_algebraic_state_values_as_map</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -1115,6 +1150,7 @@
         <definition>ValueVector acados::AcadosSolver::get_control_values</definition>
         <argsstring>(unsigned int stage)</argsstring>
         <name>get_control_values</name>
+        <qualifiedname>acados::AcadosSolver::get_control_values</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -1145,6 +1181,7 @@
         <definition>ValueMap acados::AcadosSolver::get_control_values_as_map</definition>
         <argsstring>(unsigned int stage)</argsstring>
         <name>get_control_values_as_map</name>
+        <qualifiedname>acados::AcadosSolver::get_control_values_as_map</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -1170,11 +1207,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="459" column="12"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a9a1ba18ecaf0b80f038b4a609926475a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a1d3dedcc41dd17a705cd3f2760678266" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> &amp;</type>
-        <definition>const IndexMap&amp; acados::AcadosSolver::x_index_map</definition>
+        <definition>const IndexMap &amp; acados::AcadosSolver::x_index_map</definition>
         <argsstring>() const</argsstring>
         <name>x_index_map</name>
+        <qualifiedname>acados::AcadosSolver::x_index_map</qualifiedname>
         <briefdescription>
 <para>Returns a constant reference to the Key/IndexVector map of differential state variables internally stored in <computeroutput><ref refid="classacados_1_1AcadosSolver_1a8dd3b69a60cf37d1a69997d36ff377ad" kindref="member">AcadosSolver::_x_index_map</ref></computeroutput>. </para>
         </briefdescription>
@@ -1187,11 +1225,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="468" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a123efb93819a6663d07f045e15ddd844" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a202952013d14e49742f6b4c463c3478d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> &amp;</type>
-        <definition>const IndexMap&amp; acados::AcadosSolver::z_index_map</definition>
+        <definition>const IndexMap &amp; acados::AcadosSolver::z_index_map</definition>
         <argsstring>() const</argsstring>
         <name>z_index_map</name>
+        <qualifiedname>acados::AcadosSolver::z_index_map</qualifiedname>
         <briefdescription>
 <para>Returns a constant reference to the Key/IndexVector map of algebraic state variables internally stored in <computeroutput><ref refid="classacados_1_1AcadosSolver_1a08d39420a08a791822cdcaac8a998230" kindref="member">AcadosSolver::_z_index_map</ref></computeroutput>. </para>
         </briefdescription>
@@ -1204,11 +1243,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="475" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1ab78a7fefd320246589eea43766d14385" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a3a63706d181d8df692f1e7c0a72cc522" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> &amp;</type>
-        <definition>const IndexMap&amp; acados::AcadosSolver::p_index_map</definition>
+        <definition>const IndexMap &amp; acados::AcadosSolver::p_index_map</definition>
         <argsstring>() const</argsstring>
         <name>p_index_map</name>
+        <qualifiedname>acados::AcadosSolver::p_index_map</qualifiedname>
         <briefdescription>
 <para>Returns a constant reference to the Key/IndexVector map of runtime parameters internally stored in <computeroutput><ref refid="classacados_1_1AcadosSolver_1a46d83835fd145fba0ca3de0539035047" kindref="member">AcadosSolver::_p_index_map</ref></computeroutput>. </para>
         </briefdescription>
@@ -1221,11 +1261,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="482" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a0fcfe8d877ab1793295b07961cd41b9d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a1ff28d2a827be9878ab09dfc3e2d88df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> &amp;</type>
-        <definition>const IndexMap&amp; acados::AcadosSolver::u_index_map</definition>
+        <definition>const IndexMap &amp; acados::AcadosSolver::u_index_map</definition>
         <argsstring>() const</argsstring>
         <name>u_index_map</name>
+        <qualifiedname>acados::AcadosSolver::u_index_map</qualifiedname>
         <briefdescription>
 <para>Returns a constant reference to the Key/IndexVector map of control variables internally stored in <computeroutput><ref refid="classacados_1_1AcadosSolver_1ab205a74572e636433c300b6e7909a1e3" kindref="member">AcadosSolver::_u_index_map</ref></computeroutput>. </para>
         </briefdescription>
@@ -1238,11 +1279,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="489" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="classacados_1_1AcadosSolver_1_1Dimensions" kindref="compound">Dimensions</ref> &amp;</type>
-        <definition>const Dimensions&amp; acados::AcadosSolver::dims</definition>
+        <definition>const Dimensions &amp; acados::AcadosSolver::dims</definition>
         <argsstring>() const</argsstring>
         <name>dims</name>
+        <qualifiedname>acados::AcadosSolver::dims</qualifiedname>
         <briefdescription>
 <para>Returns the (fixed) dimensions of the OCP problem stored in <computeroutput><ref refid="classacados_1_1AcadosSolver_1a9ff8864185558e8a0942c8737551b30b" kindref="member">AcadosSolver::_dims</ref></computeroutput>. </para>
         </briefdescription>
@@ -1260,11 +1302,12 @@
         <definition>unsigned int acados::AcadosSolver::nx</definition>
         <argsstring>() const</argsstring>
         <name>nx</name>
+        <qualifiedname>acados::AcadosSolver::nx</qualifiedname>
         <briefdescription>
 <para>Returns the dimensions of the differential state vector. </para>
         </briefdescription>
         <detaileddescription>
-<para>This is a convenience wrapper of the call <computeroutput><ref refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" kindref="member">dims()</ref>.nx</computeroutput> (see <computeroutput><ref refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" kindref="member">dims()</ref></computeroutput>).</para>
+<para>This is a convenience wrapper of the call <computeroutput><ref refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" kindref="member">dims()</ref>.nx</computeroutput> (see <computeroutput><ref refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" kindref="member">dims()</ref></computeroutput>).</para>
 <para><simplesect kind="return"><para>unsigned int nx </para>
 </simplesect>
 </para>
@@ -1278,11 +1321,12 @@
         <definition>unsigned int acados::AcadosSolver::nz</definition>
         <argsstring>() const</argsstring>
         <name>nz</name>
+        <qualifiedname>acados::AcadosSolver::nz</qualifiedname>
         <briefdescription>
 <para>Returns the dimensions of the algebraic state vector. </para>
         </briefdescription>
         <detaileddescription>
-<para>This is a convenience wrapper of the call <computeroutput><ref refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" kindref="member">dims()</ref>.nz</computeroutput> (see <computeroutput><ref refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" kindref="member">dims()</ref></computeroutput>).</para>
+<para>This is a convenience wrapper of the call <computeroutput><ref refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" kindref="member">dims()</ref>.nz</computeroutput> (see <computeroutput><ref refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" kindref="member">dims()</ref></computeroutput>).</para>
 <para><simplesect kind="return"><para>unsigned int nz </para>
 </simplesect>
 </para>
@@ -1296,11 +1340,12 @@
         <definition>unsigned int acados::AcadosSolver::np</definition>
         <argsstring>() const</argsstring>
         <name>np</name>
+        <qualifiedname>acados::AcadosSolver::np</qualifiedname>
         <briefdescription>
 <para>Returns the number of runtime parameters. </para>
         </briefdescription>
         <detaileddescription>
-<para>This is a convenience wrapper of the call <computeroutput><ref refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" kindref="member">dims()</ref>.np</computeroutput> (see <computeroutput><ref refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" kindref="member">dims()</ref></computeroutput>).</para>
+<para>This is a convenience wrapper of the call <computeroutput><ref refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" kindref="member">dims()</ref>.np</computeroutput> (see <computeroutput><ref refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" kindref="member">dims()</ref></computeroutput>).</para>
 <para><simplesect kind="return"><para>unsigned int np </para>
 </simplesect>
 </para>
@@ -1314,11 +1359,12 @@
         <definition>unsigned int acados::AcadosSolver::nu</definition>
         <argsstring>() const</argsstring>
         <name>nu</name>
+        <qualifiedname>acados::AcadosSolver::nu</qualifiedname>
         <briefdescription>
 <para>Returns the number of control variables. </para>
         </briefdescription>
         <detaileddescription>
-<para>This is a convenience wrapper of the call <computeroutput><ref refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" kindref="member">dims()</ref>.nu</computeroutput> (see <computeroutput><ref refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" kindref="member">dims()</ref></computeroutput>).</para>
+<para>This is a convenience wrapper of the call <computeroutput><ref refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" kindref="member">dims()</ref>.nu</computeroutput> (see <computeroutput><ref refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" kindref="member">dims()</ref></computeroutput>).</para>
 <para><simplesect kind="return"><para>unsigned int nu </para>
 </simplesect>
 </para>
@@ -1332,6 +1378,7 @@
         <definition>unsigned int acados::AcadosSolver::N</definition>
         <argsstring>() const</argsstring>
         <name>N</name>
+        <qualifiedname>acados::AcadosSolver::N</qualifiedname>
         <briefdescription>
 <para>Returns the number of shooting nodes. </para>
         </briefdescription>
@@ -1349,11 +1396,12 @@
         <definition>double acados::AcadosSolver::Ts</definition>
         <argsstring>() const</argsstring>
         <name>Ts</name>
+        <qualifiedname>acados::AcadosSolver::Ts</qualifiedname>
         <briefdescription>
 <para>Returns the (constant) sampling interval Ts (in seconds). </para>
         </briefdescription>
         <detaileddescription>
-<para>If the sampling intervals are of variable duration (see <computeroutput><ref refid="classacados_1_1AcadosSolver_1a5de6731b0b6549ee3d7f6416531b8fbc" kindref="member">sampling_intervals()</ref></computeroutput>), the function returns <computeroutput>-1</computeroutput>.</para>
+<para>If the sampling intervals are of variable duration (see <computeroutput><ref refid="classacados_1_1AcadosSolver_1afcd1810c1aaf320b8b003c49bddf2fb0" kindref="member">sampling_intervals()</ref></computeroutput>), the function returns <computeroutput>-1</computeroutput>.</para>
 <para><simplesect kind="return"><para>unsigned int Ts </para>
 </simplesect>
 </para>
@@ -1362,11 +1410,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="634" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a5de6731b0b6549ee3d7f6416531b8fbc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1afcd1810c1aaf320b8b003c49bddf2fb0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; acados::AcadosSolver::sampling_intervals</definition>
+        <definition>std::vector&lt; double &gt; acados::AcadosSolver::sampling_intervals</definition>
         <argsstring>() const</argsstring>
         <name>sampling_intervals</name>
+        <qualifiedname>acados::AcadosSolver::sampling_intervals</qualifiedname>
         <briefdescription>
 <para>Returns the vector of sampling interval (in seconds). </para>
         </briefdescription>
@@ -1379,11 +1428,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="642" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a8879b8a2aac44cd388d635cc2f45866c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a58b0f216e18fc46ba0158bdbd3e4ca2e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_in *</type>
-        <definition>virtual ocp_nlp_in* acados::AcadosSolver::get_nlp_in</definition>
+        <definition>virtual ocp_nlp_in * acados::AcadosSolver::get_nlp_in</definition>
         <argsstring>() const =0</argsstring>
         <name>get_nlp_in</name>
+        <qualifiedname>acados::AcadosSolver::get_nlp_in</qualifiedname>
         <briefdescription>
 <para>Legacy C-function to retrieve the C-interface <computeroutput>ocp_nlp_in</computeroutput> property of the solver. </para>
         </briefdescription>
@@ -1397,11 +1447,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="793" column="23"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a3f199c606d64e86b07925d306c0c67ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a8b85b654cf086f35d4e196ec24c7ed41" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_out *</type>
-        <definition>virtual ocp_nlp_out* acados::AcadosSolver::get_nlp_out</definition>
+        <definition>virtual ocp_nlp_out * acados::AcadosSolver::get_nlp_out</definition>
         <argsstring>() const =0</argsstring>
         <name>get_nlp_out</name>
+        <qualifiedname>acados::AcadosSolver::get_nlp_out</qualifiedname>
         <briefdescription>
 <para>Legacy C-function to retrieve the C-interface <computeroutput>ocp_nlp_out</computeroutput> property of the solver. </para>
         </briefdescription>
@@ -1415,11 +1466,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="802" column="24"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a015186b011bf5591ca37964fd2e6487b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a8431a6b63bf03d0633df685024f401d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_out *</type>
-        <definition>virtual ocp_nlp_out* acados::AcadosSolver::get_sens_out</definition>
+        <definition>virtual ocp_nlp_out * acados::AcadosSolver::get_sens_out</definition>
         <argsstring>() const =0</argsstring>
         <name>get_sens_out</name>
+        <qualifiedname>acados::AcadosSolver::get_sens_out</qualifiedname>
         <briefdescription>
 <para>Legacy C-function to retrieve the C-interface <computeroutput>ocp_nlp_out</computeroutput> property of the solver. </para>
         </briefdescription>
@@ -1433,11 +1485,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="812" column="24"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1ab1e051c908f0829b62dc652c94610dca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a44f25baf4d7ab81c384be96fec1ef5ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_solver *</type>
-        <definition>virtual ocp_nlp_solver* acados::AcadosSolver::get_nlp_solver</definition>
+        <definition>virtual ocp_nlp_solver * acados::AcadosSolver::get_nlp_solver</definition>
         <argsstring>() const =0</argsstring>
         <name>get_nlp_solver</name>
+        <qualifiedname>acados::AcadosSolver::get_nlp_solver</qualifiedname>
         <briefdescription>
 <para>Legacy C-function to retrieve the C-interface <computeroutput>ocp_nlp_solver</computeroutput> property of the solver. </para>
         </briefdescription>
@@ -1451,11 +1504,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="821" column="27"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a4cad95287bee722aebbfd218aa2f0778" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1adf5a7cacde15725ebb69c490f7af1da3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_config *</type>
-        <definition>virtual ocp_nlp_config* acados::AcadosSolver::get_nlp_config</definition>
+        <definition>virtual ocp_nlp_config * acados::AcadosSolver::get_nlp_config</definition>
         <argsstring>() const =0</argsstring>
         <name>get_nlp_config</name>
+        <qualifiedname>acados::AcadosSolver::get_nlp_config</qualifiedname>
         <briefdescription>
 <para>Legacy C-function to retrieve the C-interface <computeroutput>ocp_nlp_config</computeroutput> property of the solver. </para>
         </briefdescription>
@@ -1469,11 +1523,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="830" column="27"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a521e5dbafd4623ca0a0b2054004c3a06" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1ae6feb884b54ea8e98dbdd7b82fb22c46" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>void *</type>
-        <definition>virtual void* acados::AcadosSolver::get_nlp_opts</definition>
+        <definition>virtual void * acados::AcadosSolver::get_nlp_opts</definition>
         <argsstring>() const =0</argsstring>
         <name>get_nlp_opts</name>
+        <qualifiedname>acados::AcadosSolver::get_nlp_opts</qualifiedname>
         <briefdescription>
 <para>Legacy C-function to retrieve the C-interface <computeroutput>get_nlp_opts</computeroutput> property of the solver. </para>
         </briefdescription>
@@ -1487,11 +1542,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="839" column="17"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a79b358797980397aba1b91b5f6ef0633" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a7003525e0314f8bd2f571fb8dcb19bec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_dims *</type>
-        <definition>virtual ocp_nlp_dims* acados::AcadosSolver::get_nlp_dims</definition>
+        <definition>virtual ocp_nlp_dims * acados::AcadosSolver::get_nlp_dims</definition>
         <argsstring>() const =0</argsstring>
         <name>get_nlp_dims</name>
+        <qualifiedname>acados::AcadosSolver::get_nlp_dims</qualifiedname>
         <briefdescription>
 <para>Legacy C-function to retrieve the C-interface <computeroutput>ocp_nlp_dims</computeroutput> property of the solver that contains the dimensions of the problem. </para>
         </briefdescription>
@@ -1505,11 +1561,12 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="848" column="25"/>
       </memberdef>
-      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a1d0e8d2a7c5d14ed00f965b5af3aa22c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a228d30f2f2a3090fa7805a29e6462144" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_plan_t *</type>
-        <definition>virtual ocp_nlp_plan_t* acados::AcadosSolver::get_nlp_plan</definition>
+        <definition>virtual ocp_nlp_plan_t * acados::AcadosSolver::get_nlp_plan</definition>
         <argsstring>() const =0</argsstring>
         <name>get_nlp_plan</name>
+        <qualifiedname>acados::AcadosSolver::get_nlp_plan</qualifiedname>
         <briefdescription>
 <para>Legacy C-function to retrieve the C-interface <computeroutput>ocp_nlp_plan</computeroutput> property of the solver. </para>
         </briefdescription>
@@ -1528,6 +1585,7 @@
         <definition>virtual unsigned int acados::AcadosSolver::get_nlp_np</definition>
         <argsstring>() const =0</argsstring>
         <name>get_nlp_np</name>
+        <qualifiedname>acados::AcadosSolver::get_nlp_np</qualifiedname>
         <briefdescription>
 <para>Legacy C-function to retrieve the number of runtime parameters from the Acados capsule. </para>
         </briefdescription>
@@ -1541,13 +1599,14 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="866" column="24"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-func">
+    </sectiondef>
+    <sectiondef kind="public-static-func">
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a70815bbfd88d129e24a99ad1b8d53906" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>static bool acados::AcadosSolver::is_map_size_consistent</definition>
         <argsstring>(IndexMap const &amp;index_map, unsigned int expected_total_indexes)</argsstring>
         <name>is_map_size_consistent</name>
+        <qualifiedname>acados::AcadosSolver::is_map_size_consistent</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> const &amp;</type>
           <declname>index_map</declname>
@@ -1592,6 +1651,7 @@
         <definition>static bool acados::AcadosSolver::is_map_size_consistent</definition>
         <argsstring>(ValueMap const &amp;values_map, unsigned int expected_total_indexes)</argsstring>
         <name>is_map_size_consistent</name>
+        <qualifiedname>acados::AcadosSolver::is_map_size_consistent</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref> const &amp;</type>
           <declname>values_map</declname>
@@ -1636,6 +1696,7 @@
         <definition>static bool acados::AcadosSolver::is_values_map_complete</definition>
         <argsstring>(IndexMap const &amp;index_map, ValueMap const &amp;values_map)</argsstring>
         <name>is_values_map_complete</name>
+        <qualifiedname>acados::AcadosSolver::is_values_map_complete</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> const &amp;</type>
           <declname>index_map</declname>
@@ -1681,6 +1742,7 @@
         <definition>static void acados::AcadosSolver::fill_vector_from_map</definition>
         <argsstring>(IndexMap const &amp;index_map, ValueMap const &amp;values_map, unsigned int vector_size, ValueVector &amp;values)</argsstring>
         <name>fill_vector_from_map</name>
+        <qualifiedname>acados::AcadosSolver::fill_vector_from_map</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> const &amp;</type>
           <declname>index_map</declname>
@@ -1707,7 +1769,6 @@
 <parametername>std::invalid_argument</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -1757,6 +1818,7 @@
         <definition>static ValueVector acados::AcadosSolver::value_vector_from_map</definition>
         <argsstring>(IndexMap const &amp;index_map, ValueMap const &amp;values_map, unsigned int vector_size)</argsstring>
         <name>value_vector_from_map</name>
+        <qualifiedname>acados::AcadosSolver::value_vector_from_map</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> const &amp;</type>
           <declname>index_map</declname>
@@ -1811,6 +1873,7 @@
         <definition>static ValueMap acados::AcadosSolver::create_map_from_values</definition>
         <argsstring>(IndexMap const &amp;index_map, ValueVector const &amp;values)</argsstring>
         <name>create_map_from_values</name>
+        <qualifiedname>acados::AcadosSolver::create_map_from_values</qualifiedname>
         <param>
           <type><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> const &amp;</type>
           <declname>index_map</declname>
@@ -1848,13 +1911,14 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="571" column="19"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="protected-func">
+    </sectiondef>
+    <sectiondef kind="protected-func">
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1aa02e7d99110b12a4f54e9b063c2c61d3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>int</type>
         <definition>virtual int acados::AcadosSolver::create_index_maps</definition>
         <argsstring>()=0</argsstring>
         <name>create_index_maps</name>
+        <qualifiedname>acados::AcadosSolver::create_index_maps</qualifiedname>
         <briefdescription>
 <para>Reinitialize the maps used to set or retrieve value using string variable names. </para>
         </briefdescription>
@@ -1869,6 +1933,7 @@
         <definition>int acados::AcadosSolver::free_memory</definition>
         <argsstring>()</argsstring>
         <name>free_memory</name>
+        <qualifiedname>acados::AcadosSolver::free_memory</qualifiedname>
         <briefdescription>
 <para>Free all the allocated memory. </para>
         </briefdescription>
@@ -1889,6 +1954,7 @@
         <definition>virtual int acados::AcadosSolver::internal_create_capsule</definition>
         <argsstring>()=0</argsstring>
         <name>internal_create_capsule</name>
+        <qualifiedname>acados::AcadosSolver::internal_create_capsule</qualifiedname>
         <briefdescription>
 <para>Create the Acados solver&apos;s capsule used by the Acados C-interface. </para>
         </briefdescription>
@@ -1907,6 +1973,7 @@
         <definition>virtual int acados::AcadosSolver::internal_create_with_discretization</definition>
         <argsstring>(int n_time_steps, double *new_time_steps)=0</argsstring>
         <name>internal_create_with_discretization</name>
+        <qualifiedname>acados::AcadosSolver::internal_create_with_discretization</qualifiedname>
         <param>
           <type>int</type>
           <declname>n_time_steps</declname>
@@ -1950,6 +2017,7 @@
         <definition>virtual int acados::AcadosSolver::internal_reset</definition>
         <argsstring>(int reset_qp_solver_mem=1)=0</argsstring>
         <name>internal_reset</name>
+        <qualifiedname>acados::AcadosSolver::internal_reset</qualifiedname>
         <param>
           <type>int</type>
           <declname>reset_qp_solver_mem</declname>
@@ -1982,6 +2050,7 @@
         <definition>virtual int acados::AcadosSolver::internal_free</definition>
         <argsstring>()=0</argsstring>
         <name>internal_free</name>
+        <qualifiedname>acados::AcadosSolver::internal_free</qualifiedname>
         <briefdescription>
 <para>Free the memory allocated for the solver. </para>
         </briefdescription>
@@ -2000,6 +2069,7 @@
         <definition>virtual int acados::AcadosSolver::internal_free_capsule</definition>
         <argsstring>()=0</argsstring>
         <name>internal_free_capsule</name>
+        <qualifiedname>acados::AcadosSolver::internal_free_capsule</qualifiedname>
         <briefdescription>
 <para>Free the memory allocated for the capsule. </para>
         </briefdescription>
@@ -2018,6 +2088,7 @@
         <definition>virtual int acados::AcadosSolver::internal_update_qp_solver_cond_N</definition>
         <argsstring>(int qp_solver_cond_N)=0</argsstring>
         <name>internal_update_qp_solver_cond_N</name>
+        <qualifiedname>acados::AcadosSolver::internal_update_qp_solver_cond_N</qualifiedname>
         <param>
           <type>int</type>
           <declname>qp_solver_cond_N</declname>
@@ -2049,6 +2120,7 @@
         <definition>virtual int acados::AcadosSolver::internal_update_params</definition>
         <argsstring>(unsigned int stage, double *value, int np)=0</argsstring>
         <name>internal_update_params</name>
+        <qualifiedname>acados::AcadosSolver::internal_update_params</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -2104,6 +2176,7 @@
         <definition>virtual int acados::AcadosSolver::internal_update_params_sparse</definition>
         <argsstring>(unsigned int stage, int *idx, double *p, int n_update)=0</argsstring>
         <name>internal_update_params_sparse</name>
+        <qualifiedname>acados::AcadosSolver::internal_update_params_sparse</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>stage</declname>
@@ -2171,6 +2244,7 @@
         <definition>virtual int acados::AcadosSolver::internal_solve</definition>
         <argsstring>()=0</argsstring>
         <name>internal_solve</name>
+        <qualifiedname>acados::AcadosSolver::internal_solve</qualifiedname>
         <briefdescription>
 <para>Solve the non-linear optimization`. </para>
         </briefdescription>
@@ -2189,6 +2263,7 @@
         <definition>virtual void acados::AcadosSolver::internal_print_stats</definition>
         <argsstring>() const =0</argsstring>
         <name>internal_print_stats</name>
+        <qualifiedname>acados::AcadosSolver::internal_print_stats</qualifiedname>
         <briefdescription>
 <para>Print the solver stats (e.g., number of SQP iters, number of QP iters, etc.) to the console. </para>
         </briefdescription>
@@ -2199,7 +2274,7 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="783" column="16"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
 <para>Abstract C++ wrapper of generated Acados solver C-code. </para>
     </briefdescription>
@@ -2231,22 +2306,22 @@
       <member refid="classacados_1_1AcadosSolver_1acdd73246fe15bb274a9f7a1ff40563b1" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>AcadosSolver</name></member>
       <member refid="classacados_1_1AcadosSolver_1aa02e7d99110b12a4f54e9b063c2c61d3" prot="protected" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>create_index_maps</name></member>
       <member refid="classacados_1_1AcadosSolver_1a9af7492cce80e96ab83bb817ea89aeaa" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>create_map_from_values</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>dims</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>dims</name></member>
       <member refid="classacados_1_1AcadosSolver_1a7c5af1bdb69808cc5b34383afcc27672" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>fill_vector_from_map</name></member>
       <member refid="classacados_1_1AcadosSolver_1a42b02f546b0a15d3795b87d84e45fbca" prot="protected" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>free_memory</name></member>
       <member refid="classacados_1_1AcadosSolver_1a018315f74749a500f2ceebf4292ff688" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>get_algebraic_state_values</name></member>
       <member refid="classacados_1_1AcadosSolver_1a0f8acec62481850619eb15415fc69cc1" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>get_algebraic_state_values_as_map</name></member>
       <member refid="classacados_1_1AcadosSolver_1a15ba80234cc00619642c996ab2876c5c" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>get_control_values</name></member>
       <member refid="classacados_1_1AcadosSolver_1a659154c1023a0ff0c1cb76914d58d1cb" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>get_control_values_as_map</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a4cad95287bee722aebbfd218aa2f0778" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_config</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a79b358797980397aba1b91b5f6ef0633" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_dims</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a8879b8a2aac44cd388d635cc2f45866c" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_in</name></member>
+      <member refid="classacados_1_1AcadosSolver_1adf5a7cacde15725ebb69c490f7af1da3" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_config</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a7003525e0314f8bd2f571fb8dcb19bec" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_dims</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a58b0f216e18fc46ba0158bdbd3e4ca2e" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_in</name></member>
       <member refid="classacados_1_1AcadosSolver_1ae17665db1de958ddf899df7fcc22e4cc" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_np</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a521e5dbafd4623ca0a0b2054004c3a06" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_opts</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a3f199c606d64e86b07925d306c0c67ef" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_out</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a1d0e8d2a7c5d14ed00f965b5af3aa22c" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_plan</name></member>
-      <member refid="classacados_1_1AcadosSolver_1ab1e051c908f0829b62dc652c94610dca" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_solver</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a015186b011bf5591ca37964fd2e6487b" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_sens_out</name></member>
+      <member refid="classacados_1_1AcadosSolver_1ae6feb884b54ea8e98dbdd7b82fb22c46" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_opts</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a8b85b654cf086f35d4e196ec24c7ed41" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_out</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a228d30f2f2a3090fa7805a29e6462144" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_plan</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a44f25baf4d7ab81c384be96fec1ef5ac" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_nlp_solver</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a8431a6b63bf03d0633df685024f401d1" prot="public" virt="pure-virtual"><scope>acados::AcadosSolver</scope><name>get_sens_out</name></member>
       <member refid="classacados_1_1AcadosSolver_1ad4742b1ea3857463a3987161d208e9f8" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>get_state_values</name></member>
       <member refid="classacados_1_1AcadosSolver_1ad86c6c0ef89f84088299c2ecb39854bf" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>get_state_values_as_map</name></member>
       <member refid="classacados_1_1AcadosSolver_1a8ea324590b8abc71b97e66e24c2181f1" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>init</name></member>
@@ -2276,9 +2351,9 @@
       <member refid="classacados_1_1AcadosSolver_1afc709b72edcf36008ac6c73cfef7051c" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>nu</name></member>
       <member refid="classacados_1_1AcadosSolver_1ae58d31b0910fed6e22f598b88c571a6e" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>nx</name></member>
       <member refid="classacados_1_1AcadosSolver_1a8c0dafbe532f2978e44d7ff10e828008" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>nz</name></member>
-      <member refid="classacados_1_1AcadosSolver_1ab78a7fefd320246589eea43766d14385" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>p_index_map</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a3a63706d181d8df692f1e7c0a72cc522" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>p_index_map</name></member>
       <member refid="classacados_1_1AcadosSolver_1a4c18d1f743bf03e249a1ee2b6f13406f" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>reset</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a5de6731b0b6549ee3d7f6416531b8fbc" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>sampling_intervals</name></member>
+      <member refid="classacados_1_1AcadosSolver_1afcd1810c1aaf320b8b003c49bddf2fb0" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>sampling_intervals</name></member>
       <member refid="classacados_1_1AcadosSolver_1aac276e01de203a072242a5b2bc1dc155" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>set_control_bounds</name></member>
       <member refid="classacados_1_1AcadosSolver_1a0d752774d72ba4510eaf45bba2e2366b" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>set_control_bounds</name></member>
       <member refid="classacados_1_1AcadosSolver_1aaca413f68e006eba5ca75ff02b7831d6" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>set_initial_state_values</name></member>
@@ -2291,10 +2366,10 @@
       <member refid="classacados_1_1AcadosSolver_1a5630ba4afb1e30b793f23bb5848393a8" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>set_state_bounds</name></member>
       <member refid="classacados_1_1AcadosSolver_1a15d6ca39d87ce1440e0b926a1f224d0d" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>solve</name></member>
       <member refid="classacados_1_1AcadosSolver_1a6c890d274c16b3d609fdf393d72a7488" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>Ts</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a0fcfe8d877ab1793295b07961cd41b9d" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>u_index_map</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a1ff28d2a827be9878ab09dfc3e2d88df" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>u_index_map</name></member>
       <member refid="classacados_1_1AcadosSolver_1a3c93bc306d103cf2a32117ab0f59f4a8" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>value_vector_from_map</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a9a1ba18ecaf0b80f038b4a609926475a" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>x_index_map</name></member>
-      <member refid="classacados_1_1AcadosSolver_1a123efb93819a6663d07f045e15ddd844" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>z_index_map</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a1d3dedcc41dd17a705cd3f2760678266" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>x_index_map</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a202952013d14e49742f6b4c463c3478d" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>z_index_map</name></member>
       <member refid="classacados_1_1AcadosSolver_1ad63b041ee98a55d0cc9b3b2f14820a53" prot="public" virt="virtual"><scope>acados::AcadosSolver</scope><name>~AcadosSolver</name></member>
     </listofallmembers>
   </compounddef>

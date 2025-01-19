@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="acados__solver__utils_8hpp" kind="file" language="C++">
     <compoundname>acados_solver_utils.hpp</compoundname>
     <includes local="no">Eigen/Dense</includes>
@@ -8,25 +8,6 @@
     <includes refid="acados__solver_8hpp" local="yes">acados_solver_base/acados_solver.hpp</includes>
     <includes refid="acados__types_8hpp" local="yes">acados_solver_base/acados_types.hpp</includes>
     <incdepgraph>
-      <node id="9">
-        <label>acados_solver_base/visibility_control.h</label>
-        <link refid="visibility__control_8h"/>
-      </node>
-      <node id="3">
-        <label>string</label>
-      </node>
-      <node id="10">
-        <label>acados_solver_base/acados_types.hpp</label>
-        <link refid="acados__types_8hpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
       <node id="5">
         <label>acados_solver_base/acados_solver.hpp</label>
         <link refid="acados__solver_8hpp"/>
@@ -45,24 +26,6 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="8">
-        <label>exception</label>
-      </node>
-      <node id="2">
-        <label>Eigen/Dense</label>
-      </node>
-      <node id="7">
-        <label>vector</label>
-      </node>
-      <node id="4">
-        <label>acados_c/ocp_nlp_interface.h</label>
-      </node>
-      <node id="6">
-        <label>iostream</label>
-      </node>
-      <node id="11">
-        <label>unordered_map</label>
-      </node>
       <node id="1">
         <label>/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver_utils.hpp</label>
         <link refid="acados__solver__utils_8hpp"/>
@@ -76,6 +39,43 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+      </node>
+      <node id="10">
+        <label>acados_solver_base/acados_types.hpp</label>
+        <link refid="acados__types_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>acados_solver_base/visibility_control.h</label>
+        <link refid="visibility__control_8h"/>
+      </node>
+      <node id="2">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="4">
+        <label>acados_c/ocp_nlp_interface.h</label>
+      </node>
+      <node id="8">
+        <label>exception</label>
+      </node>
+      <node id="6">
+        <label>iostream</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="11">
+        <label>unordered_map</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceacados">acados</innernamespace>

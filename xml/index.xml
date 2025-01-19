@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
   <compound refid="classacados_1_1AcadosSolver" kind="class"><name>acados::AcadosSolver</name>
     <member refid="classacados_1_1AcadosSolver_1a9ff8864185558e8a0942c8737551b30b" kind="variable"><name>_dims</name></member>
     <member refid="classacados_1_1AcadosSolver_1a8dd3b69a60cf37d1a69997d36ff377ad" kind="variable"><name>_x_index_map</name></member>
@@ -38,26 +38,26 @@
     <member refid="classacados_1_1AcadosSolver_1a0f8acec62481850619eb15415fc69cc1" kind="function"><name>get_algebraic_state_values_as_map</name></member>
     <member refid="classacados_1_1AcadosSolver_1a15ba80234cc00619642c996ab2876c5c" kind="function"><name>get_control_values</name></member>
     <member refid="classacados_1_1AcadosSolver_1a659154c1023a0ff0c1cb76914d58d1cb" kind="function"><name>get_control_values_as_map</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a9a1ba18ecaf0b80f038b4a609926475a" kind="function"><name>x_index_map</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a123efb93819a6663d07f045e15ddd844" kind="function"><name>z_index_map</name></member>
-    <member refid="classacados_1_1AcadosSolver_1ab78a7fefd320246589eea43766d14385" kind="function"><name>p_index_map</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a0fcfe8d877ab1793295b07961cd41b9d" kind="function"><name>u_index_map</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a4629c7d692995b0f6b79b76bb03e66a6" kind="function"><name>dims</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a1d3dedcc41dd17a705cd3f2760678266" kind="function"><name>x_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a202952013d14e49742f6b4c463c3478d" kind="function"><name>z_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a3a63706d181d8df692f1e7c0a72cc522" kind="function"><name>p_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a1ff28d2a827be9878ab09dfc3e2d88df" kind="function"><name>u_index_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" kind="function"><name>dims</name></member>
     <member refid="classacados_1_1AcadosSolver_1ae58d31b0910fed6e22f598b88c571a6e" kind="function"><name>nx</name></member>
     <member refid="classacados_1_1AcadosSolver_1a8c0dafbe532f2978e44d7ff10e828008" kind="function"><name>nz</name></member>
     <member refid="classacados_1_1AcadosSolver_1a51e348e29f69d4af55f4f5536430eaed" kind="function"><name>np</name></member>
     <member refid="classacados_1_1AcadosSolver_1afc709b72edcf36008ac6c73cfef7051c" kind="function"><name>nu</name></member>
     <member refid="classacados_1_1AcadosSolver_1abb11cab9c0513ba624909c4d3cefcd36" kind="function"><name>N</name></member>
     <member refid="classacados_1_1AcadosSolver_1a6c890d274c16b3d609fdf393d72a7488" kind="function"><name>Ts</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a5de6731b0b6549ee3d7f6416531b8fbc" kind="function"><name>sampling_intervals</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a8879b8a2aac44cd388d635cc2f45866c" kind="function"><name>get_nlp_in</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a3f199c606d64e86b07925d306c0c67ef" kind="function"><name>get_nlp_out</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a015186b011bf5591ca37964fd2e6487b" kind="function"><name>get_sens_out</name></member>
-    <member refid="classacados_1_1AcadosSolver_1ab1e051c908f0829b62dc652c94610dca" kind="function"><name>get_nlp_solver</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a4cad95287bee722aebbfd218aa2f0778" kind="function"><name>get_nlp_config</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a521e5dbafd4623ca0a0b2054004c3a06" kind="function"><name>get_nlp_opts</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a79b358797980397aba1b91b5f6ef0633" kind="function"><name>get_nlp_dims</name></member>
-    <member refid="classacados_1_1AcadosSolver_1a1d0e8d2a7c5d14ed00f965b5af3aa22c" kind="function"><name>get_nlp_plan</name></member>
+    <member refid="classacados_1_1AcadosSolver_1afcd1810c1aaf320b8b003c49bddf2fb0" kind="function"><name>sampling_intervals</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a58b0f216e18fc46ba0158bdbd3e4ca2e" kind="function"><name>get_nlp_in</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a8b85b654cf086f35d4e196ec24c7ed41" kind="function"><name>get_nlp_out</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a8431a6b63bf03d0633df685024f401d1" kind="function"><name>get_sens_out</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a44f25baf4d7ab81c384be96fec1ef5ac" kind="function"><name>get_nlp_solver</name></member>
+    <member refid="classacados_1_1AcadosSolver_1adf5a7cacde15725ebb69c490f7af1da3" kind="function"><name>get_nlp_config</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ae6feb884b54ea8e98dbdd7b82fb22c46" kind="function"><name>get_nlp_opts</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a7003525e0314f8bd2f571fb8dcb19bec" kind="function"><name>get_nlp_dims</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a228d30f2f2a3090fa7805a29e6462144" kind="function"><name>get_nlp_plan</name></member>
     <member refid="classacados_1_1AcadosSolver_1ae17665db1de958ddf899df7fcc22e4cc" kind="function"><name>get_nlp_np</name></member>
     <member refid="classacados_1_1AcadosSolver_1a70815bbfd88d129e24a99ad1b8d53906" kind="function"><name>is_map_size_consistent</name></member>
     <member refid="classacados_1_1AcadosSolver_1ae1a41122ae313470b779c6886bda9b17" kind="function"><name>is_map_size_consistent</name></member>
@@ -122,13 +122,13 @@
     <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1af62b1bbbc940a855871d4c5f2b860e57" kind="variable"><name>__flag_regenerate_cmake</name></member>
     <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a8f81f02567c7607a1c2f2f5fd23159ca" kind="variable"><name>jinga_env_loader</name></member>
     <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1ad293c5615d1daf42c1530c00955ebe51" kind="variable"><name>jinja_env</name></member>
-    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1ae8600e2e9e9a3bb6333c9b6b62f5afff" kind="function"><name>__init__</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a7d3a9aa43c59858267b93df838568fd5" kind="function"><name>__init__</name></member>
     <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a60e76952af6b95aa160ad9825db7ce45" kind="function"><name>generate_solver_plugin</name></member>
-    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a21318b940eb17f296fb131deedf575c7" kind="function"><name>_generate_file_from_template</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__generator_1_1SolverPluginGenerator_1a433e11a6bff9f7a4db5409ec40e762cf" kind="function"><name>_generate_file_from_template</name></member>
   </compound>
   <compound refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader" kind="class"><name>acados_solver_plugins::solver_plugin_loader::SolverPluginLoader</name>
-    <member refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1ad1232278c1b593ef6d8bfc318ffc05bc" kind="function"><name>__init__</name></member>
-    <member refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1abac302f09014192460fb2048f4c9b529" kind="function"><name>load_solver_plugin</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1a5b78322f0ca455df4a9a24e176b39439" kind="function"><name>__init__</name></member>
+    <member refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1aae35a8b9c48bec5e02623c62cf028c96" kind="function"><name>load_solver_plugin</name></member>
   </compound>
   <compound refid="namespaceacados" kind="namespace"><name>acados</name>
     <member refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" kind="typedef"><name>IndexVector</name></member>
@@ -158,21 +158,21 @@
     <member refid="namespaceacados_1_1utils_1aee666c935c24b454a0b323000561a4fa" kind="function"><name>get_stats_cpu_time</name></member>
   </compound>
   <compound refid="namespaceacados__solver__plugins" kind="namespace"><name>acados_solver_plugins</name>
-    <member refid="namespaceacados__solver__plugins_1ac5e6f8333f5e14881b7e7ac50cc70583" kind="variable"><name>__author__</name></member>
-    <member refid="namespaceacados__solver__plugins_1abf76e2d772525b3a2236a3b721e59818" kind="variable"><name>__license__</name></member>
-    <member refid="namespaceacados__solver__plugins_1a9ad9340d7d1c6e4166c431e0301e618b" kind="variable"><name>__copyright__</name></member>
+    <member refid="namespaceacados__solver__plugins_1ae20c8b6b8044cdd7207c3690a1602738" kind="variable"><name>__author__</name></member>
+    <member refid="namespaceacados__solver__plugins_1a73a9957fb389aba36770331c3d1119be" kind="variable"><name>__license__</name></member>
+    <member refid="namespaceacados__solver__plugins_1a9d063071da825360f171df2550f9cce8" kind="variable"><name>__copyright__</name></member>
   </compound>
   <compound refid="namespaceacados__solver__plugins_1_1solver__plugin__generator" kind="namespace"><name>acados_solver_plugins::solver_plugin_generator</name>
-    <member refid="namespaceacados__solver__plugins_1_1solver__plugin__generator_1accf03d90afac162f2ff26b789c3db966" kind="variable"><name>_library_name</name></member>
-    <member refid="namespaceacados__solver__plugins_1_1solver__plugin__generator_1ab2587dd1f3bbadbab82ae6095359f60c" kind="function"><name>filter_uppercase_to_underscore</name></member>
-    <member refid="namespaceacados__solver__plugins_1_1solver__plugin__generator_1ae042be002f7cd120ebf49decd77db056" kind="function"><name>filter_curly_bracket_list</name></member>
+    <member refid="namespaceacados__solver__plugins_1_1solver__plugin__generator_1a9d68dc1d04b682c11c7792f194fe3c8f" kind="variable"><name>_library_name</name></member>
+    <member refid="namespaceacados__solver__plugins_1_1solver__plugin__generator_1aa33ae1d6dffe09498a12e93c8d1cdb85" kind="function"><name>filter_uppercase_to_underscore</name></member>
+    <member refid="namespaceacados__solver__plugins_1_1solver__plugin__generator_1a3ddc3d7144300fce3fbe22aaa107ea29" kind="function"><name>filter_curly_bracket_list</name></member>
   </compound>
   <compound refid="namespaceacados__solver__plugins_1_1solver__plugin__loader" kind="namespace"><name>acados_solver_plugins::solver_plugin_loader</name>
   </compound>
   <compound refid="namespaceacados__solver__plugins_1_1utils" kind="namespace"><name>acados_solver_plugins::utils</name>
     <member refid="namespaceacados__solver__plugins_1_1utils_1a7187aaf642d18e9a8303c792a9f7d2b5" kind="variable"><name>_uppercase_part</name></member>
-    <member refid="namespaceacados__solver__plugins_1_1utils_1a2e0840e451d0b9bdfeacf4c3f51262e7" kind="function"><name>ensure_dir_exists</name></member>
-    <member refid="namespaceacados__solver__plugins_1_1utils_1a30c79321f4dcf1b182e3d90d9981cda4" kind="function"><name>delete_dir_recursively</name></member>
+    <member refid="namespaceacados__solver__plugins_1_1utils_1ae9f0d4c4057322900941233d6ea622b2" kind="function"><name>ensure_dir_exists</name></member>
+    <member refid="namespaceacados__solver__plugins_1_1utils_1a52854cf2b6b2ad83bd756b566ee6be9e" kind="function"><name>delete_dir_recursively</name></member>
     <member refid="namespaceacados__solver__plugins_1_1utils_1a377ea9b381f11e8a90977e512bb9f1a1" kind="function"><name>uppercase_to_underscore</name></member>
   </compound>
   <compound refid="acados__solver_8hpp" kind="file"><name>acados_solver.hpp</name>
