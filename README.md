@@ -36,7 +36,7 @@ source install/setup.bash
 
 > [!NOTE]
 > If you are using ros jazzy or later, you might have to use a virtual environment or the `PIP_BREAK_SYSTEM_PACKAGES` flag.
-> 
+>
 > Otherwise, you might get the following error:
 > ```bash
 > ERROR: the following rosdeps failed to install
