@@ -138,7 +138,7 @@ int mock_acados_solver_acados_sim_create(mock_acados_solver_sim_solver_capsule *
     capsule->acados_sim_opts = mock_acados_solver_sim_opts;
     int tmp_int = 3;
     sim_opts_set(mock_acados_solver_sim_config, mock_acados_solver_sim_opts, "newton_iter", &tmp_int);
-    double tmp_double = 0;
+    double tmp_double = 0.0;
     sim_opts_set(mock_acados_solver_sim_config, mock_acados_solver_sim_opts, "newton_tol", &tmp_double);
     sim_collocation_type collocation_type = GAUSS_LEGENDRE;
     sim_opts_set(mock_acados_solver_sim_config, mock_acados_solver_sim_opts, "collocation_type", &collocation_type);
@@ -180,7 +180,7 @@ int mock_acados_solver_acados_sim_create(mock_acados_solver_sim_solver_capsule *
     /* initialize parameter values */
     double* p = calloc(np, sizeof(double));
     
-    p[0] = 1;
+    p[0] = 1.0;
     p[1] = 0.1;
 
     mock_acados_solver_acados_sim_update_params(capsule, p, np);
@@ -231,6 +231,19 @@ int mock_acados_solver_acados_sim_solve(mock_acados_solver_sim_solver_capsule *c
         printf("error in mock_acados_solver_acados_sim_solve()! Exiting.\n");
 
     return status;
+}
+
+
+void mock_acados_solver_acados_sim_batch_solve(mock_acados_solver_sim_solver_capsule ** capsules, int N_batch)
+{
+
+    for (int i = 0; i < N_batch; i++)
+    {
+        sim_solve(capsules[i]->acados_sim_solver, capsules[i]->acados_sim_in, capsules[i]->acados_sim_out);
+    }
+
+
+    return;
 }
 
 

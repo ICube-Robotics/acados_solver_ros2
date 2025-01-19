@@ -34,6 +34,20 @@ colcon build && colcon build
 source install/setup.bash
 ```
 
+> [!NOTE]
+> If you are using ros jazzy or later, you might have to use a virtual environment or the `PIP_BREAK_SYSTEM_PACKAGES` flag.
+>
+> Otherwise, you might get the following error:
+> ```bash
+> ERROR: the following rosdeps failed to install
+>   pip:
+> rosdep installation of pip packages requires installing packages globally as root.
+> When using Python >= 3.11, PEP 668 compliance requires you to allow pip to install alongside
+> externally managed packages using the 'break-system-packages' option.
+> The recommended way to set this option when using rosdep is to set the environment variable
+> PIP_BREAK_SYSTEM_PACKAGES=1 in your environment.
+> ```
+
 ## Contacts ##
 ![icube](https://icube.unistra.fr/fileadmin/templates/DUN/icube/images/logo.png)
 

@@ -23,7 +23,7 @@
 #include "generated_c_code/acados_solver_mock_acados_solver.h"
 
 
-namespace acados
+namespace acados_solver_plugins_example
 {
 
 using namespace acados;
@@ -182,4 +182,7 @@ unsigned int MockAcadosSolver::get_nlp_np() const
   return _capsule->nlp_np;
 }
 
-}  // namespace acados
+}  // namespace acados_solver_plugins_example
+
+// #include <pluginlib/class_list_macros.hpp>
+// PLUGINLIB_EXPORT_CLASS(acados_solver_plugins_example::MockAcadosSolver, acados::AcadosSolver)

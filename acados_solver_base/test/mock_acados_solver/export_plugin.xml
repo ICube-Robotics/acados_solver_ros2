@@ -1,0 +1,9 @@
+<library path="acados_solver_plugins_example">
+  <class name="acados_solver_plugins_example/MockAcadosSolver"
+         type="acados_solver_plugins_example::MockAcadosSolver"
+         base_class_type="acados::AcadosSolver">
+    <description>
+      This is an example of Acados solver plugin. The underlying model is a pendulum on a cart.
+    </description>
+  </class>
+</library>

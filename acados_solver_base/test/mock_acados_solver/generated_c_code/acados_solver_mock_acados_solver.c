@@ -138,7 +138,7 @@ int mock_acados_solver_acados_update_time_steps(mock_acados_solver_solver_capsul
 /**
  * Internal function for mock_acados_solver_acados_create: step 1
  */
-void mock_acados_solver_acados_create_1_set_plan(ocp_nlp_plan_t* nlp_solver_plan, const int N)
+void mock_acados_solver_acados_create_set_plan(ocp_nlp_plan_t* nlp_solver_plan, const int N)
 {
     assert(N == nlp_solver_plan->N);
 
@@ -174,10 +174,7 @@ void mock_acados_solver_acados_create_1_set_plan(ocp_nlp_plan_t* nlp_solver_plan
 }
 
 
-/**
- * Internal function for mock_acados_solver_acados_create: step 2
- */
-ocp_nlp_dims* mock_acados_solver_acados_create_2_create_and_set_dimensions(mock_acados_solver_solver_capsule* capsule)
+static ocp_nlp_dims* mock_acados_solver_acados_create_setup_dimensions(mock_acados_solver_solver_capsule* capsule)
 {
     ocp_nlp_plan_t* nlp_solver_plan = capsule->nlp_solver_plan;
     const int N = nlp_solver_plan->N;
@@ -304,10 +301,9 @@ ocp_nlp_dims* mock_acados_solver_acados_create_2_create_and_set_dimensions(mock_
 /**
  * Internal function for mock_acados_solver_acados_create: step 3
  */
-void mock_acados_solver_acados_create_3_create_and_set_functions(mock_acados_solver_solver_capsule* capsule)
+void mock_acados_solver_acados_create_setup_functions(mock_acados_solver_solver_capsule* capsule)
 {
     const int N = capsule->nlp_solver_plan->N;
-
 
     /************************************************
     *  external functions
@@ -320,30 +316,8 @@ void mock_acados_solver_acados_create_3_create_and_set_functions(mock_acados_sol
         capsule->__CAPSULE_FNC__.casadi_sparsity_in = & __MODEL_BASE_FNC__ ## _sparsity_in; \
         capsule->__CAPSULE_FNC__.casadi_sparsity_out = & __MODEL_BASE_FNC__ ## _sparsity_out; \
         capsule->__CAPSULE_FNC__.casadi_work = & __MODEL_BASE_FNC__ ## _work; \
-        external_function_param_casadi_create(&capsule->__CAPSULE_FNC__ , 2); \
+        external_function_external_param_casadi_create(&capsule->__CAPSULE_FNC__ ); \
     } while(false)
-
-
-    // implicit dae
-    capsule->impl_dae_fun = (external_function_param_casadi *) malloc(sizeof(external_function_param_casadi)*N);
-    for (int i = 0; i < N; i++) {
-        MAP_CASADI_FNC(impl_dae_fun[i], mock_acados_solver_impl_dae_fun);
-    }
-
-    capsule->impl_dae_fun_jac_x_xdot_z = (external_function_param_casadi *) malloc(sizeof(external_function_param_casadi)*N);
-    for (int i = 0; i < N; i++) {
-        MAP_CASADI_FNC(impl_dae_fun_jac_x_xdot_z[i], mock_acados_solver_impl_dae_fun_jac_x_xdot_z);
-    }
-
-    capsule->impl_dae_jac_x_xdot_u_z = (external_function_param_casadi *) malloc(sizeof(external_function_param_casadi)*N);
-    for (int i = 0; i < N; i++) {
-        MAP_CASADI_FNC(impl_dae_jac_x_xdot_u_z[i], mock_acados_solver_impl_dae_jac_x_xdot_u_z);
-    }
-    capsule->impl_dae_hess = (external_function_param_casadi *) malloc(sizeof(external_function_param_casadi)*N);
-    for (int i = 0; i < N; i++) {
-        MAP_CASADI_FNC(impl_dae_hess[i], mock_acados_solver_impl_dae_hess);
-    }
-
     // external cost
     MAP_CASADI_FNC(ext_cost_0_fun, mock_acados_solver_cost_ext_cost_0_fun);
     MAP_CASADI_FNC(ext_cost_0_fun_jac, mock_acados_solver_cost_ext_cost_0_fun_jac);
@@ -352,20 +326,44 @@ void mock_acados_solver_acados_create_3_create_and_set_functions(mock_acados_sol
     
 
     
+
+
+
+
+    // implicit dae
+    capsule->impl_dae_fun = (external_function_external_param_casadi *) malloc(sizeof(external_function_external_param_casadi)*N);
+    for (int i = 0; i < N; i++) {
+        MAP_CASADI_FNC(impl_dae_fun[i], mock_acados_solver_impl_dae_fun);
+    }
+
+    capsule->impl_dae_fun_jac_x_xdot_z = (external_function_external_param_casadi *) malloc(sizeof(external_function_external_param_casadi)*N);
+    for (int i = 0; i < N; i++) {
+        MAP_CASADI_FNC(impl_dae_fun_jac_x_xdot_z[i], mock_acados_solver_impl_dae_fun_jac_x_xdot_z);
+    }
+
+    capsule->impl_dae_jac_x_xdot_u_z = (external_function_external_param_casadi *) malloc(sizeof(external_function_external_param_casadi)*N);
+    for (int i = 0; i < N; i++) {
+        MAP_CASADI_FNC(impl_dae_jac_x_xdot_u_z[i], mock_acados_solver_impl_dae_jac_x_xdot_u_z);
+    }
+    capsule->impl_dae_hess = (external_function_external_param_casadi *) malloc(sizeof(external_function_external_param_casadi)*N);
+    for (int i = 0; i < N; i++) {
+        MAP_CASADI_FNC(impl_dae_hess[i], mock_acados_solver_impl_dae_hess);
+    }
+
     // external cost
-    capsule->ext_cost_fun = (external_function_param_casadi *) malloc(sizeof(external_function_param_casadi)*(N-1));
+    capsule->ext_cost_fun = (external_function_external_param_casadi *) malloc(sizeof(external_function_external_param_casadi)*(N-1));
     for (int i = 0; i < N-1; i++)
     {
         MAP_CASADI_FNC(ext_cost_fun[i], mock_acados_solver_cost_ext_cost_fun);
     }
 
-    capsule->ext_cost_fun_jac = (external_function_param_casadi *) malloc(sizeof(external_function_param_casadi)*(N-1));
+    capsule->ext_cost_fun_jac = (external_function_external_param_casadi *) malloc(sizeof(external_function_external_param_casadi)*(N-1));
     for (int i = 0; i < N-1; i++)
     {
         MAP_CASADI_FNC(ext_cost_fun_jac[i], mock_acados_solver_cost_ext_cost_fun_jac);
     }
 
-    capsule->ext_cost_fun_jac_hess = (external_function_param_casadi *) malloc(sizeof(external_function_param_casadi)*(N-1));
+    capsule->ext_cost_fun_jac_hess = (external_function_external_param_casadi *) malloc(sizeof(external_function_external_param_casadi)*(N-1));
     for (int i = 0; i < N-1; i++)
     {
         MAP_CASADI_FNC(ext_cost_fun_jac_hess[i], mock_acados_solver_cost_ext_cost_fun_jac_hess);
@@ -395,11 +393,11 @@ void mock_acados_solver_acados_create_3_create_and_set_functions(mock_acados_sol
 /**
  * Internal function for mock_acados_solver_acados_create: step 4
  */
-void mock_acados_solver_acados_create_4_set_default_parameters(mock_acados_solver_solver_capsule* capsule) {
+void mock_acados_solver_acados_create_set_default_parameters(mock_acados_solver_solver_capsule* capsule) {
     const int N = capsule->nlp_solver_plan->N;
     // initialize parameters to nominal value
     double* p = calloc(NP, sizeof(double));
-    p[0] = 1;
+    p[0] = 1.0;
     p[1] = 0.1;
 
     for (int i = 0; i <= N; i++) {
@@ -412,7 +410,7 @@ void mock_acados_solver_acados_create_4_set_default_parameters(mock_acados_solve
 /**
  * Internal function for mock_acados_solver_acados_create: step 5
  */
-void mock_acados_solver_acados_create_5_set_nlp_in(mock_acados_solver_solver_capsule* capsule, const int N, double* new_time_steps)
+void mock_acados_solver_acados_setup_nlp_in(mock_acados_solver_solver_capsule* capsule, const int N, double* new_time_steps)
 {
     assert(N == capsule->nlp_solver_plan->N);
     ocp_nlp_config* nlp_config = capsule->nlp_config;
@@ -445,31 +443,31 @@ void mock_acados_solver_acados_create_5_set_nlp_in(mock_acados_solver_solver_cap
     /**** Dynamics ****/
     for (int i = 0; i < N; i++)
     {
-        ocp_nlp_dynamics_model_set(nlp_config, nlp_dims, nlp_in, i, "impl_dae_fun", &capsule->impl_dae_fun[i]);
-        ocp_nlp_dynamics_model_set(nlp_config, nlp_dims, nlp_in, i,
+        ocp_nlp_dynamics_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, i, "impl_dae_fun", &capsule->impl_dae_fun[i]);
+        ocp_nlp_dynamics_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, i,
                                    "impl_dae_fun_jac_x_xdot_z", &capsule->impl_dae_fun_jac_x_xdot_z[i]);
-        ocp_nlp_dynamics_model_set(nlp_config, nlp_dims, nlp_in, i,
+        ocp_nlp_dynamics_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, i,
                                    "impl_dae_jac_x_xdot_u", &capsule->impl_dae_jac_x_xdot_u_z[i]);
-        ocp_nlp_dynamics_model_set(nlp_config, nlp_dims, nlp_in, i, "impl_dae_hess", &capsule->impl_dae_hess[i]);
+        ocp_nlp_dynamics_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, i, "impl_dae_hess", &capsule->impl_dae_hess[i]);
     }
 
     /**** Cost ****/
-    ocp_nlp_cost_model_set(nlp_config, nlp_dims, nlp_in, 0, "ext_cost_fun", &capsule->ext_cost_0_fun);
-    ocp_nlp_cost_model_set(nlp_config, nlp_dims, nlp_in, 0, "ext_cost_fun_jac", &capsule->ext_cost_0_fun_jac);
-    ocp_nlp_cost_model_set(nlp_config, nlp_dims, nlp_in, 0, "ext_cost_fun_jac_hess", &capsule->ext_cost_0_fun_jac_hess);
+    ocp_nlp_cost_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, 0, "ext_cost_fun", &capsule->ext_cost_0_fun);
+    ocp_nlp_cost_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, 0, "ext_cost_fun_jac", &capsule->ext_cost_0_fun_jac);
+    ocp_nlp_cost_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, 0, "ext_cost_fun_jac_hess", &capsule->ext_cost_0_fun_jac_hess);
     
     
     for (int i = 1; i < N; i++)
     {
-        ocp_nlp_cost_model_set(nlp_config, nlp_dims, nlp_in, i, "ext_cost_fun", &capsule->ext_cost_fun[i-1]);
-        ocp_nlp_cost_model_set(nlp_config, nlp_dims, nlp_in, i, "ext_cost_fun_jac", &capsule->ext_cost_fun_jac[i-1]);
-        ocp_nlp_cost_model_set(nlp_config, nlp_dims, nlp_in, i, "ext_cost_fun_jac_hess", &capsule->ext_cost_fun_jac_hess[i-1]);
+        ocp_nlp_cost_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, i, "ext_cost_fun", &capsule->ext_cost_fun[i-1]);
+        ocp_nlp_cost_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, i, "ext_cost_fun_jac", &capsule->ext_cost_fun_jac[i-1]);
+        ocp_nlp_cost_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, i, "ext_cost_fun_jac_hess", &capsule->ext_cost_fun_jac_hess[i-1]);
         
         
     }
-    ocp_nlp_cost_model_set(nlp_config, nlp_dims, nlp_in, N, "ext_cost_fun", &capsule->ext_cost_e_fun);
-    ocp_nlp_cost_model_set(nlp_config, nlp_dims, nlp_in, N, "ext_cost_fun_jac", &capsule->ext_cost_e_fun_jac);
-    ocp_nlp_cost_model_set(nlp_config, nlp_dims, nlp_in, N, "ext_cost_fun_jac_hess", &capsule->ext_cost_e_fun_jac_hess);
+    ocp_nlp_cost_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, N, "ext_cost_fun", &capsule->ext_cost_e_fun);
+    ocp_nlp_cost_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, N, "ext_cost_fun_jac", &capsule->ext_cost_e_fun_jac);
+    ocp_nlp_cost_model_set_external_param_fun(nlp_config, nlp_dims, nlp_in, N, "ext_cost_fun_jac_hess", &capsule->ext_cost_e_fun_jac_hess);
     
     
 
@@ -604,10 +602,7 @@ void mock_acados_solver_acados_create_5_set_nlp_in(mock_acados_solver_solver_cap
 }
 
 
-/**
- * Internal function for mock_acados_solver_acados_create: step 6
- */
-void mock_acados_solver_acados_create_6_set_opts(mock_acados_solver_solver_capsule* capsule)
+static void mock_acados_solver_acados_create_set_opts(mock_acados_solver_solver_capsule* capsule)
 {
     const int N = capsule->nlp_solver_plan->N;
     ocp_nlp_config* nlp_config = capsule->nlp_config;
@@ -630,7 +625,8 @@ void mock_acados_solver_acados_create_6_set_opts(mock_acados_solver_solver_capsu
     int exact_hess_constr = 1;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "exact_hess_constr", &exact_hess_constr);int fixed_hess = 0;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "fixed_hess", &fixed_hess);
-    ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "globalization", "fixed_step");int with_solution_sens_wrt_params = false;
+    ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "globalization", "fixed_step");
+int with_solution_sens_wrt_params = false;
     ocp_nlp_solver_opts_set(nlp_config, capsule->nlp_opts, "with_solution_sens_wrt_params", &with_solution_sens_wrt_params);
 
     int with_value_sens_wrt_params = false;
@@ -665,10 +661,10 @@ void mock_acados_solver_acados_create_6_set_opts(mock_acados_solver_solver_capsu
     for (int i = 0; i < N; i++)
         ocp_nlp_solver_opts_set_at_stage(nlp_config, nlp_opts, i, "dynamics_jac_reuse", &tmp_bool);
 
-    double nlp_solver_step_length = 1;
+    double nlp_solver_step_length = 1.0;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "step_length", &nlp_solver_step_length);
 
-    double levenberg_marquardt = 0;
+    double levenberg_marquardt = 0.0;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "levenberg_marquardt", &levenberg_marquardt);
 
     /* options QP solver */
@@ -678,28 +674,46 @@ void mock_acados_solver_acados_create_6_set_opts(mock_acados_solver_solver_capsu
 
     int nlp_solver_ext_qp_res = 0;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "ext_qp_res", &nlp_solver_ext_qp_res);
+    int log_primal_step_norm = false;
+    ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "log_primal_step_norm", &log_primal_step_norm);
+
+    double nlp_solver_tol_min_step_norm = 0.0;
+    ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "tol_min_step_norm", &nlp_solver_tol_min_step_norm);
     // set HPIPM mode: should be done before setting other QP solver options
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "qp_hpipm_mode", "BALANCE");
 
 
     // set SQP specific options
-    double nlp_solver_tol_stat = 0.000001;
+    double nlp_solver_tol_stat = 1e-6;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "tol_stat", &nlp_solver_tol_stat);
 
-    double nlp_solver_tol_eq = 0.000001;
+    double nlp_solver_tol_eq = 1e-6;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "tol_eq", &nlp_solver_tol_eq);
 
-    double nlp_solver_tol_ineq = 0.000001;
+    double nlp_solver_tol_ineq = 1e-6;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "tol_ineq", &nlp_solver_tol_ineq);
 
-    double nlp_solver_tol_comp = 0.000001;
+    double nlp_solver_tol_comp = 1e-6;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "tol_comp", &nlp_solver_tol_comp);
 
     int nlp_solver_max_iter = 100;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "max_iter", &nlp_solver_max_iter);
 
-    int initialize_t_slacks = 0;
-    ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "initialize_t_slacks", &initialize_t_slacks);
+    // set options for adaptive Levenberg-Marquardt Update
+    bool with_adaptive_levenberg_marquardt = false;
+    ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "with_adaptive_levenberg_marquardt", &with_adaptive_levenberg_marquardt);
+
+    double adaptive_levenberg_marquardt_lam = 5.0;
+    ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "adaptive_levenberg_marquardt_lam", &adaptive_levenberg_marquardt_lam);
+
+    double adaptive_levenberg_marquardt_mu_min = 1e-16;
+    ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "adaptive_levenberg_marquardt_mu_min", &adaptive_levenberg_marquardt_mu_min);
+
+    double adaptive_levenberg_marquardt_mu0 = 0.001;
+    ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "adaptive_levenberg_marquardt_mu0", &adaptive_levenberg_marquardt_mu0);
+
+    bool eval_residual_at_max_iter = false;
+    ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "eval_residual_at_max_iter", &eval_residual_at_max_iter);
 
     int qp_solver_iter_max = 50;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "qp_iter_max", &qp_solver_iter_max);
@@ -727,7 +741,7 @@ void mock_acados_solver_acados_create_6_set_opts(mock_acados_solver_solver_capsu
 /**
  * Internal function for mock_acados_solver_acados_create: step 7
  */
-void mock_acados_solver_acados_create_7_set_nlp_out(mock_acados_solver_solver_capsule* capsule)
+void mock_acados_solver_acados_set_nlp_out(mock_acados_solver_solver_capsule* capsule)
 {
     const int N = capsule->nlp_solver_plan->N;
     ocp_nlp_config* nlp_config = capsule->nlp_config;
@@ -768,7 +782,7 @@ void mock_acados_solver_acados_create_7_set_nlp_out(mock_acados_solver_solver_ca
 /**
  * Internal function for mock_acados_solver_acados_create: step 9
  */
-int mock_acados_solver_acados_create_9_precompute(mock_acados_solver_solver_capsule* capsule) {
+int mock_acados_solver_acados_create_precompute(mock_acados_solver_solver_capsule* capsule) {
     int status = ocp_nlp_precompute(capsule->nlp_solver, capsule->nlp_in, capsule->nlp_out);
 
     if (status != ACADOS_SUCCESS) {
@@ -796,37 +810,36 @@ int mock_acados_solver_acados_create_with_discretization(mock_acados_solver_solv
 
     // 1) create and set nlp_solver_plan; create nlp_config
     capsule->nlp_solver_plan = ocp_nlp_plan_create(N);
-    mock_acados_solver_acados_create_1_set_plan(capsule->nlp_solver_plan, N);
+    mock_acados_solver_acados_create_set_plan(capsule->nlp_solver_plan, N);
     capsule->nlp_config = ocp_nlp_config_create(*capsule->nlp_solver_plan);
 
-    // 3) create and set dimensions
-    capsule->nlp_dims = mock_acados_solver_acados_create_2_create_and_set_dimensions(capsule);
-    mock_acados_solver_acados_create_3_create_and_set_functions(capsule);
+    // 2) create and set dimensions
+    capsule->nlp_dims = mock_acados_solver_acados_create_setup_dimensions(capsule);
 
-    // 4) set default parameters in functions
-    mock_acados_solver_acados_create_4_set_default_parameters(capsule);
-
-    // 5) create and set nlp_in
-    capsule->nlp_in = ocp_nlp_in_create(capsule->nlp_config, capsule->nlp_dims);
-    mock_acados_solver_acados_create_5_set_nlp_in(capsule, N, new_time_steps);
-
-    // 6) create and set nlp_opts
+    // 3) create and set nlp_opts
     capsule->nlp_opts = ocp_nlp_solver_opts_create(capsule->nlp_config, capsule->nlp_dims);
-    mock_acados_solver_acados_create_6_set_opts(capsule);
+    mock_acados_solver_acados_create_set_opts(capsule);
+
+    // 4) create nlp_in
+    capsule->nlp_in = ocp_nlp_in_create(capsule->nlp_config, capsule->nlp_dims);
+
+    // 5) setup functions, nlp_in and default parameters
+    mock_acados_solver_acados_create_setup_functions(capsule);
+    mock_acados_solver_acados_setup_nlp_in(capsule, N, new_time_steps);
+    mock_acados_solver_acados_create_set_default_parameters(capsule);
+
+    // 6) create solver
+    capsule->nlp_solver = ocp_nlp_solver_create(capsule->nlp_config, capsule->nlp_dims, capsule->nlp_opts);
 
     // 7) create and set nlp_out
     // 7.1) nlp_out
     capsule->nlp_out = ocp_nlp_out_create(capsule->nlp_config, capsule->nlp_dims);
     // 7.2) sens_out
     capsule->sens_out = ocp_nlp_out_create(capsule->nlp_config, capsule->nlp_dims);
-    mock_acados_solver_acados_create_7_set_nlp_out(capsule);
+    mock_acados_solver_acados_set_nlp_out(capsule);
 
-    // 8) create solver
-    capsule->nlp_solver = ocp_nlp_solver_create(capsule->nlp_config, capsule->nlp_dims, capsule->nlp_opts);
-    //mock_acados_solver_acados_create_8_create_solver(capsule);
-
-    // 9) do precomputations
-    int status = mock_acados_solver_acados_create_9_precompute(capsule);
+    // 8) do precomputations
+    int status = mock_acados_solver_acados_create_precompute(capsule);
 
     return status;
 }
@@ -850,7 +863,7 @@ int mock_acados_solver_acados_update_qp_solver_cond_N(mock_acados_solver_solver_
     capsule->nlp_solver = ocp_nlp_solver_create(capsule->nlp_config, capsule->nlp_dims, capsule->nlp_opts);
 
     // -> 9) do precomputations
-    int status = mock_acados_solver_acados_create_9_precompute(capsule);
+    int status = mock_acados_solver_acados_create_precompute(capsule);
     return status;
 }
 
@@ -876,7 +889,6 @@ int mock_acados_solver_acados_reset(mock_acados_solver_solver_capsule* capsule, 
         ocp_nlp_out_set(nlp_config, nlp_dims, nlp_out, i, "sl", buffer);
         ocp_nlp_out_set(nlp_config, nlp_dims, nlp_out, i, "su", buffer);
         ocp_nlp_out_set(nlp_config, nlp_dims, nlp_out, i, "lam", buffer);
-        ocp_nlp_out_set(nlp_config, nlp_dims, nlp_out, i, "t", buffer);
         ocp_nlp_out_set(nlp_config, nlp_dims, nlp_out, i, "z", buffer);
         if (i<N)
         {
@@ -911,53 +923,7 @@ int mock_acados_solver_acados_update_params(mock_acados_solver_solver_capsule* c
             " External function has %i parameters. Exiting.\n", np, casadi_np);
         exit(1);
     }
-
-    const int N = capsule->nlp_solver_plan->N;
-    if (stage < N && stage >= 0)
-    {
-        capsule->impl_dae_fun[stage].set_param(capsule->impl_dae_fun+stage, p);
-        capsule->impl_dae_fun_jac_x_xdot_z[stage].set_param(capsule->impl_dae_fun_jac_x_xdot_z+stage, p);
-        capsule->impl_dae_jac_x_xdot_u_z[stage].set_param(capsule->impl_dae_jac_x_xdot_u_z+stage, p);
-        capsule->impl_dae_hess[stage].set_param(capsule->impl_dae_hess+stage, p);
-
-        // constraints
-        if (stage == 0)
-        {
-        }
-        else
-        {
-        }
-
-        // cost
-        if (stage == 0)
-        {
-            capsule->ext_cost_0_fun.set_param(&capsule->ext_cost_0_fun, p);
-            capsule->ext_cost_0_fun_jac.set_param(&capsule->ext_cost_0_fun_jac, p);
-            capsule->ext_cost_0_fun_jac_hess.set_param(&capsule->ext_cost_0_fun_jac_hess, p);
-            
-            
-        }
-        else // 0 < stage < N
-        {
-            capsule->ext_cost_fun[stage-1].set_param(capsule->ext_cost_fun+stage-1, p);
-            capsule->ext_cost_fun_jac[stage-1].set_param(capsule->ext_cost_fun_jac+stage-1, p);
-            capsule->ext_cost_fun_jac_hess[stage-1].set_param(capsule->ext_cost_fun_jac_hess+stage-1, p);
-            
-            
-        }
-    }
-
-    else // stage == N
-    {
-        // terminal shooting node has no dynamics
-        // cost
-        capsule->ext_cost_e_fun.set_param(&capsule->ext_cost_e_fun, p);
-        capsule->ext_cost_e_fun_jac.set_param(&capsule->ext_cost_e_fun_jac, p);
-        capsule->ext_cost_e_fun_jac_hess.set_param(&capsule->ext_cost_e_fun_jac_hess, p);
-        
-        
-        // constraints
-    }
+    ocp_nlp_in_set(capsule->nlp_config, capsule->nlp_dims, capsule->nlp_in, stage, "parameter_values", p);
 
     return solver_status;
 }
@@ -965,73 +931,11 @@ int mock_acados_solver_acados_update_params(mock_acados_solver_solver_capsule* c
 
 int mock_acados_solver_acados_update_params_sparse(mock_acados_solver_solver_capsule * capsule, int stage, int *idx, double *p, int n_update)
 {
-    int solver_status = 0;
+    ocp_nlp_in_set_params_sparse(capsule->nlp_config, capsule->nlp_dims, capsule->nlp_in, stage, idx, p, n_update);
 
-    int casadi_np = 2;
-    if (casadi_np < n_update) {
-        printf("mock_acados_solver_acados_update_params_sparse: trying to set %d parameters for external functions."
-            " External function has %d parameters. Exiting.\n", n_update, casadi_np);
-        exit(1);
-    }
-    // for (int i = 0; i < n_update; i++)
-    // {
-    //     if (idx[i] > casadi_np) {
-    //         printf("mock_acados_solver_acados_update_params_sparse: attempt to set parameters with index %d, while"
-    //             " external functions only has %d parameters. Exiting.\n", idx[i], casadi_np);
-    //         exit(1);
-    //     }
-    //     printf("param %d value %e\n", idx[i], p[i]);
-    // }
-    const int N = capsule->nlp_solver_plan->N;
-    if (stage < N && stage >= 0)
-    {
-        capsule->impl_dae_fun[stage].set_param_sparse(capsule->impl_dae_fun+stage, n_update, idx, p);
-        capsule->impl_dae_fun_jac_x_xdot_z[stage].set_param_sparse(capsule->impl_dae_fun_jac_x_xdot_z+stage, n_update, idx, p);
-        capsule->impl_dae_jac_x_xdot_u_z[stage].set_param_sparse(capsule->impl_dae_jac_x_xdot_u_z+stage, n_update, idx, p);
-        capsule->impl_dae_hess[stage].set_param_sparse(capsule->impl_dae_hess+stage, n_update, idx, p);
-
-        // constraints
-        if (stage == 0)
-        {
-        }
-        else
-        {
-        }
-
-        // cost
-        if (stage == 0)
-        {
-            capsule->ext_cost_0_fun.set_param_sparse(&capsule->ext_cost_0_fun, n_update, idx, p);
-            capsule->ext_cost_0_fun_jac.set_param_sparse(&capsule->ext_cost_0_fun_jac, n_update, idx, p);
-            capsule->ext_cost_0_fun_jac_hess.set_param_sparse(&capsule->ext_cost_0_fun_jac_hess, n_update, idx, p);
-            
-            
-        }
-        else // 0 < stage < N
-        {
-            capsule->ext_cost_fun[stage-1].set_param_sparse(capsule->ext_cost_fun+stage-1, n_update, idx, p);
-            capsule->ext_cost_fun_jac[stage-1].set_param_sparse(capsule->ext_cost_fun_jac+stage-1, n_update, idx, p);
-            capsule->ext_cost_fun_jac_hess[stage-1].set_param_sparse(capsule->ext_cost_fun_jac_hess+stage-1, n_update, idx, p);
-            
-            
-        }
-    }
-
-    else // stage == N
-    {
-        // terminal shooting node has no dynamics
-        // cost
-        capsule->ext_cost_e_fun.set_param_sparse(&capsule->ext_cost_e_fun, n_update, idx, p);
-        capsule->ext_cost_e_fun_jac.set_param_sparse(&capsule->ext_cost_e_fun_jac, n_update, idx, p);
-        capsule->ext_cost_e_fun_jac_hess.set_param_sparse(&capsule->ext_cost_e_fun_jac_hess, n_update, idx, p);
-        
-        
-        // constraints
-    }
-
-
-    return solver_status;
+    return 0;
 }
+
 
 int mock_acados_solver_acados_solve(mock_acados_solver_solver_capsule* capsule)
 {
@@ -1039,6 +943,19 @@ int mock_acados_solver_acados_solve(mock_acados_solver_solver_capsule* capsule)
     int solver_status = ocp_nlp_solve(capsule->nlp_solver, capsule->nlp_in, capsule->nlp_out);
 
     return solver_status;
+}
+
+
+void mock_acados_solver_acados_batch_solve(mock_acados_solver_solver_capsule ** capsules, int N_batch)
+{
+
+    for (int i = 0; i < N_batch; i++)
+    {
+        ocp_nlp_solve(capsules[i]->nlp_solver, capsules[i]->nlp_in, capsules[i]->nlp_out);
+    }
+
+
+    return;
 }
 
 
@@ -1060,10 +977,10 @@ int mock_acados_solver_acados_free(mock_acados_solver_solver_capsule* capsule)
     // dynamics
     for (int i = 0; i < N; i++)
     {
-        external_function_param_casadi_free(&capsule->impl_dae_fun[i]);
-        external_function_param_casadi_free(&capsule->impl_dae_fun_jac_x_xdot_z[i]);
-        external_function_param_casadi_free(&capsule->impl_dae_jac_x_xdot_u_z[i]);
-        external_function_param_casadi_free(&capsule->impl_dae_hess[i]);
+        external_function_external_param_casadi_free(&capsule->impl_dae_fun[i]);
+        external_function_external_param_casadi_free(&capsule->impl_dae_fun_jac_x_xdot_z[i]);
+        external_function_external_param_casadi_free(&capsule->impl_dae_jac_x_xdot_u_z[i]);
+        external_function_external_param_casadi_free(&capsule->impl_dae_hess[i]);
     }
     free(capsule->impl_dae_fun);
     free(capsule->impl_dae_fun_jac_x_xdot_z);
@@ -1071,25 +988,25 @@ int mock_acados_solver_acados_free(mock_acados_solver_solver_capsule* capsule)
     free(capsule->impl_dae_hess);
 
     // cost
-    external_function_param_casadi_free(&capsule->ext_cost_0_fun);
-    external_function_param_casadi_free(&capsule->ext_cost_0_fun_jac);
-    external_function_param_casadi_free(&capsule->ext_cost_0_fun_jac_hess);
+    external_function_external_param_casadi_free(&capsule->ext_cost_0_fun);
+    external_function_external_param_casadi_free(&capsule->ext_cost_0_fun_jac);
+    external_function_external_param_casadi_free(&capsule->ext_cost_0_fun_jac_hess);
     
     
     for (int i = 0; i < N - 1; i++)
     {
-        external_function_param_casadi_free(&capsule->ext_cost_fun[i]);
-        external_function_param_casadi_free(&capsule->ext_cost_fun_jac[i]);
-        external_function_param_casadi_free(&capsule->ext_cost_fun_jac_hess[i]);
+        external_function_external_param_casadi_free(&capsule->ext_cost_fun[i]);
+        external_function_external_param_casadi_free(&capsule->ext_cost_fun_jac[i]);
+        external_function_external_param_casadi_free(&capsule->ext_cost_fun_jac_hess[i]);
         
         
     }
     free(capsule->ext_cost_fun);
     free(capsule->ext_cost_fun_jac);
     free(capsule->ext_cost_fun_jac_hess);
-    external_function_param_casadi_free(&capsule->ext_cost_e_fun);
-    external_function_param_casadi_free(&capsule->ext_cost_e_fun_jac);
-    external_function_param_casadi_free(&capsule->ext_cost_e_fun_jac_hess);
+    external_function_external_param_casadi_free(&capsule->ext_cost_e_fun);
+    external_function_external_param_casadi_free(&capsule->ext_cost_e_fun_jac);
+    external_function_external_param_casadi_free(&capsule->ext_cost_e_fun_jac_hess);
     
     
 
@@ -1101,8 +1018,8 @@ int mock_acados_solver_acados_free(mock_acados_solver_solver_capsule* capsule)
 
 void mock_acados_solver_acados_print_stats(mock_acados_solver_solver_capsule* capsule)
 {
-    int sqp_iter, stat_m, stat_n, tmp_int;
-    ocp_nlp_get(capsule->nlp_config, capsule->nlp_solver, "sqp_iter", &sqp_iter);
+    int nlp_iter, stat_m, stat_n, tmp_int;
+    ocp_nlp_get(capsule->nlp_config, capsule->nlp_solver, "nlp_iter", &nlp_iter);
     ocp_nlp_get(capsule->nlp_config, capsule->nlp_solver, "stat_n", &stat_n);
     ocp_nlp_get(capsule->nlp_config, capsule->nlp_solver, "stat_m", &stat_m);
 
@@ -1110,13 +1027,13 @@ void mock_acados_solver_acados_print_stats(mock_acados_solver_solver_capsule* ca
     double stat[1200];
     ocp_nlp_get(capsule->nlp_config, capsule->nlp_solver, "statistics", stat);
 
-    int nrow = sqp_iter+1 < stat_m ? sqp_iter+1 : stat_m;
+    int nrow = nlp_iter+1 < stat_m ? nlp_iter+1 : stat_m;
+
 
     printf("iter\tres_stat\tres_eq\t\tres_ineq\tres_comp\tqp_stat\tqp_iter\talpha");
     if (stat_n > 8)
         printf("\t\tqp_res_stat\tqp_res_eq\tqp_res_ineq\tqp_res_comp");
     printf("\n");
-
     for (int i = 0; i < nrow; i++)
     {
         for (int j = 0; j < stat_n + 1; j++)
@@ -1133,7 +1050,6 @@ void mock_acados_solver_acados_print_stats(mock_acados_solver_solver_capsule* ca
         }
         printf("\n");
     }
-
 }
 
 int mock_acados_solver_acados_custom_update(mock_acados_solver_solver_capsule* capsule, double* data, int data_len)

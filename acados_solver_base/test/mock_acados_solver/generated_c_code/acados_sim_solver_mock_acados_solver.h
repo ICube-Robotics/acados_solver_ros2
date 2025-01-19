@@ -80,6 +80,7 @@ typedef struct mock_acados_solver_sim_solver_capsule
 
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_create(mock_acados_solver_sim_solver_capsule *capsule);
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_solve(mock_acados_solver_sim_solver_capsule *capsule);
+ACADOS_SYMBOL_EXPORT void mock_acados_solver_acados_sim_batch_solve(mock_acados_solver_sim_solver_capsule **capsules, int N_batch);
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_free(mock_acados_solver_sim_solver_capsule *capsule);
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_sim_update_params(mock_acados_solver_sim_solver_capsule *capsule, double *value, int np);
 
