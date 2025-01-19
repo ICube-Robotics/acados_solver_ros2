@@ -1,6 +1,15 @@
 
 # Change Log
 
+## [0.2.2] - 2025-01-19
+
+### Added
+
+### Changed
+
+- Acados vendor ros2 v0.3.2 -> v0.3.6
+- Update tests
+
 ## [0.2.1] - 2024-04-24
 
 ### Added
