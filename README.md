@@ -1,7 +1,10 @@
 # acados_solver_ros2
 
 [![Licence](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![CI](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci.yml/badge.svg)](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci.yml)
+
+[![CI (humble)](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci-humble.yml/badge.svg?branch=main)](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci-humble.yml)
+[![CI (jazzy)](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci-jazzy.yaml/badge.svg?branch=main)](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci-jazzy.yaml)
+[![CI (rolling)](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci-rolling.yaml/badge.svg)](https://github.com/ICube-Robotics/acados_solver_ros2/actions/workflows/ci-rolling.yaml)
 
 ## About ##
 
