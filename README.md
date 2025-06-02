@@ -30,7 +30,7 @@ rosdep install --ignore-src --from-paths . -y -r
 pip install future-fstrings  # Python retro-compatibility
 
 cd ..
-colcon build && colcon build
+colcon build
 source install/setup.bash
 ```
 
