@@ -166,7 +166,6 @@ It should be noted that we use a nonlinear cost function, but a linear cost coul
     # Create an Acados OCP
     ocp = AcadosOcp()
     ocp.model = model
-    ocp.dims.N = N
 
     # Declare extra parameters to use in the cost function
     sym_p_ref = ca.SX.sym('p_ref', 2)
@@ -232,6 +231,7 @@ It should be noted that we use a nonlinear cost function, but a linear cost coul
     ocp.constraints.idxbx_e = ocp.constraints.idxbx
 
     # Set solver options
+    ocp.solver_options.N_horizon = N  # number of shooting nodes
     ocp.solver_options.tf = N * Ts  # prediction horizon in seconds
     ocp.solver_options.nlp_solver_type = 'SQP_RTI'
     ocp.solver_options.integrator_type = 'IRK'  # use implicit DAE model

@@ -73,8 +73,7 @@ def export_pendulum_cart_acados_ocp():
     ocp.model = model
     Tf = 1.0
     N = 20
-    # set dimensions
-    ocp.dims.N = N
+
     # set parameters
     M_value = 1.0
     m_value = 0.1
@@ -106,6 +105,7 @@ def export_pendulum_cart_acados_ocp():
     ocp.constraints.idxbx_e = ocp.constraints.idxbx
 
     # set options
+    ocp.solver_options.N_horizon = N
     ocp.solver_options.qp_solver = 'PARTIAL_CONDENSING_HPIPM'
     ocp.solver_options.hessian_approx = 'EXACT'
     ocp.solver_options.integrator_type = 'IRK'
