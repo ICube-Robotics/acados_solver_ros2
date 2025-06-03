@@ -46,7 +46,7 @@ source install/setup.bash
 > The recommended way to set this option when using rosdep is to set the environment variable
 > `PIP_BREAK_SYSTEM_PACKAGES=1` before calling `rosdep` or `pip install`.
 >
-> Otherwise, you might get the following error:
+> Otherwise, you will get the following error:
 > ```bash
 > ERROR: the following rosdeps failed to install
 >   pip:
