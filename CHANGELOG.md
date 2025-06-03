@@ -1,6 +1,18 @@
 
 # Change Log
 
+## [0.3.0] - 2025-06-03
+
+### Added
+
+### Changed
+
+- Acados vendor ros2 v0.3.6 -> v0.4.0
+- Comply with Acados Python API breaking changes:
+  * `AcadosSimOpts` becomes `AcadosSimOptions`
+  * `dims.N` is obsolete, now using `AcadosOcp.solver_options.N_horion`
+- Update testing generated C-code
+
 ## [0.2.2] - 2025-01-19
 
 ### Added

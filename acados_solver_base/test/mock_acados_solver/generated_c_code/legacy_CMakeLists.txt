@@ -35,6 +35,7 @@ cmake_minimum_required(VERSION 3.13)
 project(mock_acados_solver)
 
 # build options.
+
 option(BUILD_ACADOS_SOLVER_LIB "Should the solver library acados_solver_mock_acados_solver be build?" OFF)
 option(BUILD_ACADOS_OCP_SOLVER_LIB "Should the OCP solver library acados_ocp_solver_mock_acados_solver be build?" OFF)
 option(BUILD_EXAMPLE "Should the example main_mock_acados_solver be build?" OFF)
@@ -54,9 +55,9 @@ endif()
 
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE /home/tpo/dev/ros2_workspaces/ws_nmpic_icube/external/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE /home/tpo/dev/ros2_workspaces/ws_nmpic_icube/external/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE /home/tpo/dev/ros2_workspaces/ws_nmpic_icube/external/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins/src/plugins/mock_acados_solver/generated_c_code)
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins/src/plugins/mock_acados_solver/generated_c_code)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins/src/plugins/mock_acados_solver/generated_c_code)
 endif()
 
 
@@ -73,6 +74,8 @@ set(MODEL_SRC
     mock_acados_solver_model/mock_acados_solver_impl_dae_hess.c
 )
 add_library(${MODEL_OBJ} OBJECT ${MODEL_SRC} )
+
+
 
 # optimal control problem - mostly CasADi exports
 if(${BUILD_ACADOS_SOLVER_LIB} OR ${BUILD_ACADOS_OCP_SOLVER_LIB} OR ${BUILD_EXAMPLE})
@@ -92,7 +95,8 @@ if(${BUILD_ACADOS_SOLVER_LIB} OR ${BUILD_ACADOS_OCP_SOLVER_LIB} OR ${BUILD_EXAMP
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_e_fun_jac_hess.c
         
         
-        acados_solver_mock_acados_solver.c)
+        acados_solver_mock_acados_solver.c
+    )
     add_library(${OCP_OBJ} OBJECT ${OCP_SRC})
 endif()
 # for sim solver
@@ -101,7 +105,6 @@ if(${BUILD_ACADOS_SOLVER_LIB} OR ${BUILD_EXAMPLE}
     set(SIM_SRC acados_sim_solver_mock_acados_solver.c)
     add_library(${SIM_OBJ} OBJECT ${SIM_SRC})
 endif()
-
 # for target example
 set(EX_SRC main_mock_acados_solver.c)
 set(EX_EXE main_mock_acados_solver)
@@ -109,8 +112,8 @@ set(EXTERNAL_DIR)
 set(EXTERNAL_LIB)
 
 # set some search paths for preprocessor and linker
-set(ACADOS_INCLUDE_PATH /home/tpo/dev/ros2_workspaces/ws_nmpic_icube/install/acados_vendor_ros2/opt/acados_vendor_ros2/include CACHE PATH "Define the path which contains the include directory for acados.")
-set(ACADOS_LIB_PATH /home/tpo/dev/ros2_workspaces/ws_nmpic_icube/install/acados_vendor_ros2/opt/acados_vendor_ros2/lib CACHE PATH "Define the path which contains the lib directory for acados.")
+set(ACADOS_INCLUDE_PATH /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/install/acados_vendor_ros2/opt/acados_vendor_ros2/include CACHE PATH "Define the path which contains the include directory for acados.")
+set(ACADOS_LIB_PATH /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/install/acados_vendor_ros2/opt/acados_vendor_ros2/lib CACHE PATH "Define the path which contains the lib directory for acados.")
 
 # c-compiler flags for debugging
 set(CMAKE_C_FLAGS_DEBUG "-O0 -ggdb")
@@ -136,7 +139,6 @@ else()
 endif()
 
 # the targets
-
 # bundled_shared_lib
 if(${BUILD_ACADOS_SOLVER_LIB})
     set(LIB_ACADOS_SOLVER acados_solver_mock_acados_solver)
