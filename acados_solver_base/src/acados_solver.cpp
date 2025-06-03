@@ -258,7 +258,13 @@ int AcadosSolver::initialize_state_values(unsigned int stage, ValueVector & x_i)
       "Error in 'AcadosSolver::initialize_state_values()': Invalid stage request!";
     throw std::range_error(err_msg);
   }
-  ocp_nlp_out_set(get_nlp_config(), get_nlp_dims(), get_nlp_out(), stage, "x", x_i.data());
+  ocp_nlp_out_set(
+    get_nlp_config(),
+    get_nlp_dims(),
+    get_nlp_out(),
+    get_nlp_in(),
+    stage, "x", x_i.data()
+  );
   return 0;
 }
 
@@ -307,7 +313,13 @@ int AcadosSolver::initialize_control_values(unsigned int stage, ValueVector & u_
       "Error in 'AcadosSolver::initialize_control_values()': Invalid stage request!";
     throw std::range_error(err_msg);
   }
-  ocp_nlp_out_set(get_nlp_config(), get_nlp_dims(), get_nlp_out(), stage, "u", u_i.data());
+  ocp_nlp_out_set(
+    get_nlp_config(),
+    get_nlp_dims(),
+    get_nlp_out(),
+    get_nlp_in(),
+    stage, "u", u_i.data()
+  );
   return 0;
 }
 int AcadosSolver::initialize_control_values(unsigned int stage, ValueMap const & u_i_map)
