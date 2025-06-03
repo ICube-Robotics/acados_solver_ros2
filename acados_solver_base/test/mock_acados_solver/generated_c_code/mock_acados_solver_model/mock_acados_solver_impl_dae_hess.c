@@ -35,6 +35,7 @@ extern "C" {
 #define casadi_s2 CASADI_PREFIX(s2)
 #define casadi_s3 CASADI_PREFIX(s3)
 #define casadi_s4 CASADI_PREFIX(s4)
+#define casadi_s5 CASADI_PREFIX(s5)
 
 /* Symbol visibility in DLLs */
 #ifndef CASADI_SYMBOL_EXPORT
@@ -53,14 +54,15 @@ extern "C" {
 
 static const casadi_int casadi_s0[3] = {4, 1, 1};
 static const casadi_int casadi_s1[3] = {1, 1, 1};
-static const casadi_int casadi_s2[3] = {0, 0, 1};
-static const casadi_int casadi_s3[3] = {2, 1, 1};
-static const casadi_int casadi_s4[18] = 
+static const casadi_int casadi_s2[3] = {0, 1, 1};
+static const casadi_int casadi_s3[3] = {0, 0, 1};
+static const casadi_int casadi_s4[3] = {2, 1, 1};
+static const casadi_int casadi_s5[18] = 
   {9, 9, 0, 0, 3, 3, 5, 5,
   5, 5, 5, 6, 1, 3, 8, 1,
   3, 1};
 
-/* mock_acados_solver_impl_dae_hess:(i0[4],i1[4],i2,i3[],i4[4],i5[],i6[2])->(o0[9x9,6nz]) */
+/* mock_acados_solver_impl_dae_hess:(i0[4],i1[4],i2,i3[0],i4[4],i5[],i6[2])->(o0[9x9,6nz]) */
 static int casadi_f0(const casadi_real** arg, casadi_real** res, casadi_int* iw, casadi_real* w, int mem) {
   casadi_real a00, a01, a02, a03, a04, a05, a06, a07, a08, a09, a10, a11;
   casadi_real a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23;
@@ -318,15 +320,15 @@ CASADI_SYMBOL_EXPORT const casadi_int* mock_acados_solver_impl_dae_hess_sparsity
     case 2: return casadi_s1;
     case 3: return casadi_s2;
     case 4: return casadi_s0;
-    case 5: return casadi_s2;
-    case 6: return casadi_s3;
+    case 5: return casadi_s3;
+    case 6: return casadi_s4;
     default: return 0;
   }
 }
 
 CASADI_SYMBOL_EXPORT const casadi_int* mock_acados_solver_impl_dae_hess_sparsity_out(casadi_int i) {
   switch (i) {
-    case 0: return casadi_s4;
+    case 0: return casadi_s5;
     default: return 0;
   }
 }

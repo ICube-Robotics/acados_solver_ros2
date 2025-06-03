@@ -75,6 +75,10 @@ int mock_acados_solver_acados_sim_create(mock_acados_solver_sim_solver_capsule *
 
     double Tsim = 0.05;
 
+    external_function_opts ext_fun_opts;
+    external_function_opts_set_to_default(&ext_fun_opts);
+    ext_fun_opts.external_workspace = false;
+
     
     capsule->sim_impl_dae_fun = (external_function_param_casadi *) malloc(sizeof(external_function_param_casadi));
     capsule->sim_impl_dae_fun_jac_x_xdot_z = (external_function_param_casadi *) malloc(sizeof(external_function_param_casadi));
@@ -86,7 +90,7 @@ int mock_acados_solver_acados_sim_create(mock_acados_solver_sim_solver_capsule *
     capsule->sim_impl_dae_fun->casadi_sparsity_out = &mock_acados_solver_impl_dae_fun_sparsity_out;
     capsule->sim_impl_dae_fun->casadi_n_in = &mock_acados_solver_impl_dae_fun_n_in;
     capsule->sim_impl_dae_fun->casadi_n_out = &mock_acados_solver_impl_dae_fun_n_out;
-    external_function_param_casadi_create(capsule->sim_impl_dae_fun, np);
+    external_function_param_casadi_create(capsule->sim_impl_dae_fun, np, &ext_fun_opts);
 
     capsule->sim_impl_dae_fun_jac_x_xdot_z->casadi_fun = &mock_acados_solver_impl_dae_fun_jac_x_xdot_z;
     capsule->sim_impl_dae_fun_jac_x_xdot_z->casadi_work = &mock_acados_solver_impl_dae_fun_jac_x_xdot_z_work;
@@ -94,25 +98,23 @@ int mock_acados_solver_acados_sim_create(mock_acados_solver_sim_solver_capsule *
     capsule->sim_impl_dae_fun_jac_x_xdot_z->casadi_sparsity_out = &mock_acados_solver_impl_dae_fun_jac_x_xdot_z_sparsity_out;
     capsule->sim_impl_dae_fun_jac_x_xdot_z->casadi_n_in = &mock_acados_solver_impl_dae_fun_jac_x_xdot_z_n_in;
     capsule->sim_impl_dae_fun_jac_x_xdot_z->casadi_n_out = &mock_acados_solver_impl_dae_fun_jac_x_xdot_z_n_out;
-    external_function_param_casadi_create(capsule->sim_impl_dae_fun_jac_x_xdot_z, np);
+    external_function_param_casadi_create(capsule->sim_impl_dae_fun_jac_x_xdot_z, np, &ext_fun_opts);
 
-    // external_function_param_casadi impl_dae_jac_x_xdot_u_z;
     capsule->sim_impl_dae_jac_x_xdot_u_z->casadi_fun = &mock_acados_solver_impl_dae_jac_x_xdot_u_z;
     capsule->sim_impl_dae_jac_x_xdot_u_z->casadi_work = &mock_acados_solver_impl_dae_jac_x_xdot_u_z_work;
     capsule->sim_impl_dae_jac_x_xdot_u_z->casadi_sparsity_in = &mock_acados_solver_impl_dae_jac_x_xdot_u_z_sparsity_in;
     capsule->sim_impl_dae_jac_x_xdot_u_z->casadi_sparsity_out = &mock_acados_solver_impl_dae_jac_x_xdot_u_z_sparsity_out;
     capsule->sim_impl_dae_jac_x_xdot_u_z->casadi_n_in = &mock_acados_solver_impl_dae_jac_x_xdot_u_z_n_in;
     capsule->sim_impl_dae_jac_x_xdot_u_z->casadi_n_out = &mock_acados_solver_impl_dae_jac_x_xdot_u_z_n_out;
-    external_function_param_casadi_create(capsule->sim_impl_dae_jac_x_xdot_u_z, np);
+    external_function_param_casadi_create(capsule->sim_impl_dae_jac_x_xdot_u_z, np, &ext_fun_opts);
     capsule->sim_impl_dae_hess = (external_function_param_casadi *) malloc(sizeof(external_function_param_casadi));
-    // external_function_param_casadi impl_dae_jac_x_xdot_u_z;
     capsule->sim_impl_dae_hess->casadi_fun = &mock_acados_solver_impl_dae_hess;
     capsule->sim_impl_dae_hess->casadi_work = &mock_acados_solver_impl_dae_hess_work;
     capsule->sim_impl_dae_hess->casadi_sparsity_in = &mock_acados_solver_impl_dae_hess_sparsity_in;
     capsule->sim_impl_dae_hess->casadi_sparsity_out = &mock_acados_solver_impl_dae_hess_sparsity_out;
     capsule->sim_impl_dae_hess->casadi_n_in = &mock_acados_solver_impl_dae_hess_n_in;
     capsule->sim_impl_dae_hess->casadi_n_out = &mock_acados_solver_impl_dae_hess_n_out;
-    external_function_param_casadi_create(capsule->sim_impl_dae_hess, np);
+    external_function_param_casadi_create(capsule->sim_impl_dae_hess, np, &ext_fun_opts);
 
     
 
@@ -172,7 +174,7 @@ int mock_acados_solver_acados_sim_create(mock_acados_solver_sim_solver_capsule *
 
     // sim solver
     sim_solver *mock_acados_solver_sim_solver = sim_solver_create(mock_acados_solver_sim_config,
-                                               mock_acados_solver_sim_dims, mock_acados_solver_sim_opts);
+                                               mock_acados_solver_sim_dims, mock_acados_solver_sim_opts, mock_acados_solver_sim_in);
     capsule->acados_sim_solver = mock_acados_solver_sim_solver;
 
 
@@ -233,17 +235,6 @@ int mock_acados_solver_acados_sim_solve(mock_acados_solver_sim_solver_capsule *c
 }
 
 
-void mock_acados_solver_acados_sim_batch_solve(mock_acados_solver_sim_solver_capsule ** capsules, int N_batch)
-{
-
-    for (int i = 0; i < N_batch; i++)
-    {
-        sim_solve(capsules[i]->acados_sim_solver, capsules[i]->acados_sim_in, capsules[i]->acados_sim_out);
-    }
-
-
-    return;
-}
 
 
 int mock_acados_solver_acados_sim_free(mock_acados_solver_sim_solver_capsule *capsule)

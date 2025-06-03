@@ -40,12 +40,13 @@
 #include "acados_solver_mock_acados_solver.h"
 
 // blasfeo
-#include "blasfeo/include/blasfeo_d_aux_ext_dep.h"
+#include "blasfeo_d_aux_ext_dep.h"
 
 #define NX     MOCK_ACADOS_SOLVER_NX
 #define NP     MOCK_ACADOS_SOLVER_NP
 #define NU     MOCK_ACADOS_SOLVER_NU
 #define NBX0   MOCK_ACADOS_SOLVER_NBX0
+#define NP_GLOBAL   MOCK_ACADOS_SOLVER_NP_GLOBAL
 
 
 int main()
@@ -83,8 +84,8 @@ int main()
     lbx0[3] = 0;
     ubx0[3] = 0;
 
-    ocp_nlp_constraints_model_set(nlp_config, nlp_dims, nlp_in, 0, "lbx", lbx0);
-    ocp_nlp_constraints_model_set(nlp_config, nlp_dims, nlp_in, 0, "ubx", ubx0);
+    ocp_nlp_constraints_model_set(nlp_config, nlp_dims, nlp_in, nlp_out, 0, "lbx", lbx0);
+    ocp_nlp_constraints_model_set(nlp_config, nlp_dims, nlp_in, nlp_out, 0, "ubx", ubx0);
 
     // initialization for state values
     double x_init[NX];
@@ -108,20 +109,17 @@ int main()
     double utraj[NU * N];
 
     // solve ocp in loop
-    int rti_phase = 0;
-
     for (int ii = 0; ii < NTIMINGS; ii++)
     {
         // initialize solution
         for (int i = 0; i < N; i++)
         {
-            ocp_nlp_out_set(nlp_config, nlp_dims, nlp_out, i, "x", x_init);
-            ocp_nlp_out_set(nlp_config, nlp_dims, nlp_out, i, "u", u0);
+            ocp_nlp_out_set(nlp_config, nlp_dims, nlp_out, nlp_in, i, "x", x_init);
+            ocp_nlp_out_set(nlp_config, nlp_dims, nlp_out, nlp_in, i, "u", u0);
         }
-        ocp_nlp_out_set(nlp_config, nlp_dims, nlp_out, N, "x", x_init);
-        ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "rti_phase", &rti_phase);
+        ocp_nlp_out_set(nlp_config, nlp_dims, nlp_out, nlp_in, N, "x", x_init);
         status = mock_acados_solver_acados_solve(acados_ocp_capsule);
-        ocp_nlp_get(nlp_config, nlp_solver, "time_tot", &elapsed_time);
+        ocp_nlp_get(nlp_solver, "time_tot", &elapsed_time);
         min_time = MIN(elapsed_time, min_time);
     }
 
@@ -150,13 +148,15 @@ int main()
 
     // get solution
     ocp_nlp_out_get(nlp_config, nlp_dims, nlp_out, 0, "kkt_norm_inf", &kkt_norm_inf);
-    ocp_nlp_get(nlp_config, nlp_solver, "sqp_iter", &sqp_iter);
+    ocp_nlp_get(nlp_solver, "sqp_iter", &sqp_iter);
 
     mock_acados_solver_acados_print_stats(acados_ocp_capsule);
 
     printf("\nSolver info:\n");
     printf(" SQP iterations %2d\n minimum time for %d solve %f [ms]\n KKT %e\n",
            sqp_iter, NTIMINGS, min_time*1000, kkt_norm_inf);
+
+
 
     // free solver
     status = mock_acados_solver_acados_free(acados_ocp_capsule);
