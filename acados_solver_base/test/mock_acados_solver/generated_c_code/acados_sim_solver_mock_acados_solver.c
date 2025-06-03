@@ -73,7 +73,6 @@ int mock_acados_solver_acados_sim_create(mock_acados_solver_sim_solver_capsule *
     const int np = MOCK_ACADOS_SOLVER_NP;
     bool tmp_bool;
 
-    
     double Tsim = 0.05;
 
     
@@ -138,7 +137,7 @@ int mock_acados_solver_acados_sim_create(mock_acados_solver_sim_solver_capsule *
     capsule->acados_sim_opts = mock_acados_solver_sim_opts;
     int tmp_int = 3;
     sim_opts_set(mock_acados_solver_sim_config, mock_acados_solver_sim_opts, "newton_iter", &tmp_int);
-    double tmp_double = 0.0;
+    double tmp_double = 0;
     sim_opts_set(mock_acados_solver_sim_config, mock_acados_solver_sim_opts, "newton_tol", &tmp_double);
     sim_collocation_type collocation_type = GAUSS_LEGENDRE;
     sim_opts_set(mock_acados_solver_sim_config, mock_acados_solver_sim_opts, "collocation_type", &collocation_type);
@@ -180,7 +179,7 @@ int mock_acados_solver_acados_sim_create(mock_acados_solver_sim_solver_capsule *
     /* initialize parameter values */
     double* p = calloc(np, sizeof(double));
     
-    p[0] = 1.0;
+    p[0] = 1;
     p[1] = 0.1;
 
     mock_acados_solver_acados_sim_update_params(capsule, p, np);

@@ -1,7 +1,8 @@
 {
-    "acados_include_path": "/home/tpo/dev/ros2_workspaces/ws_nmpic_icube/install/acados_vendor_ros2/opt/acados_vendor_ros2/include",
-    "acados_lib_path": "/home/tpo/dev/ros2_workspaces/ws_nmpic_icube/install/acados_vendor_ros2/opt/acados_vendor_ros2/lib",
-    "code_export_directory": "/home/tpo/dev/ros2_workspaces/ws_nmpic_icube/external/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code",
+    "acados_include_path": "/home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/install/acados_vendor_ros2/opt/acados_vendor_ros2/include",
+    "acados_lib_path": "/home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/install/acados_vendor_ros2/opt/acados_vendor_ros2/lib",
+    "casadi_pool_names": [],
+    "code_export_directory": "/home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins/src/plugins/mock_acados_solver/generated_c_code",
     "constraints": {
         "C": [],
         "C_e": [],
@@ -167,6 +168,7 @@
         "nh_0": 0,
         "nh_e": 0,
         "np": 2,
+        "np_global": 0,
         "nphi": 0,
         "nphi_0": 0,
         "nphi_e": 0,
@@ -194,7 +196,7 @@
         "ny_e": 0,
         "nz": 0
     },
-    "json_file": "/home/tpo/dev/ros2_workspaces/ws_nmpic_icube/external/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/acados_ocp_mock_acados_solver.json",
+    "json_file": "/home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins/src/plugins/mock_acados_solver/acados_ocp_mock_acados_solver.json",
     "model": {
         "con_h_expr": null,
         "con_h_expr_0": null,
@@ -237,13 +239,12 @@
         "dyn_impl_dae_jac": null,
         "f_expl_expr": "jhpnnagiieahaaaadaaaaaaaaaaaaaaaaaegiaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaacaaaaaaaaaaaaaaadaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaacaaaaaaaghbdegpcaaaaaaaaaaaaaagaaaaaaaegehigfgehbgegeaaaaaaaaaaaaaaaegbaaaaaaaaaaaaaaaegcaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegmcaaaaaaaaaaaaaachpbfilobfilojdcaeegpcaaaaaaaaaaaaaabaaaaaaangegoaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaafaaaaaaaehigfgehbgegnaaaaaaaaaaaaaaachgaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegmcaaaaaaaaaaaaaachkjjjjjjjjjjjjopdcheaaaaaaaaaaaaaaachjaaaaaaaaaaaaaaachcaaaaaaaaaaaaaaachcaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaabaaaaaaageegcaaaaaaaaaaaaaaaegbaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaabaaaaaaanecheaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaacheaaaaaaaaaaaaaaachhaaaaaaaaaaaaaaachhaaaaaaaaaaaaaaaegeaaaaaaaaaaaaaaaegbaaaaaaaaaaaaaaaegcaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaachbbaaaaaaaaaaaaaachhaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaachlaaaaaaaaaaaaaaacheaaaaaaaaaaaaaaachhaaaaaaaaaaaaaaachjaaaaaaaaaaaaaaachcaaaaaaaaaaaaaaachcaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaachdaaaaaaaaaaaaaaaegbaaaaaaaaaaaaaaachdbaaaaaaaaaaaaaacheaaaaaaaaaaaaaaachjaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaachlaaaaaaaaaaaaaaachhbaaaaaaaaaaaaaa",
         "f_impl_expr": "jhpnnagiieahaaaadaaaaaaaaaaaaaaaaaegiaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaacaaaaaaaaaaaaaaadaaaaaaaaaaaaaaaeaaaaaaaaaaaaaaaegcaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaagaaaaaaaihbdpfegpgehegpcaaaaaaaaaaaaaacaaaaaaaghbdegcaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaajaaaaaaaehigfgehbgpfegpgehegpcaaaaaaaaaaaaaagaaaaaaaegehigfgehbgegcaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaagaaaaaaaghbdpfegpgehegeaaaaaaaaaaaaaaaegbaaaaaaaaaaaaaaaegcaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegmcaaaaaaaaaaaaaachpbfilobfilojdcaeegpcaaaaaaaaaaaaaabaaaaaaangegoaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaafaaaaaaaehigfgehbgegnaaaaaaaaaaaaaaachlaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegmcaaaaaaaaaaaaaachkjjjjjjjjjjjjopdchjaaaaaaaaaaaaaaachoaaaaaaaaaaaaaaachfaaaaaaaaaaaaaaachfaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaabaaaaaaageegcaaaaaaaaaaaaaaaegbaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaabaaaaaaanechjaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaachjaaaaaaaaaaaaaaachmaaaaaaaaaaaaaaachmaaaaaaaaaaaaaaaegcaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaakaaaaaaaegehigfgehbgpfegpgehegeaaaaaaaaaaaaaaaegbaaaaaaaaaaaaaaaegcaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaachgbaaaaaaaaaaaaaachmaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaachabaaaaaaaaaaaaaachjaaaaaaaaaaaaaaachmaaaaaaaaaaaaaaachoaaaaaaaaaaaaaaachfaaaaaaaaaaaaaaachfaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaachiaaaaaaaaaaaaaaaegbaaaaaaaaaaaaaaachibaaaaaaaaaaaaaachjaaaaaaaaaaaaaaachoaaaaaaaaaaaaaaaegdaaaaaaaaaaaaaaachabaaaaaaaaaaaaaachmbaaaaaaaaaaaaaa",
-        "gnsf": {
-            "nontrivial_f_LO": 1,
-            "purely_linear": 0
-        },
+        "gnsf_nontrivial_f_LO": 1,
+        "gnsf_purely_linear": 0,
         "name": "mock_acados_solver",
         "nu_original": null,
         "p": "jhpnnagiieahaaaadaaaaaaaaaaaaaaaaaeggaaaaaaaaaaaaaaacaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaacaaaaaaaaaaaaaaaegpcaaaaaaaaaaaaaabaaaaaaaneegpcaaaaaaaaaaaaaabaaaaaaang",
+        "p_global": null,
         "t": [],
         "t0": null,
         "t_label": "t",
@@ -263,6 +264,7 @@
     "shared_lib_ext": ".so",
     "simulink_opts": null,
     "solver_options": {
+        "N_horizon": 20,
         "Tsim": 0.05,
         "adaptive_levenberg_marquardt_lam": 5.0,
         "adaptive_levenberg_marquardt_mu0": 0.001,
@@ -319,6 +321,7 @@
         "qp_solver_cond_block_size": null,
         "qp_solver_cond_ric_alg": 1,
         "qp_solver_iter_max": 50,
+        "qp_solver_mu0": 0.0,
         "qp_solver_ric_alg": 1,
         "qp_solver_tol_comp": null,
         "qp_solver_tol_eq": null,

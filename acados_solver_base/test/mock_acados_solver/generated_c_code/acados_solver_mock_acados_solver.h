@@ -94,6 +94,7 @@ typedef struct mock_acados_solver_solver_capsule
     unsigned int nlp_np;
 
     /* external functions */
+
     // dynamics
 
     external_function_external_param_casadi *impl_dae_fun;
@@ -161,6 +162,7 @@ ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_time_steps(mock_acados
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_qp_solver_cond_N(mock_acados_solver_solver_capsule * capsule, int qp_solver_cond_N);
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_params(mock_acados_solver_solver_capsule * capsule, int stage, double *value, int np);
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_params_sparse(mock_acados_solver_solver_capsule * capsule, int stage, int *idx, double *p, int n_update);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_set_p_global_and_precompute_dependencies(mock_acados_solver_solver_capsule* capsule, double* data, int data_len);
 
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_solve(mock_acados_solver_solver_capsule * capsule);
 ACADOS_SYMBOL_EXPORT void mock_acados_solver_acados_batch_solve(mock_acados_solver_solver_capsule ** capsules, int N_batch);

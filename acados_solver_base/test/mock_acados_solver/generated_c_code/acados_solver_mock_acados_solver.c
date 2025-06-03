@@ -39,6 +39,8 @@
 
 // example specific
 #include "mock_acados_solver_model/mock_acados_solver_model.h"
+
+
 #include "mock_acados_solver_cost/mock_acados_solver_cost.h"
 
 
@@ -318,6 +320,8 @@ void mock_acados_solver_acados_create_setup_functions(mock_acados_solver_solver_
         capsule->__CAPSULE_FNC__.casadi_work = & __MODEL_BASE_FNC__ ## _work; \
         external_function_external_param_casadi_create(&capsule->__CAPSULE_FNC__ ); \
     } while(false)
+
+
     // external cost
     MAP_CASADI_FNC(ext_cost_0_fun, mock_acados_solver_cost_ext_cost_0_fun);
     MAP_CASADI_FNC(ext_cost_0_fun_jac, mock_acados_solver_cost_ext_cost_0_fun_jac);
@@ -397,7 +401,7 @@ void mock_acados_solver_acados_create_set_default_parameters(mock_acados_solver_
     const int N = capsule->nlp_solver_plan->N;
     // initialize parameters to nominal value
     double* p = calloc(NP, sizeof(double));
-    p[0] = 1.0;
+    p[0] = 1;
     p[1] = 0.1;
 
     for (int i = 0; i <= N; i++) {
@@ -661,10 +665,10 @@ int with_solution_sens_wrt_params = false;
     for (int i = 0; i < N; i++)
         ocp_nlp_solver_opts_set_at_stage(nlp_config, nlp_opts, i, "dynamics_jac_reuse", &tmp_bool);
 
-    double nlp_solver_step_length = 1.0;
+    double nlp_solver_step_length = 1;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "step_length", &nlp_solver_step_length);
 
-    double levenberg_marquardt = 0.0;
+    double levenberg_marquardt = 0;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "levenberg_marquardt", &levenberg_marquardt);
 
     /* options QP solver */
@@ -677,23 +681,25 @@ int with_solution_sens_wrt_params = false;
     int log_primal_step_norm = false;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "log_primal_step_norm", &log_primal_step_norm);
 
-    double nlp_solver_tol_min_step_norm = 0.0;
+    double nlp_solver_tol_min_step_norm = 0;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "tol_min_step_norm", &nlp_solver_tol_min_step_norm);
     // set HPIPM mode: should be done before setting other QP solver options
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "qp_hpipm_mode", "BALANCE");
 
 
+
+
     // set SQP specific options
-    double nlp_solver_tol_stat = 1e-6;
+    double nlp_solver_tol_stat = 0.000001;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "tol_stat", &nlp_solver_tol_stat);
 
-    double nlp_solver_tol_eq = 1e-6;
+    double nlp_solver_tol_eq = 0.000001;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "tol_eq", &nlp_solver_tol_eq);
 
-    double nlp_solver_tol_ineq = 1e-6;
+    double nlp_solver_tol_ineq = 0.000001;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "tol_ineq", &nlp_solver_tol_ineq);
 
-    double nlp_solver_tol_comp = 1e-6;
+    double nlp_solver_tol_comp = 0.000001;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "tol_comp", &nlp_solver_tol_comp);
 
     int nlp_solver_max_iter = 100;
@@ -703,10 +709,10 @@ int with_solution_sens_wrt_params = false;
     bool with_adaptive_levenberg_marquardt = false;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "with_adaptive_levenberg_marquardt", &with_adaptive_levenberg_marquardt);
 
-    double adaptive_levenberg_marquardt_lam = 5.0;
+    double adaptive_levenberg_marquardt_lam = 5;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "adaptive_levenberg_marquardt_lam", &adaptive_levenberg_marquardt_lam);
 
-    double adaptive_levenberg_marquardt_mu_min = 1e-16;
+    double adaptive_levenberg_marquardt_mu_min = 0.0000000000000001;
     ocp_nlp_solver_opts_set(nlp_config, nlp_opts, "adaptive_levenberg_marquardt_mu_min", &adaptive_levenberg_marquardt_mu_min);
 
     double adaptive_levenberg_marquardt_mu0 = 0.001;
@@ -937,6 +943,15 @@ int mock_acados_solver_acados_update_params_sparse(mock_acados_solver_solver_cap
 }
 
 
+int mock_acados_solver_acados_set_p_global_and_precompute_dependencies(mock_acados_solver_solver_capsule* capsule, double* data, int data_len)
+{
+
+    printf("p_global is not defined, mock_acados_solver_acados_set_p_global_and_precompute_dependencies does nothing.\n");
+}
+
+
+
+
 int mock_acados_solver_acados_solve(mock_acados_solver_solver_capsule* capsule)
 {
     // solve NLP
@@ -1011,6 +1026,8 @@ int mock_acados_solver_acados_free(mock_acados_solver_solver_capsule* capsule)
     
 
     // constraints
+
+
 
     return 0;
 }
