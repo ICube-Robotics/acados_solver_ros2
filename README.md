@@ -27,11 +27,15 @@ source /opt/ros/humble/setup.bash
 mkdir ~/ros2_ws/src
 cd ~/ros2_ws/src
 git clone https://github.com/ICube-Robotics/acados_solver_ros2.git
+
+# Core dependencies
 vcs import . < acados_solver_ros2/acados_solver_ros2.repos
 rosdep install --ignore-src --from-paths . -y -r
 
-pip install future-fstrings  # Python retro-compatibility
+# Python retro-compatibility
+pip install future-fstrings
 
+# Build ros2 packages
 cd ..
 colcon build
 source install/setup.bash
@@ -39,6 +43,8 @@ source install/setup.bash
 
 > [!NOTE]
 > If you are using ros jazzy or later, you might have to use a virtual environment or the `PIP_BREAK_SYSTEM_PACKAGES` flag.
+> The recommended way to set this option when using rosdep is to set the environment variable
+> `PIP_BREAK_SYSTEM_PACKAGES=1` before calling `rosdep` or `pip install`.
 >
 > Otherwise, you might get the following error:
 > ```bash
@@ -47,8 +53,6 @@ source install/setup.bash
 > rosdep installation of pip packages requires installing packages globally as root.
 > When using Python >= 3.11, PEP 668 compliance requires you to allow pip to install alongside
 > externally managed packages using the 'break-system-packages' option.
-> The recommended way to set this option when using rosdep is to set the environment variable
-> PIP_BREAK_SYSTEM_PACKAGES=1 in your environment.
 > ```
 
 ## Contacts ##
