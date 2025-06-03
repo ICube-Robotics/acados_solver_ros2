@@ -165,6 +165,7 @@ bool utils::set_constraint_field(
     solver.get_nlp_config(),
     solver.get_nlp_dims(),
     solver.get_nlp_in(),
+    solver.get_nlp_out(),
     stage,
     field.c_str(),
     value.derived().data()
@@ -224,7 +225,6 @@ template<typename T>
 void utils::unsafe_get_stats_field(AcadosSolver & solver, const std::string & field, T & value)
 {
   ocp_nlp_get(
-    solver.get_nlp_config(),
     solver.get_nlp_solver(),
     field.c_str(),
     &value
