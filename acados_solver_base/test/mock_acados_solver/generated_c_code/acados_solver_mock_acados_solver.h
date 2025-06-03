@@ -40,6 +40,7 @@
 #define MOCK_ACADOS_SOLVER_NZ     0
 #define MOCK_ACADOS_SOLVER_NU     1
 #define MOCK_ACADOS_SOLVER_NP     2
+#define MOCK_ACADOS_SOLVER_NP_GLOBAL     0
 #define MOCK_ACADOS_SOLVER_NBX    1
 #define MOCK_ACADOS_SOLVER_NBX0   4
 #define MOCK_ACADOS_SOLVER_NBU    1
@@ -165,7 +166,10 @@ ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_update_params_sparse(mock_aca
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_set_p_global_and_precompute_dependencies(mock_acados_solver_solver_capsule* capsule, double* data, int data_len);
 
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_solve(mock_acados_solver_solver_capsule * capsule);
-ACADOS_SYMBOL_EXPORT void mock_acados_solver_acados_batch_solve(mock_acados_solver_solver_capsule ** capsules, int N_batch);
+ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_setup_qp_matrices_and_factorize(mock_acados_solver_solver_capsule* capsule);
+
+
+
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_free(mock_acados_solver_solver_capsule * capsule);
 ACADOS_SYMBOL_EXPORT void mock_acados_solver_acados_print_stats(mock_acados_solver_solver_capsule * capsule);
 ACADOS_SYMBOL_EXPORT int mock_acados_solver_acados_custom_update(mock_acados_solver_solver_capsule* capsule, double* data, int data_len);

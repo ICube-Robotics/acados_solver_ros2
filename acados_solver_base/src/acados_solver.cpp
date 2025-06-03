@@ -161,16 +161,19 @@ int AcadosSolver::set_state_bounds(
     get_nlp_config(),
     get_nlp_dims(),
     get_nlp_in(),
+    get_nlp_out(),
     stage, "idxbx", idxbx.data());
   ocp_nlp_constraints_model_set(
     get_nlp_config(),
     get_nlp_dims(),
     get_nlp_in(),
+    get_nlp_out(),
     stage, "lbx", lbx.data());
   ocp_nlp_constraints_model_set(
     get_nlp_config(),
     get_nlp_dims(),
     get_nlp_in(),
+    get_nlp_out(),
     stage, "ubx", ubx.data());
   return 0;
 }
@@ -213,16 +216,20 @@ int AcadosSolver::set_control_bounds(
     get_nlp_config(),
     get_nlp_dims(),
     get_nlp_in(),
+    get_nlp_out(),
     stage, "idxbu", idxbu.data());
   ocp_nlp_constraints_model_set(
     get_nlp_config(),
     get_nlp_dims(),
     get_nlp_in(),
+    get_nlp_out(),
     stage, "lbu", lbu.data());
   ocp_nlp_constraints_model_set(
     get_nlp_config(),
     get_nlp_dims(),
-    get_nlp_in(), stage, "ubu", ubu.data());
+    get_nlp_in(),
+    get_nlp_out(),
+    stage, "ubu", ubu.data());
   return 0;
 }
 
@@ -251,7 +258,13 @@ int AcadosSolver::initialize_state_values(unsigned int stage, ValueVector & x_i)
       "Error in 'AcadosSolver::initialize_state_values()': Invalid stage request!";
     throw std::range_error(err_msg);
   }
-  ocp_nlp_out_set(get_nlp_config(), get_nlp_dims(), get_nlp_out(), stage, "x", x_i.data());
+  ocp_nlp_out_set(
+    get_nlp_config(),
+    get_nlp_dims(),
+    get_nlp_out(),
+    get_nlp_in(),
+    stage, "x", x_i.data()
+  );
   return 0;
 }
 
@@ -300,7 +313,13 @@ int AcadosSolver::initialize_control_values(unsigned int stage, ValueVector & u_
       "Error in 'AcadosSolver::initialize_control_values()': Invalid stage request!";
     throw std::range_error(err_msg);
   }
-  ocp_nlp_out_set(get_nlp_config(), get_nlp_dims(), get_nlp_out(), stage, "u", u_i.data());
+  ocp_nlp_out_set(
+    get_nlp_config(),
+    get_nlp_dims(),
+    get_nlp_out(),
+    get_nlp_in(),
+    stage, "u", u_i.data()
+  );
   return 0;
 }
 int AcadosSolver::initialize_control_values(unsigned int stage, ValueMap const & u_i_map)

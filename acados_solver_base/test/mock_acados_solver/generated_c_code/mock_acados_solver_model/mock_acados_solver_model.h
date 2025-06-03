@@ -75,7 +75,7 @@ const int *mock_acados_solver_impl_dae_hess_sparsity_in(int);
 const int *mock_acados_solver_impl_dae_hess_sparsity_out(int);
 int mock_acados_solver_impl_dae_hess_n_in(void);
 int mock_acados_solver_impl_dae_hess_n_out(void);
-	
+    
   
 
 

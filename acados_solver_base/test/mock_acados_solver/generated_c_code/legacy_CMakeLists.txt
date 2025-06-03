@@ -55,9 +55,9 @@ endif()
 
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins/src/plugins/mock_acados_solver/generated_c_code)
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins/src/plugins/mock_acados_solver/generated_c_code)
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins/src/plugins/mock_acados_solver/generated_c_code)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
 endif()
 
 
@@ -65,36 +65,31 @@ endif()
 set(MODEL_OBJ model_mock_acados_solver)
 set(OCP_OBJ ocp_mock_acados_solver)
 set(SIM_OBJ sim_mock_acados_solver)
-
 # model
 set(MODEL_SRC
     mock_acados_solver_model/mock_acados_solver_impl_dae_fun.c
     mock_acados_solver_model/mock_acados_solver_impl_dae_fun_jac_x_xdot_z.c
+    mock_acados_solver_model/mock_acados_solver_impl_dae_fun_jac_x_xdot_u_z.c
+    mock_acados_solver_model/mock_acados_solver_impl_dae_fun_jac_x_xdot_u.c
     mock_acados_solver_model/mock_acados_solver_impl_dae_jac_x_xdot_u_z.c
     mock_acados_solver_model/mock_acados_solver_impl_dae_hess.c
 )
 add_library(${MODEL_OBJ} OBJECT ${MODEL_SRC} )
 
 
-
 # optimal control problem - mostly CasADi exports
 if(${BUILD_ACADOS_SOLVER_LIB} OR ${BUILD_ACADOS_OCP_SOLVER_LIB} OR ${BUILD_EXAMPLE})
     set(OCP_SRC
+
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_0_fun.c
-        mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_0_fun_jac.c
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_0_fun_jac_hess.c
-        
-        
+        mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_0_fun_jac.c
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_fun.c
-        mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_fun_jac.c
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_fun_jac_hess.c
-        
-        
+        mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_fun_jac.c
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_e_fun.c
-        mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_e_fun_jac.c
         mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_e_fun_jac_hess.c
-        
-        
+        mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_e_fun_jac.c
         acados_solver_mock_acados_solver.c
     )
     add_library(${OCP_OBJ} OBJECT ${OCP_SRC})
@@ -118,7 +113,7 @@ set(ACADOS_LIB_PATH /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/install/a
 # c-compiler flags for debugging
 set(CMAKE_C_FLAGS_DEBUG "-O0 -ggdb")
 
-set(CMAKE_C_FLAGS "-fPIC -std=c99  ")
+set(CMAKE_C_FLAGS "-fPIC -std=c99   -O2  ")
 #-fno-diagnostics-show-line-numbers -g
 
 include_directories(
@@ -142,7 +137,9 @@ endif()
 # bundled_shared_lib
 if(${BUILD_ACADOS_SOLVER_LIB})
     set(LIB_ACADOS_SOLVER acados_solver_mock_acados_solver)
-    add_library(${LIB_ACADOS_SOLVER} SHARED $<TARGET_OBJECTS:${MODEL_OBJ}> $<TARGET_OBJECTS:${OCP_OBJ}>
+    add_library(${LIB_ACADOS_SOLVER} SHARED
+    $<TARGET_OBJECTS:${MODEL_OBJ}>
+    $<TARGET_OBJECTS:${OCP_OBJ}>
         $<TARGET_OBJECTS:${SIM_OBJ}>)
     install(TARGETS ${LIB_ACADOS_SOLVER} DESTINATION ${CMAKE_INSTALL_PREFIX})
 endif(${BUILD_ACADOS_SOLVER_LIB})
@@ -150,7 +147,9 @@ endif(${BUILD_ACADOS_SOLVER_LIB})
 # ocp_shared_lib
 if(${BUILD_ACADOS_OCP_SOLVER_LIB})
     set(LIB_ACADOS_OCP_SOLVER acados_ocp_solver_mock_acados_solver)
-    add_library(${LIB_ACADOS_OCP_SOLVER} SHARED $<TARGET_OBJECTS:${MODEL_OBJ}> $<TARGET_OBJECTS:${OCP_OBJ}>)
+    add_library(${LIB_ACADOS_OCP_SOLVER} SHARED
+    $<TARGET_OBJECTS:${MODEL_OBJ}>
+    $<TARGET_OBJECTS:${OCP_OBJ}>)
     # Specify libraries or flags to use when linking a given target and/or its dependents.
     target_link_libraries(${LIB_ACADOS_OCP_SOLVER} PRIVATE ${EXTERNAL_LIB})
     target_link_directories(${LIB_ACADOS_OCP_SOLVER} PRIVATE ${EXTERNAL_DIR})
@@ -159,7 +158,9 @@ endif(${BUILD_ACADOS_OCP_SOLVER_LIB})
 
 # example
 if(${BUILD_EXAMPLE})
-    add_executable(${EX_EXE} ${EX_SRC} $<TARGET_OBJECTS:${MODEL_OBJ}> $<TARGET_OBJECTS:${OCP_OBJ}>
+    add_executable(${EX_EXE} ${EX_SRC}
+    $<TARGET_OBJECTS:${MODEL_OBJ}>
+    $<TARGET_OBJECTS:${OCP_OBJ}>
         $<TARGET_OBJECTS:${SIM_OBJ}>)
     install(TARGETS ${EX_EXE} DESTINATION ${CMAKE_INSTALL_PREFIX})
 endif(${BUILD_EXAMPLE})
