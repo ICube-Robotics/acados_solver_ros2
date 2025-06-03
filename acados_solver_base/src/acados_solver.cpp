@@ -161,16 +161,19 @@ int AcadosSolver::set_state_bounds(
     get_nlp_config(),
     get_nlp_dims(),
     get_nlp_in(),
+    get_nlp_out(),
     stage, "idxbx", idxbx.data());
   ocp_nlp_constraints_model_set(
     get_nlp_config(),
     get_nlp_dims(),
     get_nlp_in(),
+    get_nlp_out(),
     stage, "lbx", lbx.data());
   ocp_nlp_constraints_model_set(
     get_nlp_config(),
     get_nlp_dims(),
     get_nlp_in(),
+    get_nlp_out(),
     stage, "ubx", ubx.data());
   return 0;
 }
@@ -213,16 +216,20 @@ int AcadosSolver::set_control_bounds(
     get_nlp_config(),
     get_nlp_dims(),
     get_nlp_in(),
+    get_nlp_out(),
     stage, "idxbu", idxbu.data());
   ocp_nlp_constraints_model_set(
     get_nlp_config(),
     get_nlp_dims(),
     get_nlp_in(),
+    get_nlp_out(),
     stage, "lbu", lbu.data());
   ocp_nlp_constraints_model_set(
     get_nlp_config(),
     get_nlp_dims(),
-    get_nlp_in(), stage, "ubu", ubu.data());
+    get_nlp_in(),
+    get_nlp_out(),
+    stage, "ubu", ubu.data());
   return 0;
 }
 
