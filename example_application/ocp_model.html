@@ -232,7 +232,6 @@ It should be noted that we use a nonlinear cost function, but a linear cost coul
 <span class="c1"># Create an Acados OCP</span>
 <span class="n">ocp</span> <span class="o">=</span> <span class="n">AcadosOcp</span><span class="p">()</span>
 <span class="n">ocp</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
-<span class="n">ocp</span><span class="o">.</span><span class="n">dims</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">N</span>
 
 <span class="c1"># Declare extra parameters to use in the cost function</span>
 <span class="n">sym_p_ref</span> <span class="o">=</span> <span class="n">ca</span><span class="o">.</span><span class="n">SX</span><span class="o">.</span><span class="n">sym</span><span class="p">(</span><span class="s1">&#39;p_ref&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -298,6 +297,7 @@ It should be noted that we use a nonlinear cost function, but a linear cost coul
 <span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">idxbx_e</span> <span class="o">=</span> <span class="n">ocp</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">idxbx</span>
 
 <span class="c1"># Set solver options</span>
+<span class="n">ocp</span><span class="o">.</span><span class="n">solver_options</span><span class="o">.</span><span class="n">N_horizon</span> <span class="o">=</span> <span class="n">N</span>  <span class="c1"># number of shooting nodes</span>
 <span class="n">ocp</span><span class="o">.</span><span class="n">solver_options</span><span class="o">.</span><span class="n">tf</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="n">Ts</span>  <span class="c1"># prediction horizon in seconds</span>
 <span class="n">ocp</span><span class="o">.</span><span class="n">solver_options</span><span class="o">.</span><span class="n">nlp_solver_type</span> <span class="o">=</span> <span class="s1">&#39;SQP_RTI&#39;</span>
 <span class="n">ocp</span><span class="o">.</span><span class="n">solver_options</span><span class="o">.</span><span class="n">integrator_type</span> <span class="o">=</span> <span class="s1">&#39;IRK&#39;</span>  <span class="c1"># use implicit DAE model</span>
