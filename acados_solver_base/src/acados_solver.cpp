@@ -82,8 +82,23 @@ int AcadosSolver::free_memory()
 
 int AcadosSolver::solve()
 {
-  ocp_nlp_solver_opts_set(get_nlp_config(), get_nlp_opts(), "rti_phase", &_rti_phase);
-  int solver_status = internal_solve();
+  bool use_rti = true;
+  int solver_status = -1;
+
+  if (use_rti) {
+    // RTI preparation stage
+    solver_status = solve_rti(RtiStage::PREPARATION);
+    if (solver_status != ACADOS_READY && solver_status != ACADOS_SUCCESS) {
+      std::cerr << "Aborting RTI solve() at preparation stage!" << std::endl;
+      return solver_status;
+    }
+    // RTI feedback stage
+    solver_status = solve_rti(RtiStage::FEEDBACK);
+  } else {
+    // Vanilla solve
+    solver_status = internal_solve();
+  }
+
   if (solver_status != ACADOS_SUCCESS) {
     std::cerr << "WARNING! AcadosSolver::solve() failed with status " << solver_status << '!' <<
       std::endl;
