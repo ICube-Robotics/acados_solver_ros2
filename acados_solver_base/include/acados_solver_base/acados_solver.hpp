@@ -209,6 +209,24 @@ public:
    */
   int solve();
 
+
+  /**
+   * @brief Solve the non-linear (RTI) optimization problem given the provided initial state, constraints, etc.
+   *
+   * The method returns the internal Acados status.
+   *
+   * @param rti_phase The RTI phase to be solved, i.e., either `RtiStage::PREPARATION`
+   * or `RtiStage::FEEDBACK`.
+   *
+   * @return 0 : All OK.
+   * @return 1 : Invalid input (NaN detected).
+   * @return 2 : Maximum number of iteration reached.
+   * @return 3 : Minimum step length reached, could possibly be a NaN solution too (if using HPIPM)
+   * @return 4 : QP solver failed.
+   * @return other : Not OK.
+   */
+  int solve_rti(RtiStage rti_phase);
+
 // Setters
 
   /**

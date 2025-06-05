@@ -44,6 +44,12 @@ using RowMajorXd = Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::
 /// @brief Dynamic size colum-major array (by default in Eigen).
 using ColumnMajorXd = Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor>;
 
+enum class RtiStage
+{
+  PREPARATION = 0,     ///< RTI preparation stage
+  FEEDBACK = 1,          ///< RTI feedback stage
+};
+
 }  // namespace acados
 
 #endif  // ACADOS_SOLVER_BASE__ACADOS_TYPES_HPP_
