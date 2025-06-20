@@ -82,7 +82,7 @@ int AcadosSolver::free_memory()
 
 int AcadosSolver::solve()
 {
-  bool use_rti = true;
+  bool use_rti = get_nlp_config()->is_real_time_algorithm();
   int solver_status = -1;
 
   if (use_rti) {
@@ -102,6 +102,7 @@ int AcadosSolver::solve()
   if (solver_status != ACADOS_SUCCESS) {
     std::cerr << "WARNING! AcadosSolver::solve() failed with status " << solver_status << '!' <<
       std::endl;
+    std::cerr << "Realtime mode: " << (use_rti ? "ON" : "OFF") << std::endl;
   }
   return solver_status;
 }
