@@ -393,7 +393,7 @@ int AcadosSolver::initialize_control_values(unsigned int stage, ValueMap const &
   }
   std::vector<double> u_i;
   u_i.reserve(nu());
-  fill_vector_from_map(u_index_map(), u_i_map, nx(), u_i);
+  fill_vector_from_map(u_index_map(), u_i_map, nu(), u_i);
   return initialize_control_values(stage, u_i);
 }
 int AcadosSolver::initialize_control_values(ValueVector & u_i)
@@ -412,7 +412,7 @@ int AcadosSolver::initialize_control_values(ValueMap const & u_i_map)
   }
   std::vector<double> u_i;
   u_i.reserve(nu());
-  fill_vector_from_map(u_index_map(), u_i_map, nx(), u_i);
+  fill_vector_from_map(u_index_map(), u_i_map, nu(), u_i);
   return initialize_control_values(u_i);
 }
 
