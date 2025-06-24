@@ -221,8 +221,18 @@ int {{plugin_class_name}}::internal_simulate(
   int ret = 0;
 
   // Set state and control initial values
-  sim_solver_set(_capsule_sim->acados_sim_solver, "x", x0);
-  sim_solver_set(_capsule_sim->acados_sim_solver, "u", u0);
+  sim_in_set(
+    {{solver_c_prefix|lower}}_acados_get_sim_config(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_dims(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_in(_capsule_sim),
+    "x", x0
+  );
+  sim_in_set(
+    {{solver_c_prefix|lower}}_acados_get_sim_config(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_dims(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_in(_capsule_sim),
+    "u", u0
+  );
 
   // Set parameters
   ret = {{solver_c_prefix|lower}}_acados_sim_update_params(_capsule_sim, p, _dims.np);
