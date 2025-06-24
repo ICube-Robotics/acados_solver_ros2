@@ -30,6 +30,7 @@ list(APPEND
 list(APPEND
     SOLVER_PLUGINS_PRE_GENERATED_LIBS
     ${ACADOS_SOLVER_PLUGINGS_GENERATION_EXPORT_DIR}/mock_acados_solver/generated_c_code/libacados_ocp_solver_mock_acados_solver.so
+    ${ACADOS_SOLVER_PLUGINGS_GENERATION_EXPORT_DIR}/mock_acados_solver/generated_c_code/libacados_sim_solver_mock_acados_solver.so
 )
 
 # Add plugin.xml

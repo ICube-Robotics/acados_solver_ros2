@@ -1,7 +1,7 @@
 {
     "acados_include_path": "/home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/install/acados_vendor_ros2/opt/acados_vendor_ros2/include",
     "acados_lib_path": "/home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/install/acados_vendor_ros2/opt/acados_vendor_ros2/lib",
-    "code_export_directory": "/home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code",
+    "code_export_directory": "/home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/external/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code",
     "constraints": {
         "C": [],
         "C_e": [],
@@ -216,7 +216,7 @@
         "mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_e_fun_jac_hess.c",
         "mock_acados_solver_cost/mock_acados_solver_cost_ext_cost_e_fun_jac.c"
     ],
-    "json_file": "/home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/acados_ocp_mock_acados_solver.json",
+    "json_file": "/home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/external/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/acados_ocp_mock_acados_solver.json",
     "model": {
         "con_h_expr": [],
         "con_h_expr_0": [],

@@ -14,6 +14,7 @@
 //
 // Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
+#include <iostream>
 #include <string>
 
 #include "acados_solver_base/acados_solver.hpp"
@@ -21,9 +22,10 @@
 
 // Include auto-generated Acados C-code
 #include "generated_c_code/acados_solver_mock_acados_solver.h"
+#include "generated_c_code/acados_sim_solver_mock_acados_solver.h"
 
 
-namespace acados_solver_plugins_example
+namespace mock_acados_solver_test
 {
 
 using namespace acados;
@@ -101,13 +103,16 @@ int MockAcadosSolver::create_index_maps()
 int MockAcadosSolver::internal_create_capsule()
 {
   _capsule = mock_acados_solver_acados_create_capsule();
+  _capsule_sim = mock_acados_solver_acados_sim_solver_create_capsule();
   return (_capsule) ? 0 : -1;
 }
 int MockAcadosSolver::internal_create_with_discretization(
   int n_time_steps,
   double * new_time_steps)
 {
-  return mock_acados_solver_acados_create_with_discretization(_capsule, n_time_steps, new_time_steps);
+  int ret = mock_acados_solver_acados_create_with_discretization(_capsule, n_time_steps, new_time_steps);
+  ret += mock_acados_solver_acados_sim_create(_capsule_sim);
+  return ret;
 }
 int MockAcadosSolver::internal_reset(int reset_qp_solver_mem)
 {
@@ -115,11 +120,15 @@ int MockAcadosSolver::internal_reset(int reset_qp_solver_mem)
 }
 int MockAcadosSolver::internal_free()
 {
-  return mock_acados_solver_acados_free(_capsule);
+  int ret = mock_acados_solver_acados_free(_capsule);
+  ret += mock_acados_solver_acados_sim_free(_capsule_sim);
+  return ret;
 }
 int MockAcadosSolver::internal_free_capsule()
 {
-  return mock_acados_solver_acados_free_capsule(_capsule);
+  int ret = mock_acados_solver_acados_free_capsule(_capsule);
+  ret += mock_acados_solver_acados_sim_solver_free_capsule(_capsule_sim);
+  return ret;
 }
 
 int MockAcadosSolver::internal_update_qp_solver_cond_N(int qp_solver_cond_N)
@@ -182,7 +191,74 @@ unsigned int MockAcadosSolver::get_nlp_np() const
   return _capsule->nlp_np;
 }
 
-}  // namespace acados_solver_plugins_example
+int MockAcadosSolver::internal_simulate(
+  double dt /* Time step */,
+  double * x0 /* Differential state initial value */,
+  double * u0 /* Applied controls */,
+  double * p /* Runtime parameters */,
+  double * x_next /* Differential state next value */,
+  double * z_next /* Algebraic state next value */)
+{
+  if (dt <= 0.0) {
+    std::cerr
+      << "Error in MockAcadosSolver::simulate: Invalid time step, got "
+      << dt << std::endl;
+    return 10; // Error: Invalid time step
+  }
+  if (x0 == nullptr || u0 == nullptr || p == nullptr || x_next == nullptr || z_next == nullptr) {
+    return 11; // Error: Null pointer passed to simulate function
+  }
+  if (_capsule_sim == nullptr) {
+    return 12; // Error: Simulation capsule not created
+  }
+
+  // Allocate return flag
+  int ret = 0;
+
+  // Set state and control initial values
+  sim_in_set(
+    mock_acados_solver_acados_get_sim_config(_capsule_sim),
+    mock_acados_solver_acados_get_sim_dims(_capsule_sim),
+    mock_acados_solver_acados_get_sim_in(_capsule_sim),
+    "x", x0
+  );
+  sim_in_set(
+    mock_acados_solver_acados_get_sim_config(_capsule_sim),
+    mock_acados_solver_acados_get_sim_dims(_capsule_sim),
+    mock_acados_solver_acados_get_sim_in(_capsule_sim),
+    "u", u0
+  );
+
+  // Set parameters
+  ret = mock_acados_solver_acados_sim_update_params(_capsule_sim, p, _dims.np);
+  if (ret != 0) {
+    std::cerr << "Error in MockAcadosSolver::simulate: Failed to update parameters." << std::endl;
+    return ret;
+  }
+
+  // Simulate
+  ret = mock_acados_solver_acados_sim_solve(_capsule_sim);
+  if (ret != 0) {
+    std::cerr << "Error in MockAcadosSolver::simulate: Simulation solve failed." << std::endl;
+  }
+
+  // Get next state and algebraic state
+  sim_out_get(
+    mock_acados_solver_acados_get_sim_config(_capsule_sim),
+    mock_acados_solver_acados_get_sim_dims(_capsule_sim),
+    mock_acados_solver_acados_get_sim_out(_capsule_sim),
+    "x", x_next
+  );
+  sim_out_get(
+    mock_acados_solver_acados_get_sim_config(_capsule_sim),
+    mock_acados_solver_acados_get_sim_dims(_capsule_sim),
+    mock_acados_solver_acados_get_sim_out(_capsule_sim),
+    "z", z_next
+  );
+  return ret;
+}
+
+}  // namespace mock_acados_solver_test
 
 // #include <pluginlib/class_list_macros.hpp>
-// PLUGINLIB_EXPORT_CLASS(acados_solver_plugins_example::MockAcadosSolver, acados::AcadosSolver)
+// PLUGINLIB_EXPORT_CLASS(mock_acados_solver_test::MockAcadosSolver, acados::AcadosSolver)
