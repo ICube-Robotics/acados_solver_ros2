@@ -126,6 +126,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a15d6ca39d87ce1440e0b926a1f224d0d" id="r_a15d6ca39d87ce1440e0b926a1f224d0d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacados_1_1AcadosSolver.html#a15d6ca39d87ce1440e0b926a1f224d0d">solve</a> ()</td></tr>
 <tr class="memdesc:a15d6ca39d87ce1440e0b926a1f224d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the non-linear optimization problem given the provided initial state, constraints, etc.  <br /></td></tr>
 <tr class="separator:a15d6ca39d87ce1440e0b926a1f224d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09f42003078800ca8f8ec53d4a782558" id="r_a09f42003078800ca8f8ec53d4a782558"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacados_1_1AcadosSolver.html#a09f42003078800ca8f8ec53d4a782558">solve_rti</a> (<a class="el" href="namespaceacados.html#a77905f6c1461758f4c00248216131616">RtiStage</a> rti_phase)</td></tr>
+<tr class="memdesc:a09f42003078800ca8f8ec53d4a782558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the non-linear (RTI) optimization problem given the provided initial state, constraints, etc.  <br /></td></tr>
+<tr class="separator:a09f42003078800ca8f8ec53d4a782558"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaca413f68e006eba5ca75ff02b7831d6" id="r_aaca413f68e006eba5ca75ff02b7831d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacados_1_1AcadosSolver.html#aaca413f68e006eba5ca75ff02b7831d6">set_initial_state_values</a> (<a class="el" href="namespaceacados.html#aa12e551b4b7beeb28a61415503cbc744">ValueVector</a> &amp;x_0)</td></tr>
 <tr class="memdesc:aaca413f68e006eba5ca75ff02b7831d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the initial state values (i.e., add constraints on initial state)  <br /></td></tr>
 <tr class="separator:aaca413f68e006eba5ca75ff02b7831d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -469,6 +472,44 @@ Protected Attributes</h2></td></tr>
 
 <p>Solve the non-linear optimization problem given the provided initial state, constraints, etc. </p>
 <p>The method returns the internal Acados status.</p>
+<dl class="section return"><dt>Returns</dt><dd>0 : All OK. </dd>
+<dd>
+1 : Invalid input (NaN detected). </dd>
+<dd>
+2 : Maximum number of iteration reached. </dd>
+<dd>
+3 : Minimum step length reached, could possibly be a NaN solution too (if using HPIPM) </dd>
+<dd>
+4 : QP solver failed. </dd>
+<dd>
+other : Not OK. </dd></dl>
+
+</div>
+</div>
+<a id="a09f42003078800ca8f8ec53d4a782558" name="a09f42003078800ca8f8ec53d4a782558"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09f42003078800ca8f8ec53d4a782558">&#9670;&#160;</a></span>solve_rti()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int acados::AcadosSolver::solve_rti </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceacados.html#a77905f6c1461758f4c00248216131616">RtiStage</a>&#160;</td>
+          <td class="paramname"><em>rti_phase</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Solve the non-linear (RTI) optimization problem given the provided initial state, constraints, etc. </p>
+<p>The method returns the internal Acados status.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rti_phase</td><td>The RTI phase to be solved, i.e., either <code><a class="el" href="namespaceacados.html#a77905f6c1461758f4c00248216131616aab1225626d6cd1e712ade32a64116761" title="RTI preparation stage.">RtiStage::PREPARATION</a></code> or <code><a class="el" href="namespaceacados.html#a77905f6c1461758f4c00248216131616ac52770d4f937744b0f17d8718ee270ba" title="RTI feedback stage.">RtiStage::FEEDBACK</a></code>.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>0 : All OK. </dd>
 <dd>
 1 : Invalid input (NaN detected). </dd>

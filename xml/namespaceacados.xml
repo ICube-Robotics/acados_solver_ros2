@@ -4,6 +4,38 @@
     <compoundname>acados</compoundname>
     <innerclass refid="classacados_1_1AcadosSolver" prot="public">acados::AcadosSolver</innerclass>
     <innernamespace refid="namespaceacados_1_1utils">acados::utils</innernamespace>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceacados_1a77905f6c1461758f4c00248216131616" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>RtiStage</name>
+        <qualifiedname>acados::RtiStage</qualifiedname>
+        <enumvalue id="namespaceacados_1a77905f6c1461758f4c00248216131616aab1225626d6cd1e712ade32a64116761" prot="public">
+          <name>PREPARATION</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>RTI preparation stage. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceacados_1a77905f6c1461758f4c00248216131616ac52770d4f937744b0f17d8718ee270ba" prot="public">
+          <name>FEEDBACK</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>RTI feedback stage. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" line="47" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
     <sectiondef kind="typedef">
       <memberdef kind="typedef" id="namespaceacados_1a4b3855444d13957dce438bfb70df609b" prot="public" static="no">
         <type>std::vector&lt; unsigned int &gt;</type>

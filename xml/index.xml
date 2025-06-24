@@ -14,6 +14,7 @@
     <member refid="classacados_1_1AcadosSolver_1a8ea324590b8abc71b97e66e24c2181f1" kind="function"><name>init</name></member>
     <member refid="classacados_1_1AcadosSolver_1a4c18d1f743bf03e249a1ee2b6f13406f" kind="function"><name>reset</name></member>
     <member refid="classacados_1_1AcadosSolver_1a15d6ca39d87ce1440e0b926a1f224d0d" kind="function"><name>solve</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a09f42003078800ca8f8ec53d4a782558" kind="function"><name>solve_rti</name></member>
     <member refid="classacados_1_1AcadosSolver_1aaca413f68e006eba5ca75ff02b7831d6" kind="function"><name>set_initial_state_values</name></member>
     <member refid="classacados_1_1AcadosSolver_1a0aea73d23b755434f01d6a3485d51260" kind="function"><name>set_initial_state_values</name></member>
     <member refid="classacados_1_1AcadosSolver_1a37944dc0500d89cc53b60aa3a9c59de2" kind="function"><name>set_state_bounds</name></member>
@@ -131,6 +132,9 @@
     <member refid="classacados__solver__plugins_1_1solver__plugin__loader_1_1SolverPluginLoader_1aae35a8b9c48bec5e02623c62cf028c96" kind="function"><name>load_solver_plugin</name></member>
   </compound>
   <compound refid="namespaceacados" kind="namespace"><name>acados</name>
+    <member refid="namespaceacados_1a77905f6c1461758f4c00248216131616" kind="enum"><name>RtiStage</name></member>
+    <member refid="namespaceacados_1a77905f6c1461758f4c00248216131616aab1225626d6cd1e712ade32a64116761" kind="enumvalue"><name>PREPARATION</name></member>
+    <member refid="namespaceacados_1a77905f6c1461758f4c00248216131616ac52770d4f937744b0f17d8718ee270ba" kind="enumvalue"><name>FEEDBACK</name></member>
     <member refid="namespaceacados_1a4b3855444d13957dce438bfb70df609b" kind="typedef"><name>IndexVector</name></member>
     <member refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kind="typedef"><name>ValueVector</name></member>
     <member refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kind="typedef"><name>IndexMap</name></member>

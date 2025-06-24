@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="646" column="14" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="646" bodyend="-1"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="664" column="14" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="664" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classacados_1_1AcadosSolver_1a8dd3b69a60cf37d1a69997d36ff377ad" prot="protected" static="no" mutable="no">
         <type><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref></type>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="649" column="12" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="649" bodyend="-1"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="667" column="12" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="667" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classacados_1_1AcadosSolver_1a08d39420a08a791822cdcaac8a998230" prot="protected" static="no" mutable="no">
         <type><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref></type>
@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="652" column="12" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="652" bodyend="-1"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="670" column="12" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="670" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classacados_1_1AcadosSolver_1a46d83835fd145fba0ca3de0539035047" prot="protected" static="no" mutable="no">
         <type><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref></type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="655" column="12" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="655" bodyend="-1"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="673" column="12" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="673" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classacados_1_1AcadosSolver_1ab205a74572e636433c300b6e7909a1e3" prot="protected" static="no" mutable="no">
         <type><ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref></type>
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="658" column="12" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="658" bodyend="-1"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="676" column="12" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="676" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-attrib">
@@ -96,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="880" column="8" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="880" bodyend="-1"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="898" column="8" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="898" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classacados_1_1AcadosSolver_1a336d8e58498ba1e116d80dcecd656282" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="883" column="10" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="883" bodyend="-1"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="901" column="10" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="901" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classacados_1_1AcadosSolver_1adf7bcd9dd5f9984333285b3aa0188eaa" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="887" column="7" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="887" bodyend="-1"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="905" column="7" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="905" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -261,6 +261,48 @@
         </inbodydescription>
         <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="210" column="7"/>
       </memberdef>
+      <memberdef kind="function" id="classacados_1_1AcadosSolver_1a09f42003078800ca8f8ec53d4a782558" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int acados::AcadosSolver::solve_rti</definition>
+        <argsstring>(RtiStage rti_phase)</argsstring>
+        <name>solve_rti</name>
+        <qualifiedname>acados::AcadosSolver::solve_rti</qualifiedname>
+        <param>
+          <type><ref refid="namespaceacados_1a77905f6c1461758f4c00248216131616" kindref="member">RtiStage</ref></type>
+          <declname>rti_phase</declname>
+        </param>
+        <briefdescription>
+<para>Solve the non-linear (RTI) optimization problem given the provided initial state, constraints, etc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The method returns the internal Acados status.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rti_phase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The RTI phase to be solved, i.e., either <computeroutput><ref refid="namespaceacados_1a77905f6c1461758f4c00248216131616aab1225626d6cd1e712ade32a64116761" kindref="member">RtiStage::PREPARATION</ref></computeroutput> or <computeroutput><ref refid="namespaceacados_1a77905f6c1461758f4c00248216131616ac52770d4f937744b0f17d8718ee270ba" kindref="member">RtiStage::FEEDBACK</ref></computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 : All OK. </para>
+</simplesect>
+<simplesect kind="return"><para>1 : Invalid input (NaN detected). </para>
+</simplesect>
+<simplesect kind="return"><para>2 : Maximum number of iteration reached. </para>
+</simplesect>
+<simplesect kind="return"><para>3 : Minimum step length reached, could possibly be a NaN solution too (if using HPIPM) </para>
+</simplesect>
+<simplesect kind="return"><para>4 : QP solver failed. </para>
+</simplesect>
+<simplesect kind="return"><para>other : Not OK. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="228" column="7"/>
+      </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1aaca413f68e006eba5ca75ff02b7831d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
         <definition>int acados::AcadosSolver::set_initial_state_values</definition>
@@ -290,7 +332,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="220" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="238" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a0aea73d23b755434f01d6a3485d51260" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -321,7 +363,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="228" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="246" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a37944dc0500d89cc53b60aa3a9c59de2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -388,7 +430,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="239" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="257" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a5630ba4afb1e30b793f23bb5848393a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -444,7 +486,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="255" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="273" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1aac276e01de203a072242a5b2bc1dc155" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -511,7 +553,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="269" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="287" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a0d752774d72ba4510eaf45bba2e2366b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -567,7 +609,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="284" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="302" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1ac778d4f9bc7e0e22cb4c995f972f74ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -610,7 +652,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="298" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="316" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1afb0b7bcc07828abcfe6a5a331b8b4f87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -655,7 +697,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="309" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="327" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a096ab9cdc73b9ab423a6b8b441f2e4d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -687,7 +729,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="320" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="338" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a721f0280a2f372a236b1a9991a3928e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -719,7 +761,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="331" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="349" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a80d32f14feaf8a4486d9eb2b57703e3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -764,7 +806,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="346" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="364" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a887c32a3282ec9bbad438ea62d78fcff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -809,7 +851,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="357" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="375" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a1bbcc1bd51a5ce5fc44a5535af4d1b4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -840,7 +882,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="365" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="383" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a1b2fecbb2253afbb804a61e2b61caa33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -871,7 +913,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="373" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="391" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a4a769cfe43fa2650afab6ee4a06efa23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -914,7 +956,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="384" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="402" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a688117959a8b5202fa04fc53e5a02bf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -957,7 +999,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="393" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="411" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1afbca0a305e0976c48dd90ce1acb44875" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -988,7 +1030,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="401" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="419" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a0119ce0fb38812c8d41a6fd9f3f5227e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1019,7 +1061,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="409" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="427" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1ad4742b1ea3857463a3987161d208e9f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref></type>
@@ -1050,7 +1092,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="418" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="436" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1ad86c6c0ef89f84088299c2ecb39854bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref></type>
@@ -1081,7 +1123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="426" column="12"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="444" column="12"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a018315f74749a500f2ceebf4292ff688" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref></type>
@@ -1112,7 +1154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="434" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="452" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a0f8acec62481850619eb15415fc69cc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref></type>
@@ -1143,7 +1185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="443" column="12"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="461" column="12"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a15ba80234cc00619642c996ab2876c5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref></type>
@@ -1174,7 +1216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="451" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="469" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a659154c1023a0ff0c1cb76914d58d1cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref></type>
@@ -1205,7 +1247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="459" column="12"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="477" column="12"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a1d3dedcc41dd17a705cd3f2760678266" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> &amp;</type>
@@ -1223,7 +1265,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="468" column="19"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="486" column="19"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a202952013d14e49742f6b4c463c3478d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> &amp;</type>
@@ -1241,7 +1283,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="475" column="19"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="493" column="19"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a3a63706d181d8df692f1e7c0a72cc522" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> &amp;</type>
@@ -1259,7 +1301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="482" column="19"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="500" column="19"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a1ff28d2a827be9878ab09dfc3e2d88df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="namespaceacados_1a2192a410dad16bc03b8053dc43d28162" kindref="member">IndexMap</ref> &amp;</type>
@@ -1277,7 +1319,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="489" column="19"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="507" column="19"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a496e4a2681d7e9f7488af3982e483a14" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="classacados_1_1AcadosSolver_1_1Dimensions" kindref="compound">Dimensions</ref> &amp;</type>
@@ -1295,7 +1337,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="582" column="21"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="600" column="21"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1ae58d31b0910fed6e22f598b88c571a6e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -1314,7 +1356,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="591" column="17"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="609" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a8c0dafbe532f2978e44d7ff10e828008" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -1333,7 +1375,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="600" column="17"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="618" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a51e348e29f69d4af55f4f5536430eaed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -1352,7 +1394,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="609" column="17"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="627" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1afc709b72edcf36008ac6c73cfef7051c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -1371,7 +1413,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="618" column="17"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="636" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1abb11cab9c0513ba624909c4d3cefcd36" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -1389,7 +1431,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="625" column="17"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="643" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a6c890d274c16b3d609fdf393d72a7488" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1408,7 +1450,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="634" column="10"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="652" column="10"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1afcd1810c1aaf320b8b003c49bddf2fb0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
@@ -1426,7 +1468,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="642" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="660" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a58b0f216e18fc46ba0158bdbd3e4ca2e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_in *</type>
@@ -1445,7 +1487,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="793" column="23"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="811" column="23"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a8b85b654cf086f35d4e196ec24c7ed41" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_out *</type>
@@ -1464,7 +1506,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="802" column="24"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="820" column="24"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a8431a6b63bf03d0633df685024f401d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_out *</type>
@@ -1483,7 +1525,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="812" column="24"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="830" column="24"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a44f25baf4d7ab81c384be96fec1ef5ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_solver *</type>
@@ -1502,7 +1544,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="821" column="27"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="839" column="27"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1adf5a7cacde15725ebb69c490f7af1da3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_config *</type>
@@ -1521,7 +1563,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="830" column="27"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="848" column="27"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1ae6feb884b54ea8e98dbdd7b82fb22c46" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>void *</type>
@@ -1540,7 +1582,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="839" column="17"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="857" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a7003525e0314f8bd2f571fb8dcb19bec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_dims *</type>
@@ -1559,7 +1601,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="848" column="25"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="866" column="25"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a228d30f2f2a3090fa7805a29e6462144" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>ocp_nlp_plan_t *</type>
@@ -1578,7 +1620,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="857" column="27"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="875" column="27"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1ae17665db1de958ddf899df7fcc22e4cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>unsigned int</type>
@@ -1597,7 +1639,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="866" column="24"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="884" column="24"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -1644,7 +1686,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="501" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="519" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1ae1a41122ae313470b779c6886bda9b17" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1689,7 +1731,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="513" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="531" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a297efbc7d31d5b8a7fbbb4f9585a292c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1735,7 +1777,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="527" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="545" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a7c5af1bdb69808cc5b34383afcc27672" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1811,7 +1853,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="544" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="562" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a3c93bc306d103cf2a32117ab0f59f4a8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceacados_1aa12e551b4b7beeb28a61415503cbc744" kindref="member">ValueVector</ref></type>
@@ -1866,7 +1908,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="558" column="22"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="576" column="22"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a9af7492cce80e96ab83bb817ea89aeaa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceacados_1ab517ff294d8c333ca014ad3e0bba24e2" kindref="member">ValueMap</ref></type>
@@ -1909,7 +1951,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="571" column="19"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="589" column="19"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="protected-func">
@@ -1926,7 +1968,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="663" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="681" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a42b02f546b0a15d3795b87d84e45fbca" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1947,7 +1989,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="675" column="7"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="693" column="7"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1adda893dbba22cf03cfc00ba31630faad" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>int</type>
@@ -1966,7 +2008,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="687" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="705" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a6d057af053444e87f78b8122571692f4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>int</type>
@@ -2010,7 +2052,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="699" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="717" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a843ed6fb31d2d252861cbe69fd3114d4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>int</type>
@@ -2043,7 +2085,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="709" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="727" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a896fef9f7b11f483c5543cb00bfc4ecf" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>int</type>
@@ -2062,7 +2104,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="719" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="737" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a6f9d7c7b3d0b50164f1a127d8e0b0fba" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>int</type>
@@ -2081,7 +2123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="728" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="746" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a8faa696a9baf2a6b338545bb429f4f96" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>int</type>
@@ -2113,7 +2155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="738" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="756" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a655cafa35ab723df7f70535e5ad56c59" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>int</type>
@@ -2169,7 +2211,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="750" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="768" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a21fb49c8fe0965f37121d3e6347496c0" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>int</type>
@@ -2237,7 +2279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="763" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="781" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1abf00fdef6fae25c65436c3ebd6611fda" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>int</type>
@@ -2256,7 +2298,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="776" column="15"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="794" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classacados_1_1AcadosSolver_1a2128bf11592a4f1b22605cf09b5f343b" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -2272,7 +2314,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="783" column="16"/>
+        <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="801" column="16"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -2293,7 +2335,7 @@
         <link refid="classacados_1_1AcadosSolver_1_1Dimensions"/>
       </node>
     </collaborationgraph>
-    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="37" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="42" bodyend="888"/>
+    <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" line="37" column="1" bodyfile="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_solver.hpp" bodystart="42" bodyend="906"/>
     <listofallmembers>
       <member refid="classacados_1_1AcadosSolver_1a9ff8864185558e8a0942c8737551b30b" prot="protected" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>_dims</name></member>
       <member refid="classacados_1_1AcadosSolver_1aa28f59e93f2bd03429331a8ccd23ab1e" prot="private" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>_is_initialized</name></member>
@@ -2365,6 +2407,7 @@
       <member refid="classacados_1_1AcadosSolver_1a37944dc0500d89cc53b60aa3a9c59de2" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>set_state_bounds</name></member>
       <member refid="classacados_1_1AcadosSolver_1a5630ba4afb1e30b793f23bb5848393a8" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>set_state_bounds</name></member>
       <member refid="classacados_1_1AcadosSolver_1a15d6ca39d87ce1440e0b926a1f224d0d" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>solve</name></member>
+      <member refid="classacados_1_1AcadosSolver_1a09f42003078800ca8f8ec53d4a782558" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>solve_rti</name></member>
       <member refid="classacados_1_1AcadosSolver_1a6c890d274c16b3d609fdf393d72a7488" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>Ts</name></member>
       <member refid="classacados_1_1AcadosSolver_1a1ff28d2a827be9878ab09dfc3e2d88df" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>u_index_map</name></member>
       <member refid="classacados_1_1AcadosSolver_1a3c93bc306d103cf2a32117ab0f59f4a8" prot="public" virt="non-virtual"><scope>acados::AcadosSolver</scope><name>value_vector_from_map</name></member>

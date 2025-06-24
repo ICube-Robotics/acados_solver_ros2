@@ -100,9 +100,15 @@
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
 <codeline lineno="45" refid="namespaceacados_1aeec75a8df82483006004d76eabc267bb" refkind="member"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespaceacados_1aeec75a8df82483006004d76eabc267bb" kindref="member">ColumnMajorXd</ref><sp/>=<sp/>Eigen::Matrix&lt;double,<sp/>Eigen::Dynamic,<sp/>Eigen::Dynamic,<sp/>Eigen::ColMajor&gt;;</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>acados</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>ACADOS_SOLVER_BASE__ACADOS_TYPES_HPP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="namespaceacados_1a77905f6c1461758f4c00248216131616" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceacados_1a77905f6c1461758f4c00248216131616" kindref="member">RtiStage</ref></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="namespaceacados_1a77905f6c1461758f4c00248216131616aab1225626d6cd1e712ade32a64116761" kindref="member">PREPARATION</ref><sp/>=<sp/>0,<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><ref refid="namespaceacados_1a77905f6c1461758f4c00248216131616ac52770d4f937744b0f17d8718ee270ba" kindref="member">FEEDBACK</ref><sp/>=<sp/>1,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>acados</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>ACADOS_SOLVER_BASE__ACADOS_TYPES_HPP_</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="/home/runner/work/acados_solver_ros2/acados_solver_ros2/acados_solver_base/include/acados_solver_base/acados_types.hpp"/>
   </compounddef>
