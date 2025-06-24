@@ -157,6 +157,91 @@ int AcadosSolver::solve_rti(RtiStage rti_phase)
 }
 
 //####################################################
+//                  SIMULATION
+//####################################################
+
+int AcadosSolver::simulate(
+  double dt,
+  ValueVector & x0,
+  ValueVector & u0,
+  ValueVector & p,
+  ValueVector & x_next,
+  ValueVector & z)
+{
+  if (dt <= 0.0) {
+    std::cerr << "Error in 'AcadosSolver::simulate()': Invalid time step, got " << dt << std::endl;
+    return 10;  // Error: Invalid time step
+  }
+  if (x0.size() != nx() || u0.size() != nu() || p.size() != np()) {
+    std::cerr << "Error in 'AcadosSolver::simulate()': Inconsistent parameters!" << std::endl;
+    return 11;  // Error: Inconsistent parameters
+  }
+  if (x_next.size() != nx() || z.size() != nz()) {
+    std::cerr << "Error in 'AcadosSolver::simulate()': Inconsistent output sizes!" << std::endl;
+    return 12;  // Error: Inconsistent output sizes
+  }
+
+  return internal_simulate(dt, x0.data(), u0.data(), p.data(), x_next.data(), z.data());
+}
+
+  /**
+   * @brief Simulate the next state given the current state, control inputs and runtime parameters.
+   *
+   * See the other `simulate()` method for details.
+   */
+int AcadosSolver::simulate(
+  double dt,
+  ValueMap const & x0_map,
+  ValueMap const & u0_map,
+  ValueMap const & p_map,
+  ValueMap & x_next_map,
+  ValueMap & z_map)
+{
+  if (!is_values_map_complete(x_index_map(), x0_map) ||
+    !is_values_map_complete(u_index_map(), u0_map) ||
+    !is_values_map_complete(p_index_map(), p_map))
+  {
+    return 1;  // Error: Incomplete values map
+  }
+  std::vector<double> x0, u0, p;
+  x0.reserve(nx());
+  u0.reserve(nu());
+  p.reserve(np());
+  fill_vector_from_map(x_index_map(), x0_map, nx(), x0);
+  fill_vector_from_map(u_index_map(), u0_map, nu(), u0);
+  fill_vector_from_map(p_index_map(), p_map, np(), p);
+  std::vector<double> x_next(nx()), z(nz());
+
+  int status = simulate(dt, x0, u0, p, x_next, z);
+  fill_map_from_values(x_index_map(), x_next, x_next_map);
+  fill_map_from_values(z_index_map(), z, z_map);
+
+  if (status != 0) {
+    std::cerr << "Error in 'AcadosSolver::simulate()': Simulation failed with status " << status <<
+      std::endl;
+  }
+
+  return status;  // Error: Simulation failed
+}
+
+
+int AcadosSolver::simulate(
+  ValueMap const & x0_map,
+  ValueMap const & u0_map,
+  ValueMap const & p_map,
+  ValueMap & x_next_map,
+  ValueMap & z_map)
+{
+  return simulate(
+    Ts(),
+    x0_map,
+    u0_map,
+    p_map,
+    x_next_map,
+    z_map);
+}
+
+//####################################################
 //                     SETTERS
 //####################################################
 
@@ -420,6 +505,7 @@ int AcadosSolver::initialize_control_values(ValueMap const & u_i_map)
 // ------------------------------------------
 // Runtime parameters
 // ------------------------------------------
+
 int AcadosSolver::set_runtime_parameters(unsigned int stage, ValueVector & p_i)
 {
   if (p_i.size() != np()) {
@@ -435,6 +521,7 @@ int AcadosSolver::set_runtime_parameters(unsigned int stage, ValueVector & p_i)
   }
   return internal_update_params(stage, p_i.data(), np());
 }
+
 int AcadosSolver::set_runtime_parameters(unsigned int stage, ValueMap const & p_i_map)
 {
   if (!is_values_map_complete(p_index_map(), p_i_map)) {
@@ -445,6 +532,7 @@ int AcadosSolver::set_runtime_parameters(unsigned int stage, ValueMap const & p_
   fill_vector_from_map(p_index_map(), p_i_map, np(), p_i);
   return set_runtime_parameters(stage, p_i);
 }
+
 int AcadosSolver::set_runtime_parameters(ValueVector & p_i)
 {
   // From 0 to N to also set terminal node parameters!
@@ -454,6 +542,7 @@ int AcadosSolver::set_runtime_parameters(ValueVector & p_i)
   }
   return 0;
 }
+
 int AcadosSolver::set_runtime_parameters(ValueMap const & p_i_map)
 {
   if (!is_values_map_complete(p_index_map(), p_i_map)) {
@@ -517,6 +606,22 @@ ValueMap AcadosSolver::get_control_values_as_map(unsigned int stage)
   return create_map_from_values(u_index_map(), get_control_values(stage));
 }
 
+ValueVector AcadosSolver::get_parameter_values(unsigned int stage)
+{
+  if (stage > N()) {
+    std::string err_msg = "Error in 'AcadosSolver::get_parameters()': Invalid stage request!";
+    throw std::range_error(err_msg);
+  }
+  std::vector<double> p_i(np(), 0.0);
+  ocp_nlp_in_get(get_nlp_config(), get_nlp_dims(), get_nlp_in(), stage, "p", p_i.data());
+  return p_i;
+}
+
+ValueMap AcadosSolver::get_parameter_values_as_map(unsigned int stage)
+{
+  return create_map_from_values(p_index_map(), get_parameter_values(stage));
+}
+
 const IndexMap & AcadosSolver::x_index_map() const
 {
   return _x_index_map;
@@ -540,14 +645,6 @@ const IndexMap & AcadosSolver::u_index_map() const
 //####################################################
 
 bool AcadosSolver::is_map_size_consistent(IndexMap const & map, unsigned int expected_total_values)
-{
-  unsigned int total_values = 0;
-  for (const auto & [key, value] : map) {
-    total_values += value.size();
-  }
-  return total_values == expected_total_values;
-}
-bool AcadosSolver::is_map_size_consistent(ValueMap const & map, unsigned int expected_total_values)
 {
   unsigned int total_values = 0;
   for (const auto & [key, value] : map) {
@@ -631,6 +728,30 @@ ValueMap AcadosSolver::create_map_from_values(
     value_map[key] = tmp_data;
   }
   return value_map;
+}
+
+void AcadosSolver::fill_map_from_values(
+  IndexMap const & index_map,
+  ValueVector const & values,
+  ValueMap & value_map)
+{
+  // Check the size of the map is consistent with the values vector
+  // Note: this is not strictly necessary, but it is a good practice to ensure consistency
+  //       between the index map and the values vector.
+  if (!is_map_size_consistent(index_map, values.size())) {
+    throw std::invalid_argument("Inconsistent data provided to 'fill_map_from_values()'!");
+  }
+
+  // Fill the map with new values
+  // Note: this will overwrite existing keys in value_map
+  //       that are also in index_map.
+  for (const auto & [key, indexes] : index_map) {
+    std::vector<double> tmp_data(indexes.size(), 0.0);
+    for (unsigned int i = 0; i < indexes.size(); i++) {
+      tmp_data[i] = values[indexes[i]];
+    }
+    value_map[key] = tmp_data;
+  }
 }
 
 //####################################################
