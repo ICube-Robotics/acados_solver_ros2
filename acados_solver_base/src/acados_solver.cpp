@@ -82,13 +82,78 @@ int AcadosSolver::free_memory()
 
 int AcadosSolver::solve()
 {
-  ocp_nlp_solver_opts_set(get_nlp_config(), get_nlp_opts(), "rti_phase", &_rti_phase);
-  int solver_status = internal_solve();
+  bool use_rti = get_nlp_config()->is_real_time_algorithm();
+  int solver_status = -1;
+
+  if (use_rti) {
+    // RTI preparation stage
+    solver_status = solve_rti(RtiStage::PREPARATION);
+    if (solver_status != ACADOS_READY && solver_status != ACADOS_SUCCESS) {
+      std::cerr << "Aborting RTI solve() at preparation stage!" << std::endl;
+      return solver_status;
+    }
+    // RTI feedback stage
+    solver_status = solve_rti(RtiStage::FEEDBACK);
+  } else {
+    // Vanilla solve
+    solver_status = internal_solve();
+  }
+
   if (solver_status != ACADOS_SUCCESS) {
     std::cerr << "WARNING! AcadosSolver::solve() failed with status " << solver_status << '!' <<
       std::endl;
+    std::cerr << "Realtime mode: " << (use_rti ? "ON" : "OFF") << std::endl;
   }
   return solver_status;
+}
+
+int AcadosSolver::solve_rti(RtiStage rti_phase)
+{
+  int rti_status = -1;
+
+  // RTI initialization stage (optional)
+  if (_rti_phase < 0) {
+    std::cout << "Attempting to initialize the solver with RTI!" << std::endl;
+    for (size_t attempt_nb = 0; attempt_nb < 10; attempt_nb++) {
+      rti_status = internal_solve();
+    }
+    if (rti_status != ACADOS_READY && rti_status != ACADOS_SUCCESS) {
+      std::cerr << "WARNING! AcadosSolver::solve() failed to initialize with status " <<
+        rti_status << '!' <<
+        std::endl;
+      return rti_status;
+    }
+  }
+
+  if (rti_phase != RtiStage::PREPARATION && rti_phase != RtiStage::FEEDBACK) {
+    std::cerr << "ERROR! AcadosSolver::solve_rti() called with an invalid RTI phase!" << std::endl;
+    return -1;  // Not standard Acados status code...
+  }
+
+  if (rti_phase == RtiStage::PREPARATION) {
+    _rti_phase = 1;
+    ocp_nlp_solver_opts_set(get_nlp_config(), get_nlp_opts(), "rti_phase", &_rti_phase);
+    rti_status = internal_solve();
+    if (rti_status != ACADOS_READY && rti_status != ACADOS_SUCCESS) {
+      std::cerr <<
+        "WARNING! AcadosSolver::solve() failed during RTI preparation stage with status " <<
+        rti_status << '!' <<
+        std::endl;
+      return rti_status;
+    }
+  } else {
+    // RTI feedback stage
+    _rti_phase = 2;
+    ocp_nlp_solver_opts_set(get_nlp_config(), get_nlp_opts(), "rti_phase", &_rti_phase);
+    rti_status = internal_solve();
+    if (rti_status != ACADOS_SUCCESS) {
+      std::cerr << "WARNING! AcadosSolver::solve() failed during RTI feedback stage with status " <<
+        rti_status << '!' <<
+        std::endl;
+      return rti_status;
+    }
+  }
+  return rti_status;
 }
 
 //####################################################
@@ -329,7 +394,7 @@ int AcadosSolver::initialize_control_values(unsigned int stage, ValueMap const &
   }
   std::vector<double> u_i;
   u_i.reserve(nu());
-  fill_vector_from_map(u_index_map(), u_i_map, nx(), u_i);
+  fill_vector_from_map(u_index_map(), u_i_map, nu(), u_i);
   return initialize_control_values(stage, u_i);
 }
 int AcadosSolver::initialize_control_values(ValueVector & u_i)
@@ -348,7 +413,7 @@ int AcadosSolver::initialize_control_values(ValueMap const & u_i_map)
   }
   std::vector<double> u_i;
   u_i.reserve(nu());
-  fill_vector_from_map(u_index_map(), u_i_map, nx(), u_i);
+  fill_vector_from_map(u_index_map(), u_i_map, nu(), u_i);
   return initialize_control_values(u_i);
 }
 
