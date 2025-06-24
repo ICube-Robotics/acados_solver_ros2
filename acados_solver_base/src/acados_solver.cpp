@@ -653,6 +653,15 @@ bool AcadosSolver::is_map_size_consistent(IndexMap const & map, unsigned int exp
   return total_values == expected_total_values;
 }
 
+bool AcadosSolver::is_map_size_consistent(ValueMap const & map, unsigned int expected_total_values)
+{
+  unsigned int total_values = 0;
+  for (const auto & [key, value] : map) {
+    total_values += value.size();
+  }
+  return total_values == expected_total_values;
+}
+
 bool AcadosSolver::is_values_map_complete(
   IndexMap const & index_map,
   ValueMap const & values_map)
