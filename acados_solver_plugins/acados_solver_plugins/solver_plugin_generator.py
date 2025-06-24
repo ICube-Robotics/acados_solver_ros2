@@ -185,9 +185,9 @@ class SolverPluginGenerator:
             cmake_builder=ocp_cmake_builder
         )
         integrator_cmake_builder = sim_get_default_cmake_builder()
-        acados_integrator = AcadosSimSolver( # noqa: F841
+        acados_integrator = AcadosSimSolver(  # noqa: F841
             acados_ocp,
-            json_file = acados_ocp_json_filename,
+            json_file=acados_ocp_json_filename,
             cmake_builder=integrator_cmake_builder
         )
 
