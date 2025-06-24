@@ -46,7 +46,7 @@ protected:
   virtual int internal_solve();
   virtual void internal_print_stats() const;
 
-  virtual int integrate(double * x0, double * u0, double * p, double * x_next, double * z_next);
+  virtual int internal_simulate(double * x0, double * u0, double * p, double * x_next, double * z_next);
 
   virtual ocp_nlp_in * get_nlp_in() const;
   virtual ocp_nlp_out * get_nlp_out() const;
