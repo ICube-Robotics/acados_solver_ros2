@@ -21,6 +21,7 @@
 
 // Include auto-generated Acados C-code
 #include "generated_c_code/acados_solver_{{solver_c_prefix}}.h"
+#include "generated_c_code/acados_sim_solver_{{solver_c_prefix}}.h"
 
 
 namespace {{library_name}}
@@ -106,13 +107,16 @@ int {{plugin_class_name}}::create_index_maps()
 int {{plugin_class_name}}::internal_create_capsule()
 {
   _capsule = {{solver_c_prefix|lower}}_acados_create_capsule();
+  _capsule_sim = {{solver_c_prefix|lower}}_acados_sim_solver_create_capsule();
   return (_capsule) ? 0 : -1;
 }
 int {{plugin_class_name}}::internal_create_with_discretization(
   int n_time_steps,
   double * new_time_steps)
 {
-  return {{solver_c_prefix|lower}}_acados_create_with_discretization(_capsule, n_time_steps, new_time_steps);
+  int ret = {{solver_c_prefix|lower}}_acados_create_with_discretization(_capsule, n_time_steps, new_time_steps);
+  ret += {{solver_c_prefix|lower}}_acados_sim_create(_capsule_sim);
+  return ret;
 }
 int {{plugin_class_name}}::internal_reset(int reset_qp_solver_mem)
 {
@@ -120,11 +124,15 @@ int {{plugin_class_name}}::internal_reset(int reset_qp_solver_mem)
 }
 int {{plugin_class_name}}::internal_free()
 {
-  return {{solver_c_prefix|lower}}_acados_free(_capsule);
+  int ret = {{solver_c_prefix|lower}}_acados_free(_capsule);
+  ret += {{solver_c_prefix|lower}}_acados_sim_free(_capsule_sim);
+  return ret;
 }
 int {{plugin_class_name}}::internal_free_capsule()
 {
-  return {{solver_c_prefix|lower}}_acados_free_capsule(_capsule);
+  int ret = {{solver_c_prefix|lower}}_acados_free_capsule(_capsule);
+  ret += {{solver_c_prefix|lower}}_acados_sim_solver_free_capsule(_capsule_sim);
+  return ret;
 }
 
 int {{plugin_class_name}}::internal_update_qp_solver_cond_N(int qp_solver_cond_N)
@@ -185,6 +193,17 @@ ocp_nlp_plan_t * {{plugin_class_name}}::get_nlp_plan() const
 unsigned int {{plugin_class_name}}::get_nlp_np() const
 {
   return _capsule->nlp_np;
+}
+
+int {{plugin_class_name}}::integrate(
+  double * x0 /* Differential state initial value */,
+  double * u0 /* Applied controls */,
+  double * p /* Runtime parameters */,
+  double * x_next /* Differential state next value */,
+  double * z_next /* Algebraic state next value */)
+{
+  // TODO
+  return 1;
 }
 
 }  // namespace {{library_name}}

@@ -19,6 +19,7 @@
 #include "acados_solver_base/acados_solver.hpp"
 
 struct {{solver_c_prefix|lower}}_solver_capsule;
+struct {{solver_c_prefix|lower}}_sim_solver_capsule;
 
 namespace {{library_name}}
 {
@@ -45,6 +46,8 @@ protected:
   virtual int internal_solve();
   virtual void internal_print_stats() const;
 
+  virtual int integrate(double * x0, double * u0, double * p, double * x_next, double * z_next);
+
   virtual ocp_nlp_in * get_nlp_in() const;
   virtual ocp_nlp_out * get_nlp_out() const;
   virtual ocp_nlp_out * get_sens_out() const;
@@ -57,6 +60,8 @@ protected:
 
 private:
   {{solver_c_prefix|lower}}_solver_capsule * _capsule = nullptr;
+
+  {{solver_c_prefix|lower}}_sim_solver_capsule * _capsule_sim = nullptr;
 };
 
 } // namespace {{library_name}}
