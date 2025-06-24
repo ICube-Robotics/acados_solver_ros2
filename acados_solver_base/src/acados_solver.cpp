@@ -184,11 +184,11 @@ int AcadosSolver::simulate(
   return internal_simulate(dt, x0.data(), u0.data(), p.data(), x_next.data(), z.data());
 }
 
-  /**
-   * @brief Simulate the next state given the current state, control inputs and runtime parameters.
-   *
-   * See the other `simulate()` method for details.
-   */
+/**
+  * @brief Simulate the next state given the current state, control inputs and runtime parameters.
+  *
+  * See the other `simulate()` method for details.
+  */
 int AcadosSolver::simulate(
   double dt,
   ValueMap const & x0_map,
