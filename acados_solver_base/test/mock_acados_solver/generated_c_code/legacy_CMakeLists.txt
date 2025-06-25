@@ -55,9 +55,9 @@ endif()
 
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/external/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/external/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE /home/tpoignonec/dev/ros2-jazzy/devs_acados_vendor/src/external/acados_solver_ros2/acados_solver_plugins_example/src/plugins/mock_acados_solver/generated_c_code)
 endif()
 
 

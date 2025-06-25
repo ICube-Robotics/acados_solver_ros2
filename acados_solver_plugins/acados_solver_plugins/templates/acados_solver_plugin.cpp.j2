@@ -14,6 +14,7 @@
 //
 // Author: Thibault Poignonec (tpoignonec@unistra.fr)
 
+#include <iostream>
 #include <string>
 
 #include "acados_solver_base/acados_solver.hpp"
@@ -21,6 +22,7 @@
 
 // Include auto-generated Acados C-code
 #include "generated_c_code/acados_solver_{{solver_c_prefix}}.h"
+#include "generated_c_code/acados_sim_solver_{{solver_c_prefix}}.h"
 
 
 namespace {{library_name}}
@@ -106,13 +108,16 @@ int {{plugin_class_name}}::create_index_maps()
 int {{plugin_class_name}}::internal_create_capsule()
 {
   _capsule = {{solver_c_prefix|lower}}_acados_create_capsule();
+  _capsule_sim = {{solver_c_prefix|lower}}_acados_sim_solver_create_capsule();
   return (_capsule) ? 0 : -1;
 }
 int {{plugin_class_name}}::internal_create_with_discretization(
   int n_time_steps,
   double * new_time_steps)
 {
-  return {{solver_c_prefix|lower}}_acados_create_with_discretization(_capsule, n_time_steps, new_time_steps);
+  int ret = {{solver_c_prefix|lower}}_acados_create_with_discretization(_capsule, n_time_steps, new_time_steps);
+  ret += {{solver_c_prefix|lower}}_acados_sim_create(_capsule_sim);
+  return ret;
 }
 int {{plugin_class_name}}::internal_reset(int reset_qp_solver_mem)
 {
@@ -120,11 +125,15 @@ int {{plugin_class_name}}::internal_reset(int reset_qp_solver_mem)
 }
 int {{plugin_class_name}}::internal_free()
 {
-  return {{solver_c_prefix|lower}}_acados_free(_capsule);
+  int ret = {{solver_c_prefix|lower}}_acados_free(_capsule);
+  ret += {{solver_c_prefix|lower}}_acados_sim_free(_capsule_sim);
+  return ret;
 }
 int {{plugin_class_name}}::internal_free_capsule()
 {
-  return {{solver_c_prefix|lower}}_acados_free_capsule(_capsule);
+  int ret = {{solver_c_prefix|lower}}_acados_free_capsule(_capsule);
+  ret += {{solver_c_prefix|lower}}_acados_sim_solver_free_capsule(_capsule_sim);
+  return ret;
 }
 
 int {{plugin_class_name}}::internal_update_qp_solver_cond_N(int qp_solver_cond_N)
@@ -185,6 +194,73 @@ ocp_nlp_plan_t * {{plugin_class_name}}::get_nlp_plan() const
 unsigned int {{plugin_class_name}}::get_nlp_np() const
 {
   return _capsule->nlp_np;
+}
+
+int {{plugin_class_name}}::internal_simulate(
+  double dt /* Time step */,
+  double * x0 /* Differential state initial value */,
+  double * u0 /* Applied controls */,
+  double * p /* Runtime parameters */,
+  double * x_next /* Differential state next value */,
+  double * z_next /* Algebraic state next value */)
+{
+  if (dt <= 0.0) {
+    std::cerr
+      << "Error in {{plugin_class_name}}::simulate: Invalid time step, got "
+      << dt << std::endl;
+    return 10; // Error: Invalid time step
+  }
+  if (x0 == nullptr || u0 == nullptr || p == nullptr || x_next == nullptr || z_next == nullptr) {
+    return 11; // Error: Null pointer passed to simulate function
+  }
+  if (_capsule_sim == nullptr) {
+    return 12; // Error: Simulation capsule not created
+  }
+
+  // Allocate return flag
+  int ret = 0;
+
+  // Set state and control initial values
+  sim_in_set(
+    {{solver_c_prefix|lower}}_acados_get_sim_config(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_dims(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_in(_capsule_sim),
+    "x", x0
+  );
+  sim_in_set(
+    {{solver_c_prefix|lower}}_acados_get_sim_config(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_dims(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_in(_capsule_sim),
+    "u", u0
+  );
+
+  // Set parameters
+  ret = {{solver_c_prefix|lower}}_acados_sim_update_params(_capsule_sim, p, _dims.np);
+  if (ret != 0) {
+    std::cerr << "Error in {{plugin_class_name}}::simulate: Failed to update parameters." << std::endl;
+    return ret;
+  }
+
+  // Simulate
+  ret = {{solver_c_prefix|lower}}_acados_sim_solve(_capsule_sim);
+  if (ret != 0) {
+    std::cerr << "Error in {{plugin_class_name}}::simulate: Simulation solve failed." << std::endl;
+  }
+
+  // Get next state and algebraic state
+  sim_out_get(
+    {{solver_c_prefix|lower}}_acados_get_sim_config(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_dims(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_out(_capsule_sim),
+    "x", x_next
+  );
+  sim_out_get(
+    {{solver_c_prefix|lower}}_acados_get_sim_config(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_dims(_capsule_sim),
+    {{solver_c_prefix|lower}}_acados_get_sim_out(_capsule_sim),
+    "z", z_next
+  );
+  return ret;
 }
 
 }  // namespace {{library_name}}

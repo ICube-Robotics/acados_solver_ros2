@@ -5,8 +5,15 @@
 from copy import deepcopy
 import os
 
-from acados_template import AcadosOcp, AcadosOcpSolver
-from acados_template import ocp_get_default_cmake_builder
+from acados_template import (
+    AcadosOcp,
+    AcadosOcpSolver,
+    AcadosSimSolver
+)
+from acados_template import (
+    ocp_get_default_cmake_builder,
+    sim_get_default_cmake_builder
+)
 # import casadi as ca
 from jinja2 import Environment, PackageLoader  # noqa: I100
 
@@ -177,9 +184,17 @@ class SolverPluginGenerator:
             json_file=acados_ocp_json_filename,
             cmake_builder=ocp_cmake_builder
         )
+        integrator_cmake_builder = sim_get_default_cmake_builder()
+        acados_integrator = AcadosSimSolver(  # noqa: F841
+            acados_ocp,
+            json_file=acados_ocp_json_filename,
+            cmake_builder=integrator_cmake_builder
+        )
+
         # Generate render args
         if solver_description is None:
             solver_description = self.__default_plugin_description
+
         template_render_args = {
             'solver_c_prefix': uppercase_to_underscore(plugin_class_name),
             'plugin_class_name': plugin_class_name,

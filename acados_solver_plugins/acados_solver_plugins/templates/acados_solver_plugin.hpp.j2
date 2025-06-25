@@ -19,6 +19,7 @@
 #include "acados_solver_base/acados_solver.hpp"
 
 struct {{solver_c_prefix|lower}}_solver_capsule;
+struct {{solver_c_prefix|lower}}_sim_solver_capsule;
 
 namespace {{library_name}}
 {
@@ -30,33 +31,37 @@ public:
   ~{{plugin_class_name}}();
 
 protected:
-  virtual int create_index_maps();
-  virtual int internal_create_capsule();
-  virtual int internal_create_with_discretization(
+  int create_index_maps() override;
+  int internal_create_capsule() override;
+  int internal_create_with_discretization(
     int n_time_steps,
-    double * new_time_steps);
-  virtual int internal_reset(int reset_qp_solver_mem);
-  virtual int internal_free();
-  virtual int internal_free_capsule();
+    double * new_time_steps) override;
+  int internal_reset(int reset_qp_solver_mem) override;
+  int internal_free() override;
+  int internal_free_capsule() override;
 
-  virtual int internal_update_qp_solver_cond_N(int qp_solver_cond_N);
-  virtual int internal_update_params(unsigned int stage, double * value, int np);
-  virtual int internal_update_params_sparse(unsigned int stage, int * idx, double * p, int n_update);
-  virtual int internal_solve();
-  virtual void internal_print_stats() const;
+  int internal_update_qp_solver_cond_N(int qp_solver_cond_N) override;
+  int internal_update_params(unsigned int stage, double * value, int np) override;
+  int internal_update_params_sparse(unsigned int stage, int * idx, double * p, int n_update) override;
+  int internal_solve() override;
+  void internal_print_stats() const override;
 
-  virtual ocp_nlp_in * get_nlp_in() const;
-  virtual ocp_nlp_out * get_nlp_out() const;
-  virtual ocp_nlp_out * get_sens_out() const;
-  virtual ocp_nlp_solver * get_nlp_solver() const;
-  virtual ocp_nlp_config * get_nlp_config() const;
-  virtual void * get_nlp_opts() const;
-  virtual ocp_nlp_dims * get_nlp_dims() const;
-  virtual ocp_nlp_plan_t * get_nlp_plan() const;
-  virtual unsigned int get_nlp_np() const;
+  int internal_simulate(double dt, double * x0, double * u0, double * p, double * x_next, double * z_next) override;
+
+  ocp_nlp_in * get_nlp_in() const override;
+  ocp_nlp_out * get_nlp_out() const override;
+  ocp_nlp_out * get_sens_out() const override;
+  ocp_nlp_solver * get_nlp_solver() const override;
+  ocp_nlp_config * get_nlp_config() const override;
+  void * get_nlp_opts() const override;
+  ocp_nlp_dims * get_nlp_dims() const override;
+  ocp_nlp_plan_t * get_nlp_plan() const override;
+  unsigned int get_nlp_np() const override;
 
 private:
   {{solver_c_prefix|lower}}_solver_capsule * _capsule = nullptr;
+
+  {{solver_c_prefix|lower}}_sim_solver_capsule * _capsule_sim = nullptr;
 };
 
 } // namespace {{library_name}}

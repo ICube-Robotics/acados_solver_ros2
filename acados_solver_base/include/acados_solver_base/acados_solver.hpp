@@ -209,7 +209,6 @@ public:
    */
   int solve();
 
-
   /**
    * @brief Solve the non-linear (RTI) optimization problem given the provided initial state, constraints, etc.
    *
@@ -226,6 +225,52 @@ public:
    * @return other : Not OK.
    */
   int solve_rti(RtiStage rti_phase);
+
+// Simulation
+
+  /**
+   * @brief Simulate the next state given the current state, control inputs and runtime parameters.
+   *
+   * The method returns the internal Acados status.
+   *
+   * @return 0 : All OK.
+   * @return other : Not OK. See Acados documentation for details.
+   */
+  int simulate(
+    double dt,
+    ValueVector & x0,
+    ValueVector & u0,
+    ValueVector & p,
+    ValueVector & x_next,
+    ValueVector & z
+  );
+
+  /**
+   * @brief Simulate the next state given the current state, control inputs and runtime parameters.
+   *
+   * See the other `simulate()` method for details.
+   */
+  int simulate(
+    double dt,
+    ValueMap const & x0_map,
+    ValueMap const & u0_map,
+    ValueMap const & p_map,
+    ValueMap & x_next_map,
+    ValueMap & z_map
+  );
+
+  /**
+   * @brief Simulate the next state given the current state, control inputs and runtime parameters.
+   *
+   * See the other `simulate()` method for details.
+   */
+  int simulate(
+    ValueMap const & x0_map,
+    ValueMap const & u0_map,
+    ValueMap const & p_map,
+    ValueMap & x_next_map,
+    ValueMap & z_map
+  );
 
 // Setters
 
@@ -476,6 +521,22 @@ public:
    */
   ValueMap get_control_values_as_map(unsigned int stage);
 
+  /**
+   * @brief Retrieve the parameters at a given stage.
+   *
+   * @param stage Stage in [0;N].
+   * @return ValueMap Key/ValueVector map containing the parameters values.
+   */
+  ValueVector get_parameter_values(unsigned int stage);
+
+  /**
+   * @brief Retrieve the parameters at a given stage and package them as a ValueMap.
+   *
+   * @param stage Stage in [0;N].
+   * @return ValueMap Key/ValueVector map containing the parameters values.
+   */
+  ValueMap get_parameter_values_as_map(unsigned int stage);
+
 // Getters variable mappings
 
   /**
@@ -554,10 +615,10 @@ public:
    * @todo Overloaded function without the `vector_size` argument.
      The `vector_size` argument could (should?) be optional since it can be retrieved from the number of indexes contained in `index_map`.
    *
-   * @param index_map Mapping between keys and indexes.
-   * @param values_map Mapping between keys and values to write in the value vector.
-   * @param vector_size The expected size of the resulting value vector.
-   * @param values The output container where the values will be written.
+   * @param[in] index_map Mapping between keys and indexes.
+   * @param[in] values_map Mapping between keys and values to write in the value vector.
+   * @param[in] vector_size The expected size of the resulting value vector.
+   * @param[out] values The output container where the values will be written.
    */
   static void fill_vector_from_map(
     IndexMap const & index_map,
@@ -568,9 +629,9 @@ public:
   /**
    * @brief Returns a vector containing the values provided through the value map.
    *
-   * @param index_map Mapping between keys and indexes.
-   * @param values_map Mapping between keys and values to write in the value vector.
-   * @param vector_size The expected size of the resulting value vector.
+   * @param[in] index_map Mapping between keys and indexes.
+   * @param[in] values_map Mapping between keys and values to write in the value vector.
+   * @param[out] vector_size The expected size of the resulting value vector.
    * @return ValueVector The resulting value vector.
    */
   static ValueVector value_vector_from_map(
@@ -583,12 +644,25 @@ public:
     *
     * @warning The `values` must have been encoded as described by the `index_map` argument.
     *
-    * @param index_map Mapping between keys and indexes.
-    * @param values Vector of (ordered) values.
+    * @param[in] index_map Mapping between keys and indexes.
+    * @param[in] values Vector of (ordered) values.
     */
   static ValueMap create_map_from_values(
     IndexMap const & index_map,
     ValueVector const & values);
+
+  /**
+   * @brief Fill a ValueMap object with the values of the value vector.
+   *
+   * @warning You have to ensure that the `index_map` and `values` are consistent, i.e., that the number of indexes in `index_map` is equal to the size of `values`.
+   * @param[in] index_map Mapping between keys and indexes.
+   * @param[in] values Vector of (ordered) values.
+   * @param[out] value_map The ValueMap object to be filled with the values.
+   */
+  static void fill_map_from_values(
+    IndexMap const & index_map,
+    ValueVector const & values,
+    ValueMap & value_map);
 
 // Problem dimensions and convenience getters for commonly used attributes
 
@@ -792,6 +866,22 @@ protected:
   * @return int (zero if all OK). See Acados documentation for a list of return flags.
   */
   virtual int internal_solve() = 0;
+
+  /**
+   * @brief Simulate the next state given the current state, control inputs and runtime parameters.
+   *
+   * This is a wrapper of the `<acados_model_name>_acados_solve(...)` C function.
+   * The method returns the internal Acados status.
+   *
+   * @return int (zero if all OK). See Acados documentation for a list of return flags.
+   */
+  virtual int internal_simulate(
+    double dt /* Time step */,
+    double * x0 /* Differential state initial value */,
+    double * u0 /* Applied controls */,
+    double * p /* Runtime parameters */,
+    double * x_next /* Differential state next value */,
+    double * z_next /* Algebraic state next value */) = 0;
 
   /**
   * @brief Print the solver stats (e.g., number of SQP iters, number of QP iters, etc.) to the console.

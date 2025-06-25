@@ -77,6 +77,7 @@ if(BUILD_TESTING)
   target_link_libraries(test_acados_solver_base
     ${PROJECT_NAME}
     ${MOCK_SOLVER_DIR}/generated_c_code/libacados_ocp_solver_mock_acados_solver.so
+    ${MOCK_SOLVER_DIR}/generated_c_code/libacados_sim_solver_mock_acados_solver.so
   )
 endif()
 
