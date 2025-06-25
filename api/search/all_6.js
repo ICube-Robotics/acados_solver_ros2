@@ -13,10 +13,12 @@ var searchData=
   ['get_5fnlp_5fout_10',['get_nlp_out',['../classacados_1_1AcadosSolver.html#a8b85b654cf086f35d4e196ec24c7ed41',1,'acados::AcadosSolver']]],
   ['get_5fnlp_5fplan_11',['get_nlp_plan',['../classacados_1_1AcadosSolver.html#a228d30f2f2a3090fa7805a29e6462144',1,'acados::AcadosSolver']]],
   ['get_5fnlp_5fsolver_12',['get_nlp_solver',['../classacados_1_1AcadosSolver.html#a44f25baf4d7ab81c384be96fec1ef5ac',1,'acados::AcadosSolver']]],
-  ['get_5fsens_5fout_13',['get_sens_out',['../classacados_1_1AcadosSolver.html#a8431a6b63bf03d0633df685024f401d1',1,'acados::AcadosSolver']]],
-  ['get_5fstate_5fvalues_14',['get_state_values',['../classacados_1_1AcadosSolver.html#ad4742b1ea3857463a3987161d208e9f8',1,'acados::AcadosSolver']]],
-  ['get_5fstate_5fvalues_5fas_5fmap_15',['get_state_values_as_map',['../classacados_1_1AcadosSolver.html#ad86c6c0ef89f84088299c2ecb39854bf',1,'acados::AcadosSolver']]],
-  ['get_5fstats_5fcost_5fvalue_16',['get_stats_cost_value',['../namespaceacados_1_1utils.html#a064c9543b379abc3ec1b1195722c27c4',1,'acados::utils']]],
-  ['get_5fstats_5fcpu_5ftime_17',['get_stats_cpu_time',['../namespaceacados_1_1utils.html#aee666c935c24b454a0b323000561a4fa',1,'acados::utils']]],
-  ['get_5fstats_5fsqp_5fiter_18',['get_stats_sqp_iter',['../namespaceacados_1_1utils.html#a647425758ca0af8e9e91e56564963c03',1,'acados::utils']]]
+  ['get_5fparameter_5fvalues_13',['get_parameter_values',['../classacados_1_1AcadosSolver.html#aa9c79fbdccdc18da57c8c52bc56636fb',1,'acados::AcadosSolver']]],
+  ['get_5fparameter_5fvalues_5fas_5fmap_14',['get_parameter_values_as_map',['../classacados_1_1AcadosSolver.html#ac8a751962d4cd1bbeb7c451f6cb2996d',1,'acados::AcadosSolver']]],
+  ['get_5fsens_5fout_15',['get_sens_out',['../classacados_1_1AcadosSolver.html#a8431a6b63bf03d0633df685024f401d1',1,'acados::AcadosSolver']]],
+  ['get_5fstate_5fvalues_16',['get_state_values',['../classacados_1_1AcadosSolver.html#ad4742b1ea3857463a3987161d208e9f8',1,'acados::AcadosSolver']]],
+  ['get_5fstate_5fvalues_5fas_5fmap_17',['get_state_values_as_map',['../classacados_1_1AcadosSolver.html#ad86c6c0ef89f84088299c2ecb39854bf',1,'acados::AcadosSolver']]],
+  ['get_5fstats_5fcost_5fvalue_18',['get_stats_cost_value',['../namespaceacados_1_1utils.html#a064c9543b379abc3ec1b1195722c27c4',1,'acados::utils']]],
+  ['get_5fstats_5fcpu_5ftime_19',['get_stats_cpu_time',['../namespaceacados_1_1utils.html#aee666c935c24b454a0b323000561a4fa',1,'acados::utils']]],
+  ['get_5fstats_5fsqp_5fiter_20',['get_stats_sqp_iter',['../namespaceacados_1_1utils.html#a647425758ca0af8e9e91e56564963c03',1,'acados::utils']]]
 ];

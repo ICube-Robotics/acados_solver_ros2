@@ -97,8 +97,15 @@
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
-<span class="kn">from</span> <span class="nn">acados_template</span> <span class="kn">import</span> <span class="n">AcadosOcp</span><span class="p">,</span> <span class="n">AcadosOcpSolver</span>
-<span class="kn">from</span> <span class="nn">acados_template</span> <span class="kn">import</span> <span class="n">ocp_get_default_cmake_builder</span>
+<span class="kn">from</span> <span class="nn">acados_template</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AcadosOcp</span><span class="p">,</span>
+    <span class="n">AcadosOcpSolver</span><span class="p">,</span>
+    <span class="n">AcadosSimSolver</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">acados_template</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ocp_get_default_cmake_builder</span><span class="p">,</span>
+    <span class="n">sim_get_default_cmake_builder</span>
+<span class="p">)</span>
 <span class="c1"># import casadi as ca</span>
 <span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">PackageLoader</span>  <span class="c1"># noqa: I100</span>
 
@@ -276,9 +283,17 @@
             <span class="n">json_file</span><span class="o">=</span><span class="n">acados_ocp_json_filename</span><span class="p">,</span>
             <span class="n">cmake_builder</span><span class="o">=</span><span class="n">ocp_cmake_builder</span>
         <span class="p">)</span>
+        <span class="n">integrator_cmake_builder</span> <span class="o">=</span> <span class="n">sim_get_default_cmake_builder</span><span class="p">()</span>
+        <span class="n">acados_integrator</span> <span class="o">=</span> <span class="n">AcadosSimSolver</span><span class="p">(</span>  <span class="c1"># noqa: F841</span>
+            <span class="n">acados_ocp</span><span class="p">,</span>
+            <span class="n">json_file</span><span class="o">=</span><span class="n">acados_ocp_json_filename</span><span class="p">,</span>
+            <span class="n">cmake_builder</span><span class="o">=</span><span class="n">integrator_cmake_builder</span>
+        <span class="p">)</span>
+
         <span class="c1"># Generate render args</span>
         <span class="k">if</span> <span class="n">solver_description</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">solver_description</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__default_plugin_description</span>
+
         <span class="n">template_render_args</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;solver_c_prefix&#39;</span><span class="p">:</span> <span class="n">uppercase_to_underscore</span><span class="p">(</span><span class="n">plugin_class_name</span><span class="p">),</span>
             <span class="s1">&#39;plugin_class_name&#39;</span><span class="p">:</span> <span class="n">plugin_class_name</span><span class="p">,</span>

@@ -15,6 +15,9 @@
     <member refid="classacados_1_1AcadosSolver_1a4c18d1f743bf03e249a1ee2b6f13406f" kind="function"><name>reset</name></member>
     <member refid="classacados_1_1AcadosSolver_1a15d6ca39d87ce1440e0b926a1f224d0d" kind="function"><name>solve</name></member>
     <member refid="classacados_1_1AcadosSolver_1a09f42003078800ca8f8ec53d4a782558" kind="function"><name>solve_rti</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a52579191047594ee6db0abe98f0ba652" kind="function"><name>simulate</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a6fefdc3bc9bf3831716e8928a3616ddb" kind="function"><name>simulate</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a0ea423180b8adaceda6df1904aa3c311" kind="function"><name>simulate</name></member>
     <member refid="classacados_1_1AcadosSolver_1aaca413f68e006eba5ca75ff02b7831d6" kind="function"><name>set_initial_state_values</name></member>
     <member refid="classacados_1_1AcadosSolver_1a0aea73d23b755434f01d6a3485d51260" kind="function"><name>set_initial_state_values</name></member>
     <member refid="classacados_1_1AcadosSolver_1a37944dc0500d89cc53b60aa3a9c59de2" kind="function"><name>set_state_bounds</name></member>
@@ -39,6 +42,8 @@
     <member refid="classacados_1_1AcadosSolver_1a0f8acec62481850619eb15415fc69cc1" kind="function"><name>get_algebraic_state_values_as_map</name></member>
     <member refid="classacados_1_1AcadosSolver_1a15ba80234cc00619642c996ab2876c5c" kind="function"><name>get_control_values</name></member>
     <member refid="classacados_1_1AcadosSolver_1a659154c1023a0ff0c1cb76914d58d1cb" kind="function"><name>get_control_values_as_map</name></member>
+    <member refid="classacados_1_1AcadosSolver_1aa9c79fbdccdc18da57c8c52bc56636fb" kind="function"><name>get_parameter_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1ac8a751962d4cd1bbeb7c451f6cb2996d" kind="function"><name>get_parameter_values_as_map</name></member>
     <member refid="classacados_1_1AcadosSolver_1a1d3dedcc41dd17a705cd3f2760678266" kind="function"><name>x_index_map</name></member>
     <member refid="classacados_1_1AcadosSolver_1a202952013d14e49742f6b4c463c3478d" kind="function"><name>z_index_map</name></member>
     <member refid="classacados_1_1AcadosSolver_1a3a63706d181d8df692f1e7c0a72cc522" kind="function"><name>p_index_map</name></member>
@@ -66,6 +71,7 @@
     <member refid="classacados_1_1AcadosSolver_1a7c5af1bdb69808cc5b34383afcc27672" kind="function"><name>fill_vector_from_map</name></member>
     <member refid="classacados_1_1AcadosSolver_1a3c93bc306d103cf2a32117ab0f59f4a8" kind="function"><name>value_vector_from_map</name></member>
     <member refid="classacados_1_1AcadosSolver_1a9af7492cce80e96ab83bb817ea89aeaa" kind="function"><name>create_map_from_values</name></member>
+    <member refid="classacados_1_1AcadosSolver_1aa50ca35738584cf9cb3965f4b1fa2d03" kind="function"><name>fill_map_from_values</name></member>
     <member refid="classacados_1_1AcadosSolver_1aa02e7d99110b12a4f54e9b063c2c61d3" kind="function"><name>create_index_maps</name></member>
     <member refid="classacados_1_1AcadosSolver_1a42b02f546b0a15d3795b87d84e45fbca" kind="function"><name>free_memory</name></member>
     <member refid="classacados_1_1AcadosSolver_1adda893dbba22cf03cfc00ba31630faad" kind="function"><name>internal_create_capsule</name></member>
@@ -77,6 +83,7 @@
     <member refid="classacados_1_1AcadosSolver_1a655cafa35ab723df7f70535e5ad56c59" kind="function"><name>internal_update_params</name></member>
     <member refid="classacados_1_1AcadosSolver_1a21fb49c8fe0965f37121d3e6347496c0" kind="function"><name>internal_update_params_sparse</name></member>
     <member refid="classacados_1_1AcadosSolver_1abf00fdef6fae25c65436c3ebd6611fda" kind="function"><name>internal_solve</name></member>
+    <member refid="classacados_1_1AcadosSolver_1a77a7c928fddca9f167c4ef4bee166a4f" kind="function"><name>internal_simulate</name></member>
     <member refid="classacados_1_1AcadosSolver_1a2128bf11592a4f1b22605cf09b5f343b" kind="function"><name>internal_print_stats</name></member>
   </compound>
   <compound refid="classacados_1_1AcadosSolver_1_1Dimensions" kind="class"><name>acados::AcadosSolver::Dimensions</name>

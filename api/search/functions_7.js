@@ -9,10 +9,11 @@ var searchData=
   ['internal_5ffree_5fcapsule_6',['internal_free_capsule',['../classacados_1_1AcadosSolver.html#a6f9d7c7b3d0b50164f1a127d8e0b0fba',1,'acados::AcadosSolver']]],
   ['internal_5fprint_5fstats_7',['internal_print_stats',['../classacados_1_1AcadosSolver.html#a2128bf11592a4f1b22605cf09b5f343b',1,'acados::AcadosSolver']]],
   ['internal_5freset_8',['internal_reset',['../classacados_1_1AcadosSolver.html#a843ed6fb31d2d252861cbe69fd3114d4',1,'acados::AcadosSolver']]],
-  ['internal_5fsolve_9',['internal_solve',['../classacados_1_1AcadosSolver.html#abf00fdef6fae25c65436c3ebd6611fda',1,'acados::AcadosSolver']]],
-  ['internal_5fupdate_5fparams_10',['internal_update_params',['../classacados_1_1AcadosSolver.html#a655cafa35ab723df7f70535e5ad56c59',1,'acados::AcadosSolver']]],
-  ['internal_5fupdate_5fparams_5fsparse_11',['internal_update_params_sparse',['../classacados_1_1AcadosSolver.html#a21fb49c8fe0965f37121d3e6347496c0',1,'acados::AcadosSolver']]],
-  ['internal_5fupdate_5fqp_5fsolver_5fcond_5fn_12',['internal_update_qp_solver_cond_N',['../classacados_1_1AcadosSolver.html#a8faa696a9baf2a6b338545bb429f4f96',1,'acados::AcadosSolver']]],
-  ['is_5fmap_5fsize_5fconsistent_13',['is_map_size_consistent',['../classacados_1_1AcadosSolver.html#a70815bbfd88d129e24a99ad1b8d53906',1,'acados::AcadosSolver::is_map_size_consistent(IndexMap const &amp;index_map, unsigned int expected_total_indexes)'],['../classacados_1_1AcadosSolver.html#ae1a41122ae313470b779c6886bda9b17',1,'acados::AcadosSolver::is_map_size_consistent(ValueMap const &amp;values_map, unsigned int expected_total_indexes)']]],
-  ['is_5fvalues_5fmap_5fcomplete_14',['is_values_map_complete',['../classacados_1_1AcadosSolver.html#a297efbc7d31d5b8a7fbbb4f9585a292c',1,'acados::AcadosSolver']]]
+  ['internal_5fsimulate_9',['internal_simulate',['../classacados_1_1AcadosSolver.html#a77a7c928fddca9f167c4ef4bee166a4f',1,'acados::AcadosSolver']]],
+  ['internal_5fsolve_10',['internal_solve',['../classacados_1_1AcadosSolver.html#abf00fdef6fae25c65436c3ebd6611fda',1,'acados::AcadosSolver']]],
+  ['internal_5fupdate_5fparams_11',['internal_update_params',['../classacados_1_1AcadosSolver.html#a655cafa35ab723df7f70535e5ad56c59',1,'acados::AcadosSolver']]],
+  ['internal_5fupdate_5fparams_5fsparse_12',['internal_update_params_sparse',['../classacados_1_1AcadosSolver.html#a21fb49c8fe0965f37121d3e6347496c0',1,'acados::AcadosSolver']]],
+  ['internal_5fupdate_5fqp_5fsolver_5fcond_5fn_13',['internal_update_qp_solver_cond_N',['../classacados_1_1AcadosSolver.html#a8faa696a9baf2a6b338545bb429f4f96',1,'acados::AcadosSolver']]],
+  ['is_5fmap_5fsize_5fconsistent_14',['is_map_size_consistent',['../classacados_1_1AcadosSolver.html#a70815bbfd88d129e24a99ad1b8d53906',1,'acados::AcadosSolver::is_map_size_consistent(IndexMap const &amp;index_map, unsigned int expected_total_indexes)'],['../classacados_1_1AcadosSolver.html#ae1a41122ae313470b779c6886bda9b17',1,'acados::AcadosSolver::is_map_size_consistent(ValueMap const &amp;values_map, unsigned int expected_total_indexes)']]],
+  ['is_5fvalues_5fmap_5fcomplete_15',['is_values_map_complete',['../classacados_1_1AcadosSolver.html#a297efbc7d31d5b8a7fbbb4f9585a292c',1,'acados::AcadosSolver']]]
 ];
