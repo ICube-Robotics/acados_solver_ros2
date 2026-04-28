@@ -13,7 +13,7 @@ jobs:
     container:
       image: rostooling/setup-ros-docker:ubuntu-noble-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Allow pip to install packages
         run: printf "[install]\nbreak-system-packages = true\n" | sudo tee -a /etc/pip.conf
       - uses: ros-tooling/action-ros-ci@0.4.5

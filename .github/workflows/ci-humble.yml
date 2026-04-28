@@ -13,7 +13,7 @@ jobs:
     container:
       image: rostooling/setup-ros-docker:ubuntu-jammy-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ros-tooling/action-ros-ci@0.4.5
         with:
           target-ros2-distro: humble
